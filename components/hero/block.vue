@@ -26,7 +26,7 @@
 .heroBlock {
   position: relative;
   width: 100%;
-  height: calc(95vh - 83px);
+  height: calc(85vh - 83px);
   width: calc(100% - 32px);
   overflow: hidden;
   border-radius: 20px;
