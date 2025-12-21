@@ -1,0 +1,18 @@
+:root {
+  --white-primary: #ffffff;
+
+  --black-primary: #000000;
+
+  --border-radius-full: 50%;
+  --border-radius-s: 8px;
+  --border-radius-m: 10px;
+  --border-radius-l: 14px;
+  --border-radius-xl: 16px;
+
+  --screen-xxl: 1920px;
+  --screen-xl: 1399px;
+  --screen-l: 1279px;
+  --screen-m: 1023px;
+  --screen-s: 767px;
+  --screen-xs: 474px;
+}
