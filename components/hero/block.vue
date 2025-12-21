@@ -2,7 +2,7 @@
   <div class="heroBlock">
     <div class="heroBlock__overlay" />
     <img
-      src="/public/images/almond-prune-cake-1-2800-1866-2.webp"
+      src="/images/hero/almond-prune-cake.webp"
       alt="Заставка Пралине"
       class="heroBlock__image"
     />

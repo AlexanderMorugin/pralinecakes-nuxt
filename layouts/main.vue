@@ -2,12 +2,9 @@
   <div class="mainLayout">
     <Header />
 
+    <img src="/bg/ellipse-top-left-1.png" class="mainLayout__ellipseTopLeft" />
     <img
-      src="/public/bg/ellipse-top-left-1.png"
-      class="mainLayout__ellipseTopLeft"
-    />
-    <img
-      src="/public/bg/ellipse-middle-right-1.png"
+      src="/bg/ellipse-middle-right-1.png"
       class="mainLayout__ellipseMiddleRight"
     />
 
