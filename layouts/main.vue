@@ -3,12 +3,10 @@
     <Header />
 
     <img
-      loading="lazy"
       src="/public/bg/ellipse-top-left-1.png"
       class="mainLayout__ellipseTopLeft"
     />
     <img
-      loading="lazy"
       src="/public/bg/ellipse-middle-right-1.png"
       class="mainLayout__ellipseMiddleRight"
     />
@@ -38,7 +36,6 @@
   position: fixed;
   top: 0;
   bottom: 0;
-  /* right: -230px; */
   width: 100%;
   height: 100%;
 }

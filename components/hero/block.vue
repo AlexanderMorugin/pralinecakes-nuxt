@@ -31,7 +31,7 @@
   background: transparent;
   overflow: hidden;
   border-radius: 20px;
-  margin: 20px auto 0 auto;
+  margin: 10px auto 0 auto;
 }
 .heroBlock__overlay {
   position: absolute;

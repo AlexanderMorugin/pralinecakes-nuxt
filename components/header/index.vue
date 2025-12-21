@@ -7,7 +7,7 @@
   /* position: sticky;
   top: 0; */
   width: 100%;
-  height: 50px;
+  height: 66px;
   /* background: var(); */
   z-index: 1;
   border: 1px solid red;
