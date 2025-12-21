@@ -7,8 +7,8 @@
   /* position: sticky;
   top: 0; */
   width: 100%;
-  height: 100px;
-  background: var();
+  height: 50px;
+  /* background: var(); */
   z-index: 1;
   border: 1px solid red;
 }

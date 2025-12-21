@@ -28,6 +28,7 @@
   width: 100%;
   height: calc(85vh - 83px);
   width: calc(100% - 32px);
+  background: transparent;
   overflow: hidden;
   border-radius: 20px;
   margin: 20px auto 0 auto;
@@ -38,7 +39,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  animation: overlay 2s ease;
+  animation: overlay 3s ease;
   background: var(--mask-primary);
   z-index: 1;
 }
@@ -46,7 +47,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: scale 4s ease;
+  animation: scale 3s ease;
 }
 .heroBlock__subtitleBox {
   position: absolute;

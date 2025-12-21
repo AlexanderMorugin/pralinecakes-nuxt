@@ -3,11 +3,13 @@
     <Header />
 
     <img
-      src="/public/bg/ellipse-top-left.png"
+      loading="lazy"
+      src="/public/bg/ellipse-top-left-1.png"
       class="mainLayout__ellipseTopLeft"
     />
     <img
-      src="/public/bg/ellipse-middle-right.png"
+      loading="lazy"
+      src="/public/bg/ellipse-middle-right-1.png"
       class="mainLayout__ellipseMiddleRight"
     />
 
@@ -22,7 +24,7 @@
 <style scoped>
 .mainLayout {
   width: 100%;
-  min-height: 85vh;
+  min-height: 100vh;
   display: grid;
   grid-template-rows: auto 1fr;
 }
@@ -36,6 +38,7 @@
   position: fixed;
   top: 0;
   bottom: 0;
+  /* right: -230px; */
   width: 100%;
   height: 100%;
 }

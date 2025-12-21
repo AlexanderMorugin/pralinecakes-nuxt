@@ -7,7 +7,7 @@
 <style scoped>
 .footer {
   /* background: #222224; */
-  background: #000000;
+  background: var(--black-secondary);
   /* backdrop-filter: blur(40px); */
 
   /* border-top: 1px solid; */
