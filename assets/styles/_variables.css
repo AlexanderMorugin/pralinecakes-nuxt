@@ -3,6 +3,10 @@
 
   --black-primary: #000000;
 
+  --orange-primary: #ffac30;
+
+  --mask-primary: rgba(0, 0, 0, 0.2);
+
   --border-radius-full: 50%;
   --border-radius-s: 8px;
   --border-radius-m: 10px;

@@ -3,7 +3,7 @@
     <div class="heroBlock__overlay" />
     <img
       src="/public/images/almond-prune-cake-1-2800-1866-2.webp"
-      alt="Image of Hero"
+      alt="Заставка Пралине"
       class="heroBlock__image"
     />
     <div class="heroBlock__subtitleBox">
@@ -30,7 +30,7 @@
   width: calc(100% - 32px);
   overflow: hidden;
   border-radius: 20px;
-  margin: 0 auto;
+  margin: 20px auto 0 auto;
 }
 .heroBlock__overlay {
   position: absolute;
@@ -39,14 +39,14 @@
   width: 100%;
   height: 100%;
   animation: overlay 2s ease;
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--mask-primary);
   z-index: 1;
 }
 .heroBlock__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: scale 1s ease;
+  animation: scale 4s ease;
 }
 .heroBlock__subtitleBox {
   position: absolute;
@@ -101,7 +101,7 @@
   left: 0;
   font-family: "CormorantGaramond-MediumItalic", sans-serif;
   font-size: 80px;
-  color: #ffac30;
+  color: var(--orange-primary);
   text-transform: lowercase;
   animation: ascent-subname 1s ease-in-out;
 }
@@ -195,11 +195,14 @@
 }
 
 @keyframes scale {
-  from {
+  0% {
+    opacity: 0;
+  }
+  50% {
     opacity: 0;
     transform: scale(1.2);
   }
-  to {
+  100% {
     opacity: 1;
     transform: scale(1);
   }
