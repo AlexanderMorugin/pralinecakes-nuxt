@@ -3,7 +3,7 @@
     <div class="mainLayout__overlay" />
     <Header />
 
-    <main>
+    <main class="mainLayout__content">
       <NuxtPage />
     </main>
 
@@ -27,6 +27,14 @@
     height: 100%;
     background: var(--gradient--page-primary);
     filter: blur(100px);
+  }
+
+  &__content {
+    padding-top: 80px;
+
+    @media (max-width: 768px) {
+      padding-top: 60px;
+    }
   }
 }
 </style>

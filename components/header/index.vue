@@ -29,10 +29,15 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 60px;
-  background: var(--gradient--page-secondary);
-  // opacity: 0.8;
+  height: 80px;
+  animation: filter 3s ease;
+  backdrop-filter: blur(15px) grayscale(90%);
+
   z-index: 3;
+
+  @media (max-width: 768px) {
+    height: 60px;
+  }
 
   &__left {
     display: flex;
@@ -59,6 +64,18 @@
     display: flex;
     align-items: center;
     width: fit-content;
+  }
+}
+
+@keyframes filter {
+  0% {
+    backdrop-filter: blur(0) grayscale(0%);
+  }
+  50% {
+    backdrop-filter: blur(0) grayscale(0%);
+  }
+  100% {
+    backdrop-filter: blur(15px) grayscale(90%);
   }
 }
 </style>
