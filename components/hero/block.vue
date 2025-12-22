@@ -5,26 +5,26 @@
       <picture>
         <source
           media="(max-width: 768px)"
-          srcSet="/images/hero/hero-1-768.webp"
+          srcSet="/images/hero/hero-3-768.webp"
         />
         <source
           media="(max-width: 1280px)"
-          srcSet="/images/hero/hero-1-1280.webp"
+          srcSet="/images/hero/hero-3-1280.webp"
         />
         <source
           media="(max-width: 1920px)"
-          srcSet="/images/hero/hero-1-1920.webp"
+          srcSet="/images/hero/hero-3-1920.webp"
         />
         <source
           media="(max-width: 2560px)"
-          srcSet="/images/hero/hero-1-2560.webp"
+          srcSet="/images/hero/hero-3-2560.webp"
         />
         <source
           media="(max-width: 3840px)"
-          srcSet="/images/hero/hero-1-3840.webp"
+          srcSet="/images/hero/hero-3-3840.webp"
         />
         <img
-          src="/images/hero/hero-1-768.webp"
+          src="/images/hero/hero-3-768.webp"
           alt="Кондитерская Пралине"
           title="Кондитерская Пралине"
           class="heroBlock__image"
@@ -52,7 +52,8 @@
 .heroBlock {
   position: relative;
   width: 100%;
-  height: 1080px;
+  // height: 1080px;
+  height: 85vh;
   background: transparent;
   overflow: hidden;
   border-radius: 20px;
@@ -63,7 +64,7 @@
   }
 
   @media (max-width: 768px) {
-    height: 400px;
+    height: 420px;
     margin-top: 10px;
   }
 
