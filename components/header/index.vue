@@ -1,42 +1,51 @@
 <template>
   <header class="header">
-    <div class="header__left">
-      <ButtonWithIcon name="menu" />
-      <ButtonWithIcon name="search" />
-    </div>
+    <WrapperPadding>
+      <div class="header__container">
+        <div class="header__left">
+          <ButtonWithIcon name="menu" />
+          <ButtonWithIcon name="search" />
+        </div>
 
-    <div class="header__right">
-      <div class="header__block">
-        <ButtonWithIcon name="email" />
-        <ButtonWithIcon name="phone" />
-        <ButtonWithIcon name="chat" />
-      </div>
+        <div class="header__right">
+          <div class="header__block">
+            <!-- <ButtonWithIcon name="email" /> -->
+            <ButtonWithIcon name="phone" />
+            <ButtonWithIcon name="chat" />
+          </div>
 
-      <div class="header__block">
-        <ButtonWithIcon name="account" />
-        <ButtonWithIcon name="favorite" />
-        <ButtonWithIcon name="cart" />
+          <div class="header__block">
+            <ButtonWithIcon name="account" />
+            <!-- <ButtonWithIcon name="favorite" /> -->
+            <ButtonWithIcon name="cart" />
+          </div>
+        </div>
       </div>
-    </div>
+    </WrapperPadding>
   </header>
 </template>
 
 <style lang="scss" scoped>
 .header {
   position: fixed;
-  // top: 0;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 80px;
   animation: filter 3s ease;
-  backdrop-filter: blur(15px) grayscale(90%);
-
+  backdrop-filter: blur(15px) grayscale(50%);
   z-index: 3;
 
   @media (max-width: 768px) {
     height: 60px;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
 
   &__left {
@@ -55,9 +64,9 @@
       gap: 30px;
     }
 
-    @media (max-width: 390px) {
-      gap: 0;
-    }
+    // @media (max-width: 320px) {
+    //   gap: 0;
+    // }
   }
 
   &__block {
@@ -75,7 +84,7 @@
     backdrop-filter: blur(0) grayscale(0%);
   }
   100% {
-    backdrop-filter: blur(15px) grayscale(90%);
+    backdrop-filter: blur(15px) grayscale(50%);
   }
 }
 </style>

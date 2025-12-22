@@ -1,11 +1,11 @@
 <template>
-  <div class="wrapperPage">
+  <div class="wrapperPadding">
     <slot />
   </div>
 </template>
 
 <style lang="scss" scoped>
-.wrapperPage {
+.wrapperPadding {
   width: 100%;
   padding-left: 20px;
   padding-right: 20px;
