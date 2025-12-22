@@ -3,8 +3,7 @@
     <div class="mainLayout__overlay" />
     <Header />
 
-    <main class="mainLayout__content">
-      <!-- <h1>Hello</h1> -->
+    <main>
       <NuxtPage />
     </main>
 
@@ -28,11 +27,6 @@
     height: 100%;
     background: var(--gradient--page-primary);
     filter: blur(100px);
-  }
-
-  &__content {
-    // background: var(--gradient--page-primary);
-    // filter: blur(100px);
   }
 }
 </style>

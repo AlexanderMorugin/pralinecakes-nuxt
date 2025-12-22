@@ -172,6 +172,7 @@
     color: var(--orange-primary);
     text-transform: lowercase;
     animation: ascent-subname 1s ease-in-out;
+    opacity: 0.6;
 
     @media (max-width: 1440px) {
       font-size: 60px;
@@ -189,23 +190,23 @@
   &__titleNameBox {
     position: relative;
     width: 100%;
-    height: 180px;
+    height: 120px;
     overflow: hidden;
 
     @media (max-width: 1440px) {
-      height: 120px;
-    }
-
-    @media (max-width: 768px) {
       height: 60px;
     }
 
+    @media (max-width: 768px) {
+      height: 40px;
+    }
+
     @media (max-width: 576px) {
-      height: 48px;
+      height: 36px;
     }
 
     @media (max-width: 390px) {
-      height: 36px;
+      height: 28px;
     }
   }
 
@@ -214,26 +215,27 @@
     top: 0;
     left: 0;
     font-family: "Montserrat-Bold", sans-serif;
-    font-size: 180px;
+    font-size: 120px;
     color: var(--white-primary);
     text-transform: uppercase;
     letter-spacing: 10px;
     animation: ascent-name 1.5s ease-in-out;
+    opacity: 0.7;
 
     @media (max-width: 1440px) {
-      font-size: 120px;
-    }
-
-    @media (max-width: 768px) {
       font-size: 60px;
     }
 
+    @media (max-width: 768px) {
+      font-size: 40px;
+    }
+
     @media (max-width: 576px) {
-      font-size: 48px;
+      font-size: 36px;
     }
 
     @media (max-width: 390px) {
-      font-size: 36px;
+      font-size: 28px;
     }
   }
 }
@@ -284,7 +286,7 @@
     background: rgba(0, 0, 0, 0);
   }
   100% {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.3);
   }
 }
 

@@ -1,9 +1,9 @@
 <template>
   <header class="header">
-    <ButtonWithIcon name="menu" />
-    <!-- <img src="/bg/ellipse-top-left-1.png" class="header__ellipseTopLeft" /> -->
-
-    <ButtonWithIcon name="search" />
+    <div class="header__left">
+      <ButtonWithIcon name="menu" />
+      <ButtonWithIcon name="search" />
+    </div>
 
     <!-- <ButtonWithIcon name="login" /> -->
 
@@ -29,17 +29,32 @@
 
 <style lang="scss" scoped>
 .header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 60px;
 
+  &__left {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+  }
+
   &__right {
     display: flex;
     align-items: center;
     gap: 50px;
     width: fit-content;
+
+    @media (max-width: 768px) {
+      gap: 30px;
+    }
+
+    @media (max-width: 390px) {
+      gap: 0;
+    }
   }
 
   &__block {
