@@ -5,8 +5,6 @@
       <ButtonWithIcon name="search" />
     </div>
 
-    <!-- <ButtonWithIcon name="login" /> -->
-
     <div class="header__right">
       <div class="header__block">
         <ButtonWithIcon name="email" />
@@ -20,21 +18,21 @@
         <ButtonWithIcon name="cart" />
       </div>
     </div>
-    <!-- <ButtonWithIcon name="logout" /> -->
-    <!-- <ButtonWithIcon name="delete" /> -->
-    <!-- <ButtonWithIcon name="delivery" /> -->
-    <!-- <ButtonWithIcon name="person" /> -->
   </header>
 </template>
 
 <style lang="scss" scoped>
 .header {
-  position: relative;
+  position: fixed;
+  // top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 60px;
+  background: var(--gradient--page-secondary);
+  // opacity: 0.8;
+  z-index: 3;
 
   &__left {
     display: flex;
@@ -62,11 +60,5 @@
     align-items: center;
     width: fit-content;
   }
-}
-.header__ellipseTopLeft {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100%;
 }
 </style>

@@ -33,6 +33,9 @@ const { name } = defineProps(["name"]);
     width: 32px;
     height: 32px;
     fill: var(--white-primary);
+    opacity: 0.7;
+    // fill: var(--orange-primary);
+
     transition: 0.2s ease;
 
     @media (max-width: 768px) {
@@ -44,6 +47,7 @@ const { name } = defineProps(["name"]);
 
 .buttonWithIcon:hover .buttonWithIcon__icon {
   fill: var(--orange-primary);
+  opacity: 1;
   animation: scale 0.25s ease-in-out;
 }
 

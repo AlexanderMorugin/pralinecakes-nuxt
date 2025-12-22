@@ -1,5 +1,5 @@
 <template>
-  <ContainerPage>
+  <WrapperPadding>
     <section class="heroBlock">
       <div class="heroBlock__overlay" />
       <picture>
@@ -45,7 +45,7 @@
         </h2>
       </div>
     </section>
-  </ContainerPage>
+  </WrapperPadding>
 </template>
 
 <style lang="scss" scoped>

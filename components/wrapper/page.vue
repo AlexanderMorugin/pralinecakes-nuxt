@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .wrapperPage {
   display: flex;
   flex-direction: column;
