@@ -1,11 +1,39 @@
 <template>
   <div class="heroBlock">
     <div class="heroBlock__overlay" />
-    <img
+    <picture>
+      <source
+        media="(max-width: 768px)"
+        srcSet="/images/hero/hero-1-768.webp"
+      />
+      <source
+        media="(max-width: 1280px)"
+        srcSet="/images/hero/hero-1-1280.webp"
+      />
+      <source
+        media="(max-width: 1920px)"
+        srcSet="/images/hero/hero-1-1920.webp"
+      />
+      <source
+        media="(max-width: 3840px)"
+        srcSet="/images/hero/hero-1-3840.webp"
+      />
+      <img
+        src="/images/hero/hero-1-768.webp"
+        width="768"
+        height="{0}"
+        sizes="100vw"
+        alt="Кондитерская Пралине"
+        title="Кондитерская Пралине"
+        class="heroBlock__image"
+      />
+    </picture>
+
+    <!-- <img
       src="/images/hero/almond-prune-cake.webp"
       alt="Заставка Пралине"
       class="heroBlock__image"
-    />
+    /> -->
     <div class="heroBlock__subtitleBox">
       <span class="heroBlock__subtitle">Производство и продажа тортов</span>
     </div>

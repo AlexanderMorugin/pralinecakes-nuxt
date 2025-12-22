@@ -1,6 +1,7 @@
 <template>
   <header class="header">
-    <span>HEADER</span>
+    <!-- <img src="/bg/ellipse-top-left-1.png" class="header__ellipseTopLeft" /> -->
+
     <ButtonWithIcon name="close" />
     <ButtonWithIcon name="close" />
     <ButtonWithIcon name="close" />
@@ -10,19 +11,20 @@
 
 <style scoped>
 .header {
+  position: fixed;
+  top: 0;
   display: flex;
   width: 100%;
-  height: 66px;
+  height: 60px;
+  background: var(--black-primary);
   /* background: var(); */
-  z-index: 1;
-  border: 1px solid red;
+  z-index: 3;
+  /* border: 1px solid red; */
 }
-.searchIcon {
-  width: 48px;
-  height: 48px;
-  fill: white;
-}
-.searchIcon:hover {
-  fill: red;
+.header__ellipseTopLeft {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
 }
 </style>
