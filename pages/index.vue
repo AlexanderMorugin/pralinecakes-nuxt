@@ -1,6 +1,6 @@
 <template>
   <WrapperPage>
-    <!-- <HeroBlock /> -->
+    <HeroBlock />
   </WrapperPage>
 </template>
 
@@ -9,5 +9,3 @@ definePageMeta({
   layout: "main",
 });
 </script>
-
-<style scoped></style>

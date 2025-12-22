@@ -5,6 +5,15 @@
     <IconLogin v-if="name === 'login'" class="icon" />
     <IconFavorite v-if="name === 'favorite'" class="icon" />
     <IconCart v-if="name === 'cart'" class="icon" />
+    <IconPhone v-if="name === 'phone'" class="icon" />
+    <IconEmail v-if="name === 'email'" class="icon" />
+    <IconSearch v-if="name === 'search'" class="icon" />
+    <IconLogout v-if="name === 'logout'" class="icon" />
+    <IconDelete v-if="name === 'delete'" class="icon" />
+    <IconDelivery v-if="name === 'delivery'" class="icon" />
+    <IconPerson v-if="name === 'person'" class="icon" />
+    <IconAccount v-if="name === 'account'" class="icon" />
+    <IconChat v-if="name === 'chat'" class="icon" />
   </button>
 </template>
 
@@ -22,8 +31,8 @@ const { name } = defineProps(["name"]);
 }
 
 .icon {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   fill: var(--white-primary);
   transition: 0.2s ease;
 }

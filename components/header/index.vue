@@ -1,25 +1,52 @@
 <template>
   <header class="header">
+    <ButtonWithIcon name="menu" />
     <!-- <img src="/bg/ellipse-top-left-1.png" class="header__ellipseTopLeft" /> -->
 
-    <ButtonWithIcon name="menu" />
-    <ButtonWithIcon name="login" />
-    <ButtonWithIcon name="favorite" />
-    <ButtonWithIcon name="cart" />
+    <ButtonWithIcon name="search" />
+
+    <!-- <ButtonWithIcon name="login" /> -->
+
+    <div class="header__right">
+      <div class="header__block">
+        <ButtonWithIcon name="email" />
+        <ButtonWithIcon name="phone" />
+        <ButtonWithIcon name="chat" />
+      </div>
+
+      <div class="header__block">
+        <ButtonWithIcon name="account" />
+        <ButtonWithIcon name="favorite" />
+        <ButtonWithIcon name="cart" />
+      </div>
+    </div>
+    <!-- <ButtonWithIcon name="logout" /> -->
+    <!-- <ButtonWithIcon name="delete" /> -->
+    <!-- <ButtonWithIcon name="delivery" /> -->
+    <!-- <ButtonWithIcon name="person" /> -->
   </header>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .header {
-  /* position: fixed;
-  top: 0; */
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   height: 60px;
-  background: var(--black-primary);
-  /* background: var(); */
-  z-index: 3;
-  /* border: 1px solid red; */
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    width: fit-content;
+  }
+
+  &__block {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+  }
 }
 .header__ellipseTopLeft {
   position: fixed;

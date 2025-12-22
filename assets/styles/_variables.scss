@@ -6,7 +6,11 @@
 
   --orange-primary: #ffac30;
 
+  --deep-blue-primary: #081119;
+
   --mask-primary: rgba(0, 0, 0, 0.2);
+
+  --gradient--page-primary: linear-gradient(135deg, var(--orange-primary) 0%, var(--black-primary) 20%, #172c3f 100%);
 
   --border-radius-full: 50%;
   --border-radius-s: 8px;
