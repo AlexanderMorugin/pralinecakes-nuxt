@@ -14,11 +14,12 @@
   --border-radius-l: 14px;
   --border-radius-xl: 16px;
 
-  --screen-big: 3840px;
-  --screen-xxl: 1920px;
-  --screen-xl: 1399px;
-  --screen-l: 1279px;
-  --screen-m: 1023px;
-  --screen-s: 767px;
-  --screen-xs: 474px;
+  --screen-4k: 3840px; // h-2160
+  --screen-2k: 2560px; // h-1440
+  --screen-hd: 1920px; // h-1080
+  --screen-xl: 1440px; // h-900
+  --screen-l: 1280px; // h-720
+  --screen-m: 1024px; // h-600
+  --screen-s: 768px; // h-375
+  --screen-xs: 475px;
 }

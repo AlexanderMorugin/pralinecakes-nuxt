@@ -1,9 +1,6 @@
 <template>
   <WrapperPage>
     <HeroBlock />
-    <HeroBlock />
-    <HeroBlock />
-    <HeroBlock />
   </WrapperPage>
 </template>
 

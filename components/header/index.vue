@@ -11,8 +11,8 @@
 
 <style scoped>
 .header {
-  position: fixed;
-  top: 0;
+  /* position: fixed;
+  top: 0; */
   display: flex;
   width: 100%;
   height: 60px;

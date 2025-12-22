@@ -1,155 +1,171 @@
 <template>
-  <div class="heroBlock">
-    <div class="heroBlock__overlay" />
-    <picture>
-      <source
-        media="(max-width: 768px)"
-        srcSet="/images/hero/hero-1-768.webp"
-      />
-      <source
-        media="(max-width: 1280px)"
-        srcSet="/images/hero/hero-1-1280.webp"
-      />
-      <source
-        media="(max-width: 1920px)"
-        srcSet="/images/hero/hero-1-1920.webp"
-      />
-      <source
-        media="(max-width: 3840px)"
-        srcSet="/images/hero/hero-1-3840.webp"
-      />
-      <img
-        src="/images/hero/hero-1-768.webp"
-        width="768"
-        height="{0}"
-        sizes="100vw"
-        alt="Кондитерская Пралине"
-        title="Кондитерская Пралине"
-        class="heroBlock__image"
-      />
-    </picture>
+  <ContainerPage>
+    <section class="heroBlock">
+      <div class="heroBlock__overlay" />
+      <picture>
+        <source
+          media="(max-width: 768px)"
+          srcSet="/images/hero/hero-1-768.webp"
+        />
+        <source
+          media="(max-width: 1280px)"
+          srcSet="/images/hero/hero-1-1280.webp"
+        />
+        <source
+          media="(max-width: 1920px)"
+          srcSet="/images/hero/hero-1-1920.webp"
+        />
+        <source
+          media="(max-width: 2560px)"
+          srcSet="/images/hero/hero-1-2560.webp"
+        />
+        <source
+          media="(max-width: 3840px)"
+          srcSet="/images/hero/hero-1-3840.webp"
+        />
+        <img
+          src="/images/hero/hero-1-768.webp"
+          alt="Кондитерская Пралине"
+          title="Кондитерская Пралине"
+          class="heroBlock__image"
+        />
+      </picture>
 
-    <!-- <img
-      src="/images/hero/almond-prune-cake.webp"
-      alt="Заставка Пралине"
-      class="heroBlock__image"
-    /> -->
-    <div class="heroBlock__subtitleBox">
-      <span class="heroBlock__subtitle">Производство и продажа тортов</span>
-    </div>
-    <div class="heroBlock__titleBox">
-      <h2 class="heroBlock__title">
-        <div class="heroBlock__titleSubnameBox">
-          <span class="heroBlock__titleSubname">Кондитерская</span>
-        </div>
-        <div class="heroBlock__titleNameBox">
-          <span class="heroBlock__titleName">Пралине</span>
-        </div>
-      </h2>
-    </div>
-  </div>
+      <div class="heroBlock__subtitleBox">
+        <span class="heroBlock__subtitle">Производство и продажа тортов</span>
+      </div>
+      <div class="heroBlock__titleBox">
+        <h2 class="heroBlock__title">
+          <div class="heroBlock__titleSubnameBox">
+            <span class="heroBlock__titleSubname">Кондитерская</span>
+          </div>
+          <div class="heroBlock__titleNameBox">
+            <span class="heroBlock__titleName">Пралине</span>
+          </div>
+        </h2>
+      </div>
+    </section>
+  </ContainerPage>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .heroBlock {
   position: relative;
   width: 100%;
-  height: calc(85vh - 83px);
-  width: calc(100% - 32px);
+  height: 1080px;
   background: transparent;
   overflow: hidden;
   border-radius: 20px;
-  margin: 10px auto 0 auto;
-}
-.heroBlock__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  animation: overlay 3s ease;
-  background: var(--mask-primary);
-  z-index: 1;
-}
-.heroBlock__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  animation: scale 3s ease;
-}
-.heroBlock__subtitleBox {
-  position: absolute;
-  left: 5%;
-  right: 5%;
-  top: 10%;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-}
-.heroBlock__subtitle {
-  font-family: "Roboto-Medium", sans-serif;
-  font-size: 24px;
-  line-height: 36px;
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 12px;
-  color: transparent;
-  background-image: linear-gradient(
-    90deg,
-    #ffffff80 30%,
-    #ffffff 37%,
-    #ffffff80 80%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 500% auto;
-  animation: appear 4s ease-in-out;
-}
-.heroBlock__titleBox {
-  position: absolute;
-  left: 10%;
-  right: 10%;
-  bottom: 2%;
-  z-index: 2;
-}
-.heroBlock__title {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.heroBlock__titleSubnameBox {
-  position: relative;
-  width: 100%;
-  height: 80px;
-  overflow: hidden;
-}
-.heroBlock__titleSubname {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-family: "CormorantGaramond-MediumItalic", sans-serif;
-  font-size: 80px;
-  color: var(--orange-primary);
-  text-transform: lowercase;
-  animation: ascent-subname 1s ease-in-out;
-}
-.heroBlock__titleNameBox {
-  position: relative;
-  width: 100%;
-  height: 180px;
-  overflow: hidden;
-}
-.heroBlock__titleName {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-family: "Montserrat-Bold", sans-serif;
-  font-size: 180px;
-  color: var(--white-primary);
-  text-transform: uppercase;
-  letter-spacing: 10px;
-  animation: ascent-name 1.5s ease-in-out;
+  margin: 20px auto 0 auto;
+
+  @media (max-width: 1440px) {
+    height: 720px;
+  }
+
+  @media (max-width: 768px) {
+    height: 480px;
+    margin-top: 10px;
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: overlay 3s ease;
+    background: var(--mask-primary);
+    z-index: 1;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: scale 3s ease;
+  }
+
+  &__subtitleBox {
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    top: 10%;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__subtitle {
+    font-family: "Roboto-Medium", sans-serif;
+    font-size: 24px;
+    line-height: 36px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 12px;
+    color: transparent;
+    background-image: linear-gradient(
+      90deg,
+      #ffffff80 30%,
+      #ffffff 37%,
+      #ffffff80 80%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: appear 4s ease-in-out;
+  }
+
+  &__titleBox {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: 2%;
+    z-index: 2;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__titleSubnameBox {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+  }
+
+  &__titleSubname {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: "CormorantGaramond-MediumItalic", sans-serif;
+    font-size: 80px;
+    color: var(--orange-primary);
+    text-transform: lowercase;
+    animation: ascent-subname 1s ease-in-out;
+  }
+
+  &__titleNameBox {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+  }
+
+  &__titleName {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: "Montserrat-Bold", sans-serif;
+    font-size: 180px;
+    color: var(--white-primary);
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    animation: ascent-name 1.5s ease-in-out;
+  }
 }
 
 @media (max-width: 1400px) {
@@ -179,9 +195,9 @@
 }
 
 @media (max-width: 767px) {
-  .heroBlock {
-    width: calc(100% - 12px);
-  }
+  // .heroBlock {
+  //   width: calc(100% - 12px);
+  // }
   .heroBlock__title {
     gap: 5px;
   }

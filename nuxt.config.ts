@@ -3,9 +3,9 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   css: [
-    "~/assets/styles/global.css",
-    "~/assets/styles/_variables.css",
-    "~/assets/styles/_fonts.css",
+    "~/assets/styles/global.scss",
+    "~/assets/styles/_variables.scss",
+    "~/assets/styles/_fonts.scss",
   ],
 
   modules: ["@nuxt/fonts"],
