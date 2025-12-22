@@ -58,12 +58,12 @@
   border-radius: 20px;
   margin: 20px auto 0 auto;
 
-  @media (max-width: 1440px) {
+  @media (max-width: 1280px) {
     height: 720px;
   }
 
   @media (max-width: 768px) {
-    height: 480px;
+    height: 400px;
     margin-top: 10px;
   }
 
