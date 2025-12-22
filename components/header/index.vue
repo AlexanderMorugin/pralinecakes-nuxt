@@ -2,9 +2,9 @@
   <header class="header">
     <!-- <img src="/bg/ellipse-top-left-1.png" class="header__ellipseTopLeft" /> -->
 
-    <ButtonWithIcon name="close" />
-    <ButtonWithIcon name="close" />
-    <ButtonWithIcon name="close" />
+    <ButtonWithIcon name="menu" />
+    <ButtonWithIcon name="login" />
+    <ButtonWithIcon name="favorite" />
     <ButtonWithIcon name="cart" />
   </header>
 </template>

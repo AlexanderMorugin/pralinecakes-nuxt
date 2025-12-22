@@ -52,7 +52,6 @@
 .heroBlock {
   position: relative;
   width: 100%;
-  // height: 1080px;
   height: 85vh;
   background: transparent;
   overflow: hidden;
@@ -115,6 +114,11 @@
     -webkit-text-fill-color: transparent;
     background-size: 500% auto;
     animation: appear 4s ease-in-out;
+
+    @media (max-width: 1024px) {
+      font-size: 20px;
+      letter-spacing: 6px;
+    }
   }
 
   &__titleBox {
@@ -123,12 +127,21 @@
     right: 10%;
     bottom: 2%;
     z-index: 2;
+
+    @media (max-width: 1024px) {
+      left: 2%;
+      right: 2%;
+    }
   }
 
   &__title {
     display: flex;
     flex-direction: column;
     gap: 12px;
+
+    @media (max-width: 768px) {
+      gap: 5px;
+    }
   }
 
   &__titleSubnameBox {
@@ -136,6 +149,18 @@
     width: 100%;
     height: 80px;
     overflow: hidden;
+
+    @media (max-width: 1440px) {
+      height: 60px;
+    }
+
+    @media (max-width: 768px) {
+      height: 40px;
+    }
+
+    @media (max-width: 576px) {
+      height: 30px;
+    }
   }
 
   &__titleSubname {
@@ -147,6 +172,18 @@
     color: var(--orange-primary);
     text-transform: lowercase;
     animation: ascent-subname 1s ease-in-out;
+
+    @media (max-width: 1440px) {
+      font-size: 60px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 40px;
+    }
+
+    @media (max-width: 576px) {
+      font-size: 30px;
+    }
   }
 
   &__titleNameBox {
@@ -154,6 +191,22 @@
     width: 100%;
     height: 180px;
     overflow: hidden;
+
+    @media (max-width: 1440px) {
+      height: 120px;
+    }
+
+    @media (max-width: 768px) {
+      height: 60px;
+    }
+
+    @media (max-width: 576px) {
+      height: 48px;
+    }
+
+    @media (max-width: 390px) {
+      height: 36px;
+    }
   }
 
   &__titleName {
@@ -166,77 +219,22 @@
     text-transform: uppercase;
     letter-spacing: 10px;
     animation: ascent-name 1.5s ease-in-out;
-  }
-}
 
-@media (max-width: 1400px) {
-  .heroBlock__titleSubnameBox {
-    height: 60px;
-  }
-  .heroBlock__titleSubname {
-    font-size: 60px;
-  }
-  .heroBlock__titleNameBox {
-    height: 120px;
-  }
-  .heroBlock__titleName {
-    font-size: 120px;
-  }
-}
+    @media (max-width: 1440px) {
+      font-size: 120px;
+    }
 
-@media (max-width: 1023px) {
-  .heroBlock__subtitle {
-    font-size: 20px;
-    letter-spacing: 6px;
-  }
-  .heroBlock__titleBox {
-    left: 2%;
-    right: 2%;
-  }
-}
+    @media (max-width: 768px) {
+      font-size: 60px;
+    }
 
-@media (max-width: 767px) {
-  // .heroBlock {
-  //   width: calc(100% - 12px);
-  // }
-  .heroBlock__title {
-    gap: 5px;
-  }
-  .heroBlock__titleSubnameBox {
-    height: 40px;
-  }
-  .heroBlock__titleSubname {
-    font-size: 40px;
-  }
-  .heroBlock__titleNameBox {
-    height: 60px;
-  }
-  .heroBlock__titleName {
-    font-size: 60px;
-  }
-}
+    @media (max-width: 576px) {
+      font-size: 48px;
+    }
 
-@media (max-width: 575px) {
-  .heroBlock__titleSubnameBox {
-    height: 30px;
-  }
-  .heroBlock__titleSubname {
-    font-size: 30px;
-  }
-  .heroBlock__titleNameBox {
-    height: 48px;
-  }
-  .heroBlock__titleName {
-    font-size: 48px;
-  }
-}
-
-@media (max-width: 389px) {
-  .heroBlock__titleNameBox {
-    height: 36px;
-  }
-  .heroBlock__titleName {
-    font-size: 36px;
+    @media (max-width: 390px) {
+      font-size: 36px;
+    }
   }
 }
 
