@@ -358,7 +358,7 @@
     background: rgba(0, 0, 0, 0);
   }
   100% {
-    background: rgba(0, 0, 0, 0.3);
+    background: var(--mask-primary);
   }
 }
 
