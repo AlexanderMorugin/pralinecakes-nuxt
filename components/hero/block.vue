@@ -35,14 +35,17 @@
         <span class="heroBlock__subtitle">Производство и продажа тортов</span>
       </div>
       <div class="heroBlock__titleBox">
-        <h2 class="heroBlock__title">
+        <div class="heroBlock__title">
           <div class="heroBlock__titleSubnameBox">
-            <span class="heroBlock__titleSubname">Кондитерская</span>
+            <span class="heroBlock__titleSubname">Интернет-магазин</span>
           </div>
           <div class="heroBlock__titleNameBox">
             <span class="heroBlock__titleName">Пралине</span>
           </div>
-        </h2>
+        </div>
+      </div>
+      <div class="heroBlock__shopBox">
+        <span class="heroBlock__shop">Shop</span>
       </div>
     </section>
   </WrapperPadding>
@@ -127,11 +130,6 @@
     right: 10%;
     bottom: 2%;
     z-index: 2;
-
-    @media (max-width: 1024px) {
-      left: 2%;
-      right: 2%;
-    }
   }
 
   &__title {
@@ -147,19 +145,15 @@
   &__titleSubnameBox {
     position: relative;
     width: 100%;
-    height: 80px;
+    height: 24px;
     overflow: hidden;
 
     @media (max-width: 1440px) {
-      height: 60px;
+      height: 16px;
     }
 
     @media (max-width: 768px) {
-      height: 40px;
-    }
-
-    @media (max-width: 576px) {
-      height: 30px;
+      height: 14px;
     }
   }
 
@@ -167,23 +161,24 @@
     position: absolute;
     top: 0;
     left: 0;
-    font-family: "CormorantGaramond-MediumItalic", sans-serif;
-    font-size: 80px;
-    color: var(--orange-primary);
-    text-transform: lowercase;
+    font-family: "Roboto-Medium", sans-serif;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 12px;
     animation: ascent-subname 1s ease-in-out;
     opacity: 0.6;
 
     @media (max-width: 1440px) {
-      font-size: 60px;
+      letter-spacing: 6px;
+      font-size: 16px;
     }
 
     @media (max-width: 768px) {
-      font-size: 40px;
+      font-size: 14px;
     }
 
-    @media (max-width: 576px) {
-      font-size: 30px;
+    @media (max-width: 390px) {
+      letter-spacing: 3px;
     }
   }
 
@@ -237,6 +232,80 @@
     @media (max-width: 390px) {
       font-size: 28px;
     }
+  }
+
+  &__shopBox {
+    position: absolute;
+    left: 900px;
+    bottom: 80px;
+    z-index: 3;
+    animation: shop 2s ease;
+
+    @media (max-width: 2560px) {
+      left: 850px;
+    }
+
+    @media (max-width: 1920px) {
+      left: 750px;
+    }
+
+    @media (max-width: 1440px) {
+      left: 450px;
+      bottom: 52px;
+    }
+
+    @media (max-width: 1280px) {
+      left: 420px;
+      bottom: 44px;
+    }
+
+    @media (max-width: 768px) {
+      left: 290px;
+      bottom: 28px;
+    }
+
+    @media (max-width: 576px) {
+      left: 270px;
+      bottom: 22px;
+    }
+
+    @media (max-width: 390px) {
+      left: 200px;
+      bottom: 20px;
+    }
+  }
+
+  &__shop {
+    font-family: "Comfortaa-Bold", sans-serif;
+    font-size: 80px;
+    color: red;
+
+    @media (max-width: 1440px) {
+      font-size: 40px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 32px;
+    }
+
+    @media (max-width: 576px) {
+      font-size: 26px;
+    }
+  }
+}
+
+@keyframes shop {
+  0% {
+    opacity: 0;
+    transform: translateX(200%);
+  }
+  90% {
+    opacity: 0;
+    transform: translateX(200%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 

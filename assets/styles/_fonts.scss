@@ -1,5 +1,6 @@
 @font-face {
-  src: local("Montserrat-Regular"),
+  src:
+    local("Montserrat-Regular"),
     url("/fonts/Montserrat-Regular.woff2") format("woff2"),
     url("/fonts/Montserrat-Regular.woff") format("woff");
   font-family: "Montserrat-Regular";
@@ -9,7 +10,8 @@
 }
 
 @font-face {
-  src: local("Montserrat-Medium"),
+  src:
+    local("Montserrat-Medium"),
     url("/fonts/Montserrat-Medium.woff2") format("woff2"),
     url("/fonts/Montserrat-Medium.woff") format("woff");
   font-family: "Montserrat-Medium";
@@ -19,7 +21,8 @@
 }
 
 @font-face {
-  src: local("Montserrat-SemiBold"),
+  src:
+    local("Montserrat-SemiBold"),
     url("/fonts/Montserrat-SemiBold.woff2") format("woff2"),
     url("/fonts/Montserrat-SemiBold.woff") format("woff");
   font-family: "Montserrat-SemiBold";
@@ -29,7 +32,8 @@
 }
 
 @font-face {
-  src: local("Montserrat-Bold"),
+  src:
+    local("Montserrat-Bold"),
     url("/fonts/Montserrat-Bold.woff2") format("woff2"),
     url("/fonts/Montserrat-Bold.woff") format("woff");
   font-family: "Montserrat-Bold";
@@ -39,7 +43,8 @@
 }
 
 @font-face {
-  src: local("CormorantGaramond-Regular"),
+  src:
+    local("CormorantGaramond-Regular"),
     url("/fonts/CormorantGaramond-Regular.woff2") format("woff2"),
     url("/fonts/CormorantGaramond-Regular.woff") format("woff");
   font-family: "CormorantGaramond-Regular";
@@ -49,7 +54,8 @@
 }
 
 @font-face {
-  src: local("CormorantGaramond-Medium"),
+  src:
+    local("CormorantGaramond-Medium"),
     url("/fonts/CormorantGaramond-Medium.woff2") format("woff2"),
     url("/fonts/CormorantGaramond-Medium.woff") format("woff");
   font-family: "CormorantGaramond-Medium";
@@ -59,7 +65,8 @@
 }
 
 @font-face {
-  src: local("CormorantGaramond-MediumItalic"),
+  src:
+    local("CormorantGaramond-MediumItalic"),
     url("/fonts/CormorantGaramond-MediumItalic.woff2") format("woff2"),
     url("/fonts/CormorantGaramond-MediumItalic.woff") format("woff");
   font-family: "CormorantGaramond-MediumItalic";
@@ -69,7 +76,8 @@
 }
 
 @font-face {
-  src: local("CormorantGaramond-SemiBold"),
+  src:
+    local("CormorantGaramond-SemiBold"),
     url("/fonts/CormorantGaramond-SemiBold.woff2") format("woff2"),
     url("/fonts/CormorantGaramond-SemiBold.woff") format("woff");
   font-family: "CormorantGaramond-SemiBold";
@@ -79,7 +87,8 @@
 }
 
 @font-face {
-  src: local("CormorantGaramond-Bold"),
+  src:
+    local("CormorantGaramond-Bold"),
     url("/fonts/CormorantGaramond-Bold.woff2") format("woff2"),
     url("/fonts/CormorantGaramond-Bold.woff") format("woff");
   font-family: "CormorantGaramond-Bold";
@@ -89,7 +98,9 @@
 }
 
 @font-face {
-  src: local("Roboto-Bold"), url("/fonts/Roboto-Bold.woff2") format("woff2"),
+  src:
+    local("Roboto-Bold"),
+    url("/fonts/Roboto-Bold.woff2") format("woff2"),
     url("/fonts/Roboto-Bold.woff") format("woff");
   font-family: "Roboto-Bold";
   font-weight: normal;
@@ -98,7 +109,8 @@
 }
 
 @font-face {
-  src: local("Roboto-SemiBold"),
+  src:
+    local("Roboto-SemiBold"),
     url("/fonts/Roboto-SemiBold.woff2") format("woff2"),
     url("/fonts/Roboto-SemiBold.woff") format("woff");
   font-family: "Roboto-SemiBold";
@@ -108,7 +120,9 @@
 }
 
 @font-face {
-  src: local("Roboto-Medium"), url("/fonts/Roboto-Medium.woff2") format("woff2"),
+  src:
+    local("Roboto-Medium"),
+    url("/fonts/Roboto-Medium.woff2") format("woff2"),
     url("/fonts/Roboto-Medium.woff") format("woff");
   font-family: "Roboto-Medium";
   font-weight: normal;
@@ -117,10 +131,22 @@
 }
 
 @font-face {
-  src: local("Roboto-Regular"),
+  src:
+    local("Roboto-Regular"),
     url("/fonts/Roboto-Regular.woff2") format("woff2"),
     url("/fonts/Roboto-Regular.woff") format("woff");
   font-family: "Roboto-Regular";
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  src:
+    local("Comfortaa-Bold"),
+    url("/fonts/Comfortaa-Bold.woff2") format("woff2"),
+    url("/fonts/Comfortaa-Bold.woff") format("woff");
+  font-family: "Comfortaa-Bold";
   font-weight: normal;
   font-style: normal;
   font-display: swap;
