@@ -241,6 +241,7 @@
     left: 900px;
     bottom: 80px;
     z-index: 3;
+    transform: rotate(-5deg);
     animation: shop 2s ease;
 
     @media (max-width: 2560px) {
