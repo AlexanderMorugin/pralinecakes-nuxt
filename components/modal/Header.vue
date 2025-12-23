@@ -9,7 +9,7 @@
   >
     <div class="modalHeader__container">
       <div class="modalHeader__top">
-        <span> {{ isModalOpen }}</span>
+        <span class="modalHeader__topTitle"> {{ title }}</span>
         <ButtonWithIcon name="close" @click="$emit('closeModal')" />
       </div>
     </div>
@@ -17,14 +17,19 @@
 </template>
 
 <script setup>
-const { isModalOpen, place } = defineProps(["isModalOpen", "place"]);
+const { isModalOpen, place, title } = defineProps([
+  "isModalOpen",
+  "place",
+  "title",
+]);
 const emit = defineEmits(["closeModal"]);
 </script>
 
 <style lang="scss" scoped>
 .modalHeader {
   position: fixed;
-  width: 50%;
+  width: 100%;
+  max-width: 768px;
   height: 100%;
   top: 0;
   backdrop-filter: blur(15px) grayscale(50%);
@@ -52,7 +57,7 @@ const emit = defineEmits(["closeModal"]);
     color: white;
     // padding: 32px;
 
-    border: 1px solid red;
+    // border: 1px solid red;
   }
 
   &__top {
@@ -60,7 +65,20 @@ const emit = defineEmits(["closeModal"]);
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    border: 1px solid red;
+    // border: 1px solid red;
+  }
+
+  &__topTitle {
+    font-family: "Roboto-Medium", sans-serif;
+    font-size: 24px;
+    // line-height: 36px;
+    text-transform: uppercase;
+    // text-align: center;
+    letter-spacing: 12px;
+
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
   }
 }
 </style>

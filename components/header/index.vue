@@ -42,6 +42,7 @@
           v-if="isMenuModalOpen"
           :isModalOpen="isMenuModalOpen"
           place="left"
+          title="Меню"
           @closeModal="isMenuModalOpen = false"
         />
       </Transition>
@@ -54,6 +55,7 @@
           v-if="isSearchModalOpen"
           :isModalOpen="isSearchModalOpen"
           place="left"
+          title="Поиск"
           @closeModal="isSearchModalOpen = false"
         />
       </Transition>
@@ -66,6 +68,7 @@
           v-if="isCartModalOpen"
           :isModalOpen="isCartModalOpen"
           place="right"
+          title="Корзина"
           @closeModal="isCartModalOpen = false"
         />
       </Transition>
