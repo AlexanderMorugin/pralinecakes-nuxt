@@ -3,31 +3,86 @@
     <WrapperPadding>
       <div class="header__container">
         <div class="header__left">
-          <ButtonWithIcon name="menu" class="header__iconMenu" />
-          <ButtonWithIcon name="search" class="header__iconSearch" />
+          <ButtonWithIcon
+            name="menu"
+            class="header__iconMenu"
+            @click="isMenuModalOpen = true"
+          />
+          <ButtonWithIcon
+            name="search"
+            class="header__iconSearch"
+            @click="isSearchModalOpen = true"
+          />
         </div>
 
         <div class="header__right">
           <div class="header__block">
-            <!-- <ButtonWithIcon name="email" /> -->
             <ButtonWithIcon name="phone" class="header__iconPhone" />
             <ButtonWithIcon name="chat" class="header__iconChat" />
           </div>
 
           <div class="header__block">
             <ButtonWithIcon name="account" class="header__iconAccount" />
-            <!-- <ButtonWithIcon name="favorite" /> -->
-            <ButtonWithIcon name="cart" class="header__iconCart" />
+            <ButtonWithIcon
+              name="cart"
+              class="header__iconCart"
+              @click="isCartModalOpen = true"
+            />
           </div>
         </div>
       </div>
     </WrapperPadding>
   </header>
+
+  <ClientOnly>
+    <!-- Модалка меню -->
+    <Teleport to="#teleports">
+      <Transition name="left">
+        <ModalHeader
+          v-if="isMenuModalOpen"
+          :isModalOpen="isMenuModalOpen"
+          place="left"
+          @closeModal="isMenuModalOpen = false"
+        />
+      </Transition>
+    </Teleport>
+
+    <!-- Модалка поиска -->
+    <Teleport to="#teleports">
+      <Transition name="left">
+        <ModalHeader
+          v-if="isSearchModalOpen"
+          :isModalOpen="isSearchModalOpen"
+          place="left"
+          @closeModal="isSearchModalOpen = false"
+        />
+      </Transition>
+    </Teleport>
+
+    <!-- Модалка корзины -->
+    <Teleport to="#teleports">
+      <Transition name="right">
+        <ModalHeader
+          v-if="isCartModalOpen"
+          :isModalOpen="isCartModalOpen"
+          place="right"
+          @closeModal="isCartModalOpen = false"
+        />
+      </Transition>
+    </Teleport>
+  </ClientOnly>
 </template>
+
+<script setup>
+const isMenuModalOpen = ref(false);
+const isSearchModalOpen = ref(false);
+const isCartModalOpen = ref(false);
+</script>
 
 <style lang="scss" scoped>
 .header {
-  position: fixed;
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
   width: 100%;

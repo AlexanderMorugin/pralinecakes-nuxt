@@ -60,14 +60,16 @@
   overflow: hidden;
   border-radius: 20px;
   margin: 20px auto 0 auto;
+  // margin: 0 auto;
 
   @media (max-width: 1280px) {
     height: 720px;
+    margin-top: 10px;
   }
 
   @media (max-width: 768px) {
     height: 420px;
-    margin-top: 10px;
+    margin-top: 5px;
   }
 
   &__overlay {
