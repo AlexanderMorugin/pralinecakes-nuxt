@@ -1,6 +1,7 @@
 <template>
   <WrapperPage>
-    <h1>Пирожные</h1>
+    <TitlePage title="Пирожные" />
+    <ProductList list="pastryList" />
   </WrapperPage>
 </template>
 

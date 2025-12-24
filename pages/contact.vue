@@ -1,6 +1,6 @@
 <template>
   <WrapperPage>
-    <h1>Контакты</h1>
+    <TitlePage title="Контакты" />
   </WrapperPage>
 </template>
 

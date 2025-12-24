@@ -1,6 +1,6 @@
 <template>
   <WrapperPage>
-    <h1>Доставка</h1>
+    <TitlePage title="Доставка" />
   </WrapperPage>
 </template>
 

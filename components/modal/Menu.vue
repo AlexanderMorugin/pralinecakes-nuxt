@@ -1,6 +1,6 @@
 <template>
   <ul class="modalMenu">
-    <li v-for="item in menu" :key="item.id">
+    <li v-for="item in modalMenu" :key="item.id">
       <NuxtLink :to="item.route">
         <ModalElement contentPosition="left" @click="$emit('closeModal')">
           <span class="modalElementTitle">{{ item.title }}</span>
@@ -14,6 +14,10 @@
 import { menu } from "~/utils/constants/menu";
 
 const emit = defineEmits(["closeModal"]);
+
+const modalMenu = computed(() =>
+  useRoute().name === "index" ? menu.slice(1, menu.length) : menu
+);
 </script>
 
 <style lang="scss" scoped>
