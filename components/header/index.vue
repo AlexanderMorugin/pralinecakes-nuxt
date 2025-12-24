@@ -19,12 +19,24 @@
 
         <div class="header__right">
           <div class="header__block">
-            <ButtonWithIcon name="phone" class="header__iconPhone" />
-            <ButtonWithIcon name="chat" class="header__iconChat" />
+            <ButtonWithIcon
+              name="phone"
+              class="header__iconPhone"
+              @click="isPhoneModalOpen = true"
+            />
+            <ButtonWithIcon
+              name="chat"
+              class="header__iconChat"
+              @click="isChatModalOpen = true"
+            />
           </div>
 
           <div class="header__block">
-            <ButtonWithIcon name="account" class="header__iconAccount" />
+            <ButtonWithIcon
+              name="account"
+              class="header__iconAccount"
+              @click="isProfileModalOpen = true"
+            />
             <ButtonWithIcon
               name="cart"
               class="header__iconCart"
@@ -63,6 +75,19 @@
       </Transition>
     </Teleport>
 
+    <!-- Модалка профиля -->
+    <Teleport to="#teleports">
+      <Transition name="right">
+        <ModalHeader
+          v-if="isProfileModalOpen"
+          :isModalOpen="isProfileModalOpen"
+          place="right"
+          title="Профиль"
+          @closeModal="isProfileModalOpen = false"
+        />
+      </Transition>
+    </Teleport>
+
     <!-- Модалка корзины -->
     <Teleport to="#teleports">
       <Transition name="right">
@@ -75,13 +100,42 @@
         />
       </Transition>
     </Teleport>
+
+    <!-- Модалка мессенджеров -->
+    <Teleport to="#teleports">
+      <Transition name="top">
+        <ModalHeader
+          v-if="isChatModalOpen"
+          :isModalOpen="isChatModalOpen"
+          place="right"
+          title="Написать"
+          @closeModal="isChatModalOpen = false"
+        />
+      </Transition>
+    </Teleport>
+
+    <!-- Модалка телефонов -->
+    <Teleport to="#teleports">
+      <Transition name="top">
+        <ModalHeader
+          v-if="isPhoneModalOpen"
+          :isModalOpen="isPhoneModalOpen"
+          place="right"
+          title="Позвонить"
+          @closeModal="isPhoneModalOpen = false"
+        />
+      </Transition>
+    </Teleport>
   </ClientOnly>
 </template>
 
 <script setup>
 const isMenuModalOpen = ref(false);
 const isSearchModalOpen = ref(false);
+const isProfileModalOpen = ref(false);
 const isCartModalOpen = ref(false);
+const isChatModalOpen = ref(false);
+const isPhoneModalOpen = ref(false);
 </script>
 
 <style lang="scss" scoped>

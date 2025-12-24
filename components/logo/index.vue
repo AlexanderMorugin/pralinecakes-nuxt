@@ -1,18 +1,16 @@
 <template>
-  <div class="logo">
+  <NuxtLink to="/" class="logo">
     <span class="logo__title">Пралине</span>
     <div class="logo__shopBox">
       <span class="logo__shop">Shop</span>
     </div>
-  </div>
+  </NuxtLink>
 </template>
 
 <style lang="scss" scoped>
 .logo {
   position: relative;
   width: fit-content;
-
-  // border: 1px solid red;
 
   &__title {
     font-family: "Montserrat-SemiBold", sans-serif;
@@ -25,7 +23,6 @@
 
     @media (max-width: 768px) {
       font-size: 16px;
-      // letter-spacing: 2px;
     }
 
     @media (max-width: 390px) {

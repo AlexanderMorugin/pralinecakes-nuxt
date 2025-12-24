@@ -1,9 +1,10 @@
 <template>
   <WrapperPage>
     <HeroBlock />
-    <!-- <HeroBlock />
-    <HeroBlock />
-    <HeroBlock /> -->
+    <ButtonConnect name="max" />
+    <ButtonConnect name="email" />
+    <ButtonConnect name="whatsapp" />
+    <ButtonConnect name="telegram" />
   </WrapperPage>
 </template>
 
