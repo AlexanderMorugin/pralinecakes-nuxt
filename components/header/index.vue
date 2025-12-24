@@ -57,6 +57,7 @@
           :isModalOpen="isMenuModalOpen"
           place="left"
           title="Меню"
+          name="menu"
           @closeModal="isMenuModalOpen = false"
         />
       </Transition>
@@ -70,6 +71,7 @@
           :isModalOpen="isSearchModalOpen"
           place="left"
           title="Поиск"
+          name="search"
           @closeModal="isSearchModalOpen = false"
         />
       </Transition>
@@ -83,6 +85,7 @@
           :isModalOpen="isProfileModalOpen"
           place="right"
           title="Профиль"
+          name="profile"
           @closeModal="isProfileModalOpen = false"
         />
       </Transition>
@@ -96,6 +99,7 @@
           :isModalOpen="isCartModalOpen"
           place="right"
           title="Корзина"
+          name="cart"
           @closeModal="isCartModalOpen = false"
         />
       </Transition>
@@ -109,6 +113,7 @@
           :isModalOpen="isChatModalOpen"
           place="right"
           title="Написать"
+          name="chat"
           @closeModal="isChatModalOpen = false"
         />
       </Transition>
@@ -122,6 +127,7 @@
           :isModalOpen="isPhoneModalOpen"
           place="right"
           title="Позвонить"
+          name="phone"
           @closeModal="isPhoneModalOpen = false"
         />
       </Transition>

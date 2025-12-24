@@ -12,15 +12,18 @@
         <span class="modalHeader__topTitle"> {{ title }}</span>
         <ButtonWithIcon name="close" @click="$emit('closeModal')" />
       </div>
+
+      <ConnectChat v-if="name === 'chat'" />
     </div>
   </div>
 </template>
 
 <script setup>
-const { isModalOpen, place, title } = defineProps([
+const { isModalOpen, place, title, name } = defineProps([
   "isModalOpen",
   "place",
   "title",
+  "name",
 ]);
 const emit = defineEmits(["closeModal"]);
 </script>
