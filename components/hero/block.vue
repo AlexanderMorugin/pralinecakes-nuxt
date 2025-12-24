@@ -300,15 +300,15 @@
 @keyframes shop {
   0% {
     opacity: 0;
-    transform: translateX(200%);
+    transform: rotate(-5deg) translateX(200%);
   }
   90% {
     opacity: 0;
-    transform: translateX(200%);
+    transform: rotate(-5deg) translateX(200%);
   }
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: rotate(-5deg) translateX(0);
   }
 }
 

@@ -46,6 +46,10 @@ const { name } = defineProps(["name"]);
   border-radius: 8px;
   overflow: hidden;
 
+  &:hover {
+    animation: scale 1s ease;
+  }
+
   &_email {
     background: #005ff9;
   }
@@ -71,6 +75,18 @@ const { name } = defineProps(["name"]);
       width: 22px;
       height: 22px;
     }
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1.2);
+  }
+  30% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 </style>

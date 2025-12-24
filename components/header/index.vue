@@ -15,7 +15,7 @@
           />
         </div>
 
-        <Logo />
+        <Logo class="header__logo" />
 
         <div class="header__right">
           <div class="header__block">
@@ -216,6 +216,22 @@ const isPhoneModalOpen = ref(false);
 
   &__iconChat {
     animation: iconChat 1s ease;
+  }
+
+  &__logo {
+    animation: logo 3s ease;
+  }
+}
+
+@keyframes logo {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

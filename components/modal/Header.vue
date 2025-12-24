@@ -13,7 +13,8 @@
         <ButtonWithIcon name="close" @click="$emit('closeModal')" />
       </div>
 
-      <ConnectChat v-if="name === 'chat'" />
+      <ConnectPhoneForModal v-if="name === 'phone'" />
+      <ConnectChatForModal v-if="name === 'chat'" />
     </div>
   </div>
 </template>
