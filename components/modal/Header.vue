@@ -13,8 +13,9 @@
         <ButtonWithIcon name="close" @click="$emit('closeModal')" />
       </div>
 
-      <ConnectPhoneForModal v-if="name === 'phone'" />
-      <ConnectChatForModal v-if="name === 'chat'" />
+      <ModalMenu v-if="name === 'menu'" @closeModal="$emit('closeModal')" />
+      <ModalPhone v-if="name === 'phone'" />
+      <ModalChat v-if="name === 'chat'" />
     </div>
   </div>
 </template>
@@ -59,9 +60,6 @@ const emit = defineEmits(["closeModal"]);
     width: 100%;
     height: 100%;
     color: white;
-    // padding: 32px;
-
-    // border: 1px solid red;
   }
 
   &__top {
@@ -69,15 +67,12 @@ const emit = defineEmits(["closeModal"]);
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    // border: 1px solid red;
   }
 
   &__topTitle {
     font-family: "Roboto-Medium", sans-serif;
     font-size: 24px;
-    // line-height: 36px;
     text-transform: uppercase;
-    // text-align: center;
     letter-spacing: 12px;
 
     @media (max-width: 768px) {

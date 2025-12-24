@@ -1,0 +1,26 @@
+.modalElement {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  // background: var(--mask-secondary);
+  background: var(--gradient-modal-primary);
+  border-radius: var(--border-radius-l);
+  border: 1px solid var(--border-primary);
+  padding: 20px;
+
+  &_center {
+    justify-content: center;
+  }
+
+  &_left {
+    justify-content: flex-start;
+  }
+}
+
+.modalElementTitle {
+  font-family: "Roboto-Medium", sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--white-primary);
+}

@@ -6,12 +6,12 @@
           <ButtonWithIcon
             name="menu"
             class="header__iconMenu"
-            @click="isMenuModalOpen = true"
+            @click="openModal('menu')"
           />
           <ButtonWithIcon
             name="search"
             class="header__iconSearch"
-            @click="isSearchModalOpen = true"
+            @click="openModal('search')"
           />
         </div>
 
@@ -22,25 +22,25 @@
             <ButtonWithIcon
               name="phone"
               class="header__iconPhone"
-              @click="isPhoneModalOpen = true"
+              @click="openModal('phone')"
             />
             <ButtonWithIcon
               name="chat"
               class="header__iconChat"
-              @click="isChatModalOpen = true"
+              @click="openModal('chat')"
             />
           </div>
 
           <div class="header__block">
             <ButtonWithIcon
-              name="account"
+              name="profile"
               class="header__iconAccount"
-              @click="isProfileModalOpen = true"
+              @click="openModal('profile')"
             />
             <ButtonWithIcon
               name="cart"
               class="header__iconCart"
-              @click="isCartModalOpen = true"
+              @click="openModal('cart')"
             />
           </div>
         </div>
@@ -142,6 +142,57 @@ const isProfileModalOpen = ref(false);
 const isCartModalOpen = ref(false);
 const isChatModalOpen = ref(false);
 const isPhoneModalOpen = ref(false);
+
+const openModal = (name) => {
+  if (name === "menu") {
+    isMenuModalOpen.value = true;
+    isSearchModalOpen.value = false;
+    isProfileModalOpen.value = false;
+    isCartModalOpen.value = false;
+    isChatModalOpen.value = false;
+    isPhoneModalOpen.value = false;
+  }
+  if (name === "search") {
+    isMenuModalOpen.value = false;
+    isSearchModalOpen.value = true;
+    isProfileModalOpen.value = false;
+    isCartModalOpen.value = false;
+    isChatModalOpen.value = false;
+    isPhoneModalOpen.value = false;
+  }
+  if (name === "phone") {
+    isMenuModalOpen.value = false;
+    isSearchModalOpen.value = false;
+    isProfileModalOpen.value = false;
+    isCartModalOpen.value = false;
+    isChatModalOpen.value = false;
+    isPhoneModalOpen.value = true;
+  }
+  if (name === "profile") {
+    isMenuModalOpen.value = false;
+    isSearchModalOpen.value = false;
+    isProfileModalOpen.value = true;
+    isCartModalOpen.value = false;
+    isChatModalOpen.value = false;
+    isPhoneModalOpen.value = false;
+  }
+  if (name === "cart") {
+    isMenuModalOpen.value = false;
+    isSearchModalOpen.value = false;
+    isProfileModalOpen.value = false;
+    isCartModalOpen.value = true;
+    isChatModalOpen.value = false;
+    isPhoneModalOpen.value = false;
+  }
+  if (name === "chat") {
+    isMenuModalOpen.value = false;
+    isSearchModalOpen.value = false;
+    isProfileModalOpen.value = false;
+    isCartModalOpen.value = false;
+    isChatModalOpen.value = true;
+    isPhoneModalOpen.value = false;
+  }
+};
 </script>
 
 <style lang="scss" scoped>

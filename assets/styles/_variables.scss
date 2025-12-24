@@ -7,12 +7,22 @@
   --orange-primary: #ffac30;
 
   --deep-blue-primary: #081119;
+  --deep-blue-secondary: rgb(23, 44, 63);
 
   --mask-primary: rgba(0, 0, 0, 0.2);
   --mask-secondary: rgba(0, 0, 0, 0.6);
+  --mask-blue-primary: rgba(23, 44, 63, 0.2);
+  --mask-trasparent: rgba(0, 0, 0, 0);
 
-  --gradient--page-primary: linear-gradient(135deg, var(--orange-primary) 0%, var(--black-primary) 20%, #172c3f 100%);
-  // --gradient--page-secondary: linear-gradient(90deg, #5e431e 0%, #080e17 100%);
+  --gradient-page-primary: linear-gradient(
+    135deg,
+    var(--orange-primary) 0%,
+    var(--black-primary) 20%,
+    var(--deep-blue-secondary) 100%
+  );
+  --gradient-modal-primary: linear-gradient(135deg, var(--mask-primary) 0%, var(--mask-blue-primary) 100%);
+
+  --border-primary: rgba(255, 255, 255, 0.2);
 
   --border-radius-full: 50%;
   --border-radius-s: 8px;

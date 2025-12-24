@@ -26,16 +26,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--gradient--page-primary);
+    background: var(--gradient-page-primary);
     filter: blur(100px);
   }
-
-  // &__content {
-  //   padding-top: 80px;
-
-  //   @media (max-width: 768px) {
-  //     padding-top: 60px;
-  //   }
-  // }
 }
 </style>

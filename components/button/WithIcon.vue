@@ -12,7 +12,7 @@
     <IconDelete v-if="name === 'delete'" class="buttonWithIcon__icon" />
     <IconDelivery v-if="name === 'delivery'" class="buttonWithIcon__icon" />
     <IconPerson v-if="name === 'person'" class="buttonWithIcon__icon" />
-    <IconAccount v-if="name === 'account'" class="buttonWithIcon__icon" />
+    <IconAccount v-if="name === 'profile'" class="buttonWithIcon__icon" />
     <IconChat v-if="name === 'chat'" class="buttonWithIcon__icon" />
   </button>
 </template>
