@@ -24,8 +24,8 @@
     opacity: 0.8;
 
     @media (max-width: 768px) {
-      font-size: 14px;
-      letter-spacing: 2px;
+      font-size: 16px;
+      // letter-spacing: 2px;
     }
 
     @media (max-width: 390px) {
