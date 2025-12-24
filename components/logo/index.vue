@@ -1,0 +1,60 @@
+<template>
+  <div class="logo">
+    <span class="logo__title">Пралине</span>
+    <div class="logo__shopBox">
+      <span class="logo__shop">Shop</span>
+    </div>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.logo {
+  position: relative;
+  width: fit-content;
+
+  // border: 1px solid red;
+
+  &__title {
+    font-family: "Montserrat-SemiBold", sans-serif;
+    font-size: 20px;
+    color: var(--white-primary);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    animation: ascent-name 1.5s ease-in-out;
+    opacity: 0.8;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+      letter-spacing: 2px;
+    }
+
+    @media (max-width: 390px) {
+      font-size: 12px;
+      letter-spacing: 0;
+    }
+  }
+
+  &__shopBox {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    z-index: 3;
+    transform: rotate(-5deg);
+
+    @media (max-width: 768px) {
+      top: -7px;
+      right: -17px;
+    }
+  }
+
+  &__shop {
+    font-family: "Comfortaa-Bold", sans-serif;
+    font-size: 14px;
+    color: red;
+
+    @media (max-width: 390px) {
+      font-size: 12px;
+    }
+  }
+}
+</style>

@@ -168,7 +168,7 @@
     text-transform: uppercase;
     letter-spacing: 12px;
     animation: ascent-subname 1s ease-in-out;
-    opacity: 0.6;
+    opacity: 0.8;
 
     @media (max-width: 1440px) {
       letter-spacing: 6px;
@@ -217,7 +217,7 @@
     text-transform: uppercase;
     letter-spacing: 10px;
     animation: ascent-name 1.5s ease-in-out;
-    opacity: 0.7;
+    opacity: 0.9;
 
     @media (max-width: 1440px) {
       font-size: 60px;

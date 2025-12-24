@@ -15,6 +15,8 @@
           />
         </div>
 
+        <Logo />
+
         <div class="header__right">
           <div class="header__block">
             <ButtonWithIcon name="phone" class="header__iconPhone" />
@@ -118,7 +120,11 @@ const isCartModalOpen = ref(false);
     width: fit-content;
 
     @media (max-width: 768px) {
-      gap: 30px;
+      gap: 10px;
+    }
+
+    @media (max-width: 390px) {
+      gap: 0;
     }
   }
 

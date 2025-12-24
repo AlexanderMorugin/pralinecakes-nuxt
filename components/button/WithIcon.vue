@@ -33,9 +33,7 @@ const { name } = defineProps(["name"]);
     width: 32px;
     height: 32px;
     fill: var(--white-primary);
-    opacity: 0.7;
-    // fill: var(--orange-primary);
-
+    opacity: 0.9;
     transition: 0.2s ease;
 
     @media (max-width: 768px) {
