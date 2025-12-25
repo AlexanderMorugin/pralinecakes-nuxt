@@ -17,7 +17,7 @@
         >
       </NuxtLink>
       <div class="productListCard__priceBox">
-        <span class="productListCard__price">1860 &#8381;</span>
+        <span class="productListCard__price">1860 &#8381; (граммы)</span>
 
         <button class="productListCard__cartButton" @click="addToCart">
           <span class="productListCard__cartText">Купить</span>
@@ -120,6 +120,12 @@ const addToCart = () => {
       line-height: 36px;
       letter-spacing: 2px;
     }
+
+    @media (max-width: 768px) {
+      font-size: 22px;
+      line-height: 32px;
+      letter-spacing: 1px;
+    }
   }
 
   &__subtitle {
@@ -155,6 +161,10 @@ const addToCart = () => {
     font-size: 24px;
     color: var(--white-primary);
     letter-spacing: 2px;
+
+    @media (max-width: 1280px) {
+      font-size: 20px;
+    }
   }
 
   &__cartButton {
@@ -177,6 +187,11 @@ const addToCart = () => {
     height: 32px;
     fill: var(--white-primary);
     transition: 0.25s ease;
+
+    @media (max-width: 1280px) {
+      width: 24px;
+      height: 24px;
+    }
   }
 
   &__cartText {
@@ -207,15 +222,15 @@ const addToCart = () => {
 @keyframes slide-to-top {
   0% {
     opacity: 0;
-    transform: translateY(50%);
+    transform: scale(1) translateY(50%);
   }
   50% {
     opacity: 0;
-    transform: translateY(50%);
+    transform: scale(1) translateY(50%);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1) translateY(0);
   }
 }
 </style>

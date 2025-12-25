@@ -23,6 +23,10 @@ const { title } = defineProps(["title"]);
     padding-bottom: 40px;
   }
 
+  @media (max-width: 1280px) {
+    padding: 20px;
+  }
+
   &__title {
     font-family: "Montserrat-Bold", sans-serif;
     font-size: 80px;
@@ -35,7 +39,7 @@ const { title } = defineProps(["title"]);
       font-size: 60px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1280px) {
       font-size: 40px;
     }
 
