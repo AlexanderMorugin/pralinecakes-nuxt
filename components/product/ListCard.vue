@@ -43,7 +43,11 @@ const addToCart = () => {
   height: 700px;
   border: 1px solid var(--border-primary);
 
-  border: 1px solid red;
+  // border: 1px solid red;
+
+  @media (max-width: 1280px) {
+    height: 500px;
+  }
 
   &__overlay {
     position: absolute;
@@ -55,7 +59,7 @@ const addToCart = () => {
     backdrop-filter: blur(25px);
     mask: linear-gradient(rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 1) 60%);
     z-index: 1;
-    border: 1px solid red;
+    // border: 1px solid red;
   }
 
   &__imageBox {
@@ -67,13 +71,21 @@ const addToCart = () => {
     animation: slide-to-top 0.6s ease-in-out;
     overflow: hidden;
 
-    border: 1px solid red;
+    // border: 1px solid red;
+
+    @media (max-width: 1280px) {
+      height: 300px;
+    }
   }
   &__image {
     width: 100%;
     height: 450px;
     object-fit: cover;
     transition: 0.5s ease;
+
+    @media (max-width: 1280px) {
+      height: 300px;
+    }
   }
 
   &__details {
@@ -88,7 +100,12 @@ const addToCart = () => {
     flex-direction: column;
     gap: 20px;
     padding: 20px 40px;
-    border: 1px solid red;
+    // border: 1px solid red;
+
+    @media (max-width: 1280px) {
+      gap: 10px;
+      padding: 10px;
+    }
   }
 
   &__title {
@@ -97,6 +114,12 @@ const addToCart = () => {
     line-height: 42px;
     color: var(--white-primary);
     letter-spacing: 6px;
+
+    @media (max-width: 1280px) {
+      font-size: 24px;
+      line-height: 36px;
+      letter-spacing: 2px;
+    }
   }
 
   &__subtitle {
@@ -106,6 +129,13 @@ const addToCart = () => {
     color: var(--white-primary);
     letter-spacing: 2px;
     opacity: 0.8;
+
+    @media (max-width: 1280px) {
+      font-family: "Montserrat-Regular", sans-serif;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 1px;
+    }
   }
 
   &__priceBox {
@@ -113,7 +143,11 @@ const addToCart = () => {
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    border: 1px solid red;
+    // border: 1px solid red;
+
+    @media (max-width: 1280px) {
+      padding: 5px 10px;
+    }
   }
 
   &__price {
@@ -130,7 +164,12 @@ const addToCart = () => {
     // width: 132px;
     padding: 10px;
 
-    border: 1px solid red;
+    // border: 1px solid red;
+
+    @media (max-width: 1280px) {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
   }
 
   &__cartIcon {

@@ -15,6 +15,14 @@ const { title } = defineProps(["title"]);
   align-items: center;
   padding: 40px 20px 100px 20px;
 
+  @media (max-width: 1920px) {
+    padding: 20px 20px 60px 20px;
+  }
+
+  @media (max-width: 1440px) {
+    padding-bottom: 40px;
+  }
+
   &__title {
     font-family: "Montserrat-Bold", sans-serif;
     font-size: 80px;
@@ -23,7 +31,7 @@ const { title } = defineProps(["title"]);
     animation: fall-down 1s ease-in-out;
     opacity: 0.7;
 
-    @media (max-width: 1440px) {
+    @media (max-width: 1920px) {
       font-size: 60px;
     }
 
