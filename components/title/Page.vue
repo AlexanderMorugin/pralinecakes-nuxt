@@ -13,7 +13,7 @@ const { title } = defineProps(["title"]);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 40px 20px 100px 20px;
 
   &__title {
     font-family: "Montserrat-Bold", sans-serif;
