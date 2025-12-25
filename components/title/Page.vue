@@ -14,13 +14,11 @@ const { title } = defineProps(["title"]);
   justify-content: center;
   align-items: center;
   padding: 20px;
-  // border: 1px solid red;
 
   &__title {
     font-family: "Montserrat-Bold", sans-serif;
     font-size: 80px;
     color: var(--white-primary);
-    // text-transform: uppercase;
     letter-spacing: 6px;
     animation: fall-down 1s ease-in-out;
     opacity: 0.7;

@@ -22,6 +22,13 @@
   );
   --gradient-modal-primary: linear-gradient(135deg, var(--mask-primary) 0%, var(--mask-blue-primary) 100%);
 
+  --gradient-product-card-primary: linear-gradient(
+    to bottom,
+    var(--mask-trasparent) 0%,
+    var(--mask-trasparent) 30%,
+    var(--mask-secondary) 50%
+  );
+
   --border-primary: rgba(255, 255, 255, 0.2);
 
   --border-radius-full: 50%;

@@ -1,54 +1,52 @@
 <template>
-  <WrapperPadding>
-    <section class="heroBlock">
-      <div class="heroBlock__overlay" />
-      <picture>
-        <source
-          media="(max-width: 768px)"
-          srcSet="/images/hero/hero-3-768.webp"
-        />
-        <source
-          media="(max-width: 1280px)"
-          srcSet="/images/hero/hero-3-1280.webp"
-        />
-        <source
-          media="(max-width: 1920px)"
-          srcSet="/images/hero/hero-3-1920.webp"
-        />
-        <source
-          media="(max-width: 2560px)"
-          srcSet="/images/hero/hero-3-2560.webp"
-        />
-        <source
-          media="(max-width: 3840px)"
-          srcSet="/images/hero/hero-3-3840.webp"
-        />
-        <img
-          src="/images/hero/hero-3-768.webp"
-          alt="Кондитерская Пралине"
-          title="Кондитерская Пралине"
-          class="heroBlock__image"
-        />
-      </picture>
+  <section class="heroBlock">
+    <div class="heroBlock__overlay" />
+    <picture>
+      <source
+        media="(max-width: 768px)"
+        srcSet="/images/hero/hero-3-768.webp"
+      />
+      <source
+        media="(max-width: 1280px)"
+        srcSet="/images/hero/hero-3-1280.webp"
+      />
+      <source
+        media="(max-width: 1920px)"
+        srcSet="/images/hero/hero-3-1920.webp"
+      />
+      <source
+        media="(max-width: 2560px)"
+        srcSet="/images/hero/hero-3-2560.webp"
+      />
+      <source
+        media="(max-width: 3840px)"
+        srcSet="/images/hero/hero-3-3840.webp"
+      />
+      <img
+        src="/images/hero/hero-3-768.webp"
+        alt="Кондитерская Пралине"
+        title="Кондитерская Пралине"
+        class="heroBlock__image"
+      />
+    </picture>
 
-      <div class="heroBlock__subtitleBox">
-        <span class="heroBlock__subtitle">Производство и продажа тортов</span>
-      </div>
-      <div class="heroBlock__titleBox">
-        <div class="heroBlock__title">
-          <div class="heroBlock__titleSubnameBox">
-            <span class="heroBlock__titleSubname">Интернет-магазин</span>
-          </div>
-          <div class="heroBlock__titleNameBox">
-            <span class="heroBlock__titleName">Пралине</span>
-          </div>
+    <div class="heroBlock__subtitleBox">
+      <span class="heroBlock__subtitle">Производство и продажа тортов</span>
+    </div>
+    <div class="heroBlock__titleBox">
+      <div class="heroBlock__title">
+        <div class="heroBlock__titleSubnameBox">
+          <span class="heroBlock__titleSubname">Интернет-магазин</span>
+        </div>
+        <div class="heroBlock__titleNameBox">
+          <span class="heroBlock__titleName">Пралине</span>
         </div>
       </div>
-      <div class="heroBlock__shopBox">
-        <span class="heroBlock__shop">Shop</span>
-      </div>
-    </section>
-  </WrapperPadding>
+    </div>
+    <div class="heroBlock__shopBox">
+      <span class="heroBlock__shop">Shop</span>
+    </div>
+  </section>
 </template>
 
 <style lang="scss" scoped>

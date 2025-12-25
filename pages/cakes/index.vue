@@ -1,8 +1,8 @@
 <template>
-  <WrapperPage>
+  <WrapperPadding>
     <TitlePage title="Торты" />
     <ProductList list="cakesList" />
-  </WrapperPage>
+  </WrapperPadding>
 </template>
 
 <script setup>
