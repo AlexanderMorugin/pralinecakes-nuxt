@@ -13,7 +13,7 @@
 
   // border: 1px solid red;
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1600px) {
     padding-left: 10px;
     padding-right: 10px;
   }

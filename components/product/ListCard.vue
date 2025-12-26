@@ -24,7 +24,7 @@
                 ? 'productListCard__cartTextActive'
                 : 'productListCard__cartText'
             "
-            >{{ cartStatus ? "Добавлен" : "Купить" }}</span
+            >{{ cartStatus ? "В корзине" : "Купить" }}</span
           >
           <IconCart
             :class="[
@@ -62,7 +62,7 @@ const emit = defineEmits(["addToCart"]);
 
   // border: 1px solid red;
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1600px) {
     height: 500px;
   }
 
@@ -90,7 +90,7 @@ const emit = defineEmits(["addToCart"]);
 
     // border: 1px solid red;
 
-    @media (max-width: 1280px) {
+    @media (max-width: 1600px) {
       height: 300px;
     }
   }
@@ -100,7 +100,7 @@ const emit = defineEmits(["addToCart"]);
     object-fit: cover;
     transition: 0.5s ease;
 
-    @media (max-width: 1280px) {
+    @media (max-width: 1600px) {
       height: 300px;
     }
   }
@@ -119,7 +119,7 @@ const emit = defineEmits(["addToCart"]);
     padding: 20px 40px;
     // border: 1px solid red;
 
-    @media (max-width: 1280px) {
+    @media (max-width: 1600px) {
       gap: 10px;
       padding: 10px;
     }
@@ -137,7 +137,7 @@ const emit = defineEmits(["addToCart"]);
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
 
-    @media (max-width: 1280px) {
+    @media (max-width: 1600px) {
       font-size: 24px;
       line-height: 36px;
       letter-spacing: 2px;
@@ -163,7 +163,7 @@ const emit = defineEmits(["addToCart"]);
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
 
-    @media (max-width: 1280px) {
+    @media (max-width: 1600px) {
       font-family: "Montserrat-Regular", sans-serif;
       font-size: 16px;
       line-height: 24px;
@@ -178,8 +178,8 @@ const emit = defineEmits(["addToCart"]);
     padding: 20px 40px;
     // border: 1px solid red;
 
-    @media (max-width: 1280px) {
-      padding: 5px 10px;
+    @media (max-width: 1600px) {
+      padding: 10px;
     }
   }
 
@@ -196,7 +196,7 @@ const emit = defineEmits(["addToCart"]);
     color: var(--white-primary);
     letter-spacing: 2px;
 
-    @media (max-width: 1280px) {
+    @media (max-width: 1600px) {
       font-size: 20px;
     }
   }
@@ -205,10 +205,10 @@ const emit = defineEmits(["addToCart"]);
     font-family: "Montserrat-Regular", sans-serif;
     font-size: 16px;
     color: var(--white-primary);
-    letter-spacing: 2px;
+    // letter-spacing: 2px;
     opacity: 0.7;
 
-    @media (max-width: 1280px) {
+    @media (max-width: 1600px) {
       font-size: 14px;
     }
   }
@@ -222,7 +222,7 @@ const emit = defineEmits(["addToCart"]);
 
     // border: 1px solid red;
 
-    @media (max-width: 1280px) {
+    @media (max-width: 1600px) {
       padding-top: 5px;
       padding-bottom: 5px;
     }
@@ -234,7 +234,7 @@ const emit = defineEmits(["addToCart"]);
     fill: var(--white-primary);
     transition: 0.25s ease;
 
-    @media (max-width: 1280px) {
+    @media (max-width: 1600px) {
       width: 24px;
       height: 24px;
     }

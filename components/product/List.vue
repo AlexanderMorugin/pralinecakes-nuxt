@@ -77,7 +77,7 @@ const addToCart = (id) => {
   row-gap: 50px;
   // border: 1px solid red;
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1600px) {
     column-gap: 10px;
   }
 
