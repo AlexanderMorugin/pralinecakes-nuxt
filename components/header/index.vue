@@ -207,7 +207,7 @@ const openModal = (name) => {
   backdrop-filter: blur(15px) grayscale(50%);
   z-index: 3;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 767px) {
     height: 60px;
   }
 
@@ -230,11 +230,11 @@ const openModal = (name) => {
     gap: 50px;
     width: fit-content;
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       gap: 10px;
     }
 
-    @media (max-width: 390px) {
+    @media (max-width: 576px) {
       gap: 0;
     }
   }

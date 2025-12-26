@@ -36,7 +36,7 @@ const { name } = defineProps(["name"]);
     opacity: 0.9;
     transition: 0.2s ease;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 767px) {
       width: 24px;
       height: 24px;
     }
