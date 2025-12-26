@@ -2,26 +2,36 @@
   <div class="productListCard">
     <NuxtLink to="/" class="productListCard__overlay"></NuxtLink>
     <div class="productListCard__imageBox">
-      <img
-        src="/images/cakes/truffle-cake-1-800-533.webp"
-        alt="Card"
-        class="productListCard__image"
-      />
+      <img :src="image" :alt="name" class="productListCard__image" />
     </div>
     <div class="productListCard__details">
       <NuxtLink to="/" class="productListCard__titleBox">
-        <h2 class="productListCard__title">Торт «Воздушно-ореховый»</h2>
-        <span class="productListCard__subtitle"
-          >Самый шоколадный и один из самых нежных десертов нашей
-          кондитерской.</span
-        >
+        <h2 class="productListCard__title">
+          {{ name }}
+        </h2>
+        <span class="productListCard__subtitle">{{ description }}</span>
       </NuxtLink>
       <div class="productListCard__priceBox">
-        <span class="productListCard__price">1860 &#8381; (граммы)</span>
+        <div class="productListCard__left">
+          <span class="productListCard__price">{{ price }} &#8381;</span>
+          <span class="productListCard__weigth">( {{ weigth }} гр )</span>
+        </div>
 
-        <button class="productListCard__cartButton" @click="addToCart">
-          <span class="productListCard__cartText">Купить</span>
-          <IconCart class="productListCard__cartIcon" />
+        <button class="productListCard__cartButton" @click="$emit('addToCart')">
+          <span
+            :class="
+              cartStatus
+                ? 'productListCard__cartTextActive'
+                : 'productListCard__cartText'
+            "
+            >{{ cartStatus ? "Добавлен" : "Купить" }}</span
+          >
+          <IconCart
+            :class="[
+              'productListCard__cartIcon',
+              { productListCard__cartIcon_active: cartStatus },
+            ]"
+          />
         </button>
       </div>
     </div>
@@ -29,9 +39,16 @@
 </template>
 
 <script setup>
-const addToCart = () => {
-  console.log("addToCart");
-};
+const { image, name, description, price, weigth, cartStatus } = defineProps([
+  "image",
+  "name",
+  "description",
+  "price",
+  "weigth",
+  "cartStatus",
+]);
+
+const emit = defineEmits(["addToCart"]);
 </script>
 
 <style lang="scss" scoped>
@@ -114,6 +131,11 @@ const addToCart = () => {
     line-height: 42px;
     color: var(--white-primary);
     letter-spacing: 6px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
 
     @media (max-width: 1280px) {
       font-size: 24px;
@@ -135,6 +157,11 @@ const addToCart = () => {
     color: var(--white-primary);
     letter-spacing: 2px;
     opacity: 0.8;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
 
     @media (max-width: 1280px) {
       font-family: "Montserrat-Regular", sans-serif;
@@ -156,6 +183,13 @@ const addToCart = () => {
     }
   }
 
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: fit-content;
+  }
+
   &__price {
     font-family: "Montserrat-Medium", sans-serif;
     font-size: 24px;
@@ -167,12 +201,24 @@ const addToCart = () => {
     }
   }
 
+  &__weigth {
+    font-family: "Montserrat-Regular", sans-serif;
+    font-size: 16px;
+    color: var(--white-primary);
+    letter-spacing: 2px;
+    opacity: 0.7;
+
+    @media (max-width: 1280px) {
+      font-size: 14px;
+    }
+  }
+
   &__cartButton {
     display: flex;
     align-items: center;
     gap: 5px;
     // width: 132px;
-    padding: 10px;
+    // padding: 10px;
 
     // border: 1px solid red;
 
@@ -192,6 +238,10 @@ const addToCart = () => {
       width: 24px;
       height: 24px;
     }
+
+    &_active {
+      fill: var(--orange-primary);
+    }
   }
 
   &__cartText {
@@ -203,6 +253,14 @@ const addToCart = () => {
     opacity: 0;
     transform: translateX(36px);
     transition: 0.1s ease;
+  }
+
+  &__cartTextActive {
+    font-family: "Roboto-Regular", sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: var(--orange-primary);
+    letter-spacing: 3px;
   }
 }
 
