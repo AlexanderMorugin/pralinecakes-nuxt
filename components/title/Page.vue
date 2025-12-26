@@ -23,8 +23,12 @@ const { title } = defineProps(["title"]);
   //   padding-bottom: 40px;
   // }
 
-  @media (max-width: 1280px) {
-    padding: 20px;
+  @media (max-width: 768px) {
+    padding: 40px 20px;
+  }
+
+  @media (max-width: 576px) {
+    padding: 20px 10px;
   }
 
   &__title {

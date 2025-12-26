@@ -37,12 +37,22 @@
   --border-radius-l: 14px;
   --border-radius-xl: 16px;
 
+  // desktop
   --screen-4k: 3840px; // h-2160
   --screen-2k: 2560px; // h-1440
   --screen-hd: 1920px; // h-1080
+
+  // laptop
+  --screen-xxl: 1600px; // h-900
   --screen-xl: 1440px; // h-900
-  --screen-l: 1280px; // h-720
-  --screen-m: 1024px; // h-600
-  --screen-s: 768px; // h-375
-  --screen-xs: 475px;
+  --screen-l: 1280px; // h-800
+  --screen-m: 1024px; // h-768
+  --screen-s: 768px; // h-1024
+
+  // smartphone
+  --screen-xs: 428px; // h-926
+  --screen-xs: 414px; // h-736
+  --screen-xs: 390px; // h-844
+  --screen-xs: 375px; // h-667
+  --screen-xs: 320px; // h-480
 }

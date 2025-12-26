@@ -86,7 +86,7 @@ const addToCart = (id) => {
     column-gap: 5px;
   }
 
-  @media (max-width: 390px) {
+  @media (max-width: 576px) {
     grid-template-columns: 1fr;
   }
 }
