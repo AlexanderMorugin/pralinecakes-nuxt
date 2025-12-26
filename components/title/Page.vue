@@ -23,13 +23,13 @@ const { title } = defineProps(["title"]);
   //   padding-bottom: 40px;
   // }
 
-  @media (max-width: 768px) {
-    padding: 40px 20px;
-  }
-
-  @media (max-width: 576px) {
+  @media (max-width: 1024px) {
     padding: 20px 10px;
   }
+
+  // @media (max-width: 576px) {
+  //   padding: 20px 10px;
+  // }
 
   &__title {
     font-family: "Montserrat-Bold", sans-serif;
@@ -48,12 +48,12 @@ const { title } = defineProps(["title"]);
     }
 
     @media (max-width: 576px) {
-      font-size: 36px;
-    }
-
-    @media (max-width: 390px) {
       font-size: 28px;
     }
+
+    // @media (max-width: 390px) {
+    //   font-size: 28px;
+    // }
   }
 }
 
