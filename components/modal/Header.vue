@@ -41,7 +41,7 @@ const emit = defineEmits(["closeModal"]);
   padding: 20px;
   z-index: 10;
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     width: 100%;
   }
 
@@ -75,7 +75,7 @@ const emit = defineEmits(["closeModal"]);
     text-transform: uppercase;
     letter-spacing: 12px;
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       font-size: 18px;
     }
   }

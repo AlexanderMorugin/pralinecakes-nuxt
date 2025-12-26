@@ -21,11 +21,11 @@
     animation: ascent-name 1.5s ease-in-out;
     opacity: 0.8;
 
-    @media (max-width: 767px) {
-      font-size: 16px;
-    }
+    // @media (max-width: 767px) {
+    //   font-size: 16px;
+    // }
 
-    @media (max-width: 576px) {
+    @media (max-width: 767px) {
       font-size: 12px;
       letter-spacing: 0;
     }
@@ -49,7 +49,7 @@
     font-size: 14px;
     color: red;
 
-    @media (max-width: 576px) {
+    @media (max-width: 767px) {
       font-size: 12px;
     }
   }

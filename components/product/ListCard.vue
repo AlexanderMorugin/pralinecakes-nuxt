@@ -120,6 +120,10 @@ const emit = defineEmits(["addToCart"]);
     // border: 1px solid red;
 
     @media (max-width: 1600px) {
+      padding: 20px 20px 10px 20px;
+    }
+
+    @media (max-width: 1024px) {
       gap: 10px;
       padding: 10px;
     }
@@ -130,7 +134,7 @@ const emit = defineEmits(["addToCart"]);
     font-size: 28px;
     line-height: 42px;
     color: var(--white-primary);
-    letter-spacing: 6px;
+    letter-spacing: 2px;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -140,10 +144,10 @@ const emit = defineEmits(["addToCart"]);
     @media (max-width: 1600px) {
       font-size: 24px;
       line-height: 36px;
-      letter-spacing: 2px;
+      // letter-spacing: 2px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       font-size: 22px;
       line-height: 32px;
       letter-spacing: 1px;
@@ -179,7 +183,12 @@ const emit = defineEmits(["addToCart"]);
     // border: 1px solid red;
 
     @media (max-width: 1600px) {
-      padding: 10px;
+      // padding-top: 10px;
+      padding: 10px 20px 20px 20px;
+    }
+
+    @media (max-width: 1024px) {
+      padding: 10px 10px 20px 10px;
     }
   }
 
@@ -188,6 +197,10 @@ const emit = defineEmits(["addToCart"]);
     align-items: center;
     gap: 20px;
     width: fit-content;
+
+    @media (max-width: 1600px) {
+      gap: 10px;
+    }
   }
 
   &__price {
@@ -198,6 +211,10 @@ const emit = defineEmits(["addToCart"]);
 
     @media (max-width: 1600px) {
       font-size: 20px;
+    }
+
+    @media (max-width: 1024px) {
+      letter-spacing: 1px;
     }
   }
 
@@ -210,6 +227,10 @@ const emit = defineEmits(["addToCart"]);
 
     @media (max-width: 1600px) {
       font-size: 14px;
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 12px;
     }
   }
 
@@ -253,6 +274,11 @@ const emit = defineEmits(["addToCart"]);
     opacity: 0;
     transform: translateX(36px);
     transition: 0.1s ease;
+
+    @media (max-width: 1600px) {
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
   }
 
   &__cartTextActive {
@@ -261,6 +287,11 @@ const emit = defineEmits(["addToCart"]);
     text-transform: uppercase;
     color: var(--orange-primary);
     letter-spacing: 3px;
+
+    @media (max-width: 1600px) {
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
   }
 }
 

@@ -20,7 +20,7 @@
 const cakes = ref([
   {
     id: 1,
-    image: "/images/cakes/blueberry-cake-1-500-333.webp",
+    image: "/images/cakes/almond-prune-cake-1-600-400.webp",
     name: 'Торт «Воздушно-ореховый-ореховый-ореховый-ореховый»"',
     description:
       "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
@@ -30,7 +30,7 @@ const cakes = ref([
   },
   {
     id: 2,
-    image: "/images/cakes/banana-cake-1-500-333.webp",
+    image: "/images/cakes/carrot-cake-1-600-400.webp",
     name: 'Торт «Воздушно-ореховый-ореховый-ореховый-ореховый»"',
     description:
       "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
@@ -40,7 +40,7 @@ const cakes = ref([
   },
   {
     id: 3,
-    image: "/images/cakes/almond-prune-cake-1-500-333.webp",
+    image: "/images/cakes/coconut-cake-1-600-400.webp",
     name: 'Торт «Воздушно-ореховый-ореховый-ореховый-ореховый»"',
     description:
       "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
@@ -50,7 +50,7 @@ const cakes = ref([
   },
   {
     id: 4,
-    image: "/images/cakes/truffle-cake-1-500-333.webp",
+    image: "/images/cakes/esterhazy-cake-1-600-400.webp",
     name: 'Торт «Воздушно-ореховый-ореховый-ореховый-ореховый»"',
     description:
       "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
@@ -81,8 +81,13 @@ const addToCart = (id) => {
     column-gap: 10px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
+    // column-gap: 5px;
+  }
+
+  @media (max-width: 767px) {
+    // grid-template-columns: repeat(2, 1fr);
     column-gap: 5px;
   }
 
