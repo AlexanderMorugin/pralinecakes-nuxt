@@ -207,7 +207,7 @@ const openModal = (name) => {
   backdrop-filter: blur(15px) grayscale(50%);
   z-index: 3;
 
-  @media (max-width: 1280px) {
+  @media (max-width: 1024px) {
     height: 60px;
   }
 
