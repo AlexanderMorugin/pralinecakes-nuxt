@@ -66,6 +66,10 @@ const emit = defineEmits(["addToCart"]);
     height: 500px;
   }
 
+  @media (max-width: 767px) {
+    height: 420px;
+  }
+
   &__overlay {
     position: absolute;
     top: 0;
@@ -93,6 +97,10 @@ const emit = defineEmits(["addToCart"]);
     @media (max-width: 1600px) {
       height: 300px;
     }
+
+    @media (max-width: 767px) {
+      height: 260px;
+    }
   }
   &__image {
     width: 100%;
@@ -102,6 +110,14 @@ const emit = defineEmits(["addToCart"]);
 
     @media (max-width: 1600px) {
       height: 300px;
+    }
+
+    @media (max-width: 767px) {
+      height: 260px;
+    }
+
+    @media (max-width: 576px) {
+      height: 230px;
     }
   }
 
@@ -120,12 +136,13 @@ const emit = defineEmits(["addToCart"]);
     // border: 1px solid red;
 
     @media (max-width: 1600px) {
-      padding: 20px 20px 10px 20px;
+      // padding: 20px 20px 10px 20px;
+      padding: 20px;
     }
 
     @media (max-width: 1024px) {
       gap: 10px;
-      padding: 10px;
+      padding: 10px 10px 20px 10px;
     }
   }
 
@@ -152,6 +169,12 @@ const emit = defineEmits(["addToCart"]);
       line-height: 32px;
       letter-spacing: 1px;
     }
+
+    @media (max-width: 767px) {
+      font-size: 18px;
+      line-height: 26px;
+      letter-spacing: 0;
+    }
   }
 
   &__subtitle {
@@ -173,22 +196,41 @@ const emit = defineEmits(["addToCart"]);
       line-height: 24px;
       letter-spacing: 1px;
     }
+
+    @media (max-width: 767px) {
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 0;
+    }
   }
 
   &__priceBox {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
+    flex-direction: column;
+    // justify-content: space-between;
+    // align-items: center;
+    gap: 20px;
+    padding: 0 40px 20px 40px;
     // border: 1px solid red;
 
     @media (max-width: 1600px) {
+      // gap: 10px;
       // padding-top: 10px;
-      padding: 10px 20px 20px 20px;
+      // padding: 10px 20px 20px 20px;
+      padding: 0 20px 20px 20px;
     }
 
     @media (max-width: 1024px) {
-      padding: 10px 10px 20px 10px;
+      // padding: 10px 10px 20px 10px;
+      padding: 0 10px 10px 10px;
+    }
+
+    @media (max-width: 767px) {
+      // flex-direction: column;
+      // align-items: flex-start;
+      // gap: 10px;
+      padding-top: 0;
+      padding-bottom: 10px;
     }
   }
 
@@ -197,6 +239,7 @@ const emit = defineEmits(["addToCart"]);
     align-items: center;
     gap: 20px;
     width: fit-content;
+    // border: 1px solid red;
 
     @media (max-width: 1600px) {
       gap: 10px;
@@ -208,6 +251,7 @@ const emit = defineEmits(["addToCart"]);
     font-size: 24px;
     color: var(--white-primary);
     letter-spacing: 2px;
+    // border: 1px solid red;
 
     @media (max-width: 1600px) {
       font-size: 20px;
@@ -215,6 +259,12 @@ const emit = defineEmits(["addToCart"]);
 
     @media (max-width: 1024px) {
       letter-spacing: 1px;
+    }
+
+    @media (max-width: 767px) {
+      font-size: 18px;
+      // line-height: 22px;
+      letter-spacing: 0;
     }
   }
 
@@ -238,14 +288,23 @@ const emit = defineEmits(["addToCart"]);
     display: flex;
     align-items: center;
     gap: 5px;
+    height: 60px;
+    background: var(--orange-primary);
+    border-radius: var(--border-radius-xs);
     // width: 132px;
     // padding: 10px;
+    // border: 1px solid red;
 
     // border: 1px solid red;
 
     @media (max-width: 1600px) {
+      height: 50px;
       padding-top: 5px;
       padding-bottom: 5px;
+    }
+
+    @media (max-width: 767px) {
+      width: 100%;
     }
   }
 
