@@ -39,6 +39,7 @@ const emit = defineEmits(["increment"]);
   &__cartText {
     font-family: "Roboto-Regular", sans-serif;
     font-size: 14px;
+    line-height: 18px;
     text-transform: uppercase;
     color: var(--white-primary);
     letter-spacing: 2px;
