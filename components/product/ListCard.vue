@@ -17,7 +17,18 @@
           <span class="productListCard__weigth">( {{ weigth }} гр )</span>
         </div>
 
-        <ButtonCart :cartStatus="cartStatus" @addToCart="$emit('addToCart')" />
+        <div
+          :class="[
+            'productListCard__buttonCartBlock',
+            { productListCard__buttonCartBlock_active: cartStatus },
+          ]"
+        >
+          <ButtonCart
+            :cartStatus="cartStatus"
+            @addToCart="$emit('addToCart')"
+          />
+          <ButtonCounter v-if="cartStatus" />
+        </div>
       </div>
     </div>
   </div>
@@ -243,6 +254,21 @@ const emit = defineEmits(["addToCart"]);
 
     @media (max-width: 1024px) {
       font-size: 12px;
+    }
+  }
+
+  &__buttonCartBlock {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 10px;
+    height: 60px;
+
+    @media (max-width: 1600px) {
+      height: 50px;
+    }
+
+    &_active {
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 }

@@ -6,7 +6,6 @@
     <span class="buttonCart__cartText">{{
       cartStatus ? "В корзине" : "В корзину"
     }}</span>
-    <IconCart class="buttonCart__cartIcon" />
   </button>
 </template>
 
@@ -21,13 +20,11 @@ const emit = defineEmits(["addToCart"]);
   justify-content: center;
   align-items: center;
   gap: 10px;
-  width: 100%;
-  height: 60px;
+  height: 100%;
   background: var(--button-blue-primary);
   border-radius: var(--border-radius-xs);
 
   @media (max-width: 1600px) {
-    height: 50px;
     padding-top: 5px;
     padding-bottom: 5px;
   }
@@ -40,13 +37,6 @@ const emit = defineEmits(["addToCart"]);
     background: var(--orange-secondary);
   }
 
-  &__cartIcon {
-    width: 24px;
-    height: 24px;
-    fill: var(--white-primary);
-    // transition: 0.25s ease;
-  }
-
   &__cartText {
     font-family: "Roboto-Regular", sans-serif;
     font-size: 14px;
@@ -55,13 +45,4 @@ const emit = defineEmits(["addToCart"]);
     letter-spacing: 2px;
   }
 }
-
-// .productListCard__cartButton:hover .productListCard__cartText {
-//   opacity: 1;
-//   transform: translateX(0);
-// }
-
-// .productListCard__cartButton:hover .productListCard__cartIcon {
-//   fill: var(--orange-primary);
-// }
 </style>
