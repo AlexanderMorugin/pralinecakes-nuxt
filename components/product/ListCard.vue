@@ -17,22 +17,7 @@
           <span class="productListCard__weigth">( {{ weigth }} гр )</span>
         </div>
 
-        <button class="productListCard__cartButton" @click="$emit('addToCart')">
-          <span
-            :class="
-              cartStatus
-                ? 'productListCard__cartTextActive'
-                : 'productListCard__cartText'
-            "
-            >{{ cartStatus ? "В корзине" : "Купить" }}</span
-          >
-          <IconCart
-            :class="[
-              'productListCard__cartIcon',
-              { productListCard__cartIcon_active: cartStatus },
-            ]"
-          />
-        </button>
+        <ButtonCart :cartStatus="cartStatus" @addToCart="$emit('addToCart')" />
       </div>
     </div>
   </div>
@@ -260,79 +245,6 @@ const emit = defineEmits(["addToCart"]);
       font-size: 12px;
     }
   }
-
-  &__cartButton {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    height: 60px;
-    background: var(--button-blue-primary);
-    border-radius: var(--border-radius-xs);
-
-    @media (max-width: 1600px) {
-      height: 50px;
-      padding-top: 5px;
-      padding-bottom: 5px;
-    }
-
-    @media (max-width: 767px) {
-      width: 100%;
-    }
-  }
-
-  &__cartIcon {
-    width: 32px;
-    height: 32px;
-    fill: var(--white-primary);
-    transition: 0.25s ease;
-
-    @media (max-width: 1600px) {
-      width: 24px;
-      height: 24px;
-    }
-
-    &_active {
-      fill: var(--orange-primary);
-    }
-  }
-
-  &__cartText {
-    font-family: "Roboto-Regular", sans-serif;
-    font-size: 14px;
-    text-transform: uppercase;
-    color: var(--white-primary);
-    letter-spacing: 3px;
-    opacity: 0;
-    transform: translateX(36px);
-    transition: 0.1s ease;
-
-    @media (max-width: 1600px) {
-      font-size: 12px;
-      letter-spacing: 1px;
-    }
-  }
-
-  &__cartTextActive {
-    font-family: "Roboto-Regular", sans-serif;
-    font-size: 14px;
-    text-transform: uppercase;
-    color: var(--orange-primary);
-    letter-spacing: 3px;
-
-    @media (max-width: 1600px) {
-      font-size: 12px;
-      letter-spacing: 1px;
-    }
-  }
-}
-
-.productListCard__cartButton:hover .productListCard__cartText {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.productListCard__cartButton:hover .productListCard__cartIcon {
-  fill: var(--orange-primary);
 }
 
 @keyframes slide-to-top {
