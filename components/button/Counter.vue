@@ -49,7 +49,7 @@ const emit = defineEmits(["increment", "decrement"]);
   &__icon {
     width: 20px;
     height: 20px;
-    fill: var(--button-blue-primary);
+    fill: var(--gradient-button-blue-primary);
   }
 
   &__numberBox {

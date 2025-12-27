@@ -20,7 +20,7 @@ const emit = defineEmits(["increment"]);
   align-items: center;
   gap: 10px;
   height: 100%;
-  background: var(--button-blue-primary);
+  background: var(--gradient-button-blue-primary);
   border-radius: var(--border-radius-xs);
 
   @media (max-width: 1600px) {
@@ -33,7 +33,7 @@ const emit = defineEmits(["increment"]);
   }
 
   &_active {
-    background: var(--orange-secondary);
+    background: var(--gradient-button-orange-primary);
   }
 
   &__cartText {
