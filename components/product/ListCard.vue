@@ -262,11 +262,11 @@ const emit = defineEmits(["increment", "decrement"]);
     display: grid;
     grid-template-columns: 1fr;
     column-gap: 10px;
-    height: 60px;
+    height: 50px;
 
-    @media (max-width: 1600px) {
-      height: 50px;
-    }
+    // @media (max-width: 1600px) {
+    //   height: 50px;
+    // }
 
     &_active {
       grid-template-columns: repeat(2, 1fr);

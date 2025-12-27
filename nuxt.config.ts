@@ -10,4 +10,30 @@ export default defineNuxtConfig({
   ],
 
   modules: ["@nuxt/fonts", "@pinia/nuxt"],
+  router: {
+    options: {
+      scrollBehaviorType: "smooth",
+    },
+  },
+  app: {
+    // pageTransition: { name: "page", mode: "out-in" },
+    // layoutTransition: { name: "layout", mode: "out-in" },
+    head: {
+      title: "Пралине Shop",
+      meta: [
+        {
+          name: "viewport",
+          content:
+            "width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no",
+        },
+        {
+          name: "description",
+          content: "Пралине Shop Пралине Shop Пралине Shop",
+        },
+      ],
+      htmlAttrs: {
+        lang: "ru",
+      },
+    },
+  },
 });
