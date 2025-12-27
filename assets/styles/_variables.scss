@@ -4,14 +4,17 @@
   --black-primary: #080c14;
   --black-secondary: #000000;
 
-  --orange-primary: #ffac30;
+  --orange-primary: rgb(255, 172, 48);
 
   --deep-blue-primary: #081119;
-  --deep-blue-secondary: rgb(23, 44, 63);
+  --deep-blue-secondary: #172c3f;
+
+  --button-blue-primary: rgb(50, 96, 138);
 
   --mask-primary: rgba(0, 0, 0, 0.2);
   --mask-secondary: rgba(0, 0, 0, 0.6);
   --mask-blue-primary: rgba(23, 44, 63, 0.2);
+  // --mask-blue-secondary: rgba(50, 96, 138, 0.6);
   --mask-trasparent: rgba(0, 0, 0, 0);
 
   --gradient-page-primary: linear-gradient(
