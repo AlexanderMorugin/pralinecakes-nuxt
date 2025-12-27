@@ -59,6 +59,8 @@ const emit = defineEmits(["addToCart"]);
   width: 100%;
   height: 700px;
   border: 1px solid var(--border-primary);
+  border-radius: var(--border-radius-s);
+  overflow: hidden;
 
   // border: 1px solid red;
 
@@ -77,10 +79,15 @@ const emit = defineEmits(["addToCart"]);
     width: 100%;
     height: 100%;
     background: var(--gradient-product-card-primary);
-    backdrop-filter: blur(25px);
+    backdrop-filter: blur(1000px);
     mask: linear-gradient(rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 1) 60%);
     z-index: 1;
     // border: 1px solid red;
+
+    @media (max-width: 1600px) {
+      // backdrop-filter: blur(500px);
+      mask: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 60%);
+    }
   }
 
   &__imageBox {
@@ -102,11 +109,12 @@ const emit = defineEmits(["addToCart"]);
       height: 260px;
     }
   }
+
   &__image {
     width: 100%;
     height: 450px;
     object-fit: cover;
-    transition: 0.5s ease;
+    // transition: 0.5s ease;
 
     @media (max-width: 1600px) {
       height: 300px;
@@ -116,9 +124,9 @@ const emit = defineEmits(["addToCart"]);
       height: 260px;
     }
 
-    @media (max-width: 576px) {
-      height: 230px;
-    }
+    // @media (max-width: 576px) {
+    //   height: 230px;
+    // }
   }
 
   &__details {
@@ -159,16 +167,16 @@ const emit = defineEmits(["addToCart"]);
     text-overflow: ellipsis;
 
     @media (max-width: 1600px) {
-      font-size: 24px;
-      line-height: 36px;
-      // letter-spacing: 2px;
-    }
-
-    @media (max-width: 1024px) {
       font-size: 22px;
       line-height: 32px;
       letter-spacing: 1px;
     }
+
+    // @media (max-width: 1024px) {
+    //   font-size: 22px;
+    //   line-height: 32px;
+    //   letter-spacing: 1px;
+    // }
 
     @media (max-width: 767px) {
       font-size: 18px;
@@ -354,9 +362,9 @@ const emit = defineEmits(["addToCart"]);
   }
 }
 
-.productListCard:hover .productListCard__image {
-  transform: scale(1.1);
-}
+// .productListCard:hover .productListCard__image {
+//   transform: scale(1.1);
+// }
 
 .productListCard__cartButton:hover .productListCard__cartText {
   opacity: 1;
