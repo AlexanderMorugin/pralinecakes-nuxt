@@ -1,15 +1,16 @@
 <template>
   <WrapperSection>
     <ul class="productList">
-      <li v-for="item in cakes" :key="item.id">
+      <li v-for="item in cakesStore.cakes" :key="item.id">
         <ProductListCard
           :image="item.image"
           :name="item.name"
           :description="item.description"
           :price="item.price"
           :weigth="item.weigth"
-          :cartStatus="item.cartStatus"
-          @addToCart="addToCart(item.id)"
+          :quantity="item.quantity"
+          @increment="cakesStore.increment(item.id)"
+          @decrement="cakesStore.decrement(item.id)"
         />
       </li>
     </ul>
@@ -17,56 +18,7 @@
 </template>
 
 <script setup>
-const cakes = ref([
-  {
-    id: 1,
-    image: "/images/cakes/almond-prune-cake-1-600-400.webp",
-    name: "Торт «Воздушно-ореховый»",
-    description:
-      "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
-    price: 1860,
-    weigth: 1640,
-    cartStatus: false,
-  },
-  {
-    id: 2,
-    image: "/images/cakes/carrot-cake-1-600-400.webp",
-    name: "Торт «Воздушно-ореховый-ореховый-ореховый-ореховый»",
-    description:
-      "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
-    price: 1860,
-    weigth: 1640,
-    cartStatus: false,
-  },
-  {
-    id: 3,
-    image: "/images/cakes/coconut-cake-1-600-400.webp",
-    name: "Торт «Воздушно-ореховый-ореховый-ореховый-ореховый»",
-    description:
-      "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
-    price: 1860,
-    weigth: 1640,
-    cartStatus: false,
-  },
-  {
-    id: 4,
-    image: "/images/cakes/esterhazy-cake-1-600-400.webp",
-    name: "Торт «Воздушно-ореховый-ореховый-ореховый-ореховый»",
-    description:
-      "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
-    price: 1860,
-    weigth: 1640,
-    cartStatus: false,
-  },
-]);
-
-const addToCart = (id) => {
-  console.log("addToCart", id);
-
-  cakes.value = cakes.value.map((item) =>
-    item.id === id ? { ...item, cartStatus: true } : item
-  );
-};
+const cakesStore = useCakesStore();
 </script>
 
 <style lang="scss" scoped>

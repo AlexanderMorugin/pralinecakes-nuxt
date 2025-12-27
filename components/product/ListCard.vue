@@ -16,18 +16,19 @@
           <span class="productListCard__price">{{ price }} &#8381;</span>
           <span class="productListCard__weigth">( {{ weigth }} гр )</span>
         </div>
-
         <div
           :class="[
             'productListCard__buttonCartBlock',
-            { productListCard__buttonCartBlock_active: cartStatus },
+            { productListCard__buttonCartBlock_active: quantity > 0 },
           ]"
         >
-          <ButtonCart
-            :cartStatus="cartStatus"
-            @addToCart="$emit('addToCart')"
+          <ButtonCart :quantity="quantity" @increment="$emit('increment')" />
+          <ButtonCounter
+            v-if="quantity > 0"
+            :quantity="quantity"
+            @increment="$emit('increment')"
+            @decrement="$emit('decrement')"
           />
-          <ButtonCounter v-if="cartStatus" />
         </div>
       </div>
     </div>
@@ -35,16 +36,16 @@
 </template>
 
 <script setup>
-const { image, name, description, price, weigth, cartStatus } = defineProps([
+const { image, name, description, price, weigth, quantity } = defineProps([
   "image",
   "name",
   "description",
   "price",
   "weigth",
-  "cartStatus",
+  "quantity",
 ]);
 
-const emit = defineEmits(["addToCart"]);
+const emit = defineEmits(["increment", "decrement"]);
 </script>
 
 <style lang="scss" scoped>

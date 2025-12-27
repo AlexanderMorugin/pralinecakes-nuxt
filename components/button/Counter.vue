@@ -1,18 +1,27 @@
 <template>
   <div class="buttonCounter">
-    <button class="buttonCounter__button buttonCounter__button_left">
+    <button
+      class="buttonCounter__button buttonCounter__button_left"
+      @click="$emit('decrement')"
+    >
       <IconMinus class="buttonCounter__icon" />
     </button>
     <div class="buttonCounter__numberBox">
-      <span class="buttonCounter__number">120</span>
+      <span class="buttonCounter__number">{{ quantity }}</span>
     </div>
-    <button class="buttonCounter__button buttonCounter__button_right">
+    <button
+      class="buttonCounter__button buttonCounter__button_right"
+      @click="$emit('increment')"
+    >
       <IconPlus class="buttonCounter__icon" />
     </button>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const { quantity } = defineProps(["quantity"]);
+const emit = defineEmits(["increment", "decrement"]);
+</script>
 
 <style lang="scss" scoped>
 .buttonCounter {

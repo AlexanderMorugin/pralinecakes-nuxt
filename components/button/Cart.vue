@@ -1,17 +1,16 @@
 <template>
-  <button
-    :class="['buttonCart', { buttonCart_active: cartStatus }]"
-    @click="$emit('addToCart')"
-  >
-    <span class="buttonCart__cartText">{{
-      cartStatus ? "В корзине" : "В корзину"
-    }}</span>
+  <button v-if="quantity < 1" class="buttonCart" @click="$emit('increment')">
+    <span class="buttonCart__cartText">В корзину</span>
   </button>
+
+  <div v-else class="buttonCart buttonCart_active">
+    <span class="buttonCart__cartText">В корзине</span>
+  </div>
 </template>
 
 <script setup>
-const { cartStatus } = defineProps(["cartStatus"]);
-const emit = defineEmits(["addToCart"]);
+const { quantity } = defineProps(["quantity"]);
+const emit = defineEmits(["increment"]);
 </script>
 
 <style lang="scss" scoped>

@@ -9,5 +9,5 @@ export default defineNuxtConfig({
     "~/assets/styles/_modal.scss",
   ],
 
-  modules: ["@nuxt/fonts"],
+  modules: ["@nuxt/fonts", "@pinia/nuxt"],
 });
