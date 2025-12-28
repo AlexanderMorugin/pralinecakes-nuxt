@@ -318,9 +318,9 @@ const emit = defineEmits(["increment", "decrement"]);
 
   &__priceOld {
     font-family: "Montserrat-Regular", sans-serif;
-    font-size: 18px;
-    color: var(--mask-white-primary);
-    letter-spacing: 1px;
+    font-size: 16px;
+    color: var(--white-primary);
+    opacity: 0.7;
     text-decoration-line: line-through;
 
     @media (max-width: 1600px) {
