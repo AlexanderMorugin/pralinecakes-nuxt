@@ -4,6 +4,9 @@
     <div class="productListCard__badge">
       <span class="productListCard__badgeText">Хит</span>
     </div>
+    <div class="productListCard__discount">
+      <span class="productListCard__badgeText">-30%</span>
+    </div>
 
     <!-- status="favorite-active" -->
 
@@ -126,6 +129,16 @@ const emit = defineEmits(["increment", "decrement"]);
     @media (max-width: 1024px) {
       font-size: 14px;
     }
+  }
+
+  &__discount {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    z-index: 2;
+    background: var(--mask-black-secondary);
+    border-radius: var(--border-radius-l);
+    padding: 8px 14px;
   }
 
   &__buttonFavorite {
