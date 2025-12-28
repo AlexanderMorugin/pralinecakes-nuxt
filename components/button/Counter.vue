@@ -38,11 +38,11 @@ const emit = defineEmits(["increment", "decrement"]);
     align-items: center;
 
     &_left {
-      border-right: 1px solid var(--mask-primary);
+      border-right: 1px solid var(--mask-black-primary);
     }
 
     &_right {
-      border-left: 1px solid var(--mask-primary);
+      border-left: 1px solid var(--mask-black-primary);
     }
   }
 

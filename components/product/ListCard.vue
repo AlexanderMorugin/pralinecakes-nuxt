@@ -11,7 +11,35 @@
         </h2>
         <span class="productListCard__subtitle">{{ description }}</span>
       </NuxtLink>
+
       <div class="productListCard__cartBox">
+        <div class="productListCard__statusBox">
+          <ul class="productListCard__stars">
+            <li>
+              <IconStar
+                class="productListCard__star productListCard__star_active"
+              />
+            </li>
+            <li>
+              <IconStar
+                class="productListCard__star productListCard__star_active"
+              />
+            </li>
+            <li>
+              <IconStar
+                class="productListCard__star productListCard__star_active"
+              />
+            </li>
+            <li><IconStar class="productListCard__star" /></li>
+            <li><IconStar class="productListCard__star" /></li>
+          </ul>
+
+          <div class="productListCard__reviewBox">
+            <IconReview class="productListCard__reviewIcon" />
+            <span class="productListCard__reviewCount">25</span>
+          </div>
+        </div>
+
         <div class="productListCard__priceBox">
           <span class="productListCard__weigth">{{ weigth }} гр</span>
           <span class="productListCard__price">{{ price }} &#8381;</span>
@@ -159,11 +187,11 @@ const emit = defineEmits(["increment", "decrement"]);
       letter-spacing: 1px;
     }
 
-    @media (max-width: 767px) {
-      // font-size: 18px;
-      // line-height: 26px;
-      // letter-spacing: 0;
-    }
+    // @media (max-width: 767px) {
+    // font-size: 18px;
+    // line-height: 26px;
+    // letter-spacing: 0;
+    // }
   }
 
   &__subtitle {
@@ -191,6 +219,48 @@ const emit = defineEmits(["increment", "decrement"]);
       line-height: 22px;
       letter-spacing: 0;
     }
+  }
+
+  &__statusBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__stars {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  &__star {
+    width: 16px;
+    height: 16px;
+    color: var(--mask-white-primary);
+
+    &_active {
+      color: var(--red-primary);
+      fill: var(--red-primary);
+    }
+  }
+
+  &__reviewBox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__reviewIcon {
+    width: 20px;
+    height: 20px;
+    fill: var(--mask-white-primary);
+  }
+
+  &__reviewCount {
+    font-family: "Roboto-Regular", sans-serif;
+    font-size: 12px;
+    color: var(--mask-white-primary);
   }
 
   &__cartBox {

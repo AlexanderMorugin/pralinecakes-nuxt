@@ -77,7 +77,7 @@
     width: 100%;
     height: 100%;
     animation: overlay 3s ease;
-    background: var(--mask-primary);
+    background: var(--mask-black-primary);
     z-index: 1;
   }
 
@@ -356,7 +356,7 @@
     background: rgba(0, 0, 0, 0);
   }
   100% {
-    background: var(--mask-primary);
+    background: var(--mask-black-primary);
   }
 }
 
