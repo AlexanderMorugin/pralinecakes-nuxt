@@ -15,6 +15,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
       badgeStatus: "Хит",
       comments: [{ id: 1, comment: "Вкусно и точка!" }],
       discount: 30,
+      isFavorite: false,
     },
     {
       id: 2,
@@ -33,6 +34,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
         { id: 3, comment: "Невероятно но факт!" },
       ],
       discount: 20,
+      isFavorite: true,
     },
     {
       id: 3,
@@ -55,6 +57,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
         { id: 7, comment: "Быстрая доставка. Внимательный персонал!" },
       ],
       discount: 0,
+      isFavorite: false,
     },
     {
       id: 4,
@@ -71,6 +74,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
         { id: 1, comment: "Никогда не пробовала ничего подобного. Благодарю!" },
       ],
       discount: 10,
+      isFavorite: false,
     },
   ]);
 

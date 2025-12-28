@@ -50,6 +50,11 @@ const emit = defineEmits(["increment", "decrement"]);
     width: 20px;
     height: 20px;
     fill: var(--gradient-button-blue-primary);
+    transform: scale(1);
+
+    // &:hover {
+    //   transform: scale(1.2);
+    // }
   }
 
   &__numberBox {
@@ -63,5 +68,13 @@ const emit = defineEmits(["increment", "decrement"]);
     font-size: 18px;
     color: var(--black-primary);
   }
+}
+
+.buttonCounter__button_left:hover .buttonCounter__icon {
+  transform: scale(1.2);
+}
+
+.buttonCounter__button_right:hover .buttonCounter__icon {
+  transform: scale(1.2);
 }
 </style>

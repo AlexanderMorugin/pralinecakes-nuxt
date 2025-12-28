@@ -1,14 +1,14 @@
 <template>
   <div class="productListCard">
-    <ButtonWithIcon name="favorite" class="productListCard__buttonFavorite" />
+    <ButtonWithIcon
+      name="favorite"
+      :isFavorite="item.isFavorite"
+      class="productListCard__buttonFavorite"
+    />
 
-    <ProductBadge v-if="item.badgeStatus" :title="item.badgeStatus" />
+    <ProductBadge v-if="item.badgeStatus" :badgeStatus="item.badgeStatus" />
 
-    <div class="productListCard__discount">
-      <span class="productListCard__badgeText">-30%</span>
-    </div>
-
-    <!-- status="favorite-active" -->
+    <ProductDiscount v-if="item.discount" :discount="item.discount" />
 
     <NuxtLink to="/" class="productListCard__overlay"></NuxtLink>
     <div class="productListCard__imageBox">
@@ -102,16 +102,6 @@ const emit = defineEmits(["increment", "decrement"]);
 
   @media (max-width: 767px) {
     height: 420px;
-  }
-
-  &__discount {
-    position: absolute;
-    top: 60px;
-    left: 10px;
-    z-index: 2;
-    background: var(--mask-black-secondary);
-    border-radius: var(--border-radius-l);
-    padding: 8px 14px;
   }
 
   &__buttonFavorite {
@@ -209,12 +199,6 @@ const emit = defineEmits(["increment", "decrement"]);
       line-height: 32px;
       letter-spacing: 1px;
     }
-
-    // @media (max-width: 767px) {
-    // font-size: 18px;
-    // line-height: 26px;
-    // letter-spacing: 0;
-    // }
   }
 
   &__subtitle {
@@ -311,11 +295,6 @@ const emit = defineEmits(["increment", "decrement"]);
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    // width: fit-content;
-
-    // @media (max-width: 1600px) {
-    //   gap: 10px;
-    // }
   }
 
   &__price {
@@ -331,11 +310,6 @@ const emit = defineEmits(["increment", "decrement"]);
     @media (max-width: 1024px) {
       letter-spacing: 1px;
     }
-
-    // @media (max-width: 767px) {
-    //   font-size: 18px;
-    //   letter-spacing: 0;
-    // }
   }
 
   &__weigth {
@@ -347,10 +321,6 @@ const emit = defineEmits(["increment", "decrement"]);
     @media (max-width: 1600px) {
       font-size: 14px;
     }
-
-    // @media (max-width: 1024px) {
-    //   font-size: 12px;
-    // }
   }
 
   &__buttonCartBlock {
@@ -359,10 +329,6 @@ const emit = defineEmits(["increment", "decrement"]);
     column-gap: 10px;
     height: 50px;
     margin-top: 10px;
-
-    // @media (max-width: 1600px) {
-    //   height: 50px;
-    // }
 
     &_active {
       grid-template-columns: repeat(2, 1fr);

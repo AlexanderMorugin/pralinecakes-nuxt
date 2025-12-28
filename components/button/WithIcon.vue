@@ -18,14 +18,14 @@
       v-if="name === 'favorite'"
       :class="[
         'buttonWithIcon__icon buttonWithIcon__icon_favorite',
-        { buttonWithIcon__icon_favoriteActive: status === 'favorite-active' },
+        { buttonWithIcon__icon_favoriteActive: isFavorite },
       ]"
     />
   </button>
 </template>
 
 <script setup>
-const { name, status } = defineProps(["name", "status"]);
+const { name, isFavorite } = defineProps(["name", "isFavorite"]);
 </script>
 
 <style lang="scss" scoped>

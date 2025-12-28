@@ -1,11 +1,17 @@
 <template>
-  <div class="productBadge">
-    <span class="productBadge__text">{{ title }}</span>
+  <div
+    :class="[
+      'productBadge',
+      { productBadge_red: badgeStatus === 'Хит' },
+      { productBadge_green: badgeStatus === 'Новинка' },
+    ]"
+  >
+    <span class="productBadge__text">{{ badgeStatus }}</span>
   </div>
 </template>
 
 <script setup>
-const { title } = defineProps(["title"]);
+const { badgeStatus } = defineProps(["badgeStatus"]);
 </script>
 
 <style lang="scss" scoped>
@@ -14,18 +20,58 @@ const { title } = defineProps(["title"]);
   top: 18px;
   left: 0;
   z-index: 2;
-  background: var(--red-primary);
-  padding: 5px 12px;
+  padding: 10px 20px;
+  transform: translateX(0);
+  animation: badge-bg 0.5s ease;
+
+  &_red {
+    background: var(--orange-primary);
+  }
+
+  &_green {
+    background: var(--green-primary);
+  }
 
   &__text {
-    font-family: "Roboto-Regular", sans-serif;
-    font-size: 18px;
-    color: var(--white-primary);
-    letter-spacing: 2px;
+    font-family: "Montserrat-Regular", sans-serif;
+    font-size: 16px;
+    color: var(--black-primary);
+    transform: translateX(0);
+    animation: badge-text 1s ease;
 
     @media (max-width: 1024px) {
       font-size: 14px;
     }
+  }
+}
+
+@keyframes badge-bg {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  55% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes badge-text {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 </style>

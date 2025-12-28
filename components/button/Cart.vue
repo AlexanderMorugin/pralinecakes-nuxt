@@ -4,7 +4,9 @@
   </button>
 
   <NuxtLink to="/cart" v-else class="buttonCart buttonCart_active">
-    <span class="buttonCart__cartText">В корзине</span>
+    <span class="buttonCart__cartText buttonCart__cartText_active"
+      >В корзине</span
+    >
   </NuxtLink>
 </template>
 
@@ -38,10 +40,11 @@ const emit = defineEmits(["increment"]);
   }
 
   &_active {
-    background: var(--gradient-button-blue-primary);
+    background: var(--green-primary);
+    transition: 0.2s ease;
 
     &:hover {
-      background: var(--deep-blue-thirdly);
+      background: var(--green-secondary);
     }
   }
 
@@ -52,6 +55,27 @@ const emit = defineEmits(["increment"]);
     text-transform: uppercase;
     color: var(--white-primary);
     letter-spacing: 2px;
+    transform: translateY(0);
+    animation: cart-text 0.5s ease;
+
+    &_active {
+      color: var(--black-primary);
+    }
+  }
+}
+
+@keyframes cart-text {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
