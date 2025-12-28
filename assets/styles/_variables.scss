@@ -9,7 +9,7 @@
   // --orange-thirdly: #bb7000;
   // --orange-fourthly: #aa6600;
 
-  --red-primary: #f63c00;
+  --red-primary: rgb(246, 60, 0);
   --red-secondary: #ff6400;
 
   --deep-blue-primary: #081119;
@@ -20,8 +20,9 @@
   // --button-blue-primary: #32608a;
 
   --mask-black-primary: rgba(0, 0, 0, 0.2);
-  // --mask-black-secondary: rgba(0, 0, 0, 0.6);
+  --mask-black-secondary: rgba(0, 0, 0, 0.4);
   --mask-white-primary: rgba(255, 255, 255, 0.6);
+  // --mask-red-primary: rgba(246, 60, 0, 0.8);
   --mask-blue-primary: rgba(23, 44, 63, 0.2);
   --mask-trasparent: rgba(0, 0, 0, 0);
 
@@ -40,7 +41,7 @@
     to bottom,
     var(--mask-trasparent) 0%,
     var(--mask-trasparent) 30%,
-    var(--mask-secondary) 50%
+    var(--mask-black-secondary) 50%
   );
 
   --border-primary: rgba(255, 255, 255, 0.2);

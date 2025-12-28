@@ -1,6 +1,9 @@
 <template>
   <div class="productListCard">
     <ButtonWithIcon name="favorite" class="productListCard__buttonFavorite" />
+    <div class="productListCard__badge">
+      <span class="productListCard__badgeText">Хит</span>
+    </div>
 
     <!-- status="favorite-active" -->
 
@@ -102,10 +105,33 @@ const emit = defineEmits(["increment", "decrement"]);
     height: 420px;
   }
 
+  &__badge {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    z-index: 2;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    background: var(--red-primary);
+    padding: 5px 12px;
+  }
+
+  &__badgeText {
+    font-family: "Roboto-Regular", sans-serif;
+    font-size: 18px;
+    color: var(--white-primary);
+    letter-spacing: 2px;
+
+    @media (max-width: 1024px) {
+      font-size: 14px;
+    }
+  }
+
   &__buttonFavorite {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 7px;
+    right: 7px;
     z-index: 2;
   }
 
@@ -175,8 +201,8 @@ const emit = defineEmits(["increment", "decrement"]);
     }
 
     @media (max-width: 1024px) {
-      gap: 10px;
-      padding: 10px 10px 20px 10px;
+      gap: 5px;
+      padding: 10px;
     }
   }
 
