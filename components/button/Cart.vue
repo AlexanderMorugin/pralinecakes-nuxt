@@ -20,7 +20,7 @@ const emit = defineEmits(["increment"]);
   align-items: center;
   gap: 10px;
   height: 100%;
-  background: var(--gradient-button-blue-primary);
+  background: #f63c00;
   border-radius: var(--border-radius-xs);
 
   @media (max-width: 1600px) {
