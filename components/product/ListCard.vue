@@ -1,5 +1,9 @@
 <template>
   <div class="productListCard">
+    <ButtonWithIcon name="favorite" class="productListCard__buttonFavorite" />
+
+    <!-- status="favorite-active" -->
+
     <NuxtLink to="/" class="productListCard__overlay"></NuxtLink>
     <div class="productListCard__imageBox">
       <img :src="image" :alt="name" class="productListCard__image" />
@@ -96,6 +100,13 @@ const emit = defineEmits(["increment", "decrement"]);
 
   @media (max-width: 767px) {
     height: 420px;
+  }
+
+  &__buttonFavorite {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
   }
 
   &__overlay {
@@ -266,7 +277,7 @@ const emit = defineEmits(["increment", "decrement"]);
   &__cartBox {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     padding: 0 40px 20px 40px;
 
     @media (max-width: 1600px) {
@@ -335,6 +346,7 @@ const emit = defineEmits(["increment", "decrement"]);
     grid-template-columns: 1fr;
     column-gap: 10px;
     height: 50px;
+    margin-top: 10px;
 
     // @media (max-width: 1600px) {
     //   height: 50px;

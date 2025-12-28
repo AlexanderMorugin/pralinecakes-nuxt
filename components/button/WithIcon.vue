@@ -3,7 +3,7 @@
     <IconClose v-if="name === 'close'" class="buttonWithIcon__icon" />
     <IconMenu v-if="name === 'menu'" class="buttonWithIcon__icon" />
     <IconLogin v-if="name === 'login'" class="buttonWithIcon__icon" />
-    <IconFavorite v-if="name === 'favorite'" class="buttonWithIcon__icon" />
+    <!-- <IconFavorite v-if="name === 'favorite'" class="buttonWithIcon__icon" /> -->
     <IconCart v-if="name === 'cart'" class="buttonWithIcon__icon" />
     <IconPhone v-if="name === 'phone'" class="buttonWithIcon__icon" />
     <IconEmail v-if="name === 'email'" class="buttonWithIcon__icon" />
@@ -14,11 +14,18 @@
     <IconPerson v-if="name === 'person'" class="buttonWithIcon__icon" />
     <IconAccount v-if="name === 'profile'" class="buttonWithIcon__icon" />
     <IconChat v-if="name === 'chat'" class="buttonWithIcon__icon" />
+    <IconFavorite
+      v-if="name === 'favorite'"
+      :class="[
+        'buttonWithIcon__icon buttonWithIcon__icon_favorite',
+        { buttonWithIcon__icon_favoriteActive: status === 'favorite-active' },
+      ]"
+    />
   </button>
 </template>
 
 <script setup>
-const { name } = defineProps(["name"]);
+const { name, status } = defineProps(["name", "status"]);
 </script>
 
 <style lang="scss" scoped>
@@ -40,12 +47,35 @@ const { name } = defineProps(["name"]);
       width: 24px;
       height: 24px;
     }
+
+    &_favorite {
+      width: 22px;
+      height: 22px;
+      color: var(--mask-white-primary);
+      fill: transparent;
+    }
+
+    &_favoriteActive {
+      color: var(--white-primary);
+      fill: var(--white-primary);
+    }
   }
 }
 
 .buttonWithIcon:hover .buttonWithIcon__icon {
   fill: var(--orange-primary);
   opacity: 1;
+  animation: scale 0.25s ease-in-out;
+}
+
+.buttonWithIcon:hover .buttonWithIcon__icon_favorite {
+  fill: transparent;
+  animation: scale 0.25s ease-in-out;
+}
+
+.buttonWithIcon:hover .buttonWithIcon__icon_favoriteActive {
+  color: var(--white-primary);
+  fill: var(--white-primary);
   animation: scale 0.25s ease-in-out;
 }
 
