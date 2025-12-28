@@ -3,12 +3,7 @@
     <ul class="productList">
       <li v-for="item in cakesStore.cakes" :key="item.id">
         <ProductListCard
-          :image="item.image"
-          :name="item.name"
-          :description="item.description"
-          :price="item.price"
-          :weigth="item.weigth"
-          :quantity="item.quantity"
+          :item="item"
           @increment="cakesStore.increment(item.id)"
           @decrement="cakesStore.decrement(item.id)"
         />

@@ -11,6 +11,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
       price: 1860,
       weigth: 1640,
       quantity: 0,
+      popStatus: 5,
+      badgeStatus: "Хит",
+      comments: [{ id: 1, comment: "Вкусно и точка!" }],
+      discount: 30,
     },
     {
       id: 2,
@@ -21,6 +25,14 @@ export const useCakesStore = defineStore("cakesStore", () => {
       price: 1860,
       weigth: 1640,
       quantity: 0,
+      popStatus: 1,
+      badgeStatus: null,
+      comments: [
+        { id: 1, comment: "Вкусно и точка!" },
+        { id: 2, comment: "Божественно!" },
+        { id: 3, comment: "Невероятно но факт!" },
+      ],
+      discount: 20,
     },
     {
       id: 3,
@@ -31,6 +43,18 @@ export const useCakesStore = defineStore("cakesStore", () => {
       price: 1860,
       weigth: 1640,
       quantity: 0,
+      popStatus: 2,
+      badgeStatus: "Новинка",
+      comments: [
+        { id: 1, comment: "Вкусно и точка!" },
+        { id: 2, comment: "Божественно!" },
+        { id: 3, comment: "Невероятно но факт!" },
+        { id: 4, comment: "Обожаю ваши торты!" },
+        { id: 5, comment: "Полная фигня." },
+        { id: 6, comment: "Никогда не пробовала ничего подобного. Благодарю!" },
+        { id: 7, comment: "Быстрая доставка. Внимательный персонал!" },
+      ],
+      discount: 0,
     },
     {
       id: 4,
@@ -41,6 +65,12 @@ export const useCakesStore = defineStore("cakesStore", () => {
       price: 1860,
       weigth: 1640,
       quantity: 0,
+      popStatus: 3,
+      badgeStatus: null,
+      comments: [
+        { id: 1, comment: "Никогда не пробовала ничего подобного. Благодарю!" },
+      ],
+      discount: 10,
     },
   ]);
 

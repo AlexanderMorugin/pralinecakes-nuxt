@@ -1,9 +1,9 @@
 <template>
   <div class="productListCard">
     <ButtonWithIcon name="favorite" class="productListCard__buttonFavorite" />
-    <div class="productListCard__badge">
-      <span class="productListCard__badgeText">Хит</span>
-    </div>
+
+    <ProductBadge v-if="item.badgeStatus" :title="item.badgeStatus" />
+
     <div class="productListCard__discount">
       <span class="productListCard__badgeText">-30%</span>
     </div>
@@ -12,14 +12,14 @@
 
     <NuxtLink to="/" class="productListCard__overlay"></NuxtLink>
     <div class="productListCard__imageBox">
-      <img :src="image" :alt="name" class="productListCard__image" />
+      <img :src="item.image" :alt="item.name" class="productListCard__image" />
     </div>
     <div class="productListCard__details">
       <NuxtLink to="/" class="productListCard__titleBox">
         <h2 class="productListCard__title">
-          {{ name }}
+          {{ item.name }}
         </h2>
-        <span class="productListCard__subtitle">{{ description }}</span>
+        <span class="productListCard__subtitle">{{ item.description }}</span>
       </NuxtLink>
 
       <div class="productListCard__cartBox">
@@ -44,27 +44,30 @@
             <li><IconStar class="productListCard__star" /></li>
           </ul>
 
-          <div class="productListCard__reviewBox">
-            <IconReview class="productListCard__reviewIcon" />
-            <span class="productListCard__reviewCount">25</span>
+          <div class="productListCard__commentBox">
+            <IconComment class="productListCard__commentIcon" />
+            <span class="productListCard__commentCount">25</span>
           </div>
         </div>
 
         <div class="productListCard__priceBox">
-          <span class="productListCard__weigth">{{ weigth }} гр</span>
-          <span class="productListCard__price">{{ price }} &#8381;</span>
+          <span class="productListCard__weigth">{{ item.weigth }} гр</span>
+          <span class="productListCard__price">{{ item.price }} &#8381;</span>
         </div>
         <div
           :class="[
             'productListCard__buttonCartBlock',
-            { productListCard__buttonCartBlock_active: quantity > 0 },
+            { productListCard__buttonCartBlock_active: item.quantity > 0 },
           ]"
         >
-          <ButtonCart :quantity="quantity" @increment="$emit('increment')" />
+          <ButtonCart
+            :quantity="item.quantity"
+            @increment="$emit('increment')"
+          />
 
           <ButtonCounter
-            v-if="quantity > 0"
-            :quantity="quantity"
+            v-if="item.quantity > 0"
+            :quantity="item.quantity"
             @increment="$emit('increment')"
             @decrement="$emit('decrement')"
           />
@@ -75,14 +78,7 @@
 </template>
 
 <script setup>
-const { image, name, description, price, weigth, quantity } = defineProps([
-  "image",
-  "name",
-  "description",
-  "price",
-  "weigth",
-  "quantity",
-]);
+const { item } = defineProps(["item"]);
 
 const emit = defineEmits(["increment", "decrement"]);
 </script>
@@ -106,29 +102,6 @@ const emit = defineEmits(["increment", "decrement"]);
 
   @media (max-width: 767px) {
     height: 420px;
-  }
-
-  &__badge {
-    position: absolute;
-    top: 18px;
-    left: 0;
-    z-index: 2;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    background: var(--red-primary);
-    padding: 5px 12px;
-  }
-
-  &__badgeText {
-    font-family: "Roboto-Regular", sans-serif;
-    font-size: 18px;
-    color: var(--white-primary);
-    letter-spacing: 2px;
-
-    @media (max-width: 1024px) {
-      font-size: 14px;
-    }
   }
 
   &__discount {
@@ -295,19 +268,19 @@ const emit = defineEmits(["increment", "decrement"]);
     }
   }
 
-  &__reviewBox {
+  &__commentBox {
     display: flex;
     align-items: center;
     gap: 5px;
   }
 
-  &__reviewIcon {
+  &__commentIcon {
     width: 20px;
     height: 20px;
     fill: var(--mask-white-primary);
   }
 
-  &__reviewCount {
+  &__commentCount {
     font-family: "Roboto-Regular", sans-serif;
     font-size: 12px;
     color: var(--mask-white-primary);
