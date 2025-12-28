@@ -11,10 +11,10 @@
         </h2>
         <span class="productListCard__subtitle">{{ description }}</span>
       </NuxtLink>
-      <div class="productListCard__priceBox">
-        <div class="productListCard__left">
+      <div class="productListCard__cartBox">
+        <div class="productListCard__priceBox">
+          <span class="productListCard__weigth">{{ weigth }} гр</span>
           <span class="productListCard__price">{{ price }} &#8381;</span>
-          <span class="productListCard__weigth">( {{ weigth }} гр )</span>
         </div>
         <div
           :class="[
@@ -23,6 +23,7 @@
           ]"
         >
           <ButtonCart :quantity="quantity" @increment="$emit('increment')" />
+
           <ButtonCounter
             v-if="quantity > 0"
             :quantity="quantity"
@@ -159,9 +160,9 @@ const emit = defineEmits(["increment", "decrement"]);
     }
 
     @media (max-width: 767px) {
-      font-size: 18px;
-      line-height: 26px;
-      letter-spacing: 0;
+      // font-size: 18px;
+      // line-height: 26px;
+      // letter-spacing: 0;
     }
   }
 
@@ -174,7 +175,7 @@ const emit = defineEmits(["increment", "decrement"]);
     opacity: 0.8;
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
 
@@ -192,7 +193,7 @@ const emit = defineEmits(["increment", "decrement"]);
     }
   }
 
-  &__priceBox {
+  &__cartBox {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -212,15 +213,16 @@ const emit = defineEmits(["increment", "decrement"]);
     }
   }
 
-  &__left {
+  &__priceBox {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
-    width: fit-content;
+    // width: fit-content;
 
-    @media (max-width: 1600px) {
-      gap: 10px;
-    }
+    // @media (max-width: 1600px) {
+    //   gap: 10px;
+    // }
   }
 
   &__price {
@@ -237,10 +239,10 @@ const emit = defineEmits(["increment", "decrement"]);
       letter-spacing: 1px;
     }
 
-    @media (max-width: 767px) {
-      font-size: 18px;
-      letter-spacing: 0;
-    }
+    // @media (max-width: 767px) {
+    //   font-size: 18px;
+    //   letter-spacing: 0;
+    // }
   }
 
   &__weigth {
@@ -253,9 +255,9 @@ const emit = defineEmits(["increment", "decrement"]);
       font-size: 14px;
     }
 
-    @media (max-width: 1024px) {
-      font-size: 12px;
-    }
+    // @media (max-width: 1024px) {
+    //   font-size: 12px;
+    // }
   }
 
   &__buttonCartBlock {

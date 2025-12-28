@@ -5,9 +5,12 @@
   --black-secondary: #000000;
 
   --orange-primary: #ffac30;
-  --orange-secondary: #cc7a00;
-  --orange-thirdly: #bb7000;
-  --orange-fourthly: #aa6600;
+  // --orange-secondary: #cc7a00;
+  // --orange-thirdly: #bb7000;
+  // --orange-fourthly: #aa6600;
+
+  --red-primary: #f63c00;
+  --red-secondary: #ff6400;
 
   --deep-blue-primary: #081119;
   --deep-blue-secondary: #172c3f;
@@ -29,7 +32,7 @@
   );
   --gradient-modal-primary: linear-gradient(135deg, var(--mask-primary) 0%, var(--mask-blue-primary) 100%);
 
-  --gradient-button-orange-primary: linear-gradient(148deg, var(--orange-primary) 0%, var(--orange-fourthly) 100%);
+  // --gradient-button-orange-primary: linear-gradient(148deg, var(--orange-primary) 0%, var(--orange-fourthly) 100%);
   --gradient-button-blue-primary: linear-gradient(148deg, var(--deep-blue-thirdly) 00%, var(--deep-blue-fourthly) 100%);
 
   --gradient-product-card-primary: linear-gradient(

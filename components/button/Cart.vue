@@ -3,9 +3,9 @@
     <span class="buttonCart__cartText">В корзину</span>
   </button>
 
-  <div v-else class="buttonCart buttonCart_active">
+  <NuxtLink to="/cart" v-else class="buttonCart buttonCart_active">
     <span class="buttonCart__cartText">В корзине</span>
-  </div>
+  </NuxtLink>
 </template>
 
 <script setup>
@@ -20,8 +20,13 @@ const emit = defineEmits(["increment"]);
   align-items: center;
   gap: 10px;
   height: 100%;
-  background: #f63c00;
+  background: var(--red-primary);
   border-radius: var(--border-radius-xs);
+  transition: 0.2s ease;
+
+  &:hover {
+    background: var(--red-secondary);
+  }
 
   @media (max-width: 1600px) {
     padding-top: 5px;
@@ -33,7 +38,11 @@ const emit = defineEmits(["increment"]);
   }
 
   &_active {
-    background: var(--gradient-button-orange-primary);
+    background: var(--gradient-button-blue-primary);
+
+    &:hover {
+      background: var(--deep-blue-thirdly);
+    }
   }
 
   &__cartText {
