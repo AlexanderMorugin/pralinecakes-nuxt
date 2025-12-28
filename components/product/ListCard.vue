@@ -52,7 +52,19 @@
 
         <div class="productListCard__priceBox">
           <span class="productListCard__weigth">{{ item.weigth }} гр</span>
-          <span class="productListCard__price">{{ item.price }} &#8381;</span>
+          <div class="productListCard__prices">
+            <span v-if="item.discount" class="productListCard__priceOld"
+              >{{ item.price }} &#8381;</span
+            >
+            <span class="productListCard__price"
+              >{{
+                item.discount
+                  ? item.price - (item.price * item.discount) / 100
+                  : item.price
+              }}
+              &#8381;</span
+            >
+          </div>
         </div>
         <div
           :class="[
@@ -295,6 +307,25 @@ const emit = defineEmits(["increment", "decrement"]);
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+  }
+
+  &__prices {
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__priceOld {
+    font-family: "Montserrat-Regular", sans-serif;
+    font-size: 18px;
+    color: var(--mask-white-primary);
+    letter-spacing: 1px;
+    text-decoration-line: line-through;
+
+    @media (max-width: 1600px) {
+      font-size: 14px;
+    }
   }
 
   &__price {
