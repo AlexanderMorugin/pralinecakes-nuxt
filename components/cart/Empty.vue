@@ -1,6 +1,6 @@
 <template>
   <div class="cartEmpty">
-    <span class="cartEmpty__text">Ваша корзина пуста</span>
+    <span class="cartEmpty__text">Ваша корзина пуста.</span>
   </div>
 </template>
 
