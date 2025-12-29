@@ -1,9 +1,9 @@
 <template>
-  <NuxtLink to="/" class="productListCardTitleBox">
-    <h2 class="productListCardTitleBox__name">
+  <NuxtLink to="/" class="productListCardTitle">
+    <h2 class="productListCardTitle__name">
       {{ name }}
     </h2>
-    <span class="productListCardTitleBox__description">{{ description }}</span>
+    <span class="productListCardTitle__description">{{ description }}</span>
   </NuxtLink>
 </template>
 
@@ -12,7 +12,7 @@ const { name, description } = defineProps(["name", "description"]);
 </script>
 
 <style lang="scss" scoped>
-.productListCardTitleBox {
+.productListCardTitle {
   display: flex;
   flex-direction: column;
   gap: 20px;

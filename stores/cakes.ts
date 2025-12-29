@@ -57,7 +57,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
         { id: 7, comment: "Быстрая доставка. Внимательный персонал!" },
       ],
       discount: 0,
-      isFavorite: false,
+      isFavorite: true,
     },
     {
       id: 4,

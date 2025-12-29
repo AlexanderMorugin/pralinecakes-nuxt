@@ -18,10 +18,7 @@
     <ProductListCardImage :image="item.image" :name="item.name" />
 
     <div class="productListCard__details">
-      <ProductListCardTitleBox
-        :name="item.name"
-        :description="item.description"
-      />
+      <ProductListCardTitle :name="item.name" :description="item.description" />
 
       <div class="productListCard__cartBox">
         <div class="productListCard__statusBox">
@@ -29,22 +26,12 @@
           <ProductListCardComment :comments="item.comments.length" />
         </div>
 
-        <div class="productListCard__priceBox">
-          <span class="productListCard__weigth">{{ item.weigth }} гр</span>
-          <div class="productListCard__prices">
-            <span v-if="item.discount" class="productListCard__priceOld"
-              >{{ item.price }} &#8381;</span
-            >
-            <span class="productListCard__price"
-              >{{
-                item.discount
-                  ? item.price - (item.price * item.discount) / 100
-                  : item.price
-              }}
-              &#8381;</span
-            >
-          </div>
-        </div>
+        <ProductListCardPrice
+          :weigth="item.weigth"
+          :price="item.price"
+          :discount="item.discount"
+        />
+
         <div
           :class="[
             'productListCard__buttonCartBlock',
@@ -84,8 +71,6 @@ const emit = defineEmits(["increment", "decrement"]);
   border: 1px solid var(--border-primary);
   border-radius: var(--border-radius-s);
   overflow: hidden;
-
-  // border: 1px solid red;
 
   @media (max-width: 1600px) {
     height: 500px;
@@ -149,57 +134,6 @@ const emit = defineEmits(["increment", "decrement"]);
     @media (max-width: 767px) {
       padding-top: 0;
       padding-bottom: 10px;
-    }
-  }
-
-  &__priceBox {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-  }
-
-  &__prices {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  &__priceOld {
-    font-family: "Montserrat-Regular", sans-serif;
-    font-size: 16px;
-    color: var(--white-primary);
-    opacity: 0.7;
-    text-decoration-line: line-through;
-
-    @media (max-width: 1600px) {
-      font-size: 14px;
-    }
-  }
-
-  &__price {
-    font-family: "Montserrat-Medium", sans-serif;
-    font-size: 24px;
-    color: var(--white-primary);
-    letter-spacing: 2px;
-
-    @media (max-width: 1600px) {
-      font-size: 20px;
-    }
-
-    @media (max-width: 1024px) {
-      letter-spacing: 1px;
-    }
-  }
-
-  &__weigth {
-    font-family: "Montserrat-Regular", sans-serif;
-    font-size: 16px;
-    color: var(--white-primary);
-    opacity: 0.7;
-
-    @media (max-width: 1600px) {
-      font-size: 14px;
     }
   }
 
