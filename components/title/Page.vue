@@ -19,14 +19,6 @@ const { title } = defineProps(["title"]);
     padding: 20px 20px 60px 20px;
   }
 
-  // @media (max-width: 1600px) {
-  //   padding-bottom: 40px;
-  // }
-
-  // @media (max-width: 1024px) {
-  //   padding: 20px 10px;
-  // }
-
   @media (max-width: 767px) {
     padding: 20px 10px;
   }
@@ -50,10 +42,6 @@ const { title } = defineProps(["title"]);
     @media (max-width: 767px) {
       font-size: 28px;
     }
-
-    // @media (max-width: 390px) {
-    //   font-size: 28px;
-    // }
   }
 }
 
