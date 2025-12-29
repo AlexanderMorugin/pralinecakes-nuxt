@@ -11,9 +11,9 @@ export const useCakesStore = defineStore("cakesStore", () => {
       price: 1860,
       weigth: 1640,
       quantity: 0,
-      popStatus: 5,
+      rating: 5,
       badgeStatus: "Хит",
-      comments: [{ id: 1, comment: "Вкусно и точка!" }],
+      comments: [],
       discount: 30,
       isFavorite: false,
     },
@@ -26,7 +26,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
       price: 1860,
       weigth: 1640,
       quantity: 0,
-      popStatus: 1,
+      rating: 1,
       badgeStatus: null,
       comments: [
         { id: 1, comment: "Вкусно и точка!" },
@@ -45,7 +45,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
       price: 1860,
       weigth: 1640,
       quantity: 0,
-      popStatus: 2,
+      rating: 2,
       badgeStatus: "Новинка",
       comments: [
         { id: 1, comment: "Вкусно и точка!" },
@@ -68,7 +68,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
       price: 1860,
       weigth: 1640,
       quantity: 0,
-      popStatus: 3,
+      rating: 3,
       badgeStatus: null,
       comments: [
         { id: 1, comment: "Никогда не пробовала ничего подобного. Благодарю!" },

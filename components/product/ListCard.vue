@@ -24,30 +24,8 @@
 
       <div class="productListCard__cartBox">
         <div class="productListCard__statusBox">
-          <ul class="productListCard__stars">
-            <li>
-              <IconStar
-                class="productListCard__star productListCard__star_active"
-              />
-            </li>
-            <li>
-              <IconStar
-                class="productListCard__star productListCard__star_active"
-              />
-            </li>
-            <li>
-              <IconStar
-                class="productListCard__star productListCard__star_active"
-              />
-            </li>
-            <li><IconStar class="productListCard__star" /></li>
-            <li><IconStar class="productListCard__star" /></li>
-          </ul>
-
-          <div class="productListCard__commentBox">
-            <IconComment class="productListCard__commentIcon" />
-            <span class="productListCard__commentCount">25</span>
-          </div>
+          <ProductRating :rating="item.rating" />
+          <ProductComment :comments="item.comments.length" />
         </div>
 
         <div class="productListCard__priceBox">
@@ -247,41 +225,6 @@ const emit = defineEmits(["increment", "decrement"]);
     gap: 20px;
   }
 
-  &__stars {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-  }
-
-  &__star {
-    width: 16px;
-    height: 16px;
-    color: var(--mask-white-primary);
-
-    &_active {
-      color: var(--red-primary);
-      fill: var(--red-primary);
-    }
-  }
-
-  &__commentBox {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  &__commentIcon {
-    width: 20px;
-    height: 20px;
-    fill: var(--mask-white-primary);
-  }
-
-  &__commentCount {
-    font-family: "Roboto-Regular", sans-serif;
-    font-size: 12px;
-    color: var(--mask-white-primary);
-  }
-
   &__cartBox {
     display: flex;
     flex-direction: column;
@@ -311,7 +254,6 @@ const emit = defineEmits(["increment", "decrement"]);
 
   &__prices {
     display: flex;
-    // justify-content: space-between;
     align-items: center;
     gap: 10px;
   }

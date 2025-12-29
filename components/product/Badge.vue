@@ -22,7 +22,7 @@ const { badgeStatus } = defineProps(["badgeStatus"]);
   z-index: 2;
   padding: 10px 20px;
   transform: translateX(0);
-  animation: badge-bg 0.5s ease;
+  animation: badge-bg 1s ease;
 
   &_red {
     background: var(--orange-primary);
@@ -36,8 +36,8 @@ const { badgeStatus } = defineProps(["badgeStatus"]);
     font-family: "Montserrat-Regular", sans-serif;
     font-size: 16px;
     color: var(--black-primary);
-    transform: translateX(0);
-    animation: badge-text 1s ease;
+    // transform: translateX(0);
+    // animation: badge-text 1s ease;
 
     @media (max-width: 1024px) {
       font-size: 14px;
@@ -50,7 +50,7 @@ const { badgeStatus } = defineProps(["badgeStatus"]);
     opacity: 0;
     transform: translateX(-100%);
   }
-  55% {
+  70% {
     opacity: 0;
     transform: translateX(-100%);
   }
@@ -60,18 +60,18 @@ const { badgeStatus } = defineProps(["badgeStatus"]);
   }
 }
 
-@keyframes badge-text {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  50% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
+// @keyframes badge-text {
+//   0% {
+//     opacity: 0;
+//     transform: translateX(-100%);
+//   }
+//   50% {
+//     opacity: 0;
+//     transform: translateX(-100%);
+//   }
+//   100% {
+//     opacity: 1;
+//     transform: translateX(0);
+//   }
+// }
 </style>
