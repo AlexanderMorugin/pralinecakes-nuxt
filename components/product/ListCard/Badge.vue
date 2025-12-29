@@ -1,12 +1,12 @@
 <template>
   <div
     :class="[
-      'productBadge',
-      { productBadge_red: badgeStatus === 'Хит' },
-      { productBadge_green: badgeStatus === 'Новинка' },
+      'productListCardBadge',
+      { productListCardBadge_red: badgeStatus === 'Хит' },
+      { productListCardBadge_green: badgeStatus === 'Новинка' },
     ]"
   >
-    <span class="productBadge__text">{{ badgeStatus }}</span>
+    <span class="productListCardBadge__text">{{ badgeStatus }}</span>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ const { badgeStatus } = defineProps(["badgeStatus"]);
 </script>
 
 <style lang="scss" scoped>
-.productBadge {
+.productListCardBadge {
   position: absolute;
   top: 18px;
   left: 0;

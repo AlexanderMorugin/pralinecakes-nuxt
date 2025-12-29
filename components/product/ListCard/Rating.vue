@@ -1,10 +1,10 @@
 <template>
-  <ul class="productRating">
+  <ul class="productListCardRating">
     <li v-for="i in 5" :key="i">
       <IconStar
         :class="[
-          'productRating__star',
-          i <= rating ? 'productRating__star_active' : '',
+          'productListCardRating__star',
+          i <= rating ? 'productListCardRating__star_active' : '',
         ]"
       />
     </li>
@@ -16,7 +16,7 @@ const { rating } = defineProps(["rating"]);
 </script>
 
 <style lang="scss" scoped>
-.productRating {
+.productListCardRating {
   display: flex;
   align-items: center;
   gap: 1px;
@@ -27,8 +27,8 @@ const { rating } = defineProps(["rating"]);
     color: var(--mask-white-primary);
 
     &_active {
-      color: var(--red-primary);
-      fill: var(--red-primary);
+      color: var(--orange-primary);
+      fill: var(--orange-primary);
     }
   }
 }

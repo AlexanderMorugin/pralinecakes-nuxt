@@ -1,7 +1,7 @@
 <template>
-  <div class="productComment">
-    <IconComment class="productComment__icon" />
-    <span class="productComment__count">{{ comments }}</span>
+  <div class="productListCardComment">
+    <IconComment class="productListCardComment__icon" />
+    <span class="productListCardComment__count">{{ comments }}</span>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ const { comments } = defineProps(["comments"]);
 </script>
 
 <style lang="scss" scoped>
-.productComment {
+.productListCardComment {
   display: flex;
   align-items: center;
   gap: 5px;

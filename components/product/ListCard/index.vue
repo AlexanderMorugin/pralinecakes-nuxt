@@ -6,26 +6,27 @@
       class="productListCard__buttonFavorite"
     />
 
-    <ProductBadge v-if="item.badgeStatus" :badgeStatus="item.badgeStatus" />
+    <ProductListCardBadge
+      v-if="item.badgeStatus"
+      :badgeStatus="item.badgeStatus"
+    />
 
-    <ProductDiscount v-if="item.discount" :discount="item.discount" />
+    <ProductListCardDiscount v-if="item.discount" :discount="item.discount" />
 
     <NuxtLink to="/" class="productListCard__overlay"></NuxtLink>
-    <div class="productListCard__imageBox">
-      <img :src="item.image" :alt="item.name" class="productListCard__image" />
-    </div>
+
+    <ProductListCardImage :image="item.image" :name="item.name" />
+
     <div class="productListCard__details">
-      <NuxtLink to="/" class="productListCard__titleBox">
-        <h2 class="productListCard__title">
-          {{ item.name }}
-        </h2>
-        <span class="productListCard__subtitle">{{ item.description }}</span>
-      </NuxtLink>
+      <ProductListCardTitleBox
+        :name="item.name"
+        :description="item.description"
+      />
 
       <div class="productListCard__cartBox">
         <div class="productListCard__statusBox">
-          <ProductRating :rating="item.rating" />
-          <ProductComment :comments="item.comments.length" />
+          <ProductListCardRating :rating="item.rating" />
+          <ProductListCardComment :comments="item.comments.length" />
         </div>
 
         <div class="productListCard__priceBox">
@@ -117,105 +118,11 @@ const emit = defineEmits(["increment", "decrement"]);
     }
   }
 
-  &__imageBox {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 450px;
-    animation: slide-to-top 0.6s ease-in-out;
-    overflow: hidden;
-
-    @media (max-width: 1600px) {
-      height: 300px;
-    }
-
-    @media (max-width: 767px) {
-      height: 260px;
-    }
-  }
-
-  &__image {
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-
-    @media (max-width: 1600px) {
-      height: 300px;
-    }
-
-    @media (max-width: 767px) {
-      height: 260px;
-    }
-  }
-
   &__details {
     position: relative;
     display: flex;
     flex-direction: column;
     z-index: 2;
-  }
-
-  &__titleBox {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px 40px;
-
-    @media (max-width: 1600px) {
-      padding: 20px;
-    }
-
-    @media (max-width: 1024px) {
-      gap: 5px;
-      padding: 10px;
-    }
-  }
-
-  &__title {
-    font-family: "Montserrat-SemiBold", sans-serif;
-    font-size: 28px;
-    line-height: 42px;
-    color: var(--white-primary);
-    letter-spacing: 2px;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-
-    @media (max-width: 1600px) {
-      font-size: 22px;
-      line-height: 32px;
-      letter-spacing: 1px;
-    }
-  }
-
-  &__subtitle {
-    font-family: "Montserrat-Medium", sans-serif;
-    font-size: 18px;
-    line-height: 28px;
-    color: var(--white-primary);
-    letter-spacing: 2px;
-    opacity: 0.8;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-
-    @media (max-width: 1600px) {
-      font-family: "Montserrat-Regular", sans-serif;
-      font-size: 16px;
-      line-height: 24px;
-      letter-spacing: 1px;
-    }
-
-    @media (max-width: 767px) {
-      font-size: 14px;
-      line-height: 22px;
-      letter-spacing: 0;
-    }
   }
 
   &__statusBox {
@@ -306,21 +213,6 @@ const emit = defineEmits(["increment", "decrement"]);
     &_active {
       grid-template-columns: repeat(2, 1fr);
     }
-  }
-}
-
-@keyframes slide-to-top {
-  0% {
-    opacity: 0;
-    transform: scale(1) translateY(50%);
-  }
-  50% {
-    opacity: 0;
-    transform: scale(1) translateY(50%);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
   }
 }
 </style>
