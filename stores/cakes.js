@@ -4,13 +4,14 @@ export const useCakesStore = defineStore("cakesStore", () => {
   const cakes = ref([
     {
       id: 1,
+      slug: "air-nut",
       image: "/images/cakes/almond-prune-cake-1-600-400.webp",
       name: "Торт Воздушно ореховый",
       description:
         "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
       price: 1860,
       weigth: 1640,
-      quantity: 0,
+      // quantity: 0,
       rating: 5,
       badgeStatus: "Хит",
       comments: [],
@@ -19,13 +20,14 @@ export const useCakesStore = defineStore("cakesStore", () => {
     },
     {
       id: 2,
+      slug: "almond",
       image: "/images/cakes/carrot-cake-1-600-400.webp",
       name: "Торт Миндальный",
       description:
         "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
       price: 1860,
       weigth: 1640,
-      quantity: 0,
+      // quantity: 0,
       rating: 1,
       badgeStatus: null,
       comments: [
@@ -38,13 +40,14 @@ export const useCakesStore = defineStore("cakesStore", () => {
     },
     {
       id: 3,
+      slug: "honey",
       image: "/images/cakes/coconut-cake-1-600-400.webp",
       name: "Торт Медовик",
       description:
         "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
       price: 1860,
       weigth: 1640,
-      quantity: 0,
+      // quantity: 0,
       rating: 2,
       badgeStatus: "Новинка",
       comments: [
@@ -59,36 +62,60 @@ export const useCakesStore = defineStore("cakesStore", () => {
       discount: 0,
       isFavorite: true,
     },
-    {
-      id: 4,
-      image: "/images/cakes/esterhazy-cake-1-600-400.webp",
-      name: "Торт Чёрная смородина и кокос",
-      description:
-        "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
-      price: 1860,
-      weigth: 1640,
-      quantity: 0,
-      rating: 3,
-      badgeStatus: null,
-      comments: [
-        { id: 1, comment: "Никогда не пробовала ничего подобного. Благодарю!" },
-      ],
-      discount: 10,
-      isFavorite: false,
-    },
+    // {
+    //   id: 4,
+    //   slug: "currant-coconut",
+    //   image: "/images/cakes/esterhazy-cake-1-600-400.webp",
+    //   name: "Торт Чёрная смородина и кокос",
+    //   description:
+    //     "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
+    //   price: 1860,
+    //   weigth: 1640,
+    //   // quantity: 0,
+    //   rating: 3,
+    //   badgeStatus: null,
+    //   comments: [
+    //     { id: 1, comment: "Никогда не пробовала ничего подобного. Благодарю!" },
+    //   ],
+    //   discount: 10,
+    //   isFavorite: false,
+    // },
   ]);
 
-  const increment = (id: Number) => {
-    cakes.value = cakes.value.map((item) =>
-      item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-    );
+  const cake = ref(null);
+
+  const getCake = async (slug) => {
+    cake.value = cakes.value.find((item) => item.slug === slug);
   };
 
-  const decrement = (id: Number) => {
-    cakes.value = cakes.value.map((item) =>
-      item.id === id ? { ...item, quantity: item.quantity - 1 } : item
-    );
-  };
+  // const increment = (id) => {
+  //   console.log(id);
+  //   cakes.value = cakes.value.map((item) =>
+  //     item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+  //   );
+  // };
 
-  return { cakes, increment, decrement };
+  // const decrement = (id) => {
+  //   cakes.value = cakes.value.map((item) =>
+  //     item.id === id ? { ...item, quantity: item.quantity - 1 } : item
+  //   );
+  // };
+
+  // const incrementCake = () => {
+  //   cake.value.quantity++;
+  // };
+
+  // const decrementCake = () => {
+  //   cake.value.quantity--;
+  // };
+
+  return {
+    cakes,
+    cake,
+    getCake,
+    // increment,
+    // decrement,
+    // incrementCake,
+    // decrementCake,
+  };
 });

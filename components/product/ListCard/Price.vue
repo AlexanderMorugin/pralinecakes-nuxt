@@ -3,11 +3,13 @@
     <span class="productListCardPrice__weigth">{{ weigth }} гр</span>
     <div class="productListCardPrice__prices">
       <span v-if="discount" class="productListCardPrice__priceOld"
-        >{{ price }} &#8381;</span
-      >
+        >{{ currencyFormater(price) }}
+      </span>
       <span class="productListCardPrice__price"
-        >{{ discount ? price - (price * discount) / 100 : price }} &#8381;</span
-      >
+        >{{
+          currencyFormater(discount ? price - (price * discount) / 100 : price)
+        }}
+      </span>
     </div>
   </div>
 </template>

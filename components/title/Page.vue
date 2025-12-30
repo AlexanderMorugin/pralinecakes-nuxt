@@ -28,6 +28,7 @@ const { title } = defineProps(["title"]);
     font-size: 80px;
     color: var(--white-primary);
     letter-spacing: 6px;
+    text-align: center;
     animation: fall-down 1s ease-in-out;
     opacity: 0.7;
 
@@ -41,6 +42,7 @@ const { title } = defineProps(["title"]);
 
     @media (max-width: 767px) {
       font-size: 28px;
+      line-height: 44px;
     }
   }
 }

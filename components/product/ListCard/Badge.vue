@@ -36,8 +36,6 @@ const { badgeStatus } = defineProps(["badgeStatus"]);
     font-family: "Montserrat-Regular", sans-serif;
     font-size: 16px;
     color: var(--black-primary);
-    // transform: translateX(0);
-    // animation: badge-text 1s ease;
 
     @media (max-width: 1024px) {
       font-size: 14px;

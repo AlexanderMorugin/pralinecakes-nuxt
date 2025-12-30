@@ -2,63 +2,54 @@
   <div class="productListCard">
     <ButtonWithIcon
       name="favorite"
-      :isFavorite="item.isFavorite"
+      :isFavorite="product.isFavorite"
       class="productListCard__buttonFavorite"
     />
 
     <ProductListCardBadge
-      v-if="item.badgeStatus"
-      :badgeStatus="item.badgeStatus"
+      v-if="product.badgeStatus"
+      :badgeStatus="product.badgeStatus"
     />
 
-    <ProductListCardDiscount v-if="item.discount" :discount="item.discount" />
+    <ProductListCardDiscount
+      v-if="product.discount"
+      :discount="product.discount"
+    />
 
-    <NuxtLink to="/" class="productListCard__overlay"></NuxtLink>
+    <NuxtLink
+      :to="`/${type}/${product.slug}`"
+      class="productListCard__overlay"
+    ></NuxtLink>
 
-    <ProductListCardImage :image="item.image" :name="item.name" />
+    <ProductListCardImage :image="product.image" :name="product.name" />
 
     <div class="productListCard__details">
-      <ProductListCardTitle :name="item.name" :description="item.description" />
+      <ProductListCardTitle
+        :route="`/${type}/${product.slug}`"
+        :name="product.name"
+        :description="product.description"
+      />
 
       <div class="productListCard__cartBox">
         <div class="productListCard__statusBox">
-          <ProductListCardRating :rating="item.rating" />
-          <ProductListCardComment :comments="item.comments.length" />
+          <ProductListCardRating :rating="product.rating" />
+          <ProductListCardComment :comments="product.comments.length" />
         </div>
 
         <ProductListCardPrice
-          :weigth="item.weigth"
-          :price="item.price"
-          :discount="item.discount"
+          :weigth="product.weigth"
+          :price="product.price"
+          :discount="product.discount"
         />
 
-        <div
-          :class="[
-            'productListCard__buttonCartBlock',
-            { productListCard__buttonCartBlock_active: item.quantity > 0 },
-          ]"
-        >
-          <ButtonCart
-            :quantity="item.quantity"
-            @increment="$emit('increment')"
-          />
-
-          <ButtonCounter
-            v-if="item.quantity > 0"
-            :quantity="item.quantity"
-            @increment="$emit('increment')"
-            @decrement="$emit('decrement')"
-          />
-        </div>
+        <ButtonCartBlock :product="product" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-const { item } = defineProps(["item"]);
-
-const emit = defineEmits(["increment", "decrement"]);
+const { product, type } = defineProps(["product", "type"]);
 </script>
 
 <style lang="scss" scoped>
@@ -92,11 +83,13 @@ const emit = defineEmits(["increment", "decrement"]);
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    // height: 100%;
     background: var(--gradient-product-card-primary);
     backdrop-filter: blur(1000px);
     mask: linear-gradient(rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 1) 60%);
     z-index: 1;
+
+    // border: 1px solid red;
 
     @media (max-width: 1600px) {
       mask: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 60%);
@@ -137,16 +130,16 @@ const emit = defineEmits(["increment", "decrement"]);
     }
   }
 
-  &__buttonCartBlock {
-    display: grid;
-    grid-template-columns: 1fr;
-    column-gap: 10px;
-    height: 50px;
-    margin-top: 10px;
+  // &__buttonCartBlock {
+  //   display: grid;
+  //   grid-template-columns: 1fr;
+  //   column-gap: 10px;
+  //   height: 50px;
+  //   margin-top: 10px;
 
-    &_active {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
+  //   &_active {
+  //     grid-template-columns: repeat(2, 1fr);
+  //   }
+  // }
 }
 </style>

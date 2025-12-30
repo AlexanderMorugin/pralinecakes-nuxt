@@ -1,9 +1,9 @@
 <template>
-  <button v-if="quantity < 1" class="buttonCart" @click="$emit('increment')">
+  <button v-if="count < 1" class="buttonCart" @click="$emit('addCartItem')">
     <span class="buttonCart__cartText">В корзину</span>
   </button>
 
-  <NuxtLink to="/cart" v-else class="buttonCart buttonCart_active">
+  <NuxtLink v-else to="/cart" class="buttonCart buttonCart_active">
     <span class="buttonCart__cartText buttonCart__cartText_active"
       >В корзине</span
     >
@@ -11,8 +11,8 @@
 </template>
 
 <script setup>
-const { quantity } = defineProps(["quantity"]);
-const emit = defineEmits(["increment"]);
+const { count } = defineProps(["count"]);
+const emit = defineEmits(["addCartItem"]);
 </script>
 
 <style lang="scss" scoped>

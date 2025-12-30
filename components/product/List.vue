@@ -1,19 +1,23 @@
 <template>
   <WrapperSection>
-    <ul class="productList">
-      <li v-for="item in cakesStore.cakes" :key="item.id">
-        <ProductListCard
+    <ul v-if="type === 'cakes'" class="productList">
+      <li v-for="product in cakesStore.cakes" :key="product.id">
+        <!-- <ProductListCard
           :item="item"
+          :type="type"
           @increment="cakesStore.increment(item.id)"
           @decrement="cakesStore.decrement(item.id)"
-        />
+        /> -->
+        <ProductListCard :product="product" :type="type" />
       </li>
     </ul>
   </WrapperSection>
 </template>
 
 <script setup>
+const { type } = defineProps(["type"]);
 const cakesStore = useCakesStore();
+// const cartStore = useCartStore();
 </script>
 
 <style lang="scss" scoped>
@@ -22,7 +26,6 @@ const cakesStore = useCakesStore();
   grid-template-columns: repeat(3, 1fr);
   column-gap: 30px;
   row-gap: 50px;
-  // border: 1px solid red;
 
   @media (max-width: 1600px) {
     column-gap: 10px;
@@ -30,11 +33,9 @@ const cakesStore = useCakesStore();
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
-    // column-gap: 5px;
   }
 
   @media (max-width: 767px) {
-    // grid-template-columns: repeat(2, 1fr);
     column-gap: 5px;
   }
 

@@ -1,7 +1,6 @@
 <template>
   <WrapperPadding>
-    <TitlePage title="Торты" />
-    <ProductList type="cakes" />
+    <ProductCard :product="cakesStore.cake" />
   </WrapperPadding>
 </template>
 
@@ -11,4 +10,6 @@ definePageMeta({
 });
 
 const cakesStore = useCakesStore();
+
+await cakesStore.getCake(useRoute().params.slug);
 </script>

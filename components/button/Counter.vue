@@ -7,7 +7,7 @@
       <IconMinus class="buttonCounter__icon" />
     </button>
     <div class="buttonCounter__numberBox">
-      <span class="buttonCounter__number">{{ quantity }}</span>
+      <span class="buttonCounter__number">{{ count }}</span>
     </div>
     <button
       class="buttonCounter__button buttonCounter__button_right"
@@ -19,8 +19,14 @@
 </template>
 
 <script setup>
-const { quantity } = defineProps(["quantity"]);
+const { count } = defineProps(["count"]);
 const emit = defineEmits(["increment", "decrement"]);
+
+// const cartStore = useCartStore();
+
+// const count = computed(
+//   () => cartStore.cart.filter((item) => item.id === product.id).length
+// );
 </script>
 
 <style lang="scss" scoped>

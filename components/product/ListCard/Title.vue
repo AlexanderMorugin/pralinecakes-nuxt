@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink to="/" class="productListCardTitle">
+  <NuxtLink :to="route" class="productListCardTitle">
     <h2 class="productListCardTitle__name">
       {{ name }}
     </h2>
@@ -8,7 +8,11 @@
 </template>
 
 <script setup>
-const { name, description } = defineProps(["name", "description"]);
+const { route, name, description } = defineProps([
+  "route",
+  "name",
+  "description",
+]);
 </script>
 
 <style lang="scss" scoped>
