@@ -48,91 +48,91 @@
     </WrapperPadding>
   </header>
 
-  <ClientOnly>
-    <!-- Модалка меню -->
-    <Teleport to="#teleports">
-      <Transition name="left">
-        <ModalHeader
-          v-if="isMenuModalOpen"
-          :isModalOpen="isMenuModalOpen"
-          place="left"
-          title="Меню"
-          name="menu"
-          @closeModal="isMenuModalOpen = false"
-        />
-      </Transition>
-    </Teleport>
+  <!-- <ClientOnly> -->
+  <!-- Модалка меню -->
+  <Teleport to="#teleports">
+    <Transition name="left">
+      <ModalHeader
+        v-if="isMenuModalOpen"
+        :isModalOpen="isMenuModalOpen"
+        place="left"
+        title="Меню"
+        name="menu"
+        @closeModal="isMenuModalOpen = false"
+      />
+    </Transition>
+  </Teleport>
 
-    <!-- Модалка поиска -->
-    <Teleport to="#teleports">
-      <Transition name="left">
-        <ModalHeader
-          v-if="isSearchModalOpen"
-          :isModalOpen="isSearchModalOpen"
-          place="left"
-          title="Поиск"
-          name="search"
-          @closeModal="isSearchModalOpen = false"
-        />
-      </Transition>
-    </Teleport>
+  <!-- Модалка поиска -->
+  <Teleport to="#teleports">
+    <Transition name="left">
+      <ModalHeader
+        v-if="isSearchModalOpen"
+        :isModalOpen="isSearchModalOpen"
+        place="left"
+        title="Поиск"
+        name="search"
+        @closeModal="isSearchModalOpen = false"
+      />
+    </Transition>
+  </Teleport>
 
-    <!-- Модалка профиля -->
-    <Teleport to="#teleports">
-      <Transition name="right">
-        <ModalHeader
-          v-if="isProfileModalOpen"
-          :isModalOpen="isProfileModalOpen"
-          place="right"
-          title="Профиль"
-          name="profile"
-          @closeModal="isProfileModalOpen = false"
-        />
-      </Transition>
-    </Teleport>
+  <!-- Модалка профиля -->
+  <Teleport to="#teleports">
+    <Transition name="right">
+      <ModalHeader
+        v-if="isProfileModalOpen"
+        :isModalOpen="isProfileModalOpen"
+        place="right"
+        title="Профиль"
+        name="profile"
+        @closeModal="isProfileModalOpen = false"
+      />
+    </Transition>
+  </Teleport>
 
-    <!-- Модалка корзины -->
-    <Teleport to="#teleports">
-      <Transition name="right">
-        <ModalHeader
-          v-if="isCartModalOpen"
-          :isModalOpen="isCartModalOpen"
-          place="right"
-          title="Корзина"
-          name="cart"
-          @closeModal="isCartModalOpen = false"
-        />
-      </Transition>
-    </Teleport>
+  <!-- Модалка корзины -->
+  <Teleport to="#teleports">
+    <Transition name="right">
+      <ModalHeader
+        v-if="isCartModalOpen"
+        :isModalOpen="isCartModalOpen"
+        place="right"
+        title="Корзина"
+        name="cart"
+        @closeModal="isCartModalOpen = false"
+      />
+    </Transition>
+  </Teleport>
 
-    <!-- Модалка мессенджеров -->
-    <Teleport to="#teleports">
-      <Transition name="top">
-        <ModalHeader
-          v-if="isChatModalOpen"
-          :isModalOpen="isChatModalOpen"
-          place="right"
-          title="Написать"
-          name="chat"
-          @closeModal="isChatModalOpen = false"
-        />
-      </Transition>
-    </Teleport>
+  <!-- Модалка мессенджеров -->
+  <Teleport to="#teleports">
+    <Transition name="top">
+      <ModalHeader
+        v-if="isChatModalOpen"
+        :isModalOpen="isChatModalOpen"
+        place="right"
+        title="Написать"
+        name="chat"
+        @closeModal="isChatModalOpen = false"
+      />
+    </Transition>
+  </Teleport>
 
-    <!-- Модалка телефонов -->
-    <Teleport to="#teleports">
-      <Transition name="top">
-        <ModalHeader
-          v-if="isPhoneModalOpen"
-          :isModalOpen="isPhoneModalOpen"
-          place="right"
-          title="Позвонить"
-          name="phone"
-          @closeModal="isPhoneModalOpen = false"
-        />
-      </Transition>
-    </Teleport>
-  </ClientOnly>
+  <!-- Модалка телефонов -->
+  <Teleport to="#teleports">
+    <Transition name="top">
+      <ModalHeader
+        v-if="isPhoneModalOpen"
+        :isModalOpen="isPhoneModalOpen"
+        place="right"
+        title="Позвонить"
+        name="phone"
+        @closeModal="isPhoneModalOpen = false"
+      />
+    </Transition>
+  </Teleport>
+  <!-- </ClientOnly> -->
 </template>
 
 <script setup>

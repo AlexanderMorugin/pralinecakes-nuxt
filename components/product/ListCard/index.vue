@@ -129,17 +129,5 @@ const { product, type } = defineProps(["product", "type"]);
       padding-bottom: 10px;
     }
   }
-
-  // &__buttonCartBlock {
-  //   display: grid;
-  //   grid-template-columns: 1fr;
-  //   column-gap: 10px;
-  //   height: 50px;
-  //   margin-top: 10px;
-
-  //   &_active {
-  //     grid-template-columns: repeat(2, 1fr);
-  //   }
-  // }
 }
 </style>

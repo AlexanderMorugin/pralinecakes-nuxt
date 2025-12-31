@@ -3,7 +3,6 @@
     <IconClose v-if="name === 'close'" class="buttonWithIcon__icon" />
     <IconMenu v-if="name === 'menu'" class="buttonWithIcon__icon" />
     <IconLogin v-if="name === 'login'" class="buttonWithIcon__icon" />
-    <!-- <IconFavorite v-if="name === 'favorite'" class="buttonWithIcon__icon" /> -->
     <IconCart v-if="name === 'cart'" class="buttonWithIcon__icon" />
     <IconPhone v-if="name === 'phone'" class="buttonWithIcon__icon" />
     <IconEmail v-if="name === 'email'" class="buttonWithIcon__icon" />
@@ -21,15 +20,25 @@
         { buttonWithIcon__icon_favoriteActive: isFavorite },
       ]"
     />
+
+    <div
+      v-if="name === 'cart' && cartStore.cart.length"
+      class="buttonWithIcon__cart"
+    >
+      <span class="buttonWithIcon__cartCount">{{ cartStore.cart.length }}</span>
+    </div>
   </button>
 </template>
 
 <script setup>
 const { name, isFavorite } = defineProps(["name", "isFavorite"]);
+
+const cartStore = useCartStore();
 </script>
 
 <style lang="scss" scoped>
 .buttonWithIcon {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,6 +67,33 @@ const { name, isFavorite } = defineProps(["name", "isFavorite"]);
     &_favoriteActive {
       color: var(--white-primary);
       fill: var(--white-primary);
+    }
+  }
+
+  &__cart {
+    position: absolute;
+    bottom: 6px;
+    left: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    border-radius: 14px;
+    background: var(--red-primary);
+    padding: 2px 6px;
+
+    @media (max-width: 767px) {
+      bottom: 2px;
+    }
+  }
+
+  &__cartCount {
+    font-family: "Roboto-Regular", sans-serif;
+    font-size: 14px;
+    color: var(--white-primary);
+
+    @media (max-width: 767px) {
+      font-size: 10px;
     }
   }
 }

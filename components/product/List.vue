@@ -2,12 +2,6 @@
   <WrapperSection>
     <ul v-if="type === 'cakes'" class="productList">
       <li v-for="product in cakesStore.cakes" :key="product.id">
-        <!-- <ProductListCard
-          :item="item"
-          :type="type"
-          @increment="cakesStore.increment(item.id)"
-          @decrement="cakesStore.decrement(item.id)"
-        /> -->
         <ProductListCard :product="product" :type="type" />
       </li>
     </ul>
@@ -17,7 +11,6 @@
 <script setup>
 const { type } = defineProps(["type"]);
 const cakesStore = useCakesStore();
-// const cartStore = useCartStore();
 </script>
 
 <style lang="scss" scoped>

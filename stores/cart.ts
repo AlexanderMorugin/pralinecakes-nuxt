@@ -13,26 +13,26 @@ export const useCartStore = defineStore("cartStore", () => {
     }
   };
 
-  const incrementCartItem = (product: ICart) => {
+  const incrementCartItem = (productId: Number) => {
     cart.value = cart.value.map((item) =>
-      item.id === product.id ? { ...item, count: item.count + 1 } : item
+      item.id === productId ? { ...item, count: item.count + 1 } : item
     );
   };
 
-  const decrementCartItem = (product: ICart) => {
-    const currentItem = cart.value.find((item) => item.id === product.id);
+  const decrementCartItem = (productId: Number) => {
+    const currentItem = cart.value.find((item) => item.id === productId);
 
     if (currentItem?.count === 1) {
-      deleteCartItem(product);
+      deleteCartItem(productId);
     } else {
       cart.value = cart.value.map((item) =>
-        item.id === product.id ? { ...item, count: item.count - 1 } : item
+        item.id === productId ? { ...item, count: item.count - 1 } : item
       );
     }
   };
 
-  const deleteCartItem = (product: ICart) => {
-    const currentItem = cart.value.find((item) => item.id === product.id);
+  const deleteCartItem = (productId: Number) => {
+    const currentItem = cart.value.find((item) => item.id === productId);
 
     cart.value = cart.value.filter((item) => item !== currentItem);
   };

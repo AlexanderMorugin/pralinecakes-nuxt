@@ -1,7 +1,27 @@
 import { defineStore } from "pinia";
 
+export type TComment = {
+  id: number;
+  comment: string;
+};
+
+export interface ICake {
+  id: number;
+  slug: string;
+  image: string;
+  name: string;
+  description: string;
+  price: number;
+  weigth: number;
+  rating: number;
+  badgeStatus?: string | null;
+  comments: TComment[];
+  discount: number;
+  isFavorite: Boolean;
+}
+
 export const useCakesStore = defineStore("cakesStore", () => {
-  const cakes = ref([
+  const cakes = ref<ICake[]>([
     {
       id: 1,
       slug: "air-nut",
@@ -11,7 +31,6 @@ export const useCakesStore = defineStore("cakesStore", () => {
         "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
       price: 1860,
       weigth: 1640,
-      // quantity: 0,
       rating: 5,
       badgeStatus: "Хит",
       comments: [],
@@ -27,7 +46,6 @@ export const useCakesStore = defineStore("cakesStore", () => {
         "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
       price: 1860,
       weigth: 1640,
-      // quantity: 0,
       rating: 1,
       badgeStatus: null,
       comments: [
@@ -47,7 +65,6 @@ export const useCakesStore = defineStore("cakesStore", () => {
         "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
       price: 1860,
       weigth: 1640,
-      // quantity: 0,
       rating: 2,
       badgeStatus: "Новинка",
       comments: [
@@ -62,60 +79,34 @@ export const useCakesStore = defineStore("cakesStore", () => {
       discount: 0,
       isFavorite: true,
     },
-    // {
-    //   id: 4,
-    //   slug: "currant-coconut",
-    //   image: "/images/cakes/esterhazy-cake-1-600-400.webp",
-    //   name: "Торт Чёрная смородина и кокос",
-    //   description:
-    //     "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
-    //   price: 1860,
-    //   weigth: 1640,
-    //   // quantity: 0,
-    //   rating: 3,
-    //   badgeStatus: null,
-    //   comments: [
-    //     { id: 1, comment: "Никогда не пробовала ничего подобного. Благодарю!" },
-    //   ],
-    //   discount: 10,
-    //   isFavorite: false,
-    // },
+    {
+      id: 4,
+      slug: "currant-coconut",
+      image: "/images/cakes/esterhazy-cake-1-600-400.webp",
+      name: "Торт Чёрная смородина и кокос",
+      description:
+        "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
+      price: 1860,
+      weigth: 1640,
+      rating: 3,
+      badgeStatus: null,
+      comments: [
+        { id: 1, comment: "Никогда не пробовала ничего подобного. Благодарю!" },
+      ],
+      discount: 10,
+      isFavorite: false,
+    },
   ]);
 
-  const cake = ref(null);
+  const cake = ref<any>(null);
 
-  const getCake = async (slug) => {
+  const getCake = async (slug: string) => {
     cake.value = cakes.value.find((item) => item.slug === slug);
   };
-
-  // const increment = (id) => {
-  //   console.log(id);
-  //   cakes.value = cakes.value.map((item) =>
-  //     item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-  //   );
-  // };
-
-  // const decrement = (id) => {
-  //   cakes.value = cakes.value.map((item) =>
-  //     item.id === id ? { ...item, quantity: item.quantity - 1 } : item
-  //   );
-  // };
-
-  // const incrementCake = () => {
-  //   cake.value.quantity++;
-  // };
-
-  // const decrementCake = () => {
-  //   cake.value.quantity--;
-  // };
 
   return {
     cakes,
     cake,
     getCake,
-    // increment,
-    // decrement,
-    // incrementCake,
-    // decrementCake,
   };
 });
