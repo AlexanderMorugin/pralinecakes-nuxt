@@ -1,5 +1,10 @@
 <template>
   <div class="productListCard">
+    <NuxtLink
+      :to="`/${type}/${product.slug}`"
+      class="productListCard__overlay"
+    ></NuxtLink>
+
     <ButtonWithIcon
       name="favorite"
       :isFavorite="product.isFavorite"
@@ -15,11 +20,6 @@
       v-if="product.discount"
       :discount="product.discount"
     />
-
-    <NuxtLink
-      :to="`/${type}/${product.slug}`"
-      class="productListCard__overlay"
-    ></NuxtLink>
 
     <ProductListCardImage :image="product.image" :name="product.name" />
 
@@ -83,13 +83,11 @@ const { product, type } = defineProps(["product", "type"]);
     top: 0;
     left: 0;
     width: 100%;
-    // height: 100%;
+    height: 100%;
     background: var(--gradient-product-card-primary);
     backdrop-filter: blur(1000px);
     mask: linear-gradient(rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 1) 60%);
     z-index: 1;
-
-    // border: 1px solid red;
 
     @media (max-width: 1600px) {
       mask: linear-gradient(rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 60%);

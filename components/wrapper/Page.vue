@@ -1,11 +1,11 @@
 <template>
-  <section class="wrapperSection">
+  <div class="wrapperPage">
     <slot />
-  </section>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.wrapperSection {
+.wrapperPage {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;

@@ -1,11 +1,11 @@
 <template>
-  <WrapperSection>
+  <WrapperPage>
     <ul v-if="type === 'cakes'" class="productList">
       <li v-for="product in cakesStore.cakes" :key="product.id">
         <ProductListCard :product="product" :type="type" />
       </li>
     </ul>
-  </WrapperSection>
+  </WrapperPage>
 </template>
 
 <script setup>

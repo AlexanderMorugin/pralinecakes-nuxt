@@ -1,6 +1,8 @@
 <template>
   <WrapperPadding>
-    <ProductCard :product="cakesStore.cake" />
+    <WrapperPage>
+      <ProductCard :product="cakesStore.cake" />
+    </WrapperPage>
   </WrapperPadding>
 </template>
 
