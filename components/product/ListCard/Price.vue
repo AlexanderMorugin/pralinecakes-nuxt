@@ -1,13 +1,17 @@
 <template>
   <div class="productListCardPrice">
-    <span class="productListCardPrice__weigth">{{ weigth }} гр</span>
+    <span class="productListCardPrice__weigth">{{ product.weigth }} гр</span>
     <div class="productListCardPrice__prices">
-      <span v-if="discount" class="productListCardPrice__priceOld"
-        >{{ currencyFormater(price) }}
+      <span v-if="product.discount" class="productListCardPrice__priceOld"
+        >{{ currencyFormater(product.price) }}
       </span>
       <span class="productListCardPrice__price"
         >{{
-          currencyFormater(discount ? price - (price * discount) / 100 : price)
+          currencyFormater(
+            product.discount
+              ? product.price - (product.price * product.discount) / 100
+              : product.price
+          )
         }}
       </span>
     </div>
@@ -15,11 +19,7 @@
 </template>
 
 <script setup>
-const { weigth, price, discount } = defineProps([
-  "weigth",
-  "price",
-  "discount",
-]);
+const { product } = defineProps(["product"]);
 </script>
 
 <style lang="scss" scoped>

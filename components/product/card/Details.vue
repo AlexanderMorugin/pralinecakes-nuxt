@@ -8,10 +8,28 @@
       </li>
 
       <li class="productCardDetails__listItem">
-        <span class="productCardDetails__text">Размеры:</span>
+        <span class="productCardDetails__text">Ширина:</span>
         <div class="productCardDetails__line" />
-        <span class="productCardDetails__text">d 18 см, h 12 см</span>
+        <span class="productCardDetails__text">18 см</span>
       </li>
+
+      <li class="productCardDetails__listItem">
+        <span class="productCardDetails__text">Высота:</span>
+        <div class="productCardDetails__line" />
+        <span class="productCardDetails__text">12 см</span>
+      </li>
+
+      <!-- <li class="productCardDetails__listItem">
+        <span class="productCardDetails__text">Основа:</span>
+        <div class="productCardDetails__line" />
+        <span class="productCardDetails__text">бисквит</span>
+      </li>
+
+      <li class="productCardDetails__listItem">
+        <span class="productCardDetails__text">Коржей:</span>
+        <div class="productCardDetails__line" />
+        <span class="productCardDetails__text">3 шт</span>
+      </li> -->
 
       <li class="productCardDetails__listItem">
         <span class="productCardDetails__text">Срок годности:</span>
@@ -24,9 +42,15 @@
         <div class="productCardDetails__line" />
         <span class="productCardDetails__text">от 4 до 6°C</span>
       </li>
+
+      <!-- <li class="productCardDetails__listItem">
+        <span class="productCardDetails__text">Упаковка:</span>
+        <div class="productCardDetails__line" />
+        <span class="productCardDetails__text">картон</span>
+      </li> -->
     </ul>
 
-    <ProductCardPrice />
+    <ProductCardCart :product="product" />
   </div>
 </template>
 
@@ -38,12 +62,31 @@ const { product } = defineProps(["product"]);
 .productCardDetails {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 20px;
+  gap: 20px;
+
+  @media (max-width: 1280px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 
   &__list {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    width: 100%;
+    max-width: 400px;
+
+    @media (max-width: 576px) {
+      max-width: 100%;
+    }
   }
 
   &__listItem {
@@ -53,6 +96,7 @@ const { product } = defineProps(["product"]);
 
   &__line {
     width: 100%;
+    min-width: 20px;
     border-bottom: 1px dashed var(--border-primary);
   }
 

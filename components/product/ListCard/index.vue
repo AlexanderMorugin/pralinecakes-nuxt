@@ -36,11 +36,7 @@
           <ProductListCardComment :comments="product.comments.length" />
         </div>
 
-        <ProductListCardPrice
-          :weigth="product.weigth"
-          :price="product.price"
-          :discount="product.discount"
-        />
+        <ProductListCardPrice :product="product" />
 
         <ButtonCartBlock :product="product" />
       </div>
