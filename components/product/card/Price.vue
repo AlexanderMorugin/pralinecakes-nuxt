@@ -70,7 +70,7 @@ const { product } = defineProps(["product"]);
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    padding: 10px;
+    padding: 20px 10px 10px 10px;
 
     // @media (max-width: 1280px) {
     //   padding-top: 60px;
