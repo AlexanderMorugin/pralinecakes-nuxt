@@ -29,9 +29,13 @@ const cakesStore = useCakesStore();
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding-top: 80px;
+  padding-top: 20px;
 
   // border: 1px solid red;
+
+  // @media (max-width: 767px) {
+  //   padding-top: 20px;
+  // }
 
   &__grid {
     display: grid;
