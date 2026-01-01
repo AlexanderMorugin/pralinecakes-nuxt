@@ -2,7 +2,7 @@
   <ul class="modalPhone">
     <li v-for="item in phones" :key="item.id">
       <ModalElement contentPosition="center">
-        <span class="modalElementTitle">{{ item.number }}</span>
+        <a :href="item.link" class="modalElementTitle">{{ item.number }}</a>
       </ModalElement>
     </li>
   </ul>

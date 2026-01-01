@@ -1,5 +1,7 @@
 <template>
-  <button
+  <a
+    :href="link"
+    target="_blank"
     :class="[
       'buttonChat',
       { buttonChat_email: name === 'email' },
@@ -28,11 +30,11 @@
       src="/bg/whatsapp-logo.png"
       class="buttonChat__icon"
     />
-  </button>
+  </a>
 </template>
 
 <script setup>
-const { name } = defineProps(["name"]);
+const { name, link } = defineProps(["name", "link"]);
 </script>
 
 <style lang="scss" scoped>
