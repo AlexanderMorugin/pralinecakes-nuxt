@@ -1,6 +1,6 @@
 <template>
   <div class="productCardPrice">
-    <div class="productCardPrice__discount">
+    <div v-if="product.discount" class="productCardPrice__discount">
       <span class="productCardPrice__discountText"
         >Скидка -{{ product.discount }}%</span
       >
@@ -48,11 +48,11 @@ const { product } = defineProps(["product"]);
   gap: 10px;
 
   &__discount {
-    position: absolute;
-    top: 10px;
-    right: 0;
+    // position: absolute;
+    // top: 10px;
+    // right: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     background: var(--gradient-product-card-discount);
     padding: 10px;
@@ -70,11 +70,11 @@ const { product } = defineProps(["product"]);
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    padding-top: 80px;
+    padding: 10px;
 
-    @media (max-width: 1280px) {
-      padding-top: 60px;
-    }
+    // @media (max-width: 1280px) {
+    //   padding-top: 60px;
+    // }
   }
 
   &__prices {
@@ -122,6 +122,8 @@ const { product } = defineProps(["product"]);
     font-size: 16px;
     color: var(--green-primary);
     text-align: right;
+    padding-left: 10px;
+    padding-right: 10px;
     // opacity: 0.7;
 
     // @media (max-width: 1600px) {

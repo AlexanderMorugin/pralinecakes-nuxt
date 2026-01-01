@@ -47,7 +47,12 @@
     var(--mask-black-secondary) 50%
   );
 
-  --gradient-product-card-discount: linear-gradient(to right, var(--mask-trasparent) 0%, var(--deep-blue-thirdly) 100%);
+  --gradient-product-card-discount: linear-gradient(
+    to right,
+    var(--mask-trasparent) 0%,
+    var(--mask-trasparent) 50%,
+    var(--deep-blue-thirdly) 100%
+  );
 
   --border-primary: rgba(255, 255, 255, 0.2);
 
