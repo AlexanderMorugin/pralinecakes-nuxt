@@ -66,6 +66,7 @@ const { product } = defineProps(["product"]);
 
   @media (max-width: 1280px) {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 
   @media (max-width: 767px) {
@@ -74,7 +75,6 @@ const { product } = defineProps(["product"]);
 
   @media (max-width: 576px) {
     grid-template-columns: 1fr;
-    gap: 40px;
   }
 
   &__list {

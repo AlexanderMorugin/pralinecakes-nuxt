@@ -23,7 +23,7 @@ const { product } = defineProps(["product"]);
 .productCardTitle {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
   // padding: 20px 40px;
 
   // @media (max-width: 1600px) {

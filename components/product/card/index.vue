@@ -28,7 +28,7 @@ const cakesStore = useCakesStore();
 .productCard {
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 40px;
   padding-top: 80px;
 
   // border: 1px solid red;
@@ -45,17 +45,18 @@ const cakesStore = useCakesStore();
 
     @media (max-width: 767px) {
       grid-template-columns: 1fr;
+      row-gap: 40px;
     }
   }
 
   &__details {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
 
-    @media (max-width: 576px) {
-      gap: 40px;
-    }
+    // @media (max-width: 576px) {
+    //   gap: 40px;
+    // }
   }
 
   &__options {
@@ -67,6 +68,8 @@ const cakesStore = useCakesStore();
 
     @media (max-width: 576px) {
       grid-template-columns: 1fr;
+      gap: 0;
+      // row-gap: 40px;
     }
   }
 }
