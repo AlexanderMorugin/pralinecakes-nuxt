@@ -25,11 +25,11 @@
       src="/bg/email-logo.png"
       class="buttonChat__icon"
     />
-    <img
+    <!-- <img
       v-if="name === 'whatsapp'"
       src="/bg/whatsapp-logo.png"
       class="buttonChat__icon"
-    />
+    /> -->
   </a>
 </template>
 
@@ -56,9 +56,9 @@ const { name, link } = defineProps(["name", "link"]);
     background: #005ff9;
   }
 
-  &_whatsapp {
-    background: linear-gradient(48deg, #25d366 25%, #96d6ad 100%);
-  }
+  // &_whatsapp {
+  //   background: linear-gradient(48deg, #25d366 25%, #96d6ad 100%);
+  // }
 
   &_telegram {
     background: linear-gradient(48deg, #1e96c8 0%, #37aee2 100%);
