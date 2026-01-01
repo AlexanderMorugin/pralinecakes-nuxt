@@ -1,7 +1,7 @@
 <template>
   <div class="productCard">
     <div class="productCard__grid">
-      <ProductCardImage :image="product.image" :name="product.name" />
+      <ProductCardImage :product="product" />
 
       <div class="productCard__details">
         <ProductCardTitle :product="product" />
@@ -30,6 +30,7 @@ const cakesStore = useCakesStore();
   flex-direction: column;
   gap: 40px;
   padding-top: 20px;
+  // border: 1px solid red;
 
   // border: 1px solid red;
 
@@ -42,6 +43,7 @@ const cakesStore = useCakesStore();
     grid-template-columns: repeat(2, 1fr);
     column-gap: 40px;
     // height: 500px;
+    border: 1px solid red;
 
     @media (max-width: 1600px) {
       column-gap: 20px;

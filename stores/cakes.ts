@@ -8,7 +8,8 @@ export type TComment = {
 export interface ICake {
   id: number;
   slug: string;
-  image: string;
+  imageListCard: string;
+  imageCardOne: string;
   name: string;
   description: string;
   price: number;
@@ -25,7 +26,8 @@ export const useCakesStore = defineStore("cakesStore", () => {
     {
       id: 1,
       slug: "air-nut",
-      image: "/images/cakes/almond-prune-cake-1-600-400.webp",
+      imageListCard: "/images/cakes/almond-prune-cake-1-600-400.webp",
+      imageCardOne: "/images/cakes/almond-prune-cake-1-800-533.webp",
       name: "Торт Воздушно ореховый",
       description:
         "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
@@ -40,7 +42,8 @@ export const useCakesStore = defineStore("cakesStore", () => {
     {
       id: 2,
       slug: "almond",
-      image: "/images/cakes/carrot-cake-1-600-400.webp",
+      imageListCard: "/images/cakes/carrot-cake-1-600-400.webp",
+      imageCardOne: "/images/cakes/carrot-cake-1-800-533.webp",
       name: "Торт Миндальный",
       description:
         "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
@@ -59,7 +62,8 @@ export const useCakesStore = defineStore("cakesStore", () => {
     {
       id: 3,
       slug: "honey",
-      image: "/images/cakes/coconut-cake-1-600-400.webp",
+      imageListCard: "/images/cakes/coconut-cake-1-600-400.webp",
+      imageCardOne: "/images/cakes/coconut-cake-1-800-533.webp",
       name: "Торт Медовик",
       description:
         "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
@@ -82,7 +86,8 @@ export const useCakesStore = defineStore("cakesStore", () => {
     {
       id: 4,
       slug: "currant-coconut",
-      image: "/images/cakes/esterhazy-cake-1-600-400.webp",
+      imageListCard: "/images/cakes/esterhazy-cake-1-600-400.webp",
+      imageCardOne: "/images/cakes/esterhazy-cake-1-800-533.webp",
       name: "Торт Чёрная смородина и кокос",
       description:
         "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",

@@ -1,20 +1,32 @@
 <template>
   <section class="productCardImage">
-    <img :src="image" :alt="name" class="productCardImage__pic" />
+    <img
+      :src="product.imageCardOne"
+      :alt="product.name"
+      class="productCardImage__pic"
+    />
   </section>
 </template>
 
 <script setup>
-const { image, name } = defineProps(["image", "name"]);
+const { product } = defineProps(["product"]);
 </script>
 
 <style lang="scss" scoped>
 .productCardImage {
   width: 100%;
-  // height: 450px;
-  // animation: slide-to-top 0.6s ease-in-out;
+  // height: 100%;
+  // border-radius: var(--border-radius-m);
+  border: 1px solid red;
   overflow: hidden;
 
+  // @media (max-width: 1280px) {
+  //   height: fit-content;
+  // }
+
+  // @media (max-width: 1024px) {
+  //   height: 60%;
+  // }
   // @media (max-width: 1600px) {
   //   height: 300px;
   // }
@@ -25,12 +37,12 @@ const { image, name } = defineProps(["image", "name"]);
 
   &__pic {
     width: 100%;
-    // height: 450px;
+    height: 100%;
     object-fit: cover;
 
-    // @media (max-width: 1600px) {
-    //   height: 300px;
-    // }
+    @media (max-width: 1280px) {
+      height: auto;
+    }
 
     // @media (max-width: 767px) {
     //   height: 260px;
