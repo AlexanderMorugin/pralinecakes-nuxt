@@ -21,7 +21,10 @@
       :discount="product.discount"
     />
 
-    <ProductListCardImage :image="product.imageListCard" :name="product.name" />
+    <ProductListCardImage
+      :image="product.image_list_card"
+      :name="product.name"
+    />
 
     <div class="productListCard__details">
       <ProductListCardTitle

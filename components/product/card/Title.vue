@@ -30,15 +30,14 @@ const { product } = defineProps(["product"]);
   //   padding: 20px;
   // }
 
-  // @media (max-width: 1024px) {
-  //   gap: 5px;
-  //   padding: 10px;
-  // }
+  @media (max-width: 767px) {
+    gap: 10px;
+  }
 
   &__titleBlock {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 10px;
 
     @media (max-width: 767px) {
       flex-direction: column;

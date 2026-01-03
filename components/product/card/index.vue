@@ -35,7 +35,7 @@ const cakesStore = useCakesStore();
   // border: 1px solid red;
 
   // @media (max-width: 767px) {
-  //   padding-top: 20px;
+  //   gap: 20px;
   // }
 
   &__grid {
@@ -43,7 +43,7 @@ const cakesStore = useCakesStore();
     grid-template-columns: repeat(2, 1fr);
     column-gap: 40px;
     // height: 500px;
-    border: 1px solid red;
+    // border: 1px solid red;
 
     @media (max-width: 1600px) {
       column-gap: 20px;
