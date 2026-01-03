@@ -118,6 +118,8 @@ onMounted(() => {
   --slide-size: 100%;
   overflow: hidden;
 
+  // border: 1px solid red;
+
   &__button {
     position: absolute;
     top: 0;
@@ -129,21 +131,34 @@ onMounted(() => {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 1px solid var(--white-primary);
-    backdrop-filter: blur(15px) grayscale(50%);
+    border: 1px solid var(--border-primary);
+    backdrop-filter: blur(5px);
     z-index: 1;
+
+    @media (max-width: 767px) {
+      width: 30px;
+      height: 30px;
+    }
 
     &_left {
       left: 10px;
+
+      @media (max-width: 767px) {
+        left: 5px;
+      }
     }
 
     &_right {
       right: 10px;
+
+      @media (max-width: 767px) {
+        right: 5px;
+      }
     }
 
     &_disabled {
       backdrop-filter: blur(0) grayscale(0);
-      border: none;
+      border: 1px solid var(--border-primary);
       cursor: default;
     }
   }
@@ -151,10 +166,15 @@ onMounted(() => {
   &__arrow {
     width: 30px;
     height: 30px;
-    fill: var(--white-primary);
+    fill: var(--mask-white-secondary);
+
+    @media (max-width: 767px) {
+      width: 20px;
+      height: 20px;
+    }
 
     &_disabled {
-      fill: none;
+      fill: var(--border-primary);
     }
   }
 }
