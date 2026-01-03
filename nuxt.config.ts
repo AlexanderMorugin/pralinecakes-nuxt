@@ -7,10 +7,9 @@ export default defineNuxtConfig({
     "~/assets/styles/_fonts.scss",
     "~/assets/styles/_transitions.scss",
     "~/assets/styles/_modal.scss",
-    "~/assets/styles/main.css",
   ],
 
-  modules: ["@nuxt/fonts", "@pinia/nuxt", "@nuxt/ui"],
+  modules: ["@nuxt/fonts", "@pinia/nuxt"],
   router: {
     options: {
       scrollBehaviorType: "smooth",

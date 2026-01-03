@@ -1,68 +1,115 @@
 <template>
-  <UApp>
-    <div class="embla">
-      <UCarousel
-        ref="carousel"
-        v-slot="{ item }"
-        :items="product.image_800"
-        class="embla__container"
-        @select="onSelect"
-      >
-        <img :src="item" class="slideImage" />
-      </UCarousel>
+  <!-- <section class="productCardImage"> -->
+  <!-- <img
+      :src="product.image_normal_one"
+      :alt="product.name"
+      class="productCardImage__pic"
+    /> -->
+  <section class="productCardImage">
+    <!-- Кнопка-стрелка навигации "НАЗАД" -->
+    <button
+      @click="scrollPrev"
+      :disabled="!canScrollPrev"
+      :class="[
+        'productCardImage__button productCardImage__button_left',
+        { productCardImage__button_disabled: !canScrollPrev },
+      ]"
+    >
+      <IconArrowBack
+        :class="[
+          'productCardImage__arrow',
+          { productCardImage__arrow_disabled: !canScrollPrev },
+        ]"
+      />
+    </button>
 
-      <div class="flex gap-1 justify-between pt-4 max-w-xs mx-auto">
-        <div
-          v-for="(item, index) in product.image_100"
+    <!-- Кнопка-стрелка навигации "ВПЕРЕД" -->
+    <button
+      @click="scrollNext"
+      :disabled="!canScrollNext"
+      :class="[
+        'productCardImage__button productCardImage__button_right',
+        { productCardImage__button_disabled: !canScrollNext },
+      ]"
+    >
+      <IconArrowForward
+        :class="[
+          'productCardImage__arrow',
+          { productCardImage__arrow_disabled: !canScrollNext },
+        ]"
+      />
+    </button>
+
+    <div class="embla__viewport" ref="emblaRef">
+      <ul class="embla__container">
+        <li
+          v-for="(item, index) in product.image_800"
           :key="index"
-          class="size-11 opacity-25 hover:opacity-100 transition-opacity"
-          :class="{ 'opacity-100': activeIndex === index }"
-          @click="select(index)"
+          class="embla__slide"
         >
-          <img :src="item" width="44" height="44" class="rounded-lg" />
-        </div>
-      </div>
+          <img :src="item" alt="item.text" class="slideImage" />
+        </li>
+      </ul>
     </div>
-  </UApp>
+  </section>
 </template>
 
 <script setup>
+import emblaCarouselVue from "embla-carousel-vue";
+
 const { product } = defineProps(["product"]);
 
-const items = [
-  "/images/cakes/esterhazy/esterhazy-cake-1-800-533.webp",
-  "/images/cakes/esterhazy/esterhazy-cake-2-800-533.webp",
-  "/images/cakes/esterhazy/esterhazy-cake-3-800-533.webp",
-  "/images/cakes/esterhazy/esterhazy-cake-4-800-533.webp",
-  "/images/cakes/esterhazy/esterhazy-cake-5-800-533.webp",
-  "/images/cakes/esterhazy/esterhazy-cake-6-800-533.webp",
-];
+const [emblaRef, emblaApi] = emblaCarouselVue();
 
-const carousel = useTemplateRef("carousel");
-const activeIndex = ref(0);
+const canScrollPrev = ref(false);
+const canScrollNext = ref(false);
+const scrollNextDisabled = ref(false);
+const scrollPrevDisabled = ref(false);
 
-// function onClickPrev() {
-//   activeIndex.value--;
-// }
-// function onClickNext() {
-//   activeIndex.value++;
-// }
-function onSelect(index) {
-  activeIndex.value = index;
+const onSelect = (emblaApi) => {
+  scrollNextDisabled.value = !emblaApi.canScrollNext();
+  scrollPrevDisabled.value = !emblaApi.canScrollPrev();
+};
+
+// Листать влево, по нажатию на стрелку Prev
+const scrollNext = () => emblaApi?.value.scrollNext();
+
+// Листать враво, по нажатию на стрелку Next
+const scrollPrev = () => emblaApi?.value.scrollPrev();
+
+function updateButtonStates(emblaApi) {
+  canScrollPrev.value = emblaApi.canScrollPrev();
+  canScrollNext.value = emblaApi.canScrollNext();
 }
 
-function select(index) {
-  activeIndex.value = index;
+onMounted(() => {
+  if (!emblaApi.value) return;
 
-  carousel.value?.emblaApi?.scrollTo(index);
-}
+  updateButtonStates(emblaApi.value);
+  emblaApi.value.on("select", updateButtonStates);
+
+  onSelect(emblaApi.value);
+});
 </script>
 
 <style lang="scss" scoped>
-.embla {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+// .productCardImage {
+//   width: 100%;
+//   border: 1px solid red;
+//   overflow: hidden;
+
+//   &__pic {
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+
+//     @media (max-width: 1280px) {
+//       height: auto;
+//     }
+//   }
+// }
+
+.productCardImage {
   position: relative;
   width: 100%;
   max-width: 100%;
@@ -70,10 +117,50 @@ function select(index) {
   --slide-spacing: 0;
   --slide-size: 100%;
   overflow: hidden;
+
+  &__button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--white-primary);
+    backdrop-filter: blur(15px) grayscale(50%);
+    z-index: 1;
+
+    &_left {
+      left: 10px;
+    }
+
+    &_right {
+      right: 10px;
+    }
+
+    &_disabled {
+      backdrop-filter: blur(0) grayscale(0);
+      border: none;
+      cursor: default;
+    }
+  }
+
+  &__arrow {
+    width: 30px;
+    height: 30px;
+    fill: var(--white-primary);
+
+    &_disabled {
+      fill: none;
+    }
+  }
 }
-// .embla__viewport {
-//   overflow: hidden;
-// }
+.embla__viewport {
+  overflow: hidden;
+}
 .embla__container {
   display: flex;
   touch-action: pan-y pinch-zoom;
@@ -96,45 +183,26 @@ function select(index) {
   object-fit: cover;
   // border-radius: 15px;
 }
-.embla__button {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  z-index: 10;
-  border: 1px solid red;
-}
-.embla__button_left {
-  left: 0;
-  // padding-left: 20px;
-  // padding-right: 10px;
-}
-.embla__button_right {
-  right: 0;
-  // padding-right: 20px;
-  // padding-left: 10px;
-}
-.embla__button_disabled {
-  cursor: default;
-}
-.embla__buttonArrow {
-  width: 40px;
-  height: 40px;
-  fill: white;
-}
-.embla__buttonArrowRight {
-  width: 40px;
-  height: 40px;
-  fill: white;
-  // transform: rotate(180deg);
-}
-.embla__buttonArrow_disabled {
-  opacity: 0.6;
-}
+// .productCardImage .embla__button_left {
+//   left: 0;
+//   // padding-left: 20px;
+//   // padding-right: 10px;
+// }
+// .embla__button_right {
+//   right: 0;
+//   // padding-right: 20px;
+//   // padding-left: 10px;
+// }
+// .embla__button_disabled {
+//   cursor: default;
+// }
+// .productCardImage__buttonIcon {
+//   width: 30px;
+//   height: 30px;
+//   fill: white;
+// }
+
+// .embla__buttonArrow_disabled {
+//   opacity: 0.6;
+// }
 </style>
