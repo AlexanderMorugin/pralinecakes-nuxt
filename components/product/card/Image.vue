@@ -1,12 +1,6 @@
 <template>
-  <!-- <section class="productCardImage"> -->
-  <!-- <img
-      :src="product.image_normal_one"
-      :alt="product.name"
-      class="productCardImage__pic"
-    /> -->
   <section class="productCardImage">
-    <!-- Кнопка-стрелка навигации "НАЗАД" -->
+    <!-- Кнопка "НАЗАД" -->
     <button
       @click="scrollPrev"
       :disabled="!canScrollPrev"
@@ -23,7 +17,7 @@
       />
     </button>
 
-    <!-- Кнопка-стрелка навигации "ВПЕРЕД" -->
+    <!-- Кнопка "ВПЕРЕД" -->
     <button
       @click="scrollNext"
       :disabled="!canScrollNext"
@@ -40,14 +34,14 @@
       />
     </button>
 
-    <div class="embla__viewport" ref="emblaRef">
-      <ul class="embla__container">
+    <div class="productCardImage__viewport" ref="emblaRef">
+      <ul class="productCardImage__container">
         <li
           v-for="(item, index) in product.image_800"
           :key="index"
-          class="embla__slide"
+          class="productCardImage__slide"
         >
-          <img :src="item" alt="item.text" class="slideImage" />
+          <img :src="item" alt="item.text" class="productCardImage__image" />
         </li>
       </ul>
     </div>
@@ -93,26 +87,11 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-// .productCardImage {
-//   width: 100%;
-//   border: 1px solid red;
-//   overflow: hidden;
-
-//   &__pic {
-//     width: 100%;
-//     height: 100%;
-//     object-fit: cover;
-
-//     @media (max-width: 1280px) {
-//       height: auto;
-//     }
-//   }
-// }
-
 .productCardImage {
   position: relative;
   width: 100%;
   max-width: 100%;
+  height: fit-content;
   --slide-spacing: 1rem;
   --slide-spacing: 0;
   --slide-size: 100%;
@@ -135,7 +114,7 @@ onMounted(() => {
     backdrop-filter: blur(5px);
     z-index: 1;
 
-    @media (max-width: 767px) {
+    @media (max-width: 1024px) {
       width: 30px;
       height: 30px;
     }
@@ -168,7 +147,7 @@ onMounted(() => {
     height: 30px;
     fill: var(--mask-white-secondary);
 
-    @media (max-width: 767px) {
+    @media (max-width: 1024px) {
       width: 20px;
       height: 20px;
     }
@@ -177,32 +156,45 @@ onMounted(() => {
       fill: var(--border-primary);
     }
   }
+
+  &__viewport {
+    overflow: hidden;
+  }
+
+  &__container {
+    display: flex;
+    touch-action: pan-y pinch-zoom;
+    margin-left: calc(var(--slide-spacing) * -1);
+  }
+
+  &__slide {
+    // display: flex;
+    // justify-content: center;
+    flex: 0 0 var(--slide-size);
+    min-width: 0;
+    padding-left: var(--slide-spacing);
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
 }
-.embla__viewport {
-  overflow: hidden;
-}
-.embla__container {
-  display: flex;
-  touch-action: pan-y pinch-zoom;
-  margin-left: calc(var(--slide-spacing) * -1);
-}
-.embla__slide {
-  flex: 0 0 var(--slide-size);
-  min-width: 0;
-  padding-left: var(--slide-spacing);
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none;
-}
-.slideImage {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  // border-radius: 15px;
-}
+
+// .slideImage {
+//   width: 100%;
+//   height: auto;
+//   object-fit: cover;
+//   // border-radius: 15px;
+// }
 // .productCardImage .embla__button_left {
 //   left: 0;
 //   // padding-left: 20px;
