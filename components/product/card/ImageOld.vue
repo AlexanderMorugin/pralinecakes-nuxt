@@ -42,18 +42,22 @@
 
     <div class="embla__viewport" ref="emblaRef">
       <ul class="embla__container">
-        <li v-for="(item, index) in items" :key="index" class="embla__slide">
+        <li
+          v-for="(item, index) in product.image_800"
+          :key="index"
+          class="embla__slide"
+        >
           <img :src="item" alt="item.text" class="slideImage" />
         </li>
       </ul>
     </div>
   </div>
 
-  <div>
+  <!-- <div>
     <div v-for="(item, index) in items" :key="index" @click="select(index)">
       <img :src="item" />
     </div>
-  </div>
+  </div> -->
   <!-- </section> -->
 </template>
 
@@ -61,6 +65,8 @@
 import emblaCarouselVue from "embla-carousel-vue";
 import Fade from "embla-carousel-fade";
 import Autoplay from "embla-carousel-autoplay";
+
+const { product } = defineProps(["product"]);
 
 // const [emblaRef, emblaApi] = emblaCarouselVue({ loop: true }, [
 //   Autoplay({ delay: 3000, stopOnInteraction: false }),
@@ -71,14 +77,14 @@ const [emblaRef, emblaApi] = emblaCarouselVue({ loop: true });
 //   containScroll: 'keepSnaps',
 //   dragFree: true,
 // });
-const items = [
-  "/images/cakes/esterhazy/esterhazy-cake-1-800-533.webp",
-  "/images/cakes/esterhazy/esterhazy-cake-2-800-533.webp",
-  "/images/cakes/esterhazy/esterhazy-cake-3-800-533.webp",
-  "/images/cakes/esterhazy/esterhazy-cake-4-800-533.webp",
-  "/images/cakes/esterhazy/esterhazy-cake-5-800-533.webp",
-  "/images/cakes/esterhazy/esterhazy-cake-6-800-533.webp",
-];
+// const items = [
+//   "/images/cakes/esterhazy/esterhazy-cake-1-800-533.webp",
+//   "/images/cakes/esterhazy/esterhazy-cake-2-800-533.webp",
+//   "/images/cakes/esterhazy/esterhazy-cake-3-800-533.webp",
+//   "/images/cakes/esterhazy/esterhazy-cake-4-800-533.webp",
+//   "/images/cakes/esterhazy/esterhazy-cake-5-800-533.webp",
+//   "/images/cakes/esterhazy/esterhazy-cake-6-800-533.webp",
+// ];
 
 const canScrollPrev = ref(false);
 const canScrollNext = ref(false);

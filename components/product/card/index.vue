@@ -1,7 +1,7 @@
 <template>
   <div class="productCard">
     <div class="productCard__grid">
-      <ProductCardImage :product="product" />
+      <ProductCardImageOld :product="product" />
 
       <div class="productCard__details">
         <ProductCardTitle :product="product" />
