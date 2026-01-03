@@ -96,6 +96,7 @@ onMounted(() => {
   --slide-spacing: 0;
   --slide-size: 100%;
   overflow: hidden;
+  border-radius: var(--border-radius-s);
 
   &__button {
     position: absolute;
@@ -182,6 +183,7 @@ onMounted(() => {
     height: 100%;
     object-position: center;
     object-fit: cover;
+    border-radius: var(--border-radius-s);
   }
 }
 </style>
