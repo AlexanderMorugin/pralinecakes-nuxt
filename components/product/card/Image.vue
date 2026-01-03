@@ -97,8 +97,6 @@ onMounted(() => {
   --slide-size: 100%;
   overflow: hidden;
 
-  // border: 1px solid red;
-
   &__button {
     position: absolute;
     top: 0;
@@ -168,8 +166,6 @@ onMounted(() => {
   }
 
   &__slide {
-    // display: flex;
-    // justify-content: center;
     flex: 0 0 var(--slide-size);
     min-width: 0;
     padding-left: var(--slide-spacing);
@@ -188,33 +184,4 @@ onMounted(() => {
     object-fit: cover;
   }
 }
-
-// .slideImage {
-//   width: 100%;
-//   height: auto;
-//   object-fit: cover;
-//   // border-radius: 15px;
-// }
-// .productCardImage .embla__button_left {
-//   left: 0;
-//   // padding-left: 20px;
-//   // padding-right: 10px;
-// }
-// .embla__button_right {
-//   right: 0;
-//   // padding-right: 20px;
-//   // padding-left: 10px;
-// }
-// .embla__button_disabled {
-//   cursor: default;
-// }
-// .productCardImage__buttonIcon {
-//   width: 30px;
-//   height: 30px;
-//   fill: white;
-// }
-
-// .embla__buttonArrow_disabled {
-//   opacity: 0.6;
-// }
 </style>
