@@ -10,44 +10,31 @@
       <li class="productCardDetails__listItem">
         <span class="productCardDetails__text">Ширина:</span>
         <div class="productCardDetails__line" />
-        <span class="productCardDetails__text">18 см</span>
+        <span class="productCardDetails__text">{{ product.width }} см</span>
       </li>
 
       <li class="productCardDetails__listItem">
         <span class="productCardDetails__text">Высота:</span>
         <div class="productCardDetails__line" />
-        <span class="productCardDetails__text">12 см</span>
+        <span class="productCardDetails__text">{{ product.height }} см</span>
       </li>
-
-      <!-- <li class="productCardDetails__listItem">
-        <span class="productCardDetails__text">Основа:</span>
-        <div class="productCardDetails__line" />
-        <span class="productCardDetails__text">бисквит</span>
-      </li>
-
-      <li class="productCardDetails__listItem">
-        <span class="productCardDetails__text">Коржей:</span>
-        <div class="productCardDetails__line" />
-        <span class="productCardDetails__text">3 шт</span>
-      </li> -->
 
       <li class="productCardDetails__listItem">
         <span class="productCardDetails__text">Срок годности:</span>
         <div class="productCardDetails__line" />
-        <span class="productCardDetails__text">72 часа</span>
+        <span class="productCardDetails__text"
+          >{{ product.expirationDate }} часа</span
+        >
       </li>
 
       <li class="productCardDetails__listItem">
         <span class="productCardDetails__text">Температура хранения:</span>
         <div class="productCardDetails__line" />
-        <span class="productCardDetails__text">от 4 до 6°C</span>
+        <span class="productCardDetails__text"
+          >от {{ product.storageTemperature[0] }} до
+          {{ product.storageTemperature[1] }}°C</span
+        >
       </li>
-
-      <!-- <li class="productCardDetails__listItem">
-        <span class="productCardDetails__text">Упаковка:</span>
-        <div class="productCardDetails__line" />
-        <span class="productCardDetails__text">картон</span>
-      </li> -->
     </ul>
 
     <ProductCardCart :product="product" />

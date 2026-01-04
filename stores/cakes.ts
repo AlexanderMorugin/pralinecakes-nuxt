@@ -9,15 +9,17 @@ export interface ICake {
   id: number;
   slug: string;
   image_list_card: string;
-
   image_800: string[];
   image_2800: string[];
-
   image_meta: string;
   name: string;
   description: string;
   price: number;
   weigth: number;
+  width: number;
+  height: number;
+  expirationDate: number;
+  storageTemperature: number[];
   rating: number;
   badgeStatus?: string | null;
   comments: TComment[];
@@ -56,6 +58,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
         "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
       price: 1860,
       weigth: 1640,
+      width: 30,
+      height: 10,
+      expirationDate: 72,
+      storageTemperature: [4, 6],
       rating: 5,
       badgeStatus: "Хит",
       comments: [],
@@ -90,6 +96,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
         "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
       price: 1860,
       weigth: 1640,
+      width: 30,
+      height: 10,
+      expirationDate: 72,
+      storageTemperature: [4, 6],
       rating: 1,
       badgeStatus: null,
       comments: [
@@ -128,6 +138,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
         "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
       price: 1860,
       weigth: 1640,
+      width: 30,
+      height: 10,
+      expirationDate: 72,
+      storageTemperature: [4, 6],
       rating: 2,
       badgeStatus: "Новинка",
       comments: [
@@ -170,6 +184,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
         "Самый шоколадный и один из самых нежных десертов нашей кондитерской. Самый шоколадный и один из самых нежных десертов нашей кондитерской.",
       price: 1860,
       weigth: 1640,
+      width: 30,
+      height: 10,
+      expirationDate: 72,
+      storageTemperature: [4, 6],
       rating: 3,
       badgeStatus: null,
       comments: [

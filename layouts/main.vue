@@ -3,7 +3,6 @@
     <div class="mainLayout__overlay" />
     <Header />
 
-    <!-- <main class="mainLayout__content"> -->
     <main>
       <NuxtPage />
     </main>

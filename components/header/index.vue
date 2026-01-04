@@ -52,7 +52,7 @@
   <!-- Модалка меню -->
   <Teleport to="#teleports">
     <Transition name="left">
-      <ModalHeader
+      <ModalForHeader
         v-if="isMenuModalOpen"
         :isModalOpen="isMenuModalOpen"
         place="left"
@@ -66,7 +66,7 @@
   <!-- Модалка поиска -->
   <Teleport to="#teleports">
     <Transition name="left">
-      <ModalHeader
+      <ModalForHeader
         v-if="isSearchModalOpen"
         :isModalOpen="isSearchModalOpen"
         place="left"
@@ -80,7 +80,7 @@
   <!-- Модалка профиля -->
   <Teleport to="#teleports">
     <Transition name="right">
-      <ModalHeader
+      <ModalForHeader
         v-if="isProfileModalOpen"
         :isModalOpen="isProfileModalOpen"
         place="right"
@@ -94,7 +94,7 @@
   <!-- Модалка корзины -->
   <Teleport to="#teleports">
     <Transition name="right">
-      <ModalHeader
+      <ModalForHeader
         v-if="isCartModalOpen"
         :isModalOpen="isCartModalOpen"
         place="right"
@@ -108,7 +108,7 @@
   <!-- Модалка мессенджеров -->
   <Teleport to="#teleports">
     <Transition name="top">
-      <ModalHeader
+      <ModalForHeader
         v-if="isChatModalOpen"
         :isModalOpen="isChatModalOpen"
         place="right"
@@ -122,7 +122,7 @@
   <!-- Модалка телефонов -->
   <Teleport to="#teleports">
     <Transition name="top">
-      <ModalHeader
+      <ModalForHeader
         v-if="isPhoneModalOpen"
         :isModalOpen="isPhoneModalOpen"
         place="right"

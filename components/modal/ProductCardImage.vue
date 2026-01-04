@@ -49,7 +49,8 @@
             >
               <img
                 :src="item"
-                alt="item.text"
+                :alt="product.name"
+                :title="product.name"
                 class="productCardImage__image"
               />
             </li>
@@ -110,7 +111,6 @@ onMounted(() => {
   height: 100%;
   backdrop-filter: blur(15px) grayscale(50%);
   overflow: hidden;
-
   z-index: 10;
 
   &__container {
@@ -120,8 +120,6 @@ onMounted(() => {
     align-items: center;
     width: 100%;
     height: 100%;
-    // padding: 10px;
-    // border: 1px solid red;
   }
 
   &__close {
@@ -136,8 +134,6 @@ onMounted(() => {
     border-radius: 50%;
     border: 1px solid var(--border-primary);
     backdrop-filter: blur(5px);
-
-    // border: 1px solid red;
     z-index: 11;
 
     @media (max-width: 1024px) {
@@ -165,14 +161,11 @@ onMounted(() => {
 .productCardImage {
   width: 100%;
   max-width: 100%;
-  // max-height: 90%;
-  // height: 100%;
   margin: auto;
   --slide-height: 19rem;
   --slide-spacing: 1rem;
   --slide-size: 100%;
   overflow: hidden;
-  // border-radius: var(--border-radius-s);
 
   &__button {
     position: absolute;
@@ -229,9 +222,7 @@ onMounted(() => {
 
   &__slide {
     position: relative;
-    // transform: translate3d(0, 0, 0);
     flex: 0 0 var(--slide-size);
-
     min-width: 0;
     height: 100vh;
     padding-left: var(--slide-spacing);
@@ -245,16 +236,6 @@ onMounted(() => {
     @media (max-width: 1024px) {
       height: 100%;
     }
-
-    // position: relative;
-    // display: flex;
-    // justify-content: center;
-    // transform: translate3d(0, 0, 0);
-    // flex: 0 0 var(--slide-size);
-    // // width: 100%;
-    // min-width: 0;
-    // height: 100vh;
-    // padding-left: var(--slide-spacing);
   }
 
   &__image {
@@ -262,7 +243,6 @@ onMounted(() => {
     height: 100%;
     object-position: center;
     object-fit: cover;
-    // border-radius: var(--border-radius-s);
   }
 }
 </style>

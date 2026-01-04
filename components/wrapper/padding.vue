@@ -11,16 +11,14 @@
   padding-left: 20px;
   padding-right: 20px;
 
-  // border: 1px solid red;
-
   @media (max-width: 1600px) {
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  // @media (max-width: 767px) {
-  //   padding-left: 5px;
-  //   padding-right: 5px;
-  // }
+  @media (max-width: 767px) {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 </style>

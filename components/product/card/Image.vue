@@ -41,7 +41,12 @@
           :key="index"
           class="productCardImage__slide"
         >
-          <img :src="item" alt="item.text" class="productCardImage__image" />
+          <img
+            :src="item"
+            :alt="product.name"
+            :title="product.name"
+            class="productCardImage__image"
+          />
 
           <!-- Кнопка "Включить Модалку" -->
           <IconLoupe

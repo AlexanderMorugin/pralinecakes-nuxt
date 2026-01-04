@@ -79,13 +79,6 @@ const { product } = defineProps(["product"]);
     letter-spacing: 1px;
     opacity: 0.9;
 
-    // @media (max-width: 1600px) {
-    //   font-family: "Montserrat-Regular", sans-serif;
-    //   font-size: 16px;
-    //   line-height: 24px;
-    //   letter-spacing: 1px;
-    // }
-
     @media (max-width: 767px) {
       font-size: 16px;
       line-height: 26px;

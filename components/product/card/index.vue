@@ -9,12 +9,8 @@
         <ProductCardDetails :product="product" />
       </div>
     </div>
-    <section class="productCard__options">
-      <div>О продукте</div>
-      <div>Состав</div>
-      <div>Оплата и доставка</div>
-      <div>Отзывы</div>
-    </section>
+
+    <ProductCardOptions :product="product" />
   </div>
 </template>
 
@@ -30,20 +26,11 @@ const cakesStore = useCakesStore();
   flex-direction: column;
   gap: 40px;
   padding-top: 20px;
-  // border: 1px solid red;
-
-  // border: 1px solid red;
-
-  // @media (max-width: 767px) {
-  //   gap: 20px;
-  // }
 
   &__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 40px;
-    // height: 500px;
-    // border: 1px solid red;
 
     @media (max-width: 1600px) {
       column-gap: 20px;
@@ -59,24 +46,6 @@ const cakesStore = useCakesStore();
     display: flex;
     flex-direction: column;
     gap: 40px;
-
-    // @media (max-width: 576px) {
-    //   gap: 40px;
-    // }
-  }
-
-  &__options {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    justify-items: center;
-    gap: 40px;
-    // border: 1px solid red;
-
-    @media (max-width: 576px) {
-      grid-template-columns: 1fr;
-      gap: 0;
-      // row-gap: 40px;
-    }
   }
 }
 </style>
