@@ -1,9 +1,9 @@
 <template>
   <div class="modalProductCardImage">
     <div class="modalProductCardImage__container">
-      <div class="modalProductCardImage__close">
-        <ButtonWithIcon name="close" @click="$emit('closeModal')" />
-      </div>
+      <button @click="$emit('closeModal')" class="modalProductCardImage__close">
+        <IconClose class="modalProductCardImage__icon" />
+      </button>
 
       <div class="productCardImage">
         <!-- Кнопка "НАЗАД" -->
@@ -17,8 +17,8 @@
         >
           <IconArrowBack
             :class="[
-              'productCardImage__arrow',
-              { productCardImage__arrow_disabled: !canScrollPrev },
+              'modalProductCardImage__icon',
+              { modalProductCardImage__icon_disabled: !canScrollPrev },
             ]"
           />
         </button>
@@ -34,8 +34,8 @@
         >
           <IconArrowForward
             :class="[
-              'productCardImage__arrow',
-              { productCardImage__arrow_disabled: !canScrollNext },
+              'modalProductCardImage__icon',
+              { modalProductCardImage__icon_disabled: !canScrollNext },
             ]"
           />
         </button>
@@ -121,21 +121,52 @@ onMounted(() => {
     width: 100%;
     height: 100%;
     // padding: 10px;
-    border: 1px solid red;
+    // border: 1px solid red;
   }
 
   &__close {
     position: absolute;
     top: 3%;
     right: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--border-primary);
+    backdrop-filter: blur(5px);
+
+    // border: 1px solid red;
     z-index: 11;
+
+    @media (max-width: 1024px) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &__icon {
+    width: 30px;
+    height: 30px;
+    fill: var(--mask-white-secondary);
+
+    @media (max-width: 1024px) {
+      width: 20px;
+      height: 20px;
+    }
+
+    &_disabled {
+      fill: var(--border-primary);
+    }
   }
 }
 
 .productCardImage {
   width: 100%;
   max-width: 100%;
-  // height: 90vh;
+  // max-height: 90%;
+  // height: 100%;
   margin: auto;
   --slide-height: 19rem;
   --slide-spacing: 1rem;
@@ -186,21 +217,6 @@ onMounted(() => {
     }
   }
 
-  &__arrow {
-    width: 30px;
-    height: 30px;
-    fill: var(--mask-white-secondary);
-
-    @media (max-width: 1024px) {
-      width: 20px;
-      height: 20px;
-    }
-
-    &_disabled {
-      fill: var(--border-primary);
-    }
-  }
-
   &__viewport {
     overflow: hidden;
   }
@@ -212,27 +228,33 @@ onMounted(() => {
   }
 
   &__slide {
-    // position: relative;
-    // flex: 0 0 var(--slide-size);
-
-    // min-width: 0;
-    // padding-left: var(--slide-spacing);
-    // -webkit-touch-callout: none; /* iOS Safari */
-    // -webkit-user-select: none; /* Safari */
-    // -khtml-user-select: none; /* Konqueror HTML */
-    // -moz-user-select: none; /* Old versions of Firefox */
-    // -ms-user-select: none; /* Internet Explorer/Edge */
-    // user-select: none;
-
     position: relative;
-    display: flex;
-    justify-content: center;
-    transform: translate3d(0, 0, 0);
+    // transform: translate3d(0, 0, 0);
     flex: 0 0 var(--slide-size);
-    // width: 100%;
+
     min-width: 0;
-    // height: 90vh;
+    height: 100vh;
     padding-left: var(--slide-spacing);
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+
+    @media (max-width: 767px) {
+      height: 100%;
+    }
+
+    // position: relative;
+    // display: flex;
+    // justify-content: center;
+    // transform: translate3d(0, 0, 0);
+    // flex: 0 0 var(--slide-size);
+    // // width: 100%;
+    // min-width: 0;
+    // height: 100vh;
+    // padding-left: var(--slide-spacing);
   }
 
   &__image {
