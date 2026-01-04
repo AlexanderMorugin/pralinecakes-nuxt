@@ -242,7 +242,7 @@ onMounted(() => {
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none;
 
-    @media (max-width: 767px) {
+    @media (max-width: 1024px) {
       height: 100%;
     }
 
