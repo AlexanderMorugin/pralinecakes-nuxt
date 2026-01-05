@@ -7,7 +7,14 @@
       ]"
     >
       <button @click="toggleOption(1)" class="productCardOptionsMobile__button">
-        <h2 class="productCardOptionsMobile__title">О продукте</h2>
+        <h2
+          :class="[
+            'productCardOptionsMobile__title',
+            { productCardOptionsMobile__title_active: aboutRef },
+          ]"
+        >
+          О продукте
+        </h2>
         <IconArrowChevron
           :class="[
             'productCardOptionsMobile__icon',
@@ -29,7 +36,14 @@
       ]"
     >
       <button @click="toggleOption(2)" class="productCardOptionsMobile__button">
-        <h2 class="productCardOptionsMobile__title">Состав</h2>
+        <h2
+          :class="[
+            'productCardOptionsMobile__title',
+            { productCardOptionsMobile__title_active: ingredientRef },
+          ]"
+        >
+          Состав
+        </h2>
         <IconArrowChevron
           :class="[
             'productCardOptionsMobile__icon',
@@ -51,7 +65,14 @@
       ]"
     >
       <button @click="toggleOption(3)" class="productCardOptionsMobile__button">
-        <h2 class="productCardOptionsMobile__title">Оплата и доставка</h2>
+        <h2
+          :class="[
+            'productCardOptionsMobile__title',
+            { productCardOptionsMobile__title_active: paymentRef },
+          ]"
+        >
+          Оплата и доставка
+        </h2>
         <IconArrowChevron
           :class="[
             'productCardOptionsMobile__icon',
@@ -73,7 +94,14 @@
       ]"
     >
       <button @click="toggleOption(4)" class="productCardOptionsMobile__button">
-        <h2 class="productCardOptionsMobile__title">Отзывы</h2>
+        <h2
+          :class="[
+            'productCardOptionsMobile__title',
+            { productCardOptionsMobile__title_active: commentRef },
+          ]"
+        >
+          Отзывы
+        </h2>
         <IconArrowChevron
           :class="[
             'productCardOptionsMobile__icon',
@@ -140,12 +168,17 @@ const toggleOption = (number) => {
   }
 
   &__title {
-    font-family: "Montserrat-Regular", sans-serif;
+    font-family: "Montserrat-Medium", sans-serif;
     font-size: 16px;
     // line-height: 30px;
     color: var(--white-primary);
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     opacity: 0.8;
+
+    &_active {
+      color: var(--orange-primary);
+      opacity: 1;
+    }
   }
 
   &__icon {
@@ -163,8 +196,8 @@ const toggleOption = (number) => {
 
   &__content {
     font-family: "Montserrat-Regular", sans-serif;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 26px;
     color: var(--white-primary);
     padding-bottom: 10px;
   }
