@@ -10,13 +10,15 @@
       </div>
     </div>
 
-    <ProductCardOptions :product="product" />
+    <ProductCardOptions v-if="!isScreenMedium" :product="product" />
+    <ProductCardOptionsMobile v-if="isScreenMedium" :product="product" />
   </div>
 </template>
 
 <script setup>
 const { product } = defineProps(["product"]);
 
+const { isScreenMedium } = useResizeMedium();
 const cakesStore = useCakesStore();
 </script>
 
