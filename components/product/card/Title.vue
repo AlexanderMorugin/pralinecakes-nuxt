@@ -11,7 +11,9 @@
       </div>
     </div>
 
-    <span class="productCardTitle__description">{{ product.description }}</span>
+    <span class="productCardTitle__description">{{
+      product.description_short
+    }}</span>
   </section>
 </template>
 
@@ -32,6 +34,8 @@ const { product } = defineProps(["product"]);
 
   @media (max-width: 767px) {
     gap: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
   &__titleBlock {

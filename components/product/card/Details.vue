@@ -58,6 +58,8 @@ const { product } = defineProps(["product"]);
 
   @media (max-width: 767px) {
     grid-template-columns: repeat(2, 1fr);
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
   @media (max-width: 576px) {

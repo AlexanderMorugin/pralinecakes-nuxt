@@ -30,7 +30,7 @@
       <ProductListCardTitle
         :route="`/${type}/${product.slug}`"
         :name="product.name"
-        :description="product.description"
+        :description="product.description_short"
       />
 
       <div class="productListCard__cartBox">

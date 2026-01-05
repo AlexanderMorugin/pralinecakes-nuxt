@@ -24,8 +24,8 @@
     </div>
 
     <div class="productCardOptions__block">
-      <div v-if="aboutRef">О продукте</div>
-      <div v-if="ingredientRef">Состав</div>
+      <ProductCardAbout v-if="aboutRef" :product="product" />
+      <ProductCardIngredients v-if="ingredientRef" :product="product" />
       <div v-if="paymentRef">Оплата и доставка</div>
       <div v-if="commentRef">Отзывы</div>
     </div>
@@ -91,10 +91,9 @@ const toggleOption = (number) => {
   }
 
   &__block {
-    height: 300px;
     border-radius: var(--border-radius-m);
     background: var(--mask-white-thirdly);
-    padding: 20px;
+    padding: 40px 20px;
   }
 }
 </style>
