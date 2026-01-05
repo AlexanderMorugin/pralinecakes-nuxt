@@ -6,6 +6,9 @@
         { buttonProductCardOptions__line_active: buttonRef },
       ]"
     />
+    <div v-if="comments" class="buttonProductCardOptions__comments">
+      <span class="buttonProductCardOptions__title">({{ comments }})</span>
+    </div>
     <h2
       :class="[
         'buttonProductCardOptions__title',
@@ -19,7 +22,11 @@
 
 <script setup>
 const emit = defineEmits(["toggleOption"]);
-const { title, buttonRef } = defineProps(["title", "buttonRef"]);
+const { title, buttonRef, comments } = defineProps([
+  "title",
+  "buttonRef",
+  "comments",
+]);
 </script>
 
 <style lang="scss" scoped>
@@ -40,6 +47,17 @@ const { title, buttonRef } = defineProps(["title", "buttonRef"]);
     &_active {
       transform: translateX(0);
       opacity: 1;
+    }
+  }
+
+  &__comments {
+    position: absolute;
+    top: 6%;
+    right: -30px;
+
+    @media (max-width: 1024px) {
+      top: 10%;
+      right: -26px;
     }
   }
 

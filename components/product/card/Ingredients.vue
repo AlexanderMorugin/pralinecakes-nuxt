@@ -13,7 +13,12 @@
           class="productCardIngredients__item"
         >
           <span class="productCardIngredients__name">{{ item.name }}</span>
-          <span class="productCardIngredients__count">{{ item.count }}</span>
+          <div>
+            <span class="productCardIngredients__count">{{ item.count }}</span
+            ><span class="productCardIngredients__countSpan">
+              {{ item.name === "Калории" ? " ккал" : " гр" }}</span
+            >
+          </div>
         </li>
       </ul>
     </div>
@@ -38,8 +43,6 @@ const { product } = defineProps(["product"]);
     display: flex;
     flex-direction: column;
     gap: 20px;
-    // width: fit-content;
-    // margin: 0 auto;
   }
 
   &__nutritionTitle {
@@ -60,12 +63,11 @@ const { product } = defineProps(["product"]);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    width: 100%;
-    max-width: 500px;
     margin: 0 auto;
 
     @media (max-width: 576px) {
       grid-template-columns: repeat(2, 1fr);
+      width: 100%;
     }
   }
 
@@ -80,7 +82,7 @@ const { product } = defineProps(["product"]);
 
     @media (max-width: 576px) {
       gap: 10px;
-      padding: 10px;
+      padding: 12px;
     }
   }
 
@@ -104,6 +106,16 @@ const { product } = defineProps(["product"]);
 
     @media (max-width: 767px) {
       font-size: 18px;
+    }
+  }
+
+  &__countSpan {
+    font-family: "Montserrat-Regular", sans-serif;
+    font-size: 16px;
+    color: var(--orange-primary);
+
+    @media (max-width: 767px) {
+      font-size: 14px;
     }
   }
 }

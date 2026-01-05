@@ -2,7 +2,15 @@ import { defineStore } from "pinia";
 
 export type TComment = {
   id: number;
+  name: string;
+  rating: number;
+  date: string;
   comment: string;
+};
+
+export type TNutrition = {
+  name: string;
+  count: number;
 };
 
 export interface ICake {
@@ -25,12 +33,7 @@ export interface ICake {
   rating: number;
   badgeStatus?: string | null;
   ingredients: string;
-  nutrition: [
-    { name: string; count: number },
-    { name: string; count: number },
-    { name: string; count: number },
-    { name: string; count: number }
-  ];
+  nutrition: TNutrition[];
   comments: TComment[];
   discount: number;
   isFavorite: Boolean;
@@ -136,9 +139,27 @@ export const useCakesStore = defineStore("cakesStore", () => {
         { name: "Углеводы", count: 36.6 },
       ],
       comments: [
-        { id: 1, comment: "Вкусно и точка!" },
-        { id: 2, comment: "Божественно!" },
-        { id: 3, comment: "Невероятно но факт!" },
+        {
+          id: 1,
+          name: "Елена",
+          rating: 3,
+          date: "Март 25, 2025",
+          comment: "Вкусно и точка!",
+        },
+        {
+          id: 2,
+          name: "Наталья",
+          rating: 5,
+          date: "Март 8, 2025",
+          comment: "Божественно!",
+        },
+        {
+          id: 3,
+          name: "Наталья",
+          rating: 1,
+          date: "Март 1, 2025",
+          comment: "Невероятно но факт!",
+        },
       ],
       discount: 20,
       isFavorite: true,
@@ -190,13 +211,55 @@ export const useCakesStore = defineStore("cakesStore", () => {
         { name: "Углеводы", count: 36.6 },
       ],
       comments: [
-        { id: 1, comment: "Вкусно и точка!" },
-        { id: 2, comment: "Божественно!" },
-        { id: 3, comment: "Невероятно но факт!" },
-        { id: 4, comment: "Обожаю ваши торты!" },
-        { id: 5, comment: "Полная фигня." },
-        { id: 6, comment: "Никогда не пробовала ничего подобного. Благодарю!" },
-        { id: 7, comment: "Быстрая доставка. Внимательный персонал!" },
+        {
+          id: 1,
+          name: "Пётр Алексеевич",
+          rating: 3,
+          date: "Март 30, 2025",
+          comment: "Вкусно и точка!",
+        },
+        {
+          id: 2,
+          name: "Людмила",
+          rating: 5,
+          date: "Март 28, 2025",
+          comment: "Божественно!",
+        },
+        {
+          id: 3,
+          name: "Феликс",
+          rating: 2,
+          date: "Март 26, 2025",
+          comment: "Невероятно но факт!",
+        },
+        {
+          id: 4,
+          name: "Никита",
+          rating: 5,
+          date: "Март 21, 2025",
+          comment: "Обожаю ваши торты!",
+        },
+        {
+          id: 5,
+          name: "Олег",
+          rating: 1,
+          date: "Март 10, 2025",
+          comment: "Полная фигня.",
+        },
+        {
+          id: 6,
+          name: "Анна",
+          rating: 2,
+          date: "Март 5, 2025",
+          comment: "Никогда не пробовала ничего подобного. Благодарю!",
+        },
+        {
+          id: 7,
+          name: "Наталья",
+          rating: 4,
+          date: "Март 1, 2025",
+          comment: "Быстрая доставка. Внимательный персонал!",
+        },
       ],
       discount: 0,
       isFavorite: true,
@@ -248,7 +311,13 @@ export const useCakesStore = defineStore("cakesStore", () => {
         { name: "Углеводы", count: 36.6 },
       ],
       comments: [
-        { id: 1, comment: "Никогда не пробовала ничего подобного. Благодарю!" },
+        {
+          id: 1,
+          name: "Лев Давидович",
+          rating: 2,
+          date: "Март 30, 2025",
+          comment: "Никогда не пробовала ничего подобного. Благодарю!",
+        },
       ],
       discount: 10,
       isFavorite: false,

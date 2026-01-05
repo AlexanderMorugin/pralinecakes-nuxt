@@ -8,6 +8,12 @@
     >
       {{ title }}
     </h2>
+    <div v-if="comments" class="buttonProductCardOptionsMobile__comments">
+      <span class="buttonProductCardOptionsMobile__title"
+        >({{ comments }})</span
+      >
+    </div>
+
     <IconArrowChevron
       :class="[
         'buttonProductCardOptionsMobile__icon',
@@ -19,11 +25,16 @@
 
 <script setup>
 const emit = defineEmits(["toggleOption"]);
-const { title, buttonRef } = defineProps(["title", "buttonRef"]);
+const { title, buttonRef, comments } = defineProps([
+  "title",
+  "buttonRef",
+  "comments",
+]);
 </script>
 
 <style lang="scss" scoped>
 .buttonProductCardOptionsMobile {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,6 +52,12 @@ const { title, buttonRef } = defineProps(["title", "buttonRef"]);
       color: var(--orange-primary);
       opacity: 1;
     }
+  }
+
+  &__comments {
+    position: absolute;
+    top: 30%;
+    left: 94px;
   }
 
   &__icon {

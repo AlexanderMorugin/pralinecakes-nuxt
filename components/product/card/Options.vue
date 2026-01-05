@@ -18,6 +18,7 @@
       />
       <ButtonProductCardOption
         title="Отзывы"
+        :comments="product.comments.length"
         :buttonRef="commentRef"
         @toggleOption="toggleOption(4)"
       />
@@ -27,7 +28,7 @@
       <ProductCardAbout v-if="aboutRef" :product="product" />
       <ProductCardIngredients v-if="ingredientRef" :product="product" />
       <div v-if="paymentRef">Оплата и доставка</div>
-      <div v-if="commentRef">Отзывы</div>
+      <ProductCardComments v-if="commentRef" :product="product" />
     </div>
   </section>
 </template>

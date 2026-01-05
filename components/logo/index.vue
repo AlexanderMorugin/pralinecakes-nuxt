@@ -29,6 +29,10 @@
       font-size: 12px;
       letter-spacing: 0;
     }
+
+    @media (max-width: 375px) {
+      font-size: 10px;
+    }
   }
 
   &__shopBox {
@@ -41,6 +45,11 @@
     @media (max-width: 767px) {
       top: -7px;
       right: -17px;
+    }
+
+    @media (max-width: 375px) {
+      top: -5px;
+      right: -14px;
     }
   }
 

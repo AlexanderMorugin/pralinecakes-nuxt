@@ -54,14 +54,10 @@
       <ButtonProductCardOptionMobile
         title="Отзывы"
         :buttonRef="commentRef"
+        :comments="product.comments.length"
         @toggleOption="toggleOption(4)"
       />
-      <div class="productCardOptionsMobile__content">
-        Вся продукция доставляется в замороженном виде, а наши автомобили
-        оборудованы специальными морозильными камерами. Мы соблюдаем
-        температурный режим транспортировки и несём полную гарантию качества
-        своей продукции.
-      </div>
+      <ProductCardComments v-if="commentRef" :product="product" />
     </div>
   </section>
 </template>
