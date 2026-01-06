@@ -11,6 +11,7 @@
     </div>
 
     <ProductCardOptions v-if="!isScreenMedium" :product="product" />
+
     <ProductCardOptionsMobile v-if="isScreenMedium" :product="product" />
   </div>
 </template>

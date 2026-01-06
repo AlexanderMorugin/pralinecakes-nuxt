@@ -27,14 +27,14 @@ const { product } = defineProps(["product"]);
     grid-template-columns: 1fr;
   }
 
+  @media (max-width: 767px) {
+    padding: 10px 5px 20px 5px;
+  }
+
   &__list {
     display: flex;
     flex-direction: column;
     gap: 40px;
-
-    // @media (max-width: 767px) {
-    //   padding: 10px 5px 20px 5px;
-    // }
   }
 }
 </style>

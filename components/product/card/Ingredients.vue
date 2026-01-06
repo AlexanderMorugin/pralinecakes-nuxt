@@ -67,7 +67,7 @@ const { product } = defineProps(["product"]);
 
     @media (max-width: 576px) {
       grid-template-columns: repeat(2, 1fr);
-      width: 100%;
+      width: 90%;
     }
   }
 
@@ -77,7 +77,7 @@ const { product } = defineProps(["product"]);
     align-items: center;
     gap: 20px;
     border-radius: var(--border-radius-l);
-    border: 2px solid var(--border-primary);
+    border: 1px solid var(--border-primary);
     padding: 20px;
 
     @media (max-width: 576px) {

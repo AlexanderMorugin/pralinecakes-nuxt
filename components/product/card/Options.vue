@@ -93,7 +93,10 @@ const toggleOption = (number) => {
 
   &__block {
     border-radius: var(--border-radius-m);
-    background: var(--mask-white-thirdly);
+    // background: var(--mask-white-thirdly);
+    // background: var(--deep-blue-fourthly);
+    background: var(--gradient-product-blue-primary);
+
     padding: 40px 20px;
   }
 }
