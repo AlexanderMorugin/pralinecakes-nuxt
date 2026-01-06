@@ -50,7 +50,7 @@ const { comment } = defineProps(["comment"]);
     @media (max-width: 767px) {
       font-size: 16px;
       line-height: 26px;
-      letter-spacing: 0;
+      // letter-spacing: 0;
     }
   }
 

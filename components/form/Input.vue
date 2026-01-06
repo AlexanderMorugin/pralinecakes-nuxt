@@ -1,0 +1,46 @@
+<template>
+  <div class="form-field">
+    <label :for="name" class="form-label">{{ label }}</label>
+
+    <!-- Последний в цепочке инпут, остлеживает валидацию при вводе -->
+    <input
+      v-if="lastInput"
+      :type="type"
+      :id="name"
+      :name="name"
+      :placeholder="placeholder"
+      :value="value"
+      @input="updateValue"
+      class="form-input"
+    />
+    <!-- Первый и средние в цепочке инпуты, остлеживает валидацию после перехода на другой инпут -->
+    <input
+      v-else
+      :type="type"
+      :id="name"
+      :name="name"
+      :placeholder="placeholder"
+      :value="value"
+      @change="updateValue"
+      class="form-input"
+    />
+
+    <TransitionGroup name="list" tag="ul">
+      <span v-for="item in error" :key="item.$uid" class="form-input-error">{{
+        item.$message
+      }}</span>
+    </TransitionGroup>
+
+    <FormClearButton v-if="value" @click="$emit('clearInput')" />
+  </div>
+</template>
+
+<script setup>
+const { label, type, name, placeholder, value, error, lastInput } = defineProps(
+  ["label", "type", "name", "placeholder", "value", "error", "lastInput"]
+);
+
+const emit = defineEmits(["update:value", "clearInput"]);
+
+const updateValue = (e) => emit("update:value", e.target.value);
+</script>

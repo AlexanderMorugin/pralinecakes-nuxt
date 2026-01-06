@@ -9,7 +9,7 @@
     </div>
     <WrapperText v-else>Отзывов пока нет.</WrapperText>
 
-    <FormComment />
+    <FormComment :product="product" />
   </div>
 </template>
 
