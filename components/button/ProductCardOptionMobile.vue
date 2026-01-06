@@ -39,7 +39,7 @@ const { title, buttonRef, comments } = defineProps([
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 60px;
   padding: 10px;
 
   &__title {
@@ -57,7 +57,7 @@ const { title, buttonRef, comments } = defineProps([
 
   &__comments {
     position: absolute;
-    top: 30%;
+    top: 34%;
     left: 94px;
   }
 

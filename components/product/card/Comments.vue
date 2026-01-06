@@ -34,7 +34,7 @@ const { product } = defineProps(["product"]);
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
   }
 }
 </style>
