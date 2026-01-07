@@ -65,8 +65,21 @@ const { product } = defineProps(["product"]);
     font-family: "Montserrat-SemiBold", sans-serif;
     font-size: 36px;
     line-height: 48px;
-    color: var(--white-primary);
     letter-spacing: 2px;
+
+    color: transparent;
+    background-image: linear-gradient(
+      to right,
+      var(--white-primary) 40%,
+      var(--orange-primary) 47%,
+      var(--white-primary) 70%,
+      var(--white-primary) 80%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: textShine 8s ease-in-out infinite forwards;
 
     @media (max-width: 1024px) {
       font-size: 26px;
@@ -88,6 +101,18 @@ const { product } = defineProps(["product"]);
       line-height: 26px;
       letter-spacing: 0;
     }
+  }
+}
+
+@keyframes textShine {
+  0% {
+    background-position: right top;
+  }
+  60% {
+    background-position: right top;
+  }
+  100% {
+    background-position: left bottom;
   }
 }
 </style>

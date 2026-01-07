@@ -47,7 +47,6 @@
             :title="product.name"
             class="productCardImage__image"
           />
-
           <!-- Кнопка "Включить Модалку" -->
           <IconLoupe
             @click="isImageModalOpen = true"
