@@ -12,13 +12,15 @@
   --red-primary: rgb(246, 60, 0);
   --red-secondary: #ff6400;
 
-  --green-primary: #b5e4b4;
+  --green-primary: rgb(181, 228, 180);
   --green-secondary: #9ddb9b;
 
   --deep-blue-primary: #081119;
   --deep-blue-secondary: #172c3f;
   --deep-blue-thirdly: #32608a;
   --deep-blue-fourthly: #254664;
+
+  --light-blue-primary: rgb(243, 247, 250);
 
   // --button-blue-primary: #32608a;
 
@@ -63,6 +65,7 @@
   --border-radius-m: 10px;
   --border-radius-l: 14px;
   --border-radius-xl: 16px;
+  --border-radius-xxl: 20px;
 
   // desktop
   --screen-4k: 3840px; // h-2160

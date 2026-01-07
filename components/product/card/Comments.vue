@@ -23,8 +23,17 @@ const { product } = defineProps(["product"]);
   grid-template-columns: 1fr 35%;
   gap: 40px;
 
+  @media (max-width: 1600px) {
+    grid-template-columns: 1fr 40%;
+  }
+
+  @media (max-width: 1280px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
+    gap: 80px;
   }
 
   @media (max-width: 767px) {

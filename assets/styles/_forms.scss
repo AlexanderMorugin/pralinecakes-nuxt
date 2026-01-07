@@ -3,12 +3,10 @@
   display: flex;
   flex-direction: column;
   justify-items: center;
-  // gap: 8px;
 }
 .form-label {
   font-family: "Montserrat-Regular", sans-serif;
   font-size: 18px;
-  // line-height: 14px;
   color: var(--white-primary);
   padding-bottom: 10px;
 }
@@ -18,18 +16,17 @@
   font-size: 16px;
   color: var(--black-primary);
   background: var(--white-primary);
-  border-radius: var(--border-radius-xs);
-  border: 1px solid var(--border-primary);
-  padding-left: 13px;
-  padding-right: 13px;
-  transition: 0.25s ease all;
+  border-radius: var(--border-radius-xxl);
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: 0.2s ease;
 }
 .form-input:focus {
   font-family: "Montserrat-Regular", sans-serif;
   font-size: 16px;
   color: var(--black-primary);
   outline: 0;
-  border: 1px solid var(--green-secondary);
+  box-shadow: 0px 0px 15px rgba(243, 247, 250, 0.5);
 }
 .form-input::placeholder {
   font-family: "Montserrat-Regular", sans-serif;
@@ -47,10 +44,40 @@
   font-family: "Montserrat-Regular", sans-serif;
   font-size: 14px;
   line-height: 14px;
-  color: var(--orange-primary);
+  color: var(--red-secondary);
   text-align: right;
 }
+.form-textarea {
+  min-height: 100px;
+  border-radius: var(--border-radius-xxl);
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 16px;
+  color: var(--black-primary);
+  background: var(--white-primary);
+  padding: 20px;
 
+  &:focus {
+    font-family: "Montserrat-Regular", sans-serif;
+    font-size: 16px;
+    color: var(--black-primary);
+    outline: 0;
+    background: var(--white-primary);
+    box-shadow: 0px 0px 15px rgba(243, 247, 250, 0.5);
+  }
+}
+.form-textarea::placeholder {
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 16px;
+  color: var(--mask-black-secondary);
+}
+.form-textarea:focus::placeholder {
+  color: transparent;
+}
+.mark {
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 14px;
+  color: var(--mask-white-primary);
+}
 // @media (max-width: 767px) {
 //   .form-search-input {
 //     padding-left: 20px;
