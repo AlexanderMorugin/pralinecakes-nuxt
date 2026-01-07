@@ -40,19 +40,4 @@ const { image, name } = defineProps(["image", "name"]);
     }
   }
 }
-
-@keyframes slide-to-top {
-  0% {
-    opacity: 0;
-    transform: scale(1) translateY(50%);
-  }
-  50% {
-    opacity: 0;
-    transform: scale(1) translateY(50%);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
 </style>

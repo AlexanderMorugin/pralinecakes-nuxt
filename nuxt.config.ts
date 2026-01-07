@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "~/assets/styles/_transitions.scss",
     "~/assets/styles/_modal.scss",
     "~/assets/styles/_forms.scss",
+    "~/assets/styles/_animation.scss",
   ],
 
   modules: ["@nuxt/fonts", "@pinia/nuxt"],

@@ -14,6 +14,7 @@ const { product } = defineProps(["product"]);
   display: flex;
   flex-direction: column;
   gap: 40px;
+  animation: slide-to-top 0.5s ease-in-out;
 
   @media (max-width: 767px) {
     padding: 10px 5px 20px 5px;

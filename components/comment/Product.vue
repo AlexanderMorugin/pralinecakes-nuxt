@@ -27,6 +27,30 @@ const { comment } = defineProps(["comment"]);
   border: 1px solid var(--border-primary);
   overflow: hidden;
 
+  &:nth-of-type(1) {
+    animation: slide-to-top 0.5s ease-in-out;
+  }
+
+  &:nth-of-type(2) {
+    animation: slide-to-top 0.6s ease-in-out;
+  }
+
+  &:nth-of-type(3) {
+    animation: slide-to-top 0.7s ease-in-out;
+  }
+
+  &:nth-of-type(4) {
+    animation: slide-to-top 0.8s ease-in-out;
+  }
+
+  &:nth-of-type(5) {
+    animation: slide-to-top 0.9s ease-in-out;
+  }
+
+  &:nth-of-type(6) {
+    animation: slide-to-top 1s ease-in-out;
+  }
+
   &__titleBox {
     display: flex;
     justify-content: space-between;

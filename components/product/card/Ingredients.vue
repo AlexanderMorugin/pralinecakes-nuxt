@@ -43,6 +43,7 @@ const { product } = defineProps(["product"]);
     display: flex;
     flex-direction: column;
     gap: 20px;
+    animation: slide-to-top 0.5s ease-in-out;
   }
 
   &__nutritionTitle {
