@@ -1,18 +1,23 @@
 <template>
   <button
     type="submit"
-    :class="['buttonSubmit', { buttonSubmit_active: !isFromEmpty && !isValid }]"
+    :class="[
+      'buttonSubmit',
+      { buttonSubmit_active: !isFromEmpty && !isValid && !hasSend },
+    ]"
   >
-    <span class="buttonSubmit__title">{{ title }}</span>
+    <LoaderButton v-if="isLoading" />
+    <span v-else class="buttonSubmit__title">{{ title }}</span>
   </button>
 </template>
 
 <script setup>
-const { title, isFromEmpty, isValid, isLoading } = defineProps([
+const { title, isFromEmpty, isValid, isLoading, hasSend } = defineProps([
   "title",
   "isFromEmpty",
   "isValid",
   "isLoading",
+  "hasSend",
 ]);
 
 const emit = defineEmits(["handleClick"]);

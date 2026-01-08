@@ -57,10 +57,6 @@ const emit = defineEmits(["increment", "decrement"]);
     height: 20px;
     fill: var(--gradient-button-blue-primary);
     transform: scale(1);
-
-    // &:hover {
-    //   transform: scale(1.2);
-    // }
   }
 
   &__numberBox {

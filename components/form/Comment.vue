@@ -32,6 +32,7 @@
       :isFromEmpty="isFromEmpty"
       :isValid="isValid.length"
       :isLoading="isLoading"
+      :hasSend="hasSend"
     />
 
     <span class="mark">* - обязательные для заполнения поля</span>
@@ -44,6 +45,10 @@ import { helpers, required, minLength } from "@vuelidate/validators";
 
 const { product } = defineProps(["product"]);
 
+const toast = useToast();
+
+const isLoading = ref(false);
+const hasSend = ref(false);
 const userName = ref(null);
 const productRating = ref(null);
 const userComment = ref(null);
@@ -80,6 +85,8 @@ const isValid = computed(() => v$.value.$errors);
 
 const submitComment = async () => {
   try {
+    isLoading.value = true;
+
     if (!isFromEmpty.value && !isValid.value.length) {
       const commentData = {
         name: userName.value.trim(),
@@ -89,10 +96,21 @@ const submitComment = async () => {
       };
 
       console.log(commentData);
+
+      toast.success({
+        title: "Успешно!",
+        message: "Отзыв добавлен.",
+      });
+
+      hasSend.value = true;
+      // userName.value = "    ";
+      // productRating.value = null;
+      // userComment.value = null;
     }
   } catch (error) {
     console.log(error);
   } finally {
+    isLoading.value = false;
   }
 };
 </script>
