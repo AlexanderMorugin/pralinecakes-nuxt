@@ -1,10 +1,8 @@
 <template>
   <button
     type="submit"
-    :class="[
-      'buttonSubmit',
-      { buttonSubmit_active: !isFromEmpty && !isValid && !hasSend },
-    ]"
+    :class="['buttonSubmit', { buttonSubmit_active: !isFromEmpty && !isValid }]"
+    @click="$emit('handleClick')"
   >
     <LoaderButton v-if="isLoading" />
     <span v-else class="buttonSubmit__title">{{ title }}</span>
@@ -12,12 +10,11 @@
 </template>
 
 <script setup>
-const { title, isFromEmpty, isValid, isLoading, hasSend } = defineProps([
+const { title, isFromEmpty, isValid, isLoading } = defineProps([
   "title",
   "isFromEmpty",
   "isValid",
   "isLoading",
-  "hasSend",
 ]);
 
 const emit = defineEmits(["handleClick"]);

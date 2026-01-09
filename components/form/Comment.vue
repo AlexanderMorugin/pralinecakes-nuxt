@@ -1,6 +1,11 @@
 <template>
-  <form @submit.prevent="submitComment" class="formComment">
-    <h3 class="formComment__title">Оставьте отзыв</h3>
+  <FormCommentSuccess
+    v-if="isCommentSend"
+    @handleClick="isCommentSend = false"
+  />
+
+  <form v-else @submit.prevent="submitComment" class="form-block">
+    <FormTitle title="Оставьте отзыв" />
     <FormInput
       label="Имя * "
       type="name"
@@ -32,7 +37,6 @@
       :isFromEmpty="isFromEmpty"
       :isValid="isValid.length"
       :isLoading="isLoading"
-      :hasSend="hasSend"
     />
 
     <span class="mark">* - обязательные для заполнения поля</span>
@@ -45,10 +49,10 @@ import { helpers, required, minLength } from "@vuelidate/validators";
 
 const { product } = defineProps(["product"]);
 
-const toast = useToast();
+// const toast = useToast();
 
+const isCommentSend = ref(false);
 const isLoading = ref(false);
-const hasSend = ref(false);
 const userName = ref(null);
 const productRating = ref(null);
 const userComment = ref(null);
@@ -97,15 +101,15 @@ const submitComment = async () => {
 
       console.log(commentData);
 
-      toast.success({
-        title: "Успешно!",
-        message: "Отзыв добавлен.",
-      });
+      // toast.success({
+      //   title: "Успешно!",
+      //   message: "Отзыв добавлен.",
+      // });
 
-      hasSend.value = true;
-      // userName.value = "    ";
-      // productRating.value = null;
-      // userComment.value = null;
+      isCommentSend.value = true;
+      userName.value = null;
+      productRating.value = null;
+      userComment.value = null;
     }
   } catch (error) {
     console.log(error);
@@ -114,24 +118,3 @@ const submitComment = async () => {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-.formComment {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  width: 100%;
-  max-width: 550px;
-
-  &__title {
-    font-family: "Montserrat-Medium", sans-serif;
-    font-size: 28px;
-    color: var(--orange-primary);
-    letter-spacing: 1px;
-
-    @media (max-width: 767px) {
-      font-size: 24px;
-    }
-  }
-}
-</style>
