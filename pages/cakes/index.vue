@@ -10,5 +10,5 @@ definePageMeta({
   layout: "main",
 });
 
-const cakesStore = useCakesStore();
+// const cakesStore = useCakesStore();
 </script>

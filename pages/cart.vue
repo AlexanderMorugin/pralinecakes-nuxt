@@ -1,7 +1,11 @@
 <template>
   <WrapperPadding>
-    <TitlePage title="Корзина" />
-    <CartEmpty v-if="!cartStore.cart.length" />
+    <WrapperPage>
+      <TitlePage title="Корзина" />
+      <CartEmpty v-if="!cartStore.cart.length" />
+
+      <Cart v-else />
+    </WrapperPage>
   </WrapperPadding>
 </template>
 

@@ -1,5 +1,25 @@
 import { defineStore } from "pinia";
 
+export interface ICart extends ICake {
+  count: number;
+}
+
+export const cartProduct = (product: ICart) => {
+  const hasProduct = {
+    id: product.id,
+    type: product.type,
+    slug: product.slug,
+    image_list_card: product.image_list_card,
+    name: product.name,
+    price: product.price,
+    discount: product.discount,
+    weigth: product.weigth,
+    count: 1,
+  };
+
+  return hasProduct;
+};
+
 export const useCartStore = defineStore("cartStore", () => {
   const cart = ref<ICart[]>([]);
 

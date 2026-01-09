@@ -16,6 +16,7 @@ export type TNutrition = {
 
 export interface ICake {
   id: number;
+  type: string;
   slug: string;
   image_list_card: string;
   image_800: string[];
@@ -44,6 +45,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
   const cakes = ref<ICake[]>([
     {
       id: 1,
+      type: "cakes",
       slug: "air-nut",
 
       image_list_card:
@@ -95,6 +97,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
     },
     {
       id: 2,
+      type: "cakes",
       slug: "almond",
 
       image_list_card: "/images/cakes/carrot/carrot-cake-1-600-400.webp",
@@ -170,6 +173,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
     },
     {
       id: 3,
+      type: "cakes",
       slug: "honey",
 
       image_list_card: "/images/cakes/coconut/coconut-cake-1-600-400.webp",
@@ -277,6 +281,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
     },
     {
       id: 4,
+      type: "cakes",
       slug: "currant-coconut",
 
       image_list_card: "/images/cakes/esterhazy/esterhazy-cake-1-600-400.webp",
