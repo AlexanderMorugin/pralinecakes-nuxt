@@ -20,8 +20,9 @@
           @increment="cartStore.incrementCartItem(product.id)"
           @decrement="cartStore.decrementCartItem(product.id)"
         />
+        <CartTotalProductPrice :product="product" />
 
-        <div class="grid">{{ currencyFormater(34450) }}</div>
+        <!-- <div class="grid">{{ currencyFormater(34450) }}</div> -->
       </li>
     </ul>
 
