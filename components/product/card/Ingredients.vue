@@ -1,6 +1,8 @@
 <template>
   <div class="productCardIngredients">
-    <WrapperText>{{ product.ingredients }}</WrapperText>
+    <WrapperText class="productCardIngredients__main">{{
+      product.ingredients
+    }}</WrapperText>
 
     <div class="productCardIngredients__nutritionBlock">
       <h3 class="productCardIngredients__nutritionTitle">
@@ -37,6 +39,10 @@ const { product } = defineProps(["product"]);
 
   @media (max-width: 767px) {
     padding: 10px 5px 20px 5px;
+  }
+
+  &__main {
+    animation: slide-to-right 0.5s ease-in-out;
   }
 
   &__nutritionBlock {

@@ -23,6 +23,7 @@
       placeholder="Ваш отзыв"
       v-model:value="v$.userComment.$model"
       :error="v$.userComment.$errors"
+      @clearInput="userComment = null"
     />
 
     <FormRating
@@ -48,8 +49,6 @@ import { useVuelidate } from "@vuelidate/core";
 import { helpers, required, minLength } from "@vuelidate/validators";
 
 const { product } = defineProps(["product"]);
-
-// const toast = useToast();
 
 const isCommentSend = ref(false);
 const isLoading = ref(false);
@@ -100,11 +99,6 @@ const submitComment = async () => {
       };
 
       console.log(commentData);
-
-      // toast.success({
-      //   title: "Успешно!",
-      //   message: "Отзыв добавлен.",
-      // });
 
       isCommentSend.value = true;
       userName.value = null;

@@ -13,6 +13,8 @@
         item.$message
       }}</span>
     </TransitionGroup>
+
+    <FormClearButton v-if="value" @click="$emit('clearInput')" />
   </div>
 </template>
 
@@ -24,7 +26,7 @@ const { placeholder, value, label, error } = defineProps([
   "error",
 ]);
 
-const emit = defineEmits(["update:value"]);
+const emit = defineEmits(["update:value", "clearInput"]);
 
 const updateValue = (e) => emit("update:value", e.target.value);
 </script>
