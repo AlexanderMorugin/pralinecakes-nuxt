@@ -1,7 +1,9 @@
 import { defineStore } from "pinia";
 
 export interface ICart extends ICake {
+  discount_price: number;
   count: number;
+  total_product_price: number;
 }
 
 export const cartProduct = (product: ICart) => {
@@ -13,8 +15,17 @@ export const cartProduct = (product: ICart) => {
     name: product.name,
     price: product.price,
     discount: product.discount,
+    discount_price: computed(() =>
+      product.discount
+        ? product.price - (product.price * product.discount) / 100
+        : null
+    ),
     weigth: product.weigth,
     count: 1,
+    total_product_price: computed(() => product.price * product.count),
+    // product.discount
+    //   ? product.discount_price * product.count
+    //   : product.price * product.count
   };
 
   return hasProduct;
@@ -57,11 +68,27 @@ export const useCartStore = defineStore("cartStore", () => {
     cart.value = cart.value.filter((item) => item !== currentItem);
   };
 
+  const totalCartCount = computed(() =>
+    cart.value.map((item) => item.count).reduce((a, b) => a + b)
+  );
+
+  const totalCartSum = computed(() => {
+    let data = null;
+
+    data = cart.value.map((item) =>
+      item.discount ? item.discount_price * item.count : item.price * item.count
+    );
+
+    return data.reduce((a, b) => a + b);
+  });
+
   return {
     cart,
     addCartItem,
     incrementCartItem,
     decrementCartItem,
     deleteCartItem,
+    totalCartCount,
+    totalCartSum,
   };
 });

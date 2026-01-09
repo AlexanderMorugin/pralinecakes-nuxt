@@ -1,10 +1,10 @@
 <template>
   <section class="cartList">
     <div class="cartList__grid cartList__top">
-      <span>Продукт</span>
-      <span>Цена</span>
-      <span>Количество</span>
-      <span>Стоимость</span>
+      <div class="cartList__topName"><span>Продукт</span></div>
+      <div class="cartList__topName"><span>Цена</span></div>
+      <div class="cartList__topName"><span>Количество</span></div>
+      <div class="cartList__topName"><span>Стоимость</span></div>
     </div>
     <ul class="cartList__products">
       <li
@@ -21,12 +21,18 @@
           @decrement="cartStore.decrementCartItem(product.id)"
         />
         <CartTotalProductPrice :product="product" />
-
-        <!-- <div class="grid">{{ currencyFormater(34450) }}</div> -->
       </li>
     </ul>
 
-    {{ cartStore.cart }}
+    <!-- {{ cartStore.cart }} -->
+
+    <div class="cartList__bottom">
+      <span>Общая стоимость:</span>
+      <!-- {{ cartStore.totalCartCount }}
+      {{ cartStore.totalCartSum }} -->
+
+      <span>{{ currencyFormater(cartStore.totalCartSum) }}</span>
+    </div>
   </section>
 </template>
 
@@ -56,6 +62,11 @@ const cartStore = useCartStore();
     letter-spacing: 2px;
   }
 
+  &__topName {
+    display: flex;
+    justify-content: center;
+  }
+
   &__products {
     display: flex;
     flex-direction: column;
@@ -66,6 +77,19 @@ const cartStore = useCartStore();
     border-radius: var(--border-radius-s);
     border: 1px solid var(--border-primary);
     padding: 5px;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 5px;
+
+    font-family: "Montserrat-Medium", sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--white-primary);
+    letter-spacing: 1px;
   }
 }
 </style>

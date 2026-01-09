@@ -3,13 +3,14 @@
     <span class="cartTotalProductPrice__number">
       {{
         currencyFormater(
-          product.discount
-            ? (product.price - (product.price * product.discount) / 100) *
-                product.count
+          // product.total_product_price
+          product.discount_price
+            ? product.discount_price * product.count
             : product.price * product.count
         )
       }}
     </span>
+    <!-- {{ product.total_product_price }} -->
   </div>
 </template>
 
@@ -21,10 +22,10 @@ const { product } = defineProps(["product"]);
 .cartTotalProductPrice {
   display: flex;
   justify-content: flex-end;
-  padding-top: 5px;
+  padding: 5px 5px 0 0;
 
   &__number {
-    font-family: "Montserrat-Regular", sans-serif;
+    font-family: "Montserrat-Medium", sans-serif;
     font-size: 18px;
     line-height: 28px;
     color: var(--white-primary);

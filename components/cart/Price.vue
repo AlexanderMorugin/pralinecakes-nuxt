@@ -23,6 +23,7 @@ const { product } = defineProps(["product"]);
 .cartPrice {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding-top: 5px;
 
   &__priceOld {
