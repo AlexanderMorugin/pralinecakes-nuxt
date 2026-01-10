@@ -1,6 +1,6 @@
 <template>
   <div class="form-block">
-    <FormTitle title="Благодарим за отзыв!" />
+    <TitleBlock title="Благодарим за отзыв!" />
     <WrapperText
       >Только что мы получили ваш отзыв и после модерации он обязательно будет
       опубликован на сайте.</WrapperText

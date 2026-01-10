@@ -1,5 +1,5 @@
 <template>
-  <h3 class="formCommentTitle">{{ title }}</h3>
+  <h3 class="titleBlock">{{ title }}</h3>
 </template>
 
 <script setup>
@@ -7,7 +7,7 @@ const { title } = defineProps(["title"]);
 </script>
 
 <style lang="scss" scoped>
-.formCommentTitle {
+.titleBlock {
   font-family: "Montserrat-Medium", sans-serif;
   font-size: 28px;
   color: var(--orange-primary);

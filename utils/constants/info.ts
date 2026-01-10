@@ -10,3 +10,6 @@ export const MAX_LINK =
   "https://max.ru/u/f9LHodD0cOJXro93eupqO6XquXr5vv2-jF9H9ZY8m83fMdU19kHxtsS7Vyo";
 export const PHONE_LINK = `tel:+79771388264`;
 export const PHONE_SECOND_LINK = `tel:+74957295051`;
+
+export const MIN_ORDER_SUM = 3000;
+export const DELIVERY_SUM = 800;

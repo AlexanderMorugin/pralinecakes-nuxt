@@ -60,10 +60,17 @@ const emit = defineEmits(["increment", "decrement"]);
   border-radius: var(--border-radius-xs);
   padding: 10px 5px;
 
+  // border: 1px solid red;
+
   &_cartList {
+    grid-area: counter;
+    grid-template-columns: auto 1fr auto;
     height: fit-content;
+    width: 100%;
+    max-width: 120px;
     background: transparent;
-    padding: 5px 0 0 0;
+    padding: 5px 0;
+    margin: 0 auto;
   }
 
   &__button {
@@ -103,6 +110,8 @@ const emit = defineEmits(["increment", "decrement"]);
     display: flex;
     justify-content: center;
     align-items: center;
+    // width: 100%;
+    // border: 1px solid red;
   }
 
   &__number {
@@ -112,6 +121,7 @@ const emit = defineEmits(["increment", "decrement"]);
 
     &_cartList {
       color: var(--white-primary);
+      text-align: center;
     }
   }
 }

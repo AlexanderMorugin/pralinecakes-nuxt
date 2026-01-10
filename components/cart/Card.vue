@@ -20,14 +20,35 @@ const { product } = defineProps(["product"]);
 
 <style lang="scss" scoped>
 .cartCard {
-  display: flex;
+  grid-area: card;
+  display: grid;
+  grid-template-columns: 150px 1fr;
   gap: 20px;
+
+  // border: 1px solid red;
+  @media (max-width: 1280px) {
+    gap: 10px;
+  }
+
+  @media (max-width: 1024px) {
+    gap: 20px;
+  }
+
+  @media (max-width: 767px) {
+    // grid-template-columns: 120px 1fr;
+    gap: 10px;
+  }
 
   &__imageBox {
     width: 150px;
     height: 100px;
     border-radius: var(--border-radius-s);
     overflow: hidden;
+
+    // @media (max-width: 767px) {
+    //   width: 120px;
+    //   height: 80px;
+    // }
   }
 
   &__image {
@@ -40,6 +61,10 @@ const { product } = defineProps(["product"]);
     display: flex;
     flex-direction: column;
     padding-top: 5px;
+
+    @media (max-width: 767px) {
+      padding-top: 0;
+    }
   }
 
   &__name {
@@ -48,6 +73,13 @@ const { product } = defineProps(["product"]);
     line-height: 28px;
     color: var(--white-primary);
     letter-spacing: 1px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+
+    // border: 1px solid red;
   }
 
   &__weigth {

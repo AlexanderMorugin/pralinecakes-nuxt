@@ -1,11 +1,11 @@
 <template>
   <section class="cartList">
-    <div class="cartList__grid cartList__top">
-      <div class="cartList__topName"><span>Продукт</span></div>
-      <div class="cartList__topName"><span>Цена</span></div>
-      <div class="cartList__topName"><span>Количество</span></div>
-      <div class="cartList__topName"><span>Стоимость</span></div>
-    </div>
+    <ul v-if="!isScreenMedium" class="cartList__grid cartList__top">
+      <li class="cartList__topName"><span>Продукт</span></li>
+      <li class="cartList__topName"><span>Цена</span></li>
+      <li class="cartList__topName"><span>Количество</span></li>
+      <li class="cartList__topName"><span>Стоимость</span></li>
+    </ul>
     <ul class="cartList__products">
       <li
         v-for="product in cartStore.cart"
@@ -23,21 +23,12 @@
         <CartTotalProductPrice :product="product" />
       </li>
     </ul>
-
-    <!-- {{ cartStore.cart }} -->
-
-    <div class="cartList__bottom">
-      <span>Общая стоимость:</span>
-      <!-- {{ cartStore.totalCartCount }}
-      {{ cartStore.totalCartSum }} -->
-
-      <span>{{ currencyFormater(cartStore.totalCartSum) }}</span>
-    </div>
   </section>
 </template>
 
 <script setup>
 const cartStore = useCartStore();
+const { isScreenMedium } = useResizeMedium();
 </script>
 
 <style lang="scss" scoped>
@@ -46,12 +37,25 @@ const cartStore = useCartStore();
   flex-direction: column;
   gap: 20px;
 
-  // border: 1px solid red;
-
   &__grid {
     display: grid;
-    grid-template-columns: 1fr 15% 15% 15%;
-    column-gap: 20px;
+    grid-template-areas: "card price counter total";
+    grid-template-columns: 1fr 12% 15% 15%;
+    column-gap: 10px;
+
+    @media (max-width: 1280px) {
+      grid-template-columns: 1fr 12% 17% 15%;
+    }
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr 12% 15% 15%;
+    }
+
+    @media (max-width: 767px) {
+      grid-template-columns: 25% 1fr 1fr;
+      grid-template-areas: "card card card" "price counter total";
+      row-gap: 10px;
+    }
   }
 
   &__top {
@@ -77,19 +81,6 @@ const cartStore = useCartStore();
     border-radius: var(--border-radius-s);
     border: 1px solid var(--border-primary);
     padding: 5px;
-  }
-
-  &__bottom {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    padding: 5px;
-
-    font-family: "Montserrat-Medium", sans-serif;
-    font-size: 18px;
-    line-height: 28px;
-    color: var(--white-primary);
-    letter-spacing: 1px;
   }
 }
 </style>

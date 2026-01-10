@@ -31,3 +31,31 @@ li {
 button {
   cursor: pointer;
 }
+
+.text-bonus {
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 16px;
+  color: var(--green-primary);
+  text-align: right;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+// .text-price {
+//   font-family: "Montserrat-Regular", sans-serif;
+//   font-size: 18px;
+//   line-height: 28px;
+//   color: var(--white-primary);
+//   letter-spacing: 1px;
+// }
+.text-total-price {
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 22px;
+  line-height: 32px;
+  color: var(--white-primary);
+  letter-spacing: 1px;
+}
+.line-dashed {
+  width: 100%;
+  min-width: 20px;
+  border-bottom: 1px dashed var(--border-primary);
+}

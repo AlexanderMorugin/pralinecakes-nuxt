@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <div class="productCardPrice__bonus">
+    <div class="text-bonus">
       +{{
         currencyFormater(
           product.discount
@@ -117,18 +117,18 @@ const { product } = defineProps(["product"]);
     // }
   }
 
-  &__bonus {
-    font-family: "Montserrat-Regular", sans-serif;
-    font-size: 16px;
-    color: var(--green-primary);
-    text-align: right;
-    padding-left: 10px;
-    padding-right: 10px;
-    // opacity: 0.7;
+  // &__bonus {
+  //   font-family: "Montserrat-Regular", sans-serif;
+  //   font-size: 16px;
+  //   color: var(--green-primary);
+  //   text-align: right;
+  //   padding-left: 10px;
+  //   padding-right: 10px;
+  //   // opacity: 0.7;
 
-    // @media (max-width: 1600px) {
-    //   font-size: 14px;
-    // }
-  }
+  //   // @media (max-width: 1600px) {
+  //   //   font-size: 14px;
+  //   // }
+  // }
 }
 </style>

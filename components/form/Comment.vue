@@ -5,7 +5,7 @@
   />
 
   <form v-else @submit.prevent="submitComment" class="form-block">
-    <FormTitle title="Оставьте отзыв" />
+    <TitleBlock title="Оставьте отзыв" />
     <FormInput
       label="Имя * "
       type="name"

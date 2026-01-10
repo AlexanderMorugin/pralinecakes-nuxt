@@ -21,10 +21,16 @@ const { product } = defineProps(["product"]);
 
 <style lang="scss" scoped>
 .cartPrice {
+  grid-area: price;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 5px;
+  // border: 1px solid red;
+
+  @media (max-width: 767px) {
+    align-items: flex-start;
+  }
 
   &__priceOld {
     font-family: "Montserrat-Regular", sans-serif;
@@ -33,17 +39,17 @@ const { product } = defineProps(["product"]);
     color: var(--mask-white-primary);
     text-decoration-line: line-through;
 
-    // @media (max-width: 1600px) {
-    //   font-size: 14px;
-    // }
+    @media (max-width: 767px) {
+      line-height: 14px;
+    }
   }
 
   &__price {
     font-family: "Montserrat-Regular", sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 28px;
     color: var(--white-primary);
-    letter-spacing: 1px;
+    // letter-spacing: 1px;
 
     // @media (max-width: 1600px) {
     //   font-size: 20px;

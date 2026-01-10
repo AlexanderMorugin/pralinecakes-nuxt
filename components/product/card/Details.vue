@@ -3,25 +3,25 @@
     <ul class="productCardDetails__list">
       <li class="productCardDetails__listItem">
         <span class="productCardDetails__text">Вес:</span>
-        <div class="productCardDetails__line" />
+        <div class="line-dashed" />
         <span class="productCardDetails__text">{{ product.weigth }} гр</span>
       </li>
 
       <li class="productCardDetails__listItem">
         <span class="productCardDetails__text">Ширина:</span>
-        <div class="productCardDetails__line" />
+        <div class="line-dashed" />
         <span class="productCardDetails__text">{{ product.width }} см</span>
       </li>
 
       <li class="productCardDetails__listItem">
         <span class="productCardDetails__text">Высота:</span>
-        <div class="productCardDetails__line" />
+        <div class="line-dashed" />
         <span class="productCardDetails__text">{{ product.height }} см</span>
       </li>
 
       <li class="productCardDetails__listItem">
         <span class="productCardDetails__text">Срок годности:</span>
-        <div class="productCardDetails__line" />
+        <div class="line-dashed" />
         <span class="productCardDetails__text"
           >{{ product.expirationDate }} часа</span
         >
@@ -29,7 +29,7 @@
 
       <li class="productCardDetails__listItem">
         <span class="productCardDetails__text">Температура хранения:</span>
-        <div class="productCardDetails__line" />
+        <div class="line-dashed" />
         <span class="productCardDetails__text"
           >от {{ product.storageTemperature[0] }} до
           {{ product.storageTemperature[1] }}°C</span
@@ -83,11 +83,11 @@ const { product } = defineProps(["product"]);
     justify-content: space-between;
   }
 
-  &__line {
-    width: 100%;
-    min-width: 20px;
-    border-bottom: 1px dashed var(--border-primary);
-  }
+  // &__line {
+  //   width: 100%;
+  //   min-width: 20px;
+  //   border-bottom: 1px dashed var(--border-primary);
+  // }
 
   &__text {
     font-family: "Montserrat-Regular", sans-serif;

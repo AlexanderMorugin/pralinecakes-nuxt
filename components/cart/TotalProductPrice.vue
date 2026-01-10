@@ -20,9 +20,12 @@ const { product } = defineProps(["product"]);
 
 <style lang="scss" scoped>
 .cartTotalProductPrice {
+  grid-area: total;
   display: flex;
   justify-content: flex-end;
   padding: 5px 5px 0 0;
+
+  // border: 1px solid red;
 
   &__number {
     font-family: "Montserrat-Medium", sans-serif;

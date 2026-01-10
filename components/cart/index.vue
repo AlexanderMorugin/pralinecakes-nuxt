@@ -1,23 +1,27 @@
 <template>
-  <section class="cart">
+  <div class="cart">
     <CartList />
-    <div class="cartOrder">Оформление заказа</div>
-  </section>
+    <OrderBlock />
+  </div>
 </template>
 
 <script setup>
-const { comment } = defineProps(["comment"]);
+// const { comment } = defineProps(["comment"]);
 </script>
 
 <style lang="scss" scoped>
 .cart {
   display: grid;
-  grid-template-columns: 1fr 40%;
-  column-gap: 40px;
+  grid-template-columns: 1fr 35%;
+  gap: 40px;
 
-  .cartOrder {
-    height: 300px;
-    // border: 1px solid red;
+  @media (max-width: 1600px) {
+    gap: 20px;
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    gap: 60px;
   }
 }
 </style>
