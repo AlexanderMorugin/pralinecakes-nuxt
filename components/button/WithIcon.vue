@@ -25,7 +25,9 @@
       v-if="name === 'cart' && cartStore.cart.length"
       class="buttonWithIcon__cart"
     >
-      <span class="buttonWithIcon__cartCount">{{ cartStore.cart.length }}</span>
+      <span class="buttonWithIcon__cartCount">{{
+        cartStore.totalCartCount
+      }}</span>
     </div>
   </button>
 </template>

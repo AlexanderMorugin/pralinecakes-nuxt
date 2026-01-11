@@ -7,7 +7,19 @@
 </template>
 
 <script setup>
-// const cartStore = useCartStore();
+const cartStore = useCartStore();
+const orderStore = useOrderStore();
+
+const addOrder = () => {
+  orderStore.setOrder(cartStore.cart);
+
+  // console.log(cartStore.cart);
+  // console.log(cartStore.totalCartCount);
+  // console.log(cartStore.totalCartSum);
+  // console.log(cartStore.deliverySum);
+  // console.log(cartStore.totalOrderSum);
+  // console.log(cartStore.cartBonus);
+};
 </script>
 
 <style lang="scss" scoped>

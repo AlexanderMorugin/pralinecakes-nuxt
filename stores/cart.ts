@@ -114,7 +114,7 @@ export const useCartStore = defineStore("cartStore", () => {
   const cartBonus = computed(() => {
     let data = null;
 
-    data = totalCartSum.value * USER_BONUS;
+    data = Math.round(totalCartSum.value * USER_BONUS);
 
     return data;
   });
