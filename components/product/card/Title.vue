@@ -34,8 +34,8 @@ const { product } = defineProps(["product"]);
 
   @media (max-width: 767px) {
     gap: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
+    // padding-left: 5px;
+    // padding-right: 5px;
   }
 
   &__titleBlock {

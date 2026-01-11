@@ -1,7 +1,7 @@
 <template>
-  <!-- <WrapperPadding> -->
-  <HeroBlock />
-  <!-- </WrapperPadding> -->
+  <div>
+    <HeroBlock />
+  </div>
 </template>
 
 <script setup>

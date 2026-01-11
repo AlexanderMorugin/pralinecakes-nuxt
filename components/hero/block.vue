@@ -177,9 +177,9 @@
       font-size: 14px;
     }
 
-    @media (max-width: 390px) {
-      letter-spacing: 3px;
-    }
+    // @media (max-width: 390px) {
+    //   letter-spacing: 3px;
+    // }
   }
 
   &__titleNameBox {
@@ -200,9 +200,9 @@
       height: 36px;
     }
 
-    @media (max-width: 390px) {
-      height: 28px;
-    }
+    // @media (max-width: 390px) {
+    //   height: 28px;
+    // }
   }
 
   &__titleName {
@@ -229,9 +229,9 @@
       font-size: 36px;
     }
 
-    @media (max-width: 390px) {
-      font-size: 28px;
-    }
+    // @media (max-width: 390px) {
+    //   font-size: 28px;
+    // }
   }
 
   &__shopBox {
@@ -270,10 +270,10 @@
       bottom: 22px;
     }
 
-    @media (max-width: 390px) {
-      left: 200px;
-      bottom: 20px;
-    }
+    // @media (max-width: 390px) {
+    //   left: 200px;
+    //   bottom: 20px;
+    // }
   }
 
   &__shop {

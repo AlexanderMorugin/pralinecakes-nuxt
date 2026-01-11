@@ -1,5 +1,5 @@
 <template>
-  <div class="productCard">
+  <div class="productCard page-padding-x">
     <div class="productCard__grid">
       <ProductCardImage :product="product" />
 
@@ -25,12 +25,19 @@ const cakesStore = useCakesStore();
 
 <style lang="scss" scoped>
 .productCard {
-  position: relative;
+  // position: relative;
   display: flex;
   flex-direction: column;
   gap: 40px;
-  padding-top: 20px;
-  // z-index: 10;
+  padding-top: 100px;
+
+  @media (max-width: 1920px) {
+    padding-top: 60px;
+  }
+
+  @media (max-width: 767px) {
+    padding-top: 20px;
+  }
 
   border: 1px solid red;
 

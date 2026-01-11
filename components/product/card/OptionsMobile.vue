@@ -90,8 +90,8 @@ const toggleOption = (number) => {
 
 <style lang="scss" scoped>
 .productCardOptionsMobile {
-  padding-left: 5px;
-  padding-right: 5px;
+  // padding-left: 5px;
+  // padding-right: 5px;
 
   &__container {
     display: flex;

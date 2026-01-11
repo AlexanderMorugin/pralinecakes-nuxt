@@ -38,7 +38,7 @@ const { product } = defineProps(["product"]);
   gap: 40px;
 
   @media (max-width: 767px) {
-    padding: 10px 5px 20px 5px;
+    padding: 10px 10px 20px 10px;
   }
 
   &__main {
