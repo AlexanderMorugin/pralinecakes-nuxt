@@ -1,7 +1,8 @@
 <template>
   <div class="orderSum">
-    <div class="orderSum__block line-dashed text-price">
+    <div class="orderSum__block text-price">
       <span>Сумма</span>
+      <div class="line-dashed" />
       <span>{{ currencyFormater(cartStore.totalCartSum) }}</span>
     </div>
     <div class="orderSum__bonus">
@@ -9,8 +10,9 @@
     </div>
 
     <div class="orderSum__box">
-      <div class="orderSum__block line-dashed text-price">
+      <div class="orderSum__block text-price">
         <span>Доставка</span>
+        <div class="line-dashed" />
         <span>{{ currencyFormater(cartStore.deliverySum) }}</span>
       </div>
       <span class="orderSum__comment"
@@ -21,6 +23,7 @@
 
     <div class="orderSum__block orderSum__total text-total-price">
       <span>Итого</span>
+      <div class="line-dashed" />
       <span>{{ currencyFormater(cartStore.totalOrderSum) }}</span>
     </div>
   </div>
@@ -56,6 +59,11 @@ const cartStore = useCartStore();
   }
 
   &__total {
+    font-family: "Montserrat-SemiBold", sans-serif;
+    font-size: 22px;
+    // line-height: 32px;
+    color: var(--white-primary);
+    letter-spacing: 1px;
     padding-top: 40px;
   }
 

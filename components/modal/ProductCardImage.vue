@@ -181,6 +181,7 @@ onMounted(() => {
     border: 1px solid var(--border-primary);
     backdrop-filter: blur(5px);
     z-index: 11;
+    // border: 1px solid red;
 
     @media (max-width: 1024px) {
       width: 30px;
@@ -191,7 +192,7 @@ onMounted(() => {
       left: 3%;
 
       @media (max-width: 767px) {
-        left: 5px;
+        left: 10px;
       }
     }
 
@@ -199,7 +200,7 @@ onMounted(() => {
       right: 3%;
 
       @media (max-width: 767px) {
-        right: 5px;
+        right: 10px;
       }
     }
 

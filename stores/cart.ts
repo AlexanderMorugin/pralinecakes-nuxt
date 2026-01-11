@@ -107,12 +107,15 @@ export const useCartStore = defineStore("cartStore", () => {
     return data;
   });
 
+  const cleanCart = () => (cart.value = []);
+
   return {
     cart,
     addCartItem,
     incrementCartItem,
     decrementCartItem,
     deleteCartItem,
+    cleanCart,
     totalCartCount,
     totalCartSum,
     deliverySum,

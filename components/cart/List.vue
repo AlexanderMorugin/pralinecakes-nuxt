@@ -1,5 +1,14 @@
 <template>
   <section class="cartList">
+    <div class="cartList__topBlock">
+      <WrapperText
+        >{{ cartStore.totalCartCount }}
+        {{
+          cartStore.totalCartCount > 4 ? "продуктов" : "продукта"
+        }}</WrapperText
+      >
+      <ButtonCartClean @cleanCart="cartStore.cleanCart()" />
+    </div>
     <ul v-if="!isScreenMedium" class="cartList__grid cartList__top">
       <li class="cartList__topName"><span>Продукт</span></li>
       <li class="cartList__topName"><span>Цена</span></li>
@@ -36,6 +45,14 @@ const { isScreenMedium } = useResizeMedium();
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  &__topBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+  }
 
   &__grid {
     display: grid;
@@ -80,7 +97,7 @@ const { isScreenMedium } = useResizeMedium();
   &__product {
     border-radius: var(--border-radius-s);
     border: 1px solid var(--border-primary);
-    padding: 5px;
+    padding: 10px;
   }
 }
 </style>

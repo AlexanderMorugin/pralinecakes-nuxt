@@ -8,7 +8,7 @@
     <IconEmail v-if="name === 'email'" class="buttonWithIcon__icon" />
     <IconSearch v-if="name === 'search'" class="buttonWithIcon__icon" />
     <IconLogout v-if="name === 'logout'" class="buttonWithIcon__icon" />
-    <IconDelete v-if="name === 'delete'" class="buttonWithIcon__icon" />
+    <!-- <IconDelete v-if="name === 'delete'" class="buttonWithIcon__icon" /> -->
     <IconDelivery v-if="name === 'delivery'" class="buttonWithIcon__icon" />
     <IconPerson v-if="name === 'person'" class="buttonWithIcon__icon" />
     <IconAccount v-if="name === 'profile'" class="buttonWithIcon__icon" />

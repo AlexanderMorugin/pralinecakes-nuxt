@@ -18,8 +18,13 @@
   width: 100%;
   max-width: 600px;
   height: fit-content;
-  border: 1px solid var(--border-primary);
+  background: var(--gradient-product-blue-primary);
+  // border: 1px solid var(--border-primary);
   border-radius: var(--border-radius-s);
   padding: 20px;
+
+  @media (max-width: 576px) {
+    padding: 20px 10px 10px 10px;
+  }
 }
 </style>
