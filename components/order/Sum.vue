@@ -6,7 +6,10 @@
       <span>{{ currencyFormater(cartStore.totalCartSum) }}</span>
     </div>
     <div class="orderSum__bonus">
-      <span class="text-bonus">+ 560 R на ваш бонусный счет</span>
+      <span class="text-bonus"
+        >+ {{ currencyFormater(cartStore.cartBonus) }} на ваш бонусный
+        счет</span
+      >
     </div>
 
     <div class="orderSum__box">

@@ -25,5 +25,9 @@
     grid-template-columns: 1fr;
     gap: 60px;
   }
+
+  @media (max-width: 767px) {
+    gap: 40px;
+  }
 }
 </style>

@@ -13,3 +13,4 @@ export const PHONE_SECOND_LINK = `tel:+74957295051`;
 
 export const MIN_ORDER_SUM = 3000;
 export const DELIVERY_SUM = 800;
+export const USER_BONUS = 0.1; // 10%

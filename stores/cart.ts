@@ -1,5 +1,9 @@
 import { defineStore } from "pinia";
-import { DELIVERY_SUM, MIN_ORDER_SUM } from "~/utils/constants/info";
+import {
+  DELIVERY_SUM,
+  MIN_ORDER_SUM,
+  USER_BONUS,
+} from "~/utils/constants/info";
 
 export interface ICart extends ICake {
   discount_price: number;
@@ -107,6 +111,14 @@ export const useCartStore = defineStore("cartStore", () => {
     return data;
   });
 
+  const cartBonus = computed(() => {
+    let data = null;
+
+    data = totalCartSum.value * USER_BONUS;
+
+    return data;
+  });
+
   const cleanCart = () => (cart.value = []);
 
   return {
@@ -120,5 +132,6 @@ export const useCartStore = defineStore("cartStore", () => {
     totalCartSum,
     deliverySum,
     totalOrderSum,
+    cartBonus,
   };
 });

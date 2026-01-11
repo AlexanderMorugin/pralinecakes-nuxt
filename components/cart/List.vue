@@ -53,6 +53,10 @@ const { isScreenMedium } = useResizeMedium();
     gap: 20px;
     border: 1px solid transparent;
     padding-bottom: 20px;
+
+    @media (max-width: 767px) {
+      padding-bottom: 0;
+    }
   }
 
   &__topBlockText {
@@ -99,12 +103,20 @@ const { isScreenMedium } = useResizeMedium();
     display: flex;
     flex-direction: column;
     gap: 30px;
+
+    @media (max-width: 767px) {
+      gap: 20px;
+    }
   }
 
   &__product {
     border-radius: var(--border-radius-s);
     border: 1px solid var(--border-primary);
     padding: 10px;
+
+    @media (max-width: 767px) {
+      padding: 5px;
+    }
   }
 
   &__counter {

@@ -28,8 +28,9 @@
       +{{
         currencyFormater(
           product.discount
-            ? (product.price - (product.price * product.discount) / 100) * 0.2
-            : product.price * 0.2
+            ? (product.price - (product.price * product.discount) / 100) *
+                USER_BONUS
+            : product.price * USER_BONUS
         )
       }}
       на ваш бонусный счет
@@ -38,6 +39,7 @@
 </template>
 
 <script setup>
+import { USER_BONUS } from "~/utils/constants/info";
 const { product } = defineProps(["product"]);
 </script>
 
