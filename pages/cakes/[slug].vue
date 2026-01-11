@@ -1,9 +1,9 @@
 <template>
-  <WrapperPadding>
-    <WrapperPage>
-      <ProductCard :product="cakesStore.cake" />
-    </WrapperPage>
-  </WrapperPadding>
+  <!-- <WrapperPadding> -->
+  <WrapperPage>
+    <ProductCard :product="cakesStore.cake" />
+  </WrapperPage>
+  <!-- </WrapperPadding> -->
 </template>
 
 <script setup>

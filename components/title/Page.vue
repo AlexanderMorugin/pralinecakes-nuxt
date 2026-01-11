@@ -1,5 +1,5 @@
 <template>
-  <section class="titlePage">
+  <section class="titlePage page-padding-x">
     <h1 class="titlePage__title">{{ title }}</h1>
   </section>
 </template>
@@ -13,17 +13,22 @@ const { title } = defineProps(["title"]);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px 100px 20px;
+  padding-top: 40px;
+  padding-bottom: 100px;
 
   @media (max-width: 1920px) {
-    padding: 20px 20px 60px 20px;
+    padding-top: 20px;
+    padding-bottom: 60px;
+    // padding: 20px 20px 60px 20px;
   }
 
   @media (max-width: 767px) {
-    padding: 20px 10px;
+    padding-bottom: 20px;
+    // padding: 20px 10px;
   }
 
   &__title {
+    width: 100%;
     font-family: "Montserrat-Bold", sans-serif;
     font-size: 80px;
     color: var(--white-primary);
@@ -31,6 +36,8 @@ const { title } = defineProps(["title"]);
     text-align: center;
     animation: fall-down 1s ease-in-out;
     opacity: 0.7;
+
+    border: 1px solid red;
 
     @media (max-width: 1920px) {
       font-size: 60px;

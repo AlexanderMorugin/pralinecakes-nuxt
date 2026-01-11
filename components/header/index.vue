@@ -1,51 +1,52 @@
 <template>
   <header class="header">
-    <WrapperPadding>
-      <div class="header__container">
-        <div class="header__left">
+    <!-- <WrapperPadding> -->
+    <div class="header__container">
+      <div class="header__left">
+        <ButtonWithIcon
+          name="menu"
+          class="header__iconMenu"
+          @click="openModal('menu')"
+        />
+        <ButtonWithIcon
+          v-if="!isScreenMedium"
+          name="search"
+          class="header__iconSearch"
+          @click="openModal('search')"
+        />
+      </div>
+
+      <Logo class="header__logo" />
+
+      <div class="header__right">
+        <div class="header__block">
           <ButtonWithIcon
-            name="menu"
-            class="header__iconMenu"
-            @click="openModal('menu')"
+            name="phone"
+            class="header__iconPhone"
+            @click="openModal('phone')"
           />
           <ButtonWithIcon
-            name="search"
-            class="header__iconSearch"
-            @click="openModal('search')"
+            name="chat"
+            class="header__iconChat"
+            @click="openModal('chat')"
           />
         </div>
 
-        <Logo class="header__logo" />
-
-        <div class="header__right">
-          <div class="header__block">
-            <ButtonWithIcon
-              name="phone"
-              class="header__iconPhone"
-              @click="openModal('phone')"
-            />
-            <ButtonWithIcon
-              name="chat"
-              class="header__iconChat"
-              @click="openModal('chat')"
-            />
-          </div>
-
-          <div class="header__block">
-            <ButtonWithIcon
-              name="profile"
-              class="header__iconAccount"
-              @click="openModal('profile')"
-            />
-            <ButtonWithIcon
-              name="cart"
-              class="header__iconCart"
-              @click="openModal('cart')"
-            />
-          </div>
+        <div class="header__block">
+          <ButtonWithIcon
+            name="profile"
+            class="header__iconAccount"
+            @click="openModal('profile')"
+          />
+          <ButtonWithIcon
+            name="cart"
+            class="header__iconCart"
+            @click="openModal('cart')"
+          />
         </div>
       </div>
-    </WrapperPadding>
+    </div>
+    <!-- </WrapperPadding> -->
   </header>
 
   <!-- <ClientOnly> -->
@@ -136,6 +137,8 @@
 </template>
 
 <script setup>
+const { isScreenMedium } = useResizeMedium();
+
 const isMenuModalOpen = ref(false);
 const isSearchModalOpen = ref(false);
 const isProfileModalOpen = ref(false);
@@ -205,7 +208,11 @@ const openModal = (name) => {
   height: 80px;
   animation: filter 3s ease;
   backdrop-filter: blur(15px) grayscale(50%);
+  padding-left: 8px;
+  padding-right: 8px;
   z-index: 3;
+
+  border: 1px solid red;
 
   @media (max-width: 767px) {
     height: 60px;
@@ -216,6 +223,7 @@ const openModal = (name) => {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    border: 1px solid red;
   }
 
   &__left {

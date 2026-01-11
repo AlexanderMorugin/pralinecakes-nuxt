@@ -1,25 +1,19 @@
 <template>
-  <footer class="footer">
-    <h1>Footer</h1>
+  <footer class="footer page-padding-x">
+    <div class="footer__container">
+      <h5>Footer</h5>
+    </div>
   </footer>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .footer {
-  /* background: #222224; */
-  background: var(--black-secondary);
-  /* backdrop-filter: blur(40px); */
+  background: var(--black-primary);
+  z-index: 2;
 
-  /* border-top: 1px solid; */
-
-  /* border-image-source: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    #ffffff 50%,
-    rgba(255, 255, 255, 0) 100%
-  ); */
-
-  height: 100px;
-  /* border: 1px solid red; */
+  &__container {
+    height: 200px;
+    border: 1px solid red;
+  }
 }
 </style>

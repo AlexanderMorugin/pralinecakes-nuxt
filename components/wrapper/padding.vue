@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<!-- <style lang="scss" scoped>
 .wrapperPadding {
   position: relative;
   width: 100%;
@@ -21,4 +21,4 @@
     padding-right: 5px;
   }
 }
-</style>
+</style> -->

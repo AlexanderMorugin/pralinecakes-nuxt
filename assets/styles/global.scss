@@ -40,13 +40,6 @@ button {
   padding-left: 10px;
   padding-right: 10px;
 }
-// .text-price {
-//   font-family: "Montserrat-Regular", sans-serif;
-//   font-size: 18px;
-//   line-height: 28px;
-//   color: var(--white-primary);
-//   letter-spacing: 1px;
-// }
 .text-total-price {
   font-family: "Montserrat-SemiBold", sans-serif;
   font-size: 22px;
@@ -58,4 +51,8 @@ button {
   width: 100%;
   min-width: 20px;
   border-bottom: 1px dashed var(--border-primary);
+}
+.page-padding-x {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }

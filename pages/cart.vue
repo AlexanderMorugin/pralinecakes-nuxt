@@ -1,12 +1,12 @@
 <template>
-  <WrapperPadding>
-    <WrapperPage>
-      <TitlePage title="Корзина" />
-      <CartEmpty v-if="!cartStore.cart.length" />
+  <!-- <WrapperPadding> -->
+  <WrapperPage>
+    <TitlePage title="Корзина" />
+    <CartEmpty v-if="!cartStore.cart.length" />
 
-      <Cart v-else />
-    </WrapperPage>
-  </WrapperPadding>
+    <Cart v-else />
+  </WrapperPage>
+  <!-- </WrapperPadding> -->
 </template>
 
 <script setup>

@@ -1,5 +1,5 @@
 <template>
-  <WrapperPage>
+  <WrapperPage class="page-padding-x">
     <ul v-if="type === 'cakes'" class="productList">
       <li v-for="product in cakesStore.cakes" :key="product.id">
         <ProductListCard :product="product" />
@@ -21,7 +21,7 @@ const cakesStore = useCakesStore();
   row-gap: 50px;
 
   @media (max-width: 1600px) {
-    column-gap: 10px;
+    column-gap: 20px;
   }
 
   @media (max-width: 1024px) {
@@ -29,7 +29,7 @@ const cakesStore = useCakesStore();
   }
 
   @media (max-width: 767px) {
-    column-gap: 5px;
+    column-gap: 10px;
   }
 
   @media (max-width: 576px) {
