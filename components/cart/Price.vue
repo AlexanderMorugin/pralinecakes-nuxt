@@ -29,7 +29,7 @@ const { product } = defineProps(["product"]);
   // border: 1px solid red;
 
   @media (max-width: 767px) {
-    align-items: flex-start;
+    align-items: flex-end;
   }
 
   &__priceOld {
@@ -40,6 +40,7 @@ const { product } = defineProps(["product"]);
     text-decoration-line: line-through;
 
     @media (max-width: 767px) {
+      font-size: 12px;
       line-height: 14px;
     }
   }
@@ -51,9 +52,10 @@ const { product } = defineProps(["product"]);
     color: var(--white-primary);
     // letter-spacing: 1px;
 
-    // @media (max-width: 1600px) {
-    //   font-size: 20px;
-    // }
+    @media (max-width: 767px) {
+      font-size: 14px;
+      line-height: 22px;
+    }
 
     // @media (max-width: 1024px) {
     //   letter-spacing: 1px;

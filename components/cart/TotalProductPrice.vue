@@ -27,12 +27,22 @@ const { product } = defineProps(["product"]);
 
   // border: 1px solid red;
 
+  @media (max-width: 767px) {
+    padding: 0;
+  }
+
   &__number {
     font-family: "Montserrat-Medium", sans-serif;
     font-size: 18px;
     line-height: 28px;
     color: var(--white-primary);
     letter-spacing: 1px;
+
+    @media (max-width: 767px) {
+      font-size: 16px;
+      line-height: 30px;
+      letter-spacing: 0;
+    }
   }
 }
 </style>

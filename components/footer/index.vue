@@ -13,7 +13,7 @@
 
   &__container {
     height: 200px;
-    border: 1px solid red;
+    // border: 1px solid red;
   }
 }
 </style>

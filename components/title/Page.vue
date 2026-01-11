@@ -37,7 +37,7 @@ const { title } = defineProps(["title"]);
     animation: fall-down 1s ease-in-out;
     opacity: 0.7;
 
-    border: 1px solid red;
+    // border: 1px solid red;
 
     @media (max-width: 1920px) {
       font-size: 60px;

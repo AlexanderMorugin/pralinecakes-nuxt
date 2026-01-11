@@ -39,7 +39,7 @@ const cakesStore = useCakesStore();
     padding-top: 20px;
   }
 
-  border: 1px solid red;
+  // border: 1px solid red;
 
   &__grid {
     display: grid;

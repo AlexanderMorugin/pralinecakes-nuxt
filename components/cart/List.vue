@@ -1,11 +1,9 @@
 <template>
   <section class="cartList">
     <div class="cartList__topBlock">
-      <WrapperText
+      <span class="cartList__topBlockText"
         >{{ cartStore.totalCartCount }}
-        {{
-          cartStore.totalCartCount > 4 ? "продуктов" : "продукта"
-        }}</WrapperText
+        {{ cartStore.totalCartCount > 4 ? "продуктов" : "продукта" }}</span
       >
       <ButtonCartClean @cleanCart="cartStore.cleanCart()" />
     </div>
@@ -23,12 +21,14 @@
       >
         <CartCard :product="product" />
         <CartPrice :product="product" />
-        <ButtonCounter
-          place="cartList"
-          :count="product.count"
-          @increment="cartStore.incrementCartItem(product.id)"
-          @decrement="cartStore.decrementCartItem(product.id)"
-        />
+        <div class="cartList__counter">
+          <ButtonCounter
+            place="cartList"
+            :count="product.count"
+            @increment="cartStore.incrementCartItem(product.id)"
+            @decrement="cartStore.decrementCartItem(product.id)"
+          />
+        </div>
         <CartTotalProductPrice :product="product" />
       </li>
     </ul>
@@ -51,7 +51,14 @@ const { isScreenMedium } = useResizeMedium();
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+    border: 1px solid transparent;
     padding-bottom: 20px;
+  }
+
+  &__topBlockText {
+    font-family: "Montserrat-Regular", sans-serif;
+    font-size: 16px;
+    color: var(--white-primary);
   }
 
   &__grid {
@@ -69,8 +76,8 @@ const { isScreenMedium } = useResizeMedium();
     }
 
     @media (max-width: 767px) {
-      grid-template-columns: 25% 1fr 1fr;
-      grid-template-areas: "card card card" "price counter total";
+      grid-template-columns: 70% 1fr;
+      grid-template-areas: "card price" "counter total";
       row-gap: 10px;
     }
   }
@@ -98,6 +105,16 @@ const { isScreenMedium } = useResizeMedium();
     border-radius: var(--border-radius-s);
     border: 1px solid var(--border-primary);
     padding: 10px;
+  }
+
+  &__counter {
+    display: flex;
+    justify-content: flex-end;
+    // border: 1px solid red;
+
+    // @media (max-width: 767px) {
+
+    // }
   }
 }
 </style>

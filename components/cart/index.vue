@@ -15,7 +15,7 @@
   grid-template-columns: 1fr 35%;
   gap: 40px;
 
-  border: 1px solid red;
+  // border: 1px solid red;
 
   @media (max-width: 1600px) {
     gap: 20px;

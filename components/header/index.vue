@@ -212,7 +212,7 @@ const openModal = (name) => {
   padding-right: 8px;
   z-index: 3;
 
-  border: 1px solid red;
+  // border: 1px solid red;
 
   @media (max-width: 767px) {
     height: 60px;
@@ -223,7 +223,7 @@ const openModal = (name) => {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    border: 1px solid red;
+    // border: 1px solid red;
   }
 
   &__left {

@@ -1,6 +1,6 @@
 <template>
   <button @click="$emit('cleanCart')" class="buttonCartClean">
-    <WrapperText>Очистить корзину</WrapperText>
+    <span class="buttonCartClean__text">Очистить корзину</span>
     <IconTrash class="buttonCartClean__icon" />
   </button>
 </template>
@@ -13,7 +13,7 @@ const emit = defineEmits(["cleanCart"]);
 .buttonCartClean {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   opacity: 0.6;
   transition: 0.2s ease;
 
@@ -21,10 +21,25 @@ const emit = defineEmits(["cleanCart"]);
     opacity: 1;
   }
 
+  &__text {
+    font-family: "Montserrat-Regular", sans-serif;
+    font-size: 16px;
+    color: var(--white-primary);
+
+    @media (max-width: 576px) {
+      font-size: 14px;
+    }
+  }
+
   &__icon {
     width: 24px;
     height: 24px;
     fill: var(--white-primary);
+
+    @media (max-width: 576px) {
+      width: 20px;
+      height: 20px;
+    }
   }
 }
 </style>

@@ -35,7 +35,7 @@ const { product } = defineProps(["product"]);
   }
 
   @media (max-width: 767px) {
-    // grid-template-columns: 120px 1fr;
+    grid-template-columns: auto 1fr;
     gap: 10px;
   }
 
@@ -45,10 +45,10 @@ const { product } = defineProps(["product"]);
     border-radius: var(--border-radius-s);
     overflow: hidden;
 
-    // @media (max-width: 767px) {
-    //   width: 120px;
-    //   height: 80px;
-    // }
+    @media (max-width: 767px) {
+      width: 60px;
+      height: 60px;
+    }
   }
 
   &__image {
@@ -79,7 +79,11 @@ const { product } = defineProps(["product"]);
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
 
-    // border: 1px solid red;
+    @media (max-width: 767px) {
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 0;
+    }
   }
 
   &__weigth {
@@ -87,7 +91,11 @@ const { product } = defineProps(["product"]);
     font-size: 14px;
     line-height: 24px;
     color: var(--mask-white-primary);
-    // letter-spacing: 1px;
+
+    @media (max-width: 767px) {
+      font-size: 12px;
+      line-height: 22px;
+    }
   }
 }
 </style>
