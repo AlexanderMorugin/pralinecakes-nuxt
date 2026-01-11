@@ -18,7 +18,7 @@ const cakesStore = useCakesStore();
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 30px;
-  row-gap: 50px;
+  row-gap: 30px;
 
   @media (max-width: 1600px) {
     column-gap: 20px;

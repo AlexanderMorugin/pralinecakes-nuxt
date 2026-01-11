@@ -28,7 +28,7 @@
 
     <div class="productListCard__details">
       <ProductListCardTitle
-        :route="`/${type}/${product.slug}`"
+        :route="`/${product.type}/${product.slug}`"
         :name="product.name"
         :description="product.description_short"
       />
@@ -61,6 +61,9 @@ const { product } = defineProps(["product"]);
   border: 1px solid var(--border-primary);
   border-radius: var(--border-radius-s);
   overflow: hidden;
+  // z-index: 2;
+
+  // border: 1px solid red;
 
   @media (max-width: 1600px) {
     height: 500px;

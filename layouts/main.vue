@@ -27,10 +27,17 @@
     height: 100%;
     background: var(--gradient-page-primary);
     filter: blur(100px);
+    // z-index: 1;
   }
 
   &__content {
+    // position: relative;
+    // width: 100%;
+    // max-width: 1440px;
+    // margin: 0 auto;
+
     padding-bottom: 40px;
+    // z-index: 10;
   }
 }
 </style>

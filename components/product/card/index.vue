@@ -25,10 +25,14 @@ const cakesStore = useCakesStore();
 
 <style lang="scss" scoped>
 .productCard {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 40px;
   padding-top: 20px;
+  // z-index: 10;
+
+  border: 1px solid red;
 
   &__grid {
     display: grid;
