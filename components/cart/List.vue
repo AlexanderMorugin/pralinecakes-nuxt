@@ -24,7 +24,7 @@
       >
         <ButtonCartDeleteProduct
           title="Удалить"
-          @cleanCart="cartStore.cleanCart()"
+          @deleteProduct="cartStore.deleteCartItem(product.id)"
           class="cartList__deleteProduct"
         />
 
@@ -112,10 +112,10 @@ const { isScreenMedium } = useResizeMedium();
   &__products {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 
     @media (max-width: 767px) {
-      gap: 20px;
+      gap: 10px;
     }
   }
 

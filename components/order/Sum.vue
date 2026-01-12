@@ -6,10 +6,11 @@
       <span>{{ currencyFormater(cartStore.totalCartSum) }}</span>
     </div>
     <div class="orderSum__bonus">
-      <span class="text-bonus"
-        >+ {{ currencyFormater(cartStore.cartBonus) }} на ваш бонусный
-        счет</span
-      >
+      <!-- <span class="text-bonus"
+        > -->
+      + {{ currencyFormater(cartStore.cartBonus) }} на ваш бонусный счет
+      <!-- </span
+      > -->
     </div>
 
     <div class="orderSum__box">
@@ -57,8 +58,18 @@ const cartStore = useCartStore();
   }
 
   &__bonus {
-    display: flex;
-    justify-content: flex-end;
+    font-family: "Montserrat-Regular", sans-serif;
+    font-size: 16px;
+    color: var(--green-primary);
+    text-align: right;
+    // padding-left: 10px;
+    // padding-right: 10px;
+    // display: flex;
+    // justify-content: flex-end;
+
+    @media (max-width: 1600px) {
+      font-size: 14px;
+    }
   }
 
   &__total {
@@ -77,4 +88,13 @@ const cartStore = useCartStore();
     color: var(--mask-white-primary);
   }
 }
+
+// .text-bonus {
+//   font-family: "Montserrat-Regular", sans-serif;
+//   font-size: 16px;
+//   color: var(--green-primary);
+//   text-align: right;
+//   padding-left: 10px;
+//   padding-right: 10px;
+// }
 </style>

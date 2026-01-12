@@ -10,11 +10,13 @@ const { title } = defineProps(["title"]);
 .titleBlock {
   font-family: "Montserrat-Medium", sans-serif;
   font-size: 28px;
+  line-height: 38px;
   color: var(--orange-primary);
   letter-spacing: 1px;
 
   @media (max-width: 767px) {
     font-size: 24px;
+    line-height: 34px;
   }
 }
 </style>
