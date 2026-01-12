@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'modalHeader',
+      'modalHeader page-padding-x',
       { modalHeader_left: place === 'left' },
       { modalHeader_right: place === 'right' },
     ]"
@@ -39,7 +39,10 @@ const emit = defineEmits(["closeModal"]);
   height: 100%;
   top: 0;
   backdrop-filter: blur(15px) grayscale(50%);
-  padding: 20px;
+  background: var(--mask-black-thirdly);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  overflow-y: scroll;
   z-index: 10;
 
   @media (max-width: 767px) {

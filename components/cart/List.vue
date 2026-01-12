@@ -3,7 +3,13 @@
     <div class="cartList__topBlock">
       <span class="cartList__topBlockText"
         >{{ cartStore.totalCartCount }}
-        {{ cartStore.totalCartCount > 4 ? "продуктов" : "продукта" }}</span
+        {{
+          cartStore.totalCartCount > 4
+            ? "продуктов"
+            : cartStore.totalCartCount === 1
+            ? "продукт"
+            : "продукта"
+        }}</span
       >
       <ButtonCartClean
         title="Очистить корзину"
@@ -72,6 +78,10 @@ const { isScreenMedium } = useResizeMedium();
     font-family: "Montserrat-Regular", sans-serif;
     font-size: 16px;
     color: var(--white-primary);
+
+    @media (max-width: 576px) {
+      font-size: 14px;
+    }
   }
 
   &__grid {
