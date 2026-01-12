@@ -28,6 +28,7 @@ export const cartProduct = (product: ICart) => {
     weigth: product.weigth,
     count: 1,
     total_product_price: computed(() => product.price * product.count),
+
     // product.discount
     //   ? product.discount_price * product.count
     //   : product.price * product.count
@@ -38,6 +39,9 @@ export const cartProduct = (product: ICart) => {
 
 export const useCartStore = defineStore("cartStore", () => {
   const cart = ref<ICart[]>([]);
+
+  const deliveryCost = ref(DELIVERY_SUM);
+  const deliveryType = ref("Доставка");
 
   const addCartItem = (product: ICart) => {
     // Если в корзине есть продукт с таким id, то останавливаем операцию
@@ -90,12 +94,19 @@ export const useCartStore = defineStore("cartStore", () => {
   const deliverySum = computed(() => {
     let data = null;
 
+    // data =
+    //   totalCartSum.value >= MIN_ORDER_SUM
+    //     ? 0
+    //     : totalCartSum.value <= MIN_ORDER_SUM
+    //     ? DELIVERY_SUM
+    //     : DELIVERY_SUM;
+
     data =
       totalCartSum.value >= MIN_ORDER_SUM
         ? 0
         : totalCartSum.value <= MIN_ORDER_SUM
-        ? DELIVERY_SUM
-        : DELIVERY_SUM;
+        ? deliveryCost.value
+        : deliveryCost.value;
 
     if (data <= 0) {
       data = 0;
@@ -110,6 +121,18 @@ export const useCartStore = defineStore("cartStore", () => {
 
     return data;
   });
+
+  const setDeliveryCost = (data: number) => {
+    deliveryCost.value = data;
+
+    if (data === 1) {
+      deliveryCost.value = DELIVERY_SUM;
+      deliveryType.value = "Доставка";
+    } else {
+      deliveryCost.value = 0;
+      deliveryType.value = "Самовывоз";
+    }
+  };
 
   const cartBonus = computed(() => {
     let data = null;
@@ -128,9 +151,12 @@ export const useCartStore = defineStore("cartStore", () => {
     decrementCartItem,
     deleteCartItem,
     cleanCart,
+    setDeliveryCost,
     totalCartCount,
     totalCartSum,
     deliverySum,
+    deliveryCost,
+    deliveryType,
     totalOrderSum,
     cartBonus,
   };

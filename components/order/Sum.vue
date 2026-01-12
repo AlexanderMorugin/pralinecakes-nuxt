@@ -20,9 +20,11 @@
             <input
               type="radio"
               id="1"
-              value="Курьер"
+              value="800"
               v-model="selectDelivery"
               class="orderSum__radio"
+              checked
+              @click="cartStore.setDeliveryCost(1)"
             />
             <label for="Курьер">Курьер</label>
           </div>
@@ -33,21 +35,21 @@
           Минимальный заказ для бесплатной доставки
           {{ currencyFormater(MIN_ORDER_SUM) }}
         </div>
-        <!-- </div> -->
 
         <div class="orderSum__block orderSum__block_second text-price">
           <div class="orderSum__radioBox">
             <input
               type="radio"
               id="2"
-              value="Самовывоз"
+              value="0"
               v-model="selectDelivery"
               class="orderSum__radio"
+              @click="cartStore.setDeliveryCost(0)"
             />
             <label for="Самовывоз">Самовывоз</label>
           </div>
           <div class="line-dashed" />
-          <span>{{ currencyFormater(cartStore.deliverySum) }}</span>
+          <span>{{ currencyFormater(0) }}</span>
         </div>
       </div>
     </div>
@@ -61,9 +63,9 @@
 </template>
 
 <script setup>
-import { MIN_ORDER_SUM } from "~/utils/constants/info";
+import { MIN_ORDER_SUM, DELIVERY_SUM } from "~/utils/constants/info";
 
-const selectDelivery = defineModel();
+const selectDelivery = ref(DELIVERY_SUM);
 
 const cartStore = useCartStore();
 </script>
@@ -109,18 +111,12 @@ const cartStore = useCartStore();
     font-size: 12px;
     line-height: 18px;
     color: var(--mask-white-primary);
-    // padding-top: 10px;
     margin-left: 26px;
-    // border: 1px solid red;
   }
 
   &__delivery {
     padding: 20px 0 0 20px;
   }
-
-  // &__deliveryDetails {
-  //   display: flex;
-  // }
 
   &__radioBox {
     display: flex;

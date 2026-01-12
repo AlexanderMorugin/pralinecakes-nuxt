@@ -12,6 +12,7 @@ export type TProduct = {
 
 export interface IOrder {
   product: TProduct[];
+  delivery_type: string;
   // userComment: string;
 }
 
