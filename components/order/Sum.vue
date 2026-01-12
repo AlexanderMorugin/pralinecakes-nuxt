@@ -5,24 +5,51 @@
       <div class="line-dashed" />
       <span>{{ currencyFormater(cartStore.totalCartSum) }}</span>
     </div>
-    <div class="orderSum__bonus">
-      <!-- <span class="text-bonus"
-        > -->
+    <span class="orderSum__bonus">
       + {{ currencyFormater(cartStore.cartBonus) }} на ваш бонусный счет
-      <!-- </span
-      > -->
-    </div>
+    </span>
 
-    <div class="orderSum__box">
-      <div class="orderSum__block text-price">
-        <span>Доставка</span>
-        <div class="line-dashed" />
-        <span>{{ currencyFormater(cartStore.deliverySum) }}</span>
+    <div class="line-solid" />
+
+    <div>
+      <span class="text-price">Выберите способ доставки</span>
+
+      <div class="orderSum__delivery">
+        <div class="orderSum__block text-price">
+          <div class="orderSum__radioBox">
+            <input
+              type="radio"
+              id="1"
+              value="Курьер"
+              v-model="selectDelivery"
+              class="orderSum__radio"
+            />
+            <label for="Курьер">Курьер</label>
+          </div>
+          <div class="line-dashed" />
+          <span>{{ currencyFormater(cartStore.deliverySum) }}</span>
+        </div>
+        <div class="orderSum__comment">
+          Минимальный заказ для бесплатной доставки
+          {{ currencyFormater(MIN_ORDER_SUM) }}
+        </div>
+        <!-- </div> -->
+
+        <div class="orderSum__block orderSum__block_second text-price">
+          <div class="orderSum__radioBox">
+            <input
+              type="radio"
+              id="2"
+              value="Самовывоз"
+              v-model="selectDelivery"
+              class="orderSum__radio"
+            />
+            <label for="Самовывоз">Самовывоз</label>
+          </div>
+          <div class="line-dashed" />
+          <span>{{ currencyFormater(cartStore.deliverySum) }}</span>
+        </div>
       </div>
-      <span class="orderSum__comment"
-        >Минимальный заказ для бесплатной доставки
-        {{ currencyFormater(MIN_ORDER_SUM) }}</span
-      >
     </div>
 
     <div class="orderSum__block orderSum__total text-total-price">
@@ -35,6 +62,8 @@
 
 <script setup>
 import { MIN_ORDER_SUM } from "~/utils/constants/info";
+
+const selectDelivery = defineModel();
 
 const cartStore = useCartStore();
 </script>
@@ -50,11 +79,10 @@ const cartStore = useCartStore();
   &__block {
     display: flex;
     justify-content: space-between;
-  }
 
-  &__box {
-    display: flex;
-    flex-direction: column;
+    &_second {
+      padding-top: 20px;
+    }
   }
 
   &__bonus {
@@ -62,10 +90,6 @@ const cartStore = useCartStore();
     font-size: 16px;
     color: var(--green-primary);
     text-align: right;
-    // padding-left: 10px;
-    // padding-right: 10px;
-    // display: flex;
-    // justify-content: flex-end;
 
     @media (max-width: 1600px) {
       font-size: 14px;
@@ -75,7 +99,6 @@ const cartStore = useCartStore();
   &__total {
     font-family: "Montserrat-SemiBold", sans-serif;
     font-size: 22px;
-    // line-height: 32px;
     color: var(--white-primary);
     letter-spacing: 1px;
     padding-top: 40px;
@@ -83,18 +106,31 @@ const cartStore = useCartStore();
 
   &__comment {
     font-family: "Montserrat-Regular", sans-serif;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 12px;
+    line-height: 18px;
     color: var(--mask-white-primary);
+    // padding-top: 10px;
+    margin-left: 26px;
+    // border: 1px solid red;
+  }
+
+  &__delivery {
+    padding: 20px 0 0 20px;
+  }
+
+  // &__deliveryDetails {
+  //   display: flex;
+  // }
+
+  &__radioBox {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__radio {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
   }
 }
-
-// .text-bonus {
-//   font-family: "Montserrat-Regular", sans-serif;
-//   font-size: 16px;
-//   color: var(--green-primary);
-//   text-align: right;
-//   padding-left: 10px;
-//   padding-right: 10px;
-// }
 </style>

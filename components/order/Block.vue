@@ -1,7 +1,7 @@
 <template>
   <div class="orderBlock">
     <TitleBlock title="Оформление заказа" />
-    <OrderSum />
+    <OrderSum v-model:modelValue="selectDelivery" />
     <ButtonOrder title="Оформить" @addOrder="addOrder" />
   </div>
 </template>
@@ -10,10 +10,12 @@
 const cartStore = useCartStore();
 const orderStore = useOrderStore();
 
+const selectDelivery = ref(null);
+
 const addOrder = () => {
   orderStore.setOrder(cartStore.cart);
 
-  // console.log(cartStore.cart);
+  console.log(selectDelivery.value);
   // console.log(cartStore.totalCartCount);
   // console.log(cartStore.totalCartSum);
   // console.log(cartStore.deliverySum);
