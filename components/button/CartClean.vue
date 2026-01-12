@@ -1,11 +1,12 @@
 <template>
   <button @click="$emit('cleanCart')" class="buttonCartClean">
-    <span class="buttonCartClean__text">Очистить корзину</span>
+    <span v-if="title" class="buttonCartClean__text">{{ title }}</span>
     <IconTrash class="buttonCartClean__icon" />
   </button>
 </template>
 
 <script setup>
+const { title } = defineProps(["title"]);
 const emit = defineEmits(["cleanCart"]);
 </script>
 

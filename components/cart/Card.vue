@@ -1,17 +1,20 @@
 <template>
-  <NuxtLink :to="`/${product.type}/${product.slug}`" class="cartCard">
-    <div class="cartCard__imageBox">
+  <div class="cartCard">
+    <NuxtLink
+      :to="`/${product.type}/${product.slug}`"
+      class="cartCard__imageBox"
+    >
       <img
         :src="product.image_list_card"
         :alt="product.name"
         class="cartCard__image"
       />
-    </div>
+    </NuxtLink>
     <div class="cartCard__nameBox">
       <span class="cartCard__name">{{ product.name }}</span>
       <span class="cartCard__weigth">{{ product.weigth }}гр</span>
     </div>
-  </NuxtLink>
+  </div>
 </template>
 
 <script setup>
@@ -60,10 +63,11 @@ const { product } = defineProps(["product"]);
   &__nameBox {
     display: flex;
     flex-direction: column;
-    padding-top: 5px;
+    // padding-top: 5px;
+    // padding-top: 35px;
 
     @media (max-width: 767px) {
-      padding-top: 0;
+      padding-right: 90px;
     }
   }
 

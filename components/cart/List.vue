@@ -5,7 +5,10 @@
         >{{ cartStore.totalCartCount }}
         {{ cartStore.totalCartCount > 4 ? "продуктов" : "продукта" }}</span
       >
-      <ButtonCartClean @cleanCart="cartStore.cleanCart()" />
+      <ButtonCartClean
+        title="Очистить корзину"
+        @cleanCart="cartStore.cleanCart()"
+      />
     </div>
     <ul v-if="!isScreenMedium" class="cartList__grid cartList__top">
       <li class="cartList__topName"><span>Продукт</span></li>
@@ -19,6 +22,12 @@
         :key="product.id"
         class="cartList__grid cartList__product"
       >
+        <ButtonCartDeleteProduct
+          title="Удалить"
+          @cleanCart="cartStore.cleanCart()"
+          class="cartList__deleteProduct"
+        />
+
         <CartCard :product="product" />
         <CartPrice :product="product" />
         <div class="cartList__counter">
@@ -80,9 +89,10 @@ const { isScreenMedium } = useResizeMedium();
     }
 
     @media (max-width: 767px) {
-      grid-template-columns: 70% 1fr;
-      grid-template-areas: "card price" "counter total";
-      row-gap: 10px;
+      grid-template-columns: 1fr 100px 70px;
+      grid-template-areas: "card card card" "price counter total";
+      column-gap: 20px;
+      // row-gap: 10px;
     }
   }
 
@@ -110,6 +120,7 @@ const { isScreenMedium } = useResizeMedium();
   }
 
   &__product {
+    position: relative;
     border-radius: var(--border-radius-s);
     border: 1px solid var(--border-primary);
     padding: 10px;
@@ -119,14 +130,26 @@ const { isScreenMedium } = useResizeMedium();
     }
   }
 
+  &__deleteProduct {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    @media (max-width: 767px) {
+      top: 5px;
+      right: 5px;
+    }
+  }
+
   &__counter {
     display: flex;
     justify-content: flex-end;
+    padding-top: 35px;
     // border: 1px solid red;
 
-    // @media (max-width: 767px) {
-
-    // }
+    @media (max-width: 767px) {
+      padding-top: 0;
+    }
   }
 }
 </style>

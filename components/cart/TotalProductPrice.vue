@@ -23,7 +23,8 @@ const { product } = defineProps(["product"]);
   grid-area: total;
   display: flex;
   justify-content: flex-end;
-  padding: 5px 5px 0 0;
+  // padding: 5px 5px 0 0;
+  padding-top: 35px;
 
   // border: 1px solid red;
 
@@ -34,7 +35,8 @@ const { product } = defineProps(["product"]);
   &__number {
     font-family: "Montserrat-Medium", sans-serif;
     font-size: 18px;
-    line-height: 28px;
+    // line-height: 28px;
+    line-height: 40px;
     color: var(--white-primary);
     letter-spacing: 1px;
 
