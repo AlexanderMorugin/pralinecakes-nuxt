@@ -13,7 +13,7 @@
     <ButtonOrder
       v-if="!isOrderContinue"
       :place="place"
-      :title="place === 'modalCart' ? 'Далее' : 'Оформить'"
+      :title="place === 'modalCart' ? 'Далее' : 'Продолжить'"
       @continueOrder="$emit('continueOrder')"
       @closeModal="$emit('closeModal')"
       :class="place === 'modalCart' ? 'orderBlock__button' : ''"

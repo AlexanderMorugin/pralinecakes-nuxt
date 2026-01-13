@@ -9,7 +9,7 @@ const { place } = defineProps(["place"]);
 <style lang="scss" scoped>
 .formClearButton {
   position: absolute;
-  top: 45px;
+  top: 42px;
   right: 20px;
   width: 18px;
   height: 18px;
@@ -19,6 +19,10 @@ const { place } = defineProps(["place"]);
 
   &:hover {
     fill: var(--black-primary);
+  }
+
+  @media (max-width: 1024px) {
+    top: 40px;
   }
 }
 </style>

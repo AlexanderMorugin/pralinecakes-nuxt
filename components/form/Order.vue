@@ -271,6 +271,7 @@ const submitComment = async () => {
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    padding-top: 20px;
   }
 
   &__submitButton {

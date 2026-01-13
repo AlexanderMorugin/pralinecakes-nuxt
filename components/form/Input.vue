@@ -25,17 +25,6 @@
       class="form-input"
     />
 
-    <!-- <input
-      v-if="numberInput"
-      :type="type"
-      :id="name"
-      :name="name"
-      :placeholder="placeholder"
-      :value="value"
-      @input="updateValue"
-      class="form-input form-number-input"
-    /> -->
-
     <TransitionGroup name="list" tag="ul">
       <span v-for="item in error" :key="item.$uid" class="form-input-error">{{
         item.$message
