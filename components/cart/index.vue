@@ -1,13 +1,23 @@
 <template>
-  <div class="cart page-padding-x">
-    <CartList />
-    <OrderBlock />
+  <div class="page-padding-x">
+    <div class="cart">
+      <CartList />
+      <OrderBlock
+        :isOrderContinue="isOrderContinue"
+        @continueOrder="isOrderContinue = true"
+      />
+    </div>
+    <div v-if="isOrderContinue" class="cart__orderDetails">
+      <FormOrder />
+    </div>
   </div>
 </template>
 
-<!-- <script setup>
-// const { comment } = defineProps(["comment"]);
-</script> -->
+<script setup>
+const isOrderContinue = ref(false);
+
+const continueOrder = () => (isOrderContinue.value = true);
+</script>
 
 <style lang="scss" scoped>
 .cart {
@@ -28,6 +38,19 @@
 
   @media (max-width: 767px) {
     gap: 40px;
+  }
+
+  &__orderDetails {
+    border-radius: var(--border-radius-m);
+    background: var(--gradient-product-blue-primary);
+    margin-top: 40px;
+    padding: 40px 20px;
+    overflow: hidden;
+    animation: slide-to-top 0.3s ease;
+
+    @media (max-width: 576px) {
+      padding: 20px 10px;
+    }
   }
 }
 </style>

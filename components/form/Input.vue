@@ -15,7 +15,7 @@
     />
     <!-- Первый и средние в цепочке инпуты, остлеживает валидацию после перехода на другой инпут -->
     <input
-      v-else
+      v-if="firstInput"
       :type="type"
       :id="name"
       :name="name"
@@ -24,6 +24,17 @@
       @change="updateValue"
       class="form-input"
     />
+
+    <!-- <input
+      v-if="numberInput"
+      :type="type"
+      :id="name"
+      :name="name"
+      :placeholder="placeholder"
+      :value="value"
+      @input="updateValue"
+      class="form-input form-number-input"
+    /> -->
 
     <TransitionGroup name="list" tag="ul">
       <span v-for="item in error" :key="item.$uid" class="form-input-error">{{
@@ -36,9 +47,27 @@
 </template>
 
 <script setup>
-const { label, type, name, placeholder, value, error, lastInput } = defineProps(
-  ["label", "type", "name", "placeholder", "value", "error", "lastInput"]
-);
+const {
+  label,
+  type,
+  name,
+  placeholder,
+  value,
+  error,
+  firstInput,
+  lastInput,
+  numberInput,
+} = defineProps([
+  "label",
+  "type",
+  "name",
+  "placeholder",
+  "value",
+  "error",
+  "firstInput",
+  "lastInput",
+  "numberInput",
+]);
 
 const emit = defineEmits(["update:value", "clearInput"]);
 

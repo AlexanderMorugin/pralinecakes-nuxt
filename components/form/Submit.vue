@@ -29,6 +29,7 @@ const emit = defineEmits(["handleClick"]);
   background: var(--mask-white-primary);
   border-radius: var(--border-radius-xxl);
   transition: 0.2s ease;
+  cursor: default;
 
   @media (max-width: 1600px) {
     padding-top: 5px;
@@ -37,6 +38,7 @@ const emit = defineEmits(["handleClick"]);
 
   &_active {
     background: var(--red-primary);
+    cursor: pointer;
 
     &:hover {
       background: var(--red-secondary);

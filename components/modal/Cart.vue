@@ -2,11 +2,13 @@
   <CartEmpty v-if="!cartStore.cart.length" />
   <div v-else class="modalCart">
     <CartList />
-    <OrderBlock />
+    <OrderBlock place="modalCart" @closeModal="$emit('closeModal')" />
   </div>
 </template>
 
 <script setup>
+const emit = defineEmits(["closeModal"]);
+
 const cartStore = useCartStore();
 </script>
 

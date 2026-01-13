@@ -1,12 +1,26 @@
 <template>
-  <button class="buttonOrder" @click="$emit('addOrder')">
+  <NuxtLink
+    v-if="place === 'modalCart'"
+    to="/cart"
+    class="buttonOrder"
+    @click="goToCartPage"
+  >
+    <span class="buttonOrder__title">{{ title }}</span>
+  </NuxtLink>
+
+  <button v-else class="buttonOrder" @click="$emit('continueOrder')">
     <span class="buttonOrder__title">{{ title }}</span>
   </button>
 </template>
 
 <script setup>
-const { title } = defineProps(["title"]);
-const emit = defineEmits(["addOrder"]);
+const { title, place } = defineProps(["title", "place"]);
+const emit = defineEmits(["continueOrder", "closeModal"]);
+
+const goToCartPage = () => {
+  emit("continueOrder");
+  emit("closeModal");
+};
 </script>
 
 <style lang="scss" scoped>
