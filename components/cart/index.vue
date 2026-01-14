@@ -8,13 +8,16 @@
       />
     </div>
     <div v-if="isOrderContinue" class="cart__orderDetails">
-      <FormOrder />
+      <FormOrder v-if="cartStore.deliveryType === 'Доставка'" />
+      <CartSamovyvoz v-if="cartStore.deliveryType === 'Самовывоз'" />
     </div>
   </div>
 </template>
 
 <script setup>
 const isOrderContinue = ref(false);
+
+const cartStore = useCartStore();
 
 const continueOrder = () => (isOrderContinue.value = true);
 </script>
@@ -24,8 +27,6 @@ const continueOrder = () => (isOrderContinue.value = true);
   display: grid;
   grid-template-columns: 1fr 35%;
   gap: 40px;
-
-  // border: 1px solid red;
 
   @media (max-width: 1600px) {
     gap: 20px;
@@ -41,6 +42,7 @@ const continueOrder = () => (isOrderContinue.value = true);
   }
 
   &__orderDetails {
+    min-height: 480px;
     border-radius: var(--border-radius-m);
     background: var(--gradient-product-blue-primary);
     margin-top: 40px;

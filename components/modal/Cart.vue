@@ -2,7 +2,11 @@
   <CartEmpty v-if="!cartStore.cart.length" />
   <div v-else class="modalCart">
     <CartList />
-    <OrderBlock place="modalCart" @closeModal="$emit('closeModal')" />
+    <ButtonOrder
+      place="modalCart"
+      title="Перейти к оформлению"
+      @closeModal="$emit('closeModal')"
+    />
   </div>
 </template>
 

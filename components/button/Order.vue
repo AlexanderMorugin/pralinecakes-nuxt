@@ -54,23 +54,6 @@ const goToCartPage = () => {
     text-transform: uppercase;
     color: var(--white-primary);
     letter-spacing: 2px;
-    // transform: translateY(0);
-    // animation: cart-text 0.5s ease;
   }
 }
-
-// @keyframes cart-text {
-//   0% {
-//     opacity: 0;
-//     transform: translateY(100%);
-//   }
-//   50% {
-//     opacity: 0;
-//     transform: translateY(100%);
-//   }
-//   100% {
-//     opacity: 1;
-//     transform: translateY(0);
-//   }
-// }
 </style>

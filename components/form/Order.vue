@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submitComment">
+  <form @submit.prevent="submitComment" class="formOrder__animation">
     <TitleBlock title="Ваши данные" class="formOrder__title" />
 
     <div class="formOrder">
@@ -233,6 +233,10 @@ const submitComment = async () => {
 
   @media (max-width: 767px) {
     grid-template-columns: 1fr;
+  }
+
+  &__animation {
+    animation: slide-to-top 0.8s ease;
   }
 
   &__left {
