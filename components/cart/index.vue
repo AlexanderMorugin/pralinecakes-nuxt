@@ -18,8 +18,6 @@
 const isOrderContinue = ref(false);
 
 const cartStore = useCartStore();
-
-const continueOrder = () => (isOrderContinue.value = true);
 </script>
 
 <style lang="scss" scoped>

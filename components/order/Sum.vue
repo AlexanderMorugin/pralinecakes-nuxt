@@ -49,7 +49,10 @@
             <label for="Самовывоз">Самовывоз</label>
           </div>
           <div class="line-dashed" />
-          <span>{{ currencyFormater(0) }}</span>
+          <span>-{{ currencyFormater(cartStore.cartSamovyvozBonus) }}</span>
+        </div>
+        <div class="orderSum__comment">
+          Дополнительная скидка {{ SAMOVYVOZ_BONUS }}%
         </div>
       </div>
     </div>
@@ -63,7 +66,11 @@
 </template>
 
 <script setup>
-import { MIN_ORDER_SUM, DELIVERY_SUM } from "~/utils/constants/info";
+import {
+  MIN_ORDER_SUM,
+  DELIVERY_SUM,
+  SAMOVYVOZ_BONUS,
+} from "~/utils/constants/info";
 
 const selectDelivery = ref(DELIVERY_SUM);
 

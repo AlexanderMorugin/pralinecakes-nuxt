@@ -128,9 +128,6 @@
 import { useVuelidate } from "@vuelidate/core";
 import { helpers, required, minLength, numeric } from "@vuelidate/validators";
 
-// const { product } = defineProps(["product"]);
-
-// const isCommentSend = ref(false);
 const isLoading = ref(false);
 const nameField = ref(null);
 const phoneField = ref(null);
@@ -201,6 +198,7 @@ const isFromEmpty = computed(
 const isValid = computed(() => v$.value.$errors);
 
 const submitComment = async () => {
+  console.log("Form - submitOrder");
   // try {
   //   isLoading.value = true;
   //   if (!isFromEmpty.value && !isValid.value.length) {

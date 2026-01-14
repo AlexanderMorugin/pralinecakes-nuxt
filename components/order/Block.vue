@@ -14,20 +14,6 @@
 const { isOrderContinue } = defineProps(["isOrderContinue"]);
 
 const emit = defineEmits(["closeModal", "continueOrder"]);
-
-const cartStore = useCartStore();
-const orderStore = useOrderStore();
-
-const addOrder = () => {
-  orderStore.setOrder(cartStore.cart);
-
-  // console.log(selectDelivery.value);
-  console.log("totalCartCount - ", cartStore.totalCartCount);
-  console.log("deliveryType - ", cartStore.deliveryType);
-  console.log("deliverySum - ", cartStore.deliverySum);
-  console.log("totalOrderSum - ", cartStore.totalOrderSum);
-  console.log("cartBonus - ", cartStore.cartBonus);
-};
 </script>
 
 <style lang="scss" scoped>

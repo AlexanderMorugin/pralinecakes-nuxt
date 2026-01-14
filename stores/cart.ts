@@ -2,6 +2,7 @@ import { defineStore } from "pinia";
 import {
   DELIVERY_SUM,
   MIN_ORDER_SUM,
+  SAMOVYVOZ_BONUS,
   USER_BONUS,
 } from "~/utils/constants/info";
 
@@ -41,6 +42,7 @@ export const useCartStore = defineStore("cartStore", () => {
   const cart = ref<ICart[]>([]);
 
   const deliveryCost = ref(DELIVERY_SUM);
+  const samovyvozBonus = ref(0);
   const deliveryType = ref("Доставка");
 
   const addCartItem = (product: ICart) => {
@@ -101,6 +103,13 @@ export const useCartStore = defineStore("cartStore", () => {
     //     ? DELIVERY_SUM
     //     : DELIVERY_SUM;
 
+    // data =
+    //   totalCartSum.value >= MIN_ORDER_SUM
+    //     ? 0
+    //     : totalCartSum.value <= MIN_ORDER_SUM
+    //     ? deliveryCost.value
+    //     : deliveryCost.value;
+
     data =
       totalCartSum.value >= MIN_ORDER_SUM
         ? 0
@@ -117,7 +126,10 @@ export const useCartStore = defineStore("cartStore", () => {
   const totalOrderSum = computed(() => {
     let data = null;
 
-    data = totalCartSum.value + deliverySum.value;
+    data =
+      samovyvozBonus.value > 0
+        ? totalCartSum.value - samovyvozBonus.value
+        : totalCartSum.value + deliverySum.value;
 
     return data;
   });
@@ -127,9 +139,12 @@ export const useCartStore = defineStore("cartStore", () => {
 
     if (data === 1) {
       deliveryCost.value = DELIVERY_SUM;
+      samovyvozBonus.value = 0;
       deliveryType.value = "Доставка";
-    } else {
+    }
+    if (data === 0) {
       deliveryCost.value = 0;
+      samovyvozBonus.value = cartSamovyvozBonus.value;
       deliveryType.value = "Самовывоз";
     }
   };
@@ -138,6 +153,14 @@ export const useCartStore = defineStore("cartStore", () => {
     let data = null;
 
     data = Math.round(totalCartSum.value * USER_BONUS);
+
+    return data;
+  });
+
+  const cartSamovyvozBonus = computed(() => {
+    let data = null;
+
+    data = Math.round((totalCartSum.value * SAMOVYVOZ_BONUS) / 100);
 
     return data;
   });
@@ -159,5 +182,6 @@ export const useCartStore = defineStore("cartStore", () => {
     deliveryType,
     totalOrderSum,
     cartBonus,
+    cartSamovyvozBonus,
   };
 });
