@@ -128,7 +128,7 @@ export const useCartStore = defineStore("cartStore", () => {
 
     data =
       samovyvozBonus.value > 0
-        ? totalCartSum.value - samovyvozBonus.value
+        ? totalCartSum.value - cartSamovyvozBonus.value
         : totalCartSum.value + deliverySum.value;
 
     return data;
