@@ -1,22 +1,25 @@
 <template>
   <div class="cartSamovyvoz">
-    <span
-      >Адрес производства для самовывоза + телефон + месенджер + часы
-      работы</span
-    >
+    <TitleBlock title="Наши данные" class="cartSamovyvoz__title" />
+    <div class="cartSamovyvoz__grid">
+      <span
+        >Адрес производства для самовывоза + телефон + месенджер + часы
+        работы</span
+      >
 
-    <form @submit.prevent="submitOrder">
-      <div class="cartSamovyvoz__container">
-        <FormTextarea
-          label="Комментарий к заказу"
-          placeholder="Ваши пожелания"
-          v-model:value="commentField"
-          @clearInput="commentField = null"
-        />
+      <form @submit.prevent="submitOrder">
+        <div class="cartSamovyvoz__container">
+          <FormTextarea
+            label="Комментарий к заказу"
+            placeholder="Ваши пожелания"
+            v-model:value="commentField"
+            @clearInput="commentField = null"
+          />
 
-        <FormSubmit title="Заказать" />
-      </div>
-    </form>
+          <FormSubmit title="Заказать" />
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -57,13 +60,22 @@ const submitOrder = () => {
 
 <style lang="scss" scoped>
 .cartSamovyvoz {
-  display: grid;
-  grid-template-columns: 1fr 35%;
-  gap: 40px;
+  display: flex;
+  flex-direction: column;
   animation: slide-to-top 0.8s ease;
 
-  @media (max-width: 1024px) {
-    grid-template-columns: 1fr;
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 35%;
+    gap: 40px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__title {
+    padding-bottom: 40px;
   }
 
   &__container {

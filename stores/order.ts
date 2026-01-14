@@ -12,6 +12,7 @@ export type TProduct = {
 
 export interface IOrder {
   delivery_type: string;
+  delivery_sum: number;
   total_cart_count: number;
   total_cart_sum: number;
   cart_samovyvoz_bonus: number;
@@ -19,6 +20,14 @@ export interface IOrder {
   cart_list: TProduct[];
   user_bonus: number;
   user_comment: string;
+  user_name: string;
+  user_phone: number;
+  user_city: string;
+  user_street: string;
+  user_building: number;
+  user_entrance: number;
+  user_flat: number;
+  user_floor: number;
 }
 
 export const useOrderStore = defineStore("orderStore", () => {
@@ -30,8 +39,11 @@ export const useOrderStore = defineStore("orderStore", () => {
     console.log("orderStore - ", order.value);
   };
 
+  const cleanOrder = () => (order.value = null);
+
   return {
     order,
     addOrder,
+    cleanOrder,
   };
 });

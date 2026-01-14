@@ -79,36 +79,30 @@ export const useCartStore = defineStore("cartStore", () => {
     cart.value = cart.value.filter((item) => item !== currentItem);
   };
 
-  const totalCartCount = computed(() =>
-    cart.value.map((item) => item.count).reduce((a, b) => a + b)
+  const totalCartCount = computed(
+    () =>
+      cart.value.length &&
+      cart.value.map((item) => item.count).reduce((a, b) => a + b)
   );
 
   const totalCartSum = computed(() => {
     let data = null;
 
-    data = cart.value.map((item) =>
-      item.discount ? item.discount_price * item.count : item.price * item.count
-    );
+    if (cart.value.length) {
+      data = cart.value.map((item) =>
+        item.discount
+          ? item.discount_price * item.count
+          : item.price * item.count
+      );
 
-    return data.reduce((a, b) => a + b);
+      return data.reduce((a, b) => a + b);
+    }
+
+    return data;
   });
 
   const deliverySum = computed(() => {
     let data = null;
-
-    // data =
-    //   totalCartSum.value >= MIN_ORDER_SUM
-    //     ? 0
-    //     : totalCartSum.value <= MIN_ORDER_SUM
-    //     ? DELIVERY_SUM
-    //     : DELIVERY_SUM;
-
-    // data =
-    //   totalCartSum.value >= MIN_ORDER_SUM
-    //     ? 0
-    //     : totalCartSum.value <= MIN_ORDER_SUM
-    //     ? deliveryCost.value
-    //     : deliveryCost.value;
 
     data =
       totalCartSum.value >= MIN_ORDER_SUM

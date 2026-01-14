@@ -4,7 +4,7 @@
 
     <div class="formOrder">
       <div class="formOrder__left">
-        <div class="formOrder">
+        <div class="formOrder__user">
           <FormInput
             label="Имя * "
             type="text"
@@ -20,7 +20,7 @@
             label="Телефон * "
             type="text"
             name="phoneField"
-            placeholder="+7 (___) ___-__-__"
+            placeholder="8**********"
             v-model:value="v$.phoneField.$model"
             :error="v$.phoneField.$errors"
             @clearInput="phoneField = null"
@@ -31,7 +31,7 @@
             label="Город * "
             type="text"
             name="cityField"
-            placeholder="Москва"
+            placeholder="Ваш город"
             v-model:value="v$.cityField.$model"
             :error="v$.cityField.$errors"
             @clearInput="cityField = null"
@@ -106,15 +106,13 @@
           :error="v$.commentField.$errors"
           @clearInput="commentField = null"
         />
-        <div class="formOrder__submit">
-          <FormSubmit
-            title="Заказать"
-            :isFromEmpty="isFromEmpty"
-            :isValid="isValid.length"
-            :isLoading="isLoading"
-            class="formOrder__submitButton"
-          />
-        </div>
+
+        <FormSubmit
+          title="Заказать"
+          :isFromEmpty="isFromEmpty"
+          :isValid="isValid.length"
+          :isLoading="isLoading"
+        />
       </div>
     </div>
 
@@ -127,6 +125,9 @@
 <script setup>
 import { useVuelidate } from "@vuelidate/core";
 import { helpers, required, minLength, numeric } from "@vuelidate/validators";
+
+const cartStore = useCartStore();
+const orderStore = useOrderStore();
 
 const isLoading = ref(false);
 const nameField = ref(null);
@@ -198,36 +199,43 @@ const isFromEmpty = computed(
 const isValid = computed(() => v$.value.$errors);
 
 const submitComment = async () => {
-  console.log("Form - submitOrder");
-  // try {
-  //   isLoading.value = true;
-  //   if (!isFromEmpty.value && !isValid.value.length) {
-  //     const commentData = {
-  //       name: userName.value.trim(),
-  //       rating: productRating.value,
-  //       comment: userComment.value.trim(),
-  //       productId: product.id,
-  //     };
-  //     console.log(commentData);
-  //     isCommentSend.value = true;
-  //     userName.value = null;
-  //     productRating.value = null;
-  //     userComment.value = null;
-  //   }
-  // } catch (error) {
-  //   console.log(error);
-  // } finally {
-  //   isLoading.value = false;
-  // }
+  try {
+    const orderData = {
+      delivery_type: cartStore.deliveryType,
+      delivery_sum: cartStore.deliverySum,
+      total_cart_count: cartStore.totalCartCount,
+      total_order_sum: cartStore.totalOrderSum,
+      cart_list: cartStore.cart,
+      user_bonus: cartStore.cartBonus,
+      user_name: nameField.value.trim(),
+      user_phone: phoneField.value.trim(),
+      user_city: cityField.value.trim(),
+      user_street: streetField.value.trim(),
+      user_building: buildingField.value.trim(),
+      user_entrance: entranceField.value?.trim(),
+      user_flat: flatField.value?.trim(),
+      user_floor: floorField.value?.trim(),
+      user_comment: commentField.value?.trim(),
+    };
+
+    orderStore.addOrder(orderData);
+  } catch (error) {
+    console.log(error);
+  } finally {
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 .formOrder {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: 1fr 35%;
+  gap: 40px;
   width: 100%;
+
+  @media (max-width: 1600px) {
+    gap: 20px;
+  }
 
   @media (max-width: 767px) {
     grid-template-columns: 1fr;
@@ -235,6 +243,17 @@ const submitComment = async () => {
 
   &__animation {
     animation: slide-to-top 0.8s ease;
+  }
+
+  &__user {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+
+    @media (max-width: 767px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__left {
@@ -246,8 +265,11 @@ const submitComment = async () => {
   &__right {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    justify-content: space-between;
+    gap: 30px;
+    justify-self: flex-end;
+    width: 100%;
+    max-width: 480px;
+    padding-left: 20px;
   }
 
   &__title {
@@ -267,18 +289,6 @@ const submitComment = async () => {
     @media (max-width: 767px) {
       grid-template-columns: repeat(2, 1fr);
     }
-  }
-
-  &__submit {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    padding-top: 20px;
-  }
-
-  &__submitButton {
-    width: 100%;
-    max-width: 350px;
   }
 }
 </style>
