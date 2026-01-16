@@ -110,9 +110,6 @@ export const useCartStore = defineStore("cartStore", () => {
 
       return data;
     }
-    // if (data <= 0) {
-    //   return (data = 0);
-    // }
   });
 
   const totalOrderSum = computed(() => {
@@ -165,7 +162,9 @@ export const useCartStore = defineStore("cartStore", () => {
     }
   });
 
-  const cleanCart = () => (cart.value = []);
+  const cleanCart = () => {
+    cart.value = [];
+  };
 
   return {
     cart,

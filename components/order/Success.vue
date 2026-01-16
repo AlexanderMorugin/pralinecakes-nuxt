@@ -20,6 +20,7 @@ const orderStore = useOrderStore();
 const closeOrderSuccess = () => {
   cartStore.cleanCart();
   orderStore.cleanOrder();
+  location.reload();
   return navigateTo("/");
 };
 </script>

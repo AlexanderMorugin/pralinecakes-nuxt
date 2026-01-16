@@ -8,7 +8,7 @@
       />
     </div>
     <div v-if="isOrderContinue" class="cart__orderDetails">
-      <FormOrder
+      <FormOrderDelivery
         v-if="cartStore.deliveryType === 'Доставка' && !orderStore.order"
       />
       <CartSamovyvoz
@@ -46,7 +46,7 @@ const orderStore = useOrderStore();
   }
 
   &__orderDetails {
-    min-height: 480px;
+    min-height: 600px;
     border-radius: var(--border-radius-m);
     background: var(--gradient-product-blue-primary);
     margin-top: 40px;

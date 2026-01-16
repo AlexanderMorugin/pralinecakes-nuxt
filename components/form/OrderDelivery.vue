@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submitComment" class="formOrder__animation">
+  <form @submit.prevent="submitOrder" class="formOrder__animation">
     <TitleBlock title="Ваши данные" class="formOrder__title" />
 
     <div class="formOrder">
@@ -198,7 +198,7 @@ const isFromEmpty = computed(
 
 const isValid = computed(() => v$.value.$errors);
 
-const submitComment = async () => {
+const submitOrder = async () => {
   try {
     const orderData = {
       delivery_type: cartStore.deliveryType,

@@ -13,7 +13,6 @@
 
     <div>
       <span class="text-price">Выберите способ доставки</span>
-
       <div class="orderSum__delivery">
         <div class="orderSum__block text-price">
           <div class="orderSum__radioBox">
@@ -32,7 +31,7 @@
           <span>{{ currencyFormater(cartStore.deliverySum) }}</span>
         </div>
         <div class="orderSum__comment">
-          Минимальный заказ для бесплатной доставки
+          Бесплатная доставка от
           {{ currencyFormater(MIN_ORDER_SUM) }}
         </div>
 
@@ -51,10 +50,10 @@
           <div class="line-dashed" />
           <span>-{{ currencyFormater(cartStore.cartSamovyvozBonus) }}</span>
         </div>
-        <div class="orderSum__comment">
-          Дополнительная скидка {{ SAMOVYVOZ_BONUS }}%
-        </div>
       </div>
+    </div>
+    <div class="orderSum__bonus">
+      + {{ SAMOVYVOZ_BONUS }}% дополнительная скидка
     </div>
 
     <div class="orderSum__block orderSum__total text-total-price">
@@ -115,10 +114,11 @@ const cartStore = useCartStore();
 
   &__comment {
     font-family: "Montserrat-Regular", sans-serif;
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 14px;
+    line-height: 28px;
     color: var(--mask-white-primary);
     margin-left: 26px;
+    padding-top: 5px;
   }
 
   &__delivery {
