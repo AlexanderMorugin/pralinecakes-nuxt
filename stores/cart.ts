@@ -29,10 +29,6 @@ export const cartProduct = (product: ICart) => {
     weigth: product.weigth,
     count: 1,
     total_product_price: computed(() => product.price * product.count),
-
-    // product.discount
-    //   ? product.discount_price * product.count
-    //   : product.price * product.count
   };
 
   return hasProduct;
@@ -41,9 +37,9 @@ export const cartProduct = (product: ICart) => {
 export const useCartStore = defineStore("cartStore", () => {
   const cart = ref<ICart[]>([]);
 
-  const deliveryCost = ref(DELIVERY_SUM);
+  const deliveryCost = ref<number>(DELIVERY_SUM);
   const samovyvozBonus = ref(0);
-  const deliveryType = ref("Доставка");
+  const deliveryType = ref<string>("Доставка");
 
   const addCartItem = (product: ICart) => {
     // Если в корзине есть продукт с таким id, то останавливаем операцию
@@ -102,30 +98,36 @@ export const useCartStore = defineStore("cartStore", () => {
   });
 
   const deliverySum = computed(() => {
-    let data = null;
+    let data = 0;
 
-    data =
-      totalCartSum.value >= MIN_ORDER_SUM
-        ? 0
-        : totalCartSum.value <= MIN_ORDER_SUM
-        ? deliveryCost.value
-        : deliveryCost.value;
+    if (totalCartSum.value) {
+      data =
+        totalCartSum.value >= MIN_ORDER_SUM
+          ? 0
+          : totalCartSum.value <= MIN_ORDER_SUM
+          ? deliveryCost.value
+          : deliveryCost.value;
 
-    if (data <= 0) {
-      data = 0;
+      return data;
     }
-    return data;
+    // if (data <= 0) {
+    //   return (data = 0);
+    // }
   });
 
   const totalOrderSum = computed(() => {
     let data = null;
 
-    data =
-      samovyvozBonus.value > 0
-        ? totalCartSum.value - cartSamovyvozBonus.value
-        : totalCartSum.value + deliverySum.value;
+    if (totalCartSum.value && cartSamovyvozBonus.value) {
+      data =
+        samovyvozBonus.value > 0
+          ? totalCartSum.value - cartSamovyvozBonus.value
+          : deliverySum.value
+          ? totalCartSum.value + deliverySum.value
+          : totalCartSum.value;
 
-    return data;
+      return data;
+    }
   });
 
   const setDeliveryCost = (data: number) => {
@@ -138,7 +140,7 @@ export const useCartStore = defineStore("cartStore", () => {
     }
     if (data === 0) {
       deliveryCost.value = 0;
-      samovyvozBonus.value = cartSamovyvozBonus.value;
+      samovyvozBonus.value = cartSamovyvozBonus.value || 0;
       deliveryType.value = "Самовывоз";
     }
   };
@@ -146,17 +148,21 @@ export const useCartStore = defineStore("cartStore", () => {
   const cartBonus = computed(() => {
     let data = null;
 
-    data = Math.round(totalCartSum.value * USER_BONUS);
+    if (totalCartSum.value) {
+      data = Math.round(totalCartSum.value * USER_BONUS);
 
-    return data;
+      return data;
+    }
   });
 
   const cartSamovyvozBonus = computed(() => {
     let data = null;
 
-    data = Math.round((totalCartSum.value * SAMOVYVOZ_BONUS) / 100);
+    if (totalCartSum.value) {
+      data = Math.round((totalCartSum.value * SAMOVYVOZ_BONUS) / 100);
 
-    return data;
+      return data;
+    }
   });
 
   const cleanCart = () => (cart.value = []);
