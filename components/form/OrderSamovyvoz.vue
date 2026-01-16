@@ -39,9 +39,7 @@
       :isLoading="isLoading"
     />
 
-    <div class="formOrder__orderMark mark">
-      * - обязательные для заполнения поля
-    </div>
+    <div class="mark">* - обязательные для заполнения поля</div>
   </form>
 </template>
 

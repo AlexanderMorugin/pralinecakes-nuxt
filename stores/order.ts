@@ -36,7 +36,7 @@ export const useOrderStore = defineStore("orderStore", () => {
   const addOrder = (orderData: IOrder) => {
     order.value = orderData;
 
-    console.log("orderStore - ", order.value);
+    // console.log("orderStore - ", order.value);
   };
 
   const cleanOrder = () => (order.value = null);

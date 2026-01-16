@@ -46,7 +46,7 @@ const orderStore = useOrderStore();
   }
 
   &__orderDetails {
-    min-height: 600px;
+    min-height: 560px;
     border-radius: var(--border-radius-m);
     background: var(--gradient-product-blue-primary);
     margin-top: 40px;

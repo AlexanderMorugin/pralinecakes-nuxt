@@ -5,7 +5,19 @@
       >Только что мы получили ваш заказ и вскоре сотрудник свяжется с вами по
       указанному телефону.</WrapperText
     >
-    <WrapperText>Детали заказа</WrapperText>
+    <div class="line-solid" />
+    <OrderDetails />
+    <!-- <div class="orderSuccess__order">
+      <span>Тип доставки:</span>
+      <span>{{ orderStore.order.delivery_type }}</span>
+      <span>Общее количество:</span>
+      <span>{{ orderStore.order.total_cart_count }}</span>
+    </div>
+    <WrapperText>{{ orderStore.order }}</WrapperText> -->
+
+    <!-- <ul>
+      <li v-for="orderStore.order"></li>
+    </ul> -->
 
     <div class="orderSuccess__container">
       <FormSubmit title="Закрыть" @handleClick="closeOrderSuccess" />
