@@ -1,7 +1,8 @@
 <template>
   <div class="orderDetails">
     <WrapperText class="orderDetails__title line-dashed"
-      >Заказ № 203 от 14.02.2026 16:30</WrapperText
+      >Заказ № {{ orderStore.order.order_number }} от
+      {{ orderStore.order.order_date }}</WrapperText
     >
 
     <OrderUser />

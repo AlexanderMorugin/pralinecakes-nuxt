@@ -11,6 +11,8 @@ export type TProduct = {
 };
 
 export interface IOrder {
+  order_number: string;
+  order_date: any;
   delivery_type: string;
   delivery_sum: number;
   total_cart_count: number;
@@ -36,7 +38,7 @@ export const useOrderStore = defineStore("orderStore", () => {
   const addOrder = (orderData: IOrder) => {
     order.value = orderData;
 
-    // console.log("orderStore - ", order.value);
+    console.log("orderStore - ", order.value.order_number);
   };
 
   const cleanOrder = () => (order.value = null);

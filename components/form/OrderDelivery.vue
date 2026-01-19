@@ -199,8 +199,22 @@ const isFromEmpty = computed(
 const isValid = computed(() => v$.value.$errors);
 
 const submitOrder = async () => {
+  let today = new Date();
+
   try {
     const orderData = {
+      order_number:
+        "Д" + today.getDate() + (today.getMonth() + 1) + today.getMinutes(),
+      order_date:
+        today.getDate() +
+        "." +
+        (today.getMonth() + 1) +
+        "." +
+        today.getFullYear() +
+        " " +
+        today.getHours() +
+        ":" +
+        today.getMinutes(),
       delivery_type: cartStore.deliveryType,
       delivery_sum: cartStore.deliverySum,
       total_cart_count: cartStore.totalCartCount,
