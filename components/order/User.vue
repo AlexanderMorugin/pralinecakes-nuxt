@@ -20,6 +20,18 @@
         >{{ orderStore.order.total_cart_count }} шт</span
       >
     </div>
+
+    <div v-if="orderStore.order.delivery_type === 'Доставка'" class="orderUser">
+      <span class="orderUser__key">Адрес:</span>
+      <span class="orderUser__address"
+        >{{ orderStore.order.user_city }}, ул.
+        {{ orderStore.order.user_street }}, д.
+        {{ orderStore.order.user_building }}, подъезд
+        {{ orderStore.order.user_entrance }}, кв.
+        {{ orderStore.order.user_flat }}, этаж
+        {{ orderStore.order.user_floor }}</span
+      >
+    </div>
   </div>
 </template>
 
@@ -33,7 +45,6 @@ const orderStore = useOrderStore();
   grid-template-columns: 15% 1fr;
   gap: 15px;
   padding-top: 20px;
-  // border: 1px solid red;
 
   @media (max-width: 767px) {
     grid-template-columns: 1fr;
@@ -46,7 +57,6 @@ const orderStore = useOrderStore();
     line-height: 20px;
     vertical-align: bottom;
     opacity: 0.6;
-    // border: 1px solid red;
 
     @media (max-width: 767px) {
       font-size: 14px;
@@ -59,11 +69,17 @@ const orderStore = useOrderStore();
     line-height: 20px;
     letter-spacing: 1px;
     vertical-align: bottom;
-    // border: 1px solid red;
 
     @media (max-width: 767px) {
       font-size: 16px;
     }
+  }
+
+  &__address {
+    font-family: "Montserrat-Regular", sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 1px;
   }
 }
 </style>

@@ -30,16 +30,5 @@ const emit = defineEmits(["closeModal", "continueOrder"]);
   @media (max-width: 576px) {
     padding: 20px 10px 10px 10px;
   }
-
-  // &_modalCart {
-  //   // display: flex;
-  //   align-items: center;
-  //   // width: 100%;
-  // }
-
-  // &__button {
-  //   width: 100%;
-  //   max-width: 350px;
-  // }
 }
 </style>

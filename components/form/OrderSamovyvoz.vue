@@ -96,6 +96,8 @@ const submitOrder = async () => {
     };
 
     orderStore.addOrder(orderData);
+
+    return navigateTo("/order");
   } catch (error) {
     console.log(error);
   } finally {

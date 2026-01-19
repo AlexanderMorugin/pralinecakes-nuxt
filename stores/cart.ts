@@ -164,6 +164,9 @@ export const useCartStore = defineStore("cartStore", () => {
 
   const cleanCart = () => {
     cart.value = [];
+    deliveryCost.value = DELIVERY_SUM;
+    samovyvozBonus.value = 0;
+    deliveryType.value = "Доставка";
   };
 
   return {

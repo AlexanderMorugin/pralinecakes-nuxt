@@ -66,13 +66,9 @@ const orderStore = useOrderStore();
     display: grid;
     grid-template-columns: 100px 1fr;
     column-gap: 10px;
-    // row-gap: 10px;
-    // border: 1px solid red;
 
     @media (max-width: 767px) {
       grid-template-columns: 60px 1fr;
-      // grid-template-columns: 1fr;
-      // row-gap: 10px;
     }
   }
 
@@ -80,15 +76,12 @@ const orderStore = useOrderStore();
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    // gap: 10px;
   }
 
   &__details {
     display: grid;
     grid-template-columns: 1fr 25%;
     column-gap: 10px;
-
-    // border: 1px solid red;
 
     @media (max-width: 767px) {
       grid-template-columns: 1fr;
@@ -102,13 +95,11 @@ const orderStore = useOrderStore();
     grid-template-columns: 1fr 25%;
     column-gap: 10px;
     row-gap: 10px;
-    // border: 1px solid red;
+    padding-top: 5px;
 
-    @media (max-width: 767px) {
-      // grid-template-columns: 1fr 30%;
-      padding-top: 5px;
-      // column-gap: 0;
-    }
+    // @media (max-width: 767px) {
+    //   padding-top: 5px;
+    // }
   }
 
   &__image {
@@ -135,11 +126,9 @@ const orderStore = useOrderStore();
     display: flex;
     gap: 10px;
     justify-content: space-between;
-    // align-items: flex-end;
 
     @media (max-width: 767px) {
       flex-direction: column;
-      // align-items: flex-start;
       gap: 0;
     }
   }
@@ -147,7 +136,6 @@ const orderStore = useOrderStore();
   &__accent {
     font-family: "Montserrat-SemiBold", sans-serif;
     font-size: 18px;
-
     letter-spacing: 1px;
     vertical-align: bottom;
 
@@ -172,7 +160,6 @@ const orderStore = useOrderStore();
     font-family: "Montserrat-Regular", sans-serif;
     font-size: 14px;
     line-height: 14px;
-    // letter-spacing: 1px;
     vertical-align: bottom;
   }
 

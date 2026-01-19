@@ -11,7 +11,8 @@ export default defineNuxtConfig({
     "~/assets/styles/_animation.scss",
   ],
 
-  modules: ["@nuxt/fonts", "@pinia/nuxt", "nuxt-toast"],
+  // modules: ["@nuxt/fonts", "@pinia/nuxt", "nuxt-toast"],
+  modules: ["@pinia/nuxt", "nuxt-toast"],
   router: {
     options: {
       scrollBehaviorType: "smooth",

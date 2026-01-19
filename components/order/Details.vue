@@ -5,14 +5,12 @@
     >
 
     <OrderUser />
-
     <div class="line-solid" />
-
     <OrderList />
-
     <div class="line-solid" />
-
     <OrderTotal />
+
+    <!-- {{ orderStore.order }} -->
   </div>
 </template>
 

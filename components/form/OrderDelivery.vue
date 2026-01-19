@@ -204,6 +204,7 @@ const submitOrder = async () => {
       delivery_type: cartStore.deliveryType,
       delivery_sum: cartStore.deliverySum,
       total_cart_count: cartStore.totalCartCount,
+      total_cart_sum: cartStore.totalCartSum,
       total_order_sum: cartStore.totalOrderSum,
       cart_list: cartStore.cart,
       user_bonus: cartStore.cartBonus,
@@ -219,6 +220,8 @@ const submitOrder = async () => {
     };
 
     orderStore.addOrder(orderData);
+
+    return navigateTo("/order");
   } catch (error) {
     console.log(error);
   } finally {

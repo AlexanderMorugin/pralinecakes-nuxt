@@ -50,9 +50,6 @@ const { product } = defineProps(["product"]);
   gap: 10px;
 
   &__discount {
-    // position: absolute;
-    // top: 10px;
-    // right: 0;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -73,10 +70,6 @@ const { product } = defineProps(["product"]);
     align-items: center;
     gap: 20px;
     padding: 20px 10px 10px 10px;
-
-    // @media (max-width: 1280px) {
-    //   padding-top: 60px;
-    // }
   }
 
   &__prices {
@@ -98,10 +91,6 @@ const { product } = defineProps(["product"]);
     color: var(--white-primary);
     opacity: 0.7;
     text-decoration-line: line-through;
-
-    // @media (max-width: 1600px) {
-    //   font-size: 14px;
-    // }
   }
 
   &__price {
@@ -109,14 +98,6 @@ const { product } = defineProps(["product"]);
     font-size: 24px;
     color: var(--white-primary);
     letter-spacing: 2px;
-
-    // @media (max-width: 1600px) {
-    //   font-size: 20px;
-    // }
-
-    // @media (max-width: 1024px) {
-    //   letter-spacing: 1px;
-    // }
   }
 
   &__bonus {
@@ -126,7 +107,6 @@ const { product } = defineProps(["product"]);
     text-align: right;
     padding-left: 10px;
     padding-right: 10px;
-    // opacity: 0.7;
 
     @media (max-width: 1600px) {
       font-size: 14px;

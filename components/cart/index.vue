@@ -1,6 +1,6 @@
 <template>
   <div class="page-padding-x">
-    <div v-if="!orderStore.order" class="cart">
+    <div class="cart">
       <CartList />
       <OrderBlock
         :isOrderContinue="isOrderContinue"
@@ -8,13 +8,9 @@
       />
     </div>
     <div v-if="isOrderContinue" class="cart__orderDetails">
-      <FormOrderDelivery
-        v-if="cartStore.deliveryType === 'Доставка' && !orderStore.order"
-      />
-      <CartSamovyvoz
-        v-if="cartStore.deliveryType === 'Самовывоз' && !orderStore.order"
-      />
-      <OrderSuccess v-if="orderStore.order" />
+      <FormOrderDelivery v-if="cartStore.deliveryType === 'Доставка'" />
+      <CartSamovyvoz v-if="cartStore.deliveryType === 'Самовывоз'" />
+      <!-- <OrderSuccess v-if="orderStore.order" /> -->
     </div>
   </div>
 </template>
@@ -23,7 +19,7 @@
 const isOrderContinue = ref(false);
 
 const cartStore = useCartStore();
-const orderStore = useOrderStore();
+// const orderStore = useOrderStore();
 </script>
 
 <style lang="scss" scoped>
