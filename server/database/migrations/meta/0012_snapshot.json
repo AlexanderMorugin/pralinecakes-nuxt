@@ -1,0 +1,273 @@
+{
+  "id": "08c773eb-7b69-48f5-9416-50a89dd21ba7",
+  "prevId": "7fadfc78-427b-4afb-a90b-1e8a5a1d8a37",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.cart_list": {
+      "name": "cart_list",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "slug": {
+          "name": "slug",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_list_card": {
+          "name": "image_list_card",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "price": {
+          "name": "price",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "discount": {
+          "name": "discount",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "discount_price": {
+          "name": "discount_price",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "weigth": {
+          "name": "weigth",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "count": {
+          "name": "count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_product_price": {
+          "name": "total_product_price",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "order_id": {
+          "name": "order_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "cart_list_order_id_orders_order_id_fk": {
+          "name": "cart_list_order_id_orders_order_id_fk",
+          "tableFrom": "cart_list",
+          "tableTo": "orders",
+          "columnsFrom": [
+            "order_id"
+          ],
+          "columnsTo": [
+            "order_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.orders": {
+      "name": "orders",
+      "schema": "",
+      "columns": {
+        "order_id": {
+          "name": "order_id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "order_number": {
+          "name": "order_number",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "order_date": {
+          "name": "order_date",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "delivery_type": {
+          "name": "delivery_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_cart_count": {
+          "name": "total_cart_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_cart_sum": {
+          "name": "total_cart_sum",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cart_samovyvoz_bonus": {
+          "name": "cart_samovyvoz_bonus",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_order_sum": {
+          "name": "total_order_sum",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "delivery_sum": {
+          "name": "delivery_sum",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_bonus": {
+          "name": "user_bonus",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_name": {
+          "name": "user_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_phone": {
+          "name": "user_phone",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_city": {
+          "name": "user_city",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_street": {
+          "name": "user_street",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_building": {
+          "name": "user_building",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_entrance": {
+          "name": "user_entrance",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_flat": {
+          "name": "user_flat",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_floor": {
+          "name": "user_floor",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_comment": {
+          "name": "user_comment",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

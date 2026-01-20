@@ -1,6 +1,6 @@
 <template>
   <WrapperPage>
-    <!-- <TitlePage title="Заказ" /> -->
+    <FormOrderDelete />
 
     <OrderSuccess />
   </WrapperPage>

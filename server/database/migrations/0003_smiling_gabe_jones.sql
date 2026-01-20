@@ -1,0 +1,1 @@
+ALTER TABLE "orders" ADD COLUMN "total_cart_count" integer;

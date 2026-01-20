@@ -204,7 +204,11 @@ const submitOrder = async () => {
   try {
     const orderData = {
       order_number:
-        "Д" + today.getDate() + (today.getMonth() + 1) + today.getMinutes(),
+        "Д" +
+        today.getDate() +
+        (today.getMonth() + 1) +
+        today.getMinutes() +
+        today.getSeconds(),
       order_date:
         today.getDate() +
         "." +
@@ -233,7 +237,7 @@ const submitOrder = async () => {
       user_comment: commentField.value?.trim(),
     };
 
-    orderStore.addOrder(orderData);
+    orderStore.createOrder(orderData);
 
     return navigateTo("/order");
   } catch (error) {

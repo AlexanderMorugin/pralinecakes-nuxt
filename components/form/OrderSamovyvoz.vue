@@ -21,7 +21,7 @@
       :error="v$.phoneField.$errors"
       @clearInput="phoneField = null"
       @click="clearErrorMessage"
-      firstInput="true"
+      lastInput="true"
     />
 
     <FormTextarea
@@ -86,7 +86,11 @@ const submitOrder = async () => {
   try {
     const orderData = {
       order_number:
-        "С" + today.getDate() + (today.getMonth() + 1) + today.getMinutes(),
+        "С" +
+        today.getDate() +
+        (today.getMonth() + 1) +
+        today.getMinutes() +
+        today.getSeconds(),
       order_date:
         today.getDate() +
         "." +
@@ -109,7 +113,7 @@ const submitOrder = async () => {
       user_comment: commentField.value?.trim(),
     };
 
-    orderStore.addOrder(orderData);
+    orderStore.createOrder(orderData);
 
     return navigateTo("/order");
   } catch (error) {

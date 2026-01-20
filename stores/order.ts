@@ -35,17 +35,37 @@ export interface IOrder {
 export const useOrderStore = defineStore("orderStore", () => {
   const order = ref<IOrder | null>(null);
 
-  const addOrder = (orderData: IOrder) => {
+  const createOrder = async (orderData: IOrder) => {
+    const result = await useFetch("/api/orders/create-order", {
+      method: "POST",
+      body: orderData,
+    });
+
+    console.log("orderStore-orderData - ", orderData);
+    // console.log("orderStore-result - ", result.data.value, result.status.value);
+
     order.value = orderData;
 
-    console.log("orderStore - ", order.value.order_number);
+    // console.log("orderStore - ", order.value);
+  };
+
+  const deleteOrder = async (orderId: number) => {
+    const result = await useFetch("/api/orders/delete-order", {
+      method: "DELETE",
+      body: {
+        id: orderId,
+      },
+    });
+
+    return result;
   };
 
   const cleanOrder = () => (order.value = null);
 
   return {
     order,
-    addOrder,
+    createOrder,
+    deleteOrder,
     cleanOrder,
   };
 });

@@ -14,15 +14,21 @@
     "@pinia/nuxt": "^0.11.3",
     "@vuelidate/core": "^2.0.3",
     "@vuelidate/validators": "^2.0.4",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.45.1",
     "embla-carousel-vue": "^8.6.0",
     "izitoast": "^1.4.0",
     "nuxt": "^4.2.2",
     "nuxt-toast": "^1.4.0",
+    "pg": "^8.17.1",
     "pinia": "^3.0.4",
     "vue": "^3.5.25",
     "vue-router": "^4.6.4"
   },
   "devDependencies": {
-    "sass": "^1.97.2"
+    "@types/pg": "^8.16.0",
+    "drizzle-kit": "^0.31.8",
+    "sass": "^1.97.2",
+    "tsx": "^4.21.0"
   }
 }
