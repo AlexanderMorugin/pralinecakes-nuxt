@@ -35,18 +35,19 @@ export interface IOrder {
 export const useOrderStore = defineStore("orderStore", () => {
   const order = ref<IOrder | null>(null);
 
-  const createOrder = async (orderData: IOrder) => {
+  const createOrder = async (formData: IOrder) => {
     const result = await useFetch("/api/orders/create-order", {
       method: "POST",
-      body: orderData,
+      body: formData,
     });
 
-    console.log("orderStore-orderData - ", orderData);
-    // console.log("orderStore-result - ", result.data.value, result.status.value);
+    console.log("orderStore-orderData - ", formData);
 
-    order.value = orderData;
+    if (result.status.value === "success") {
+      order.value = formData;
+    }
 
-    // console.log("orderStore - ", order.value);
+    return result;
   };
 
   const deleteOrder = async (orderId: number) => {

@@ -47,6 +47,7 @@
 import { useVuelidate } from "@vuelidate/core";
 import { helpers, required, minLength, numeric } from "@vuelidate/validators";
 
+const toast = useToast();
 const cartStore = useCartStore();
 const orderStore = useOrderStore();
 
@@ -84,7 +85,9 @@ const submitOrder = async () => {
   let today = new Date();
 
   try {
-    const orderData = {
+    isLoading.value = true;
+
+    const formData = {
       order_number:
         "С" +
         today.getDate() +
@@ -113,12 +116,27 @@ const submitOrder = async () => {
       user_comment: commentField.value?.trim(),
     };
 
-    orderStore.createOrder(orderData);
+    const result = await orderStore.createOrder(formData);
 
-    return navigateTo("/order");
-  } catch (error) {
-    console.log(error);
+    if (result.status.value === "error") {
+      toast.error({
+        title: "Ошибка!",
+        message: "Заказ отправить не удалось.",
+      });
+    }
+
+    if (result.status.value === "success") {
+      toast.success({
+        title: "Успешно!",
+        message: "Заказ отправлен.",
+      });
+
+      return navigateTo("/order");
+    }
+  } catch (err) {
+    console.log(err);
   } finally {
+    isLoading.value = false;
   }
 };
 </script>
