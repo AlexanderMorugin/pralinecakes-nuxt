@@ -127,6 +127,7 @@ import { useVuelidate } from "@vuelidate/core";
 import { helpers, required, minLength, numeric } from "@vuelidate/validators";
 
 const toast = useToast();
+const { date, number } = useDate();
 const cartStore = useCartStore();
 const orderStore = useOrderStore();
 
@@ -206,22 +207,8 @@ const submitOrder = async () => {
     isLoading.value = true;
 
     const formData = {
-      order_number:
-        "Д" +
-        today.getDate() +
-        (today.getMonth() + 1) +
-        today.getMinutes() +
-        today.getSeconds(),
-      order_date:
-        today.getDate() +
-        "." +
-        (today.getMonth() + 1) +
-        "." +
-        today.getFullYear() +
-        " " +
-        today.getHours() +
-        ":" +
-        today.getMinutes(),
+      order_number: "Д" + number,
+      order_date: date,
       delivery_type: cartStore.deliveryType,
       delivery_sum: cartStore.deliverySum,
       total_cart_count: cartStore.totalCartCount,
