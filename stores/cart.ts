@@ -17,14 +17,14 @@ export const cartProduct = (product: ICart) => {
     id: product.id,
     type: product.type,
     slug: product.slug,
-    image_list_card: product.image_list_card,
+    image_800: product.image_800[0],
     name: product.name,
     price: product.price,
     discount: product.discount,
     discount_price: computed(() =>
       product.discount
         ? product.price - (product.price * product.discount) / 100
-        : null
+        : null,
     ),
     weigth: product.weigth,
     count: 1,
@@ -53,7 +53,7 @@ export const useCartStore = defineStore("cartStore", () => {
 
   const incrementCartItem = (productId: Number) => {
     cart.value = cart.value.map((item) =>
-      item.id === productId ? { ...item, count: item.count + 1 } : item
+      item.id === productId ? { ...item, count: item.count + 1 } : item,
     );
   };
 
@@ -64,7 +64,7 @@ export const useCartStore = defineStore("cartStore", () => {
       deleteCartItem(productId);
     } else {
       cart.value = cart.value.map((item) =>
-        item.id === productId ? { ...item, count: item.count - 1 } : item
+        item.id === productId ? { ...item, count: item.count - 1 } : item,
       );
     }
   };
@@ -78,7 +78,7 @@ export const useCartStore = defineStore("cartStore", () => {
   const totalCartCount = computed(
     () =>
       cart.value.length &&
-      cart.value.map((item) => item.count).reduce((a, b) => a + b)
+      cart.value.map((item) => item.count).reduce((a, b) => a + b),
   );
 
   const totalCartSum = computed(() => {
@@ -88,7 +88,7 @@ export const useCartStore = defineStore("cartStore", () => {
       data = cart.value.map((item) =>
         item.discount
           ? item.discount_price * item.count
-          : item.price * item.count
+          : item.price * item.count,
       );
 
       return data.reduce((a, b) => a + b);
@@ -105,8 +105,8 @@ export const useCartStore = defineStore("cartStore", () => {
         totalCartSum.value >= MIN_ORDER_SUM
           ? 0
           : totalCartSum.value <= MIN_ORDER_SUM
-          ? deliveryCost.value
-          : deliveryCost.value;
+            ? deliveryCost.value
+            : deliveryCost.value;
 
       return data;
     }
@@ -120,8 +120,8 @@ export const useCartStore = defineStore("cartStore", () => {
         samovyvozBonus.value > 0
           ? totalCartSum.value - cartSamovyvozBonus.value
           : deliverySum.value
-          ? totalCartSum.value + deliverySum.value
-          : totalCartSum.value;
+            ? totalCartSum.value + deliverySum.value
+            : totalCartSum.value;
 
       return data;
     }

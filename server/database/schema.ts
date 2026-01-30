@@ -1,4 +1,4 @@
-import { relations } from "drizzle-orm";
+// import { relations } from "drizzle-orm";
 import {
   serial,
   pgTable,
@@ -31,6 +31,10 @@ export const orders = pgTable("orders", {
   user_comment: text("user_comment"),
 
   cart_list: json("cart_list"),
+
+  status_accept: text("status_accept"),
+  status_delivery: text("status_delivery"),
+  status_complete: text("status_complete"),
 
   createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
   updatedAt: timestamp("updated_at", { mode: "string" }).notNull().defaultNow(),

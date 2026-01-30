@@ -5,11 +5,7 @@
       :key="item.id"
       class="orderList__item"
     >
-      <img
-        :src="item.image_list_card"
-        :alt="item.name"
-        class="orderList__image"
-      />
+      <img :src="item.image_800" :alt="item.name" class="orderList__image" />
 
       <div class="orderList__block">
         <div class="orderList__details">

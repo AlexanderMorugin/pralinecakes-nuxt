@@ -5,7 +5,7 @@
       class="cartCard__imageBox"
     >
       <img
-        :src="product.image_list_card"
+        :src="product.image_800"
         :alt="product.name"
         class="cartCard__image"
       />

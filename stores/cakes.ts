@@ -18,10 +18,8 @@ export interface ICake {
   id: number;
   type: string;
   slug: string;
-  image_list_card: string;
   image_800: string[];
   image_2800: string[];
-  image_meta: string;
   name: string;
   description_short: string;
   description_one: string;
@@ -48,25 +46,22 @@ export const useCakesStore = defineStore("cakesStore", () => {
       type: "cakes",
       slug: "air-nut",
 
-      image_list_card:
-        "/images/cakes/almond-prune/almond-prune-cake-1-600-400.webp",
       image_800: [
-        "/images/cakes/almond-prune/almond-prune-cake-1-800-533.webp",
-        "/images/cakes/almond-prune/almond-prune-cake-2-800-533.webp",
-        "/images/cakes/almond-prune/almond-prune-cake-3-800-533.webp",
-        "/images/cakes/almond-prune/almond-prune-cake-4-800-533.webp",
-        "/images/cakes/almond-prune/almond-prune-cake-5-800-533.webp",
-        "/images/cakes/almond-prune/almond-prune-cake-6-800-533.webp",
+        "/images/cakes/almond-prune/c-almond-prune-1-800.webp",
+        "/images/cakes/almond-prune/c-almond-prune-2-800.webp",
+        "/images/cakes/almond-prune/c-almond-prune-3-800.webp",
+        "/images/cakes/almond-prune/c-almond-prune-4-800.webp",
+        "/images/cakes/almond-prune/c-almond-prune-5-800.webp",
+        "/images/cakes/almond-prune/c-almond-prune-6-800.webp",
       ],
       image_2800: [
-        "/images/cakes/almond-prune/almond-prune-cake-1-2800-1866.webp",
-        "/images/cakes/almond-prune/almond-prune-cake-2-2800-1866.webp",
-        "/images/cakes/almond-prune/almond-prune-cake-3-2800-1866.webp",
-        "/images/cakes/almond-prune/almond-prune-cake-4-2800-1866.webp",
-        "/images/cakes/almond-prune/almond-prune-cake-5-2800-1866.webp",
-        "/images/cakes/almond-prune/almond-prune-cake-6-2800-1866.webp",
+        "/images/cakes/almond-prune/c-almond-prune-1-2800.webp",
+        "/images/cakes/almond-prune/c-almond-prune-2-2800.webp",
+        "/images/cakes/almond-prune/c-almond-prune-3-2800.webp",
+        "/images/cakes/almond-prune/c-almond-prune-4-2800.webp",
+        "/images/cakes/almond-prune/c-almond-prune-5-2800.webp",
+        "/images/cakes/almond-prune/c-almond-prune-6-2800.webp",
       ],
-      image_meta: "/images/cakes/almond-prune/almond-prune-cake-1-800-533.webp",
 
       name: "Торт Воздушно ореховый",
       description_short:
@@ -100,24 +95,22 @@ export const useCakesStore = defineStore("cakesStore", () => {
       type: "cakes",
       slug: "almond",
 
-      image_list_card: "/images/cakes/carrot/carrot-cake-1-600-400.webp",
       image_800: [
-        "/images/cakes/carrot/carrot-cake-1-800-533.webp",
-        "/images/cakes/carrot/carrot-cake-2-800-533.webp",
-        "/images/cakes/carrot/carrot-cake-3-800-533.webp",
-        "/images/cakes/carrot/carrot-cake-4-800-533.webp",
-        "/images/cakes/carrot/carrot-cake-5-800-533.webp",
-        "/images/cakes/carrot/carrot-cake-6-800-533.webp",
+        "/images/cakes/carrot/c-carrot-1-800.webp",
+        "/images/cakes/carrot/c-carrot-2-800.webp",
+        "/images/cakes/carrot/c-carrot-3-800.webp",
+        "/images/cakes/carrot/c-carrot-4-800.webp",
+        "/images/cakes/carrot/c-carrot-5-800.webp",
+        "/images/cakes/carrot/c-carrot-6-800.webp",
       ],
       image_2800: [
-        "/images/cakes/carrot/carrot-cake-1-2800-1866.webp",
-        "/images/cakes/carrot/carrot-cake-2-2800-1866.webp",
-        "/images/cakes/carrot/carrot-cake-3-2800-1866.webp",
-        "/images/cakes/carrot/carrot-cake-4-2800-1866.webp",
-        "/images/cakes/carrot/carrot-cake-5-2800-1866.webp",
-        "/images/cakes/carrot/carrot-cake-6-2800-1866.webp",
+        "/images/cakes/carrot/c-carrot-1-2800.webp",
+        "/images/cakes/carrot/c-carrot-2-2800.webp",
+        "/images/cakes/carrot/c-carrot-3-2800.webp",
+        "/images/cakes/carrot/c-carrot-4-2800.webp",
+        "/images/cakes/carrot/c-carrot-5-2800.webp",
+        "/images/cakes/carrot/c-carrot-6-2800.webp",
       ],
-      image_meta: "/images/cakes/carrot/carrot-cake-1-800-533.webp",
 
       name: "Торт Миндальный",
       description_short:
@@ -176,24 +169,22 @@ export const useCakesStore = defineStore("cakesStore", () => {
       type: "cakes",
       slug: "honey",
 
-      image_list_card: "/images/cakes/coconut/coconut-cake-1-600-400.webp",
       image_800: [
-        "/images/cakes/coconut/coconut-cake-1-800-533.webp",
-        "/images/cakes/coconut/coconut-cake-2-800-533.webp",
-        "/images/cakes/coconut/coconut-cake-3-800-533.webp",
-        "/images/cakes/coconut/coconut-cake-4-800-533.webp",
-        "/images/cakes/coconut/coconut-cake-5-800-533.webp",
-        "/images/cakes/coconut/coconut-cake-6-800-533.webp",
+        "/images/cakes/coconut/c-coconut-1-800.webp",
+        "/images/cakes/coconut/c-coconut-2-800.webp",
+        "/images/cakes/coconut/c-coconut-3-800.webp",
+        "/images/cakes/coconut/c-coconut-4-800.webp",
+        "/images/cakes/coconut/c-coconut-5-800.webp",
+        "/images/cakes/coconut/c-coconut-6-800.webp",
       ],
       image_2800: [
-        "/images/cakes/coconut/coconut-cake-1-2800-1866.webp",
-        "/images/cakes/coconut/coconut-cake-2-2800-1866.webp",
-        "/images/cakes/coconut/coconut-cake-3-2800-1866.webp",
-        "/images/cakes/coconut/coconut-cake-4-2800-1866.webp",
-        "/images/cakes/coconut/coconut-cake-5-2800-1866.webp",
-        "/images/cakes/coconut/coconut-cake-6-2800-1866.webp",
+        "/images/cakes/coconut/c-coconut-1-2800.webp",
+        "/images/cakes/coconut/c-coconut-2-2800.webp",
+        "/images/cakes/coconut/c-coconut-3-2800.webp",
+        "/images/cakes/coconut/c-coconut-4-2800.webp",
+        "/images/cakes/coconut/c-coconut-5-2800.webp",
+        "/images/cakes/coconut/c-coconut-6-2800.webp",
       ],
-      image_meta: "/images/cakes/coconut/coconut-cake-1-800-533.webp",
 
       name: "Торт Медовик",
       description_short:
@@ -284,24 +275,22 @@ export const useCakesStore = defineStore("cakesStore", () => {
       type: "cakes",
       slug: "currant-coconut",
 
-      image_list_card: "/images/cakes/esterhazy/esterhazy-cake-1-600-400.webp",
       image_800: [
-        "/images/cakes/esterhazy/esterhazy-cake-1-800-533.webp",
-        "/images/cakes/esterhazy/esterhazy-cake-2-800-533.webp",
-        "/images/cakes/esterhazy/esterhazy-cake-3-800-533.webp",
-        "/images/cakes/esterhazy/esterhazy-cake-4-800-533.webp",
-        "/images/cakes/esterhazy/esterhazy-cake-5-800-533.webp",
-        "/images/cakes/esterhazy/esterhazy-cake-6-800-533.webp",
+        "/images/cakes/esterhazy/c-esterhazy-1-800.webp",
+        "/images/cakes/esterhazy/c-esterhazy-2-800.webp",
+        "/images/cakes/esterhazy/c-esterhazy-3-800.webp",
+        "/images/cakes/esterhazy/c-esterhazy-4-800.webp",
+        "/images/cakes/esterhazy/c-esterhazy-5-800.webp",
+        "/images/cakes/esterhazy/c-esterhazy-6-800.webp",
       ],
       image_2800: [
-        "/images/cakes/esterhazy/esterhazy-cake-1-2800-1866.webp",
-        "/images/cakes/esterhazy/esterhazy-cake-2-2800-1866.webp",
-        "/images/cakes/esterhazy/esterhazy-cake-3-2800-1866.webp",
-        "/images/cakes/esterhazy/esterhazy-cake-4-2800-1866.webp",
-        "/images/cakes/esterhazy/esterhazy-cake-5-2800-1866.webp",
-        "/images/cakes/esterhazy/esterhazy-cake-6-2800-1866.webp",
+        "/images/cakes/esterhazy/c-esterhazy-1-2800.webp",
+        "/images/cakes/esterhazy/c-esterhazy-2-2800.webp",
+        "/images/cakes/esterhazy/c-esterhazy-3-2800.webp",
+        "/images/cakes/esterhazy/c-esterhazy-4-2800.webp",
+        "/images/cakes/esterhazy/c-esterhazy-5-2800.webp",
+        "/images/cakes/esterhazy/c-esterhazy-6-2800.webp",
       ],
-      image_meta: "/images/cakes/esterhazy/esterhazy-cake-1-800-533.webp",
 
       name: "Торт Чёрная смородина и кокос",
       description_short:
