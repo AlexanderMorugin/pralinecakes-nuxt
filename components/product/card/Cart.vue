@@ -14,14 +14,12 @@ const { product } = defineProps(["product"]);
 
 <style lang="scss" scoped>
 .productCardCart {
-  // position: relative;
   display: flex;
   flex-direction: column;
   gap: 40px;
   width: 360px;
   border-radius: var(--border-radius-s);
   border: 1px solid var(--border-primary);
-  // padding: 10px;
   overflow: hidden;
 
   @media (max-width: 1280px) {

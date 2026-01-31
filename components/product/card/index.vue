@@ -1,29 +1,28 @@
 <template>
   <div class="productCard page-padding-x">
     <div class="productCard__grid">
-      <ProductCardImage />
+      <ProductCardImage :product="product" />
 
       <div class="productCard__details">
-        <!-- <ProductCardTitle :product="product" /> -->
+        <ProductCardTitle :product="product" />
 
-        <!-- <ProductCardDetails :product="product" /> -->
+        <ProductCardDetails :product="product" />
       </div>
     </div>
 
-    <!-- <ProductCardOptions v-if="!isScreenMedium" :product="product" /> -->
+    <ProductCardOptions v-if="!isScreenMedium" :product="product" />
 
-    <!-- <ProductCardOptionsMobile v-if="isScreenMedium" :product="product" /> -->
+    <ProductCardOptionsMobile v-if="isScreenMedium" :product="product" />
   </div>
 </template>
 
 <script setup>
 const { isScreenMedium } = useResizeMedium();
-// const cakesStore = useCakesStore();
+const { product } = defineProps(["product"]);
 </script>
 
 <style lang="scss" scoped>
 .productCard {
-  // position: relative;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -36,8 +35,6 @@ const { isScreenMedium } = useResizeMedium();
   @media (max-width: 767px) {
     padding-top: 20px;
   }
-
-  // border: 1px solid red;
 
   &__grid {
     display: grid;

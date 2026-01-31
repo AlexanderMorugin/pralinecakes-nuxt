@@ -49,8 +49,8 @@
             >
               <img
                 :src="item"
-                :alt="cakesStore.cake[0].title"
-                :title="cakesStore.cake[0].title"
+                :alt="product.title"
+                :title="product.title"
                 class="productCardImage__image"
               />
             </li>
@@ -65,21 +65,29 @@
 import emblaCarouselVue from "embla-carousel-vue";
 
 const emit = defineEmits(["closeModal"]);
+const { product } = defineProps(["product"]);
 
-const cakesStore = useCakesStore();
+// const cakesStore = useCakesStore();
+
+// const imagesBig = ref([
+//   cakesStore.cake[0].image_1_big,
+//   cakesStore.cake[0].image_2_big,
+//   cakesStore.cake[0].image_3_big,
+//   cakesStore.cake[0].image_4_big,
+//   cakesStore.cake[0].image_5_big,
+//   cakesStore.cake[0].image_6_big,
+// ]);
 
 const imagesBig = ref([
-  cakesStore.cake[0].image_1_big,
-  cakesStore.cake[0].image_2_big,
-  cakesStore.cake[0].image_3_big,
-  cakesStore.cake[0].image_4_big,
-  cakesStore.cake[0].image_5_big,
-  cakesStore.cake[0].image_6_big,
+  product.image_1_big,
+  product.image_2_big,
+  product.image_3_big,
+  product.image_4_big,
+  product.image_5_big,
+  product.image_6_big,
 ]);
 
 const [emblaRef, emblaApi] = emblaCarouselVue();
-
-// const isImageModalOpen = ref(false);
 
 const canScrollPrev = ref(false);
 const canScrollNext = ref(false);

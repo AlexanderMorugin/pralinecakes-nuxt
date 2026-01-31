@@ -33,9 +33,9 @@
           <!-- <ProductListCardComment :comments="product.comments.length" /> -->
         </div>
 
-        <ProductListCardPrice :product="product" />
+        <ProductListCardPrice v-if="product.price" :product="product" />
 
-        <ButtonCartBlock :product="product" />
+        <ButtonCartBlock v-if="product.price" :product="product" />
       </div>
     </div>
   </div>

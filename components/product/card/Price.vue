@@ -13,13 +13,7 @@
           >{{ currencyFormater(product.price) }}
         </span>
         <span class="productCardPrice__price"
-          >{{
-            currencyFormater(
-              product.discount
-                ? product.price - (product.price * product.discount) / 100
-                : product.price
-            )
-          }}
+          >{{ currencyFormater(product.discount_price) }}
         </span>
       </div>
     </div>
@@ -30,7 +24,7 @@
           product.discount
             ? (product.price - (product.price * product.discount) / 100) *
                 USER_BONUS
-            : product.price * USER_BONUS
+            : product.price * USER_BONUS,
         )
       }}
       на ваш бонусный счет
@@ -67,14 +61,14 @@ const { product } = defineProps(["product"]);
   &__container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     gap: 20px;
     padding: 20px 10px 10px 10px;
   }
 
   &__prices {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 10px;
   }
 

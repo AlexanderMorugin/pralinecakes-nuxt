@@ -45,8 +45,8 @@
             <img
               v-if="item"
               :src="item"
-              :alt="cakesStore.cake[0].title"
-              :title="cakesStore.cake[0].title"
+              :alt="product.title"
+              :title="product.title"
               class="productCardImage__image"
             />
 
@@ -70,6 +70,7 @@
     <Transition name="top">
       <ModalProductCardImage
         v-if="isImageModalOpen"
+        :product="product"
         @closeModal="isImageModalOpen = false"
       />
     </Transition>
@@ -79,15 +80,15 @@
 <script setup>
 import emblaCarouselVue from "embla-carousel-vue";
 
-const cakesStore = useCakesStore();
+const { product } = defineProps(["product"]);
 
 const imagesSmall = ref([
-  cakesStore.cake[0].image_1_small,
-  cakesStore.cake[0].image_2_small,
-  cakesStore.cake[0].image_3_small,
-  cakesStore.cake[0].image_4_small,
-  cakesStore.cake[0].image_5_small,
-  cakesStore.cake[0].image_6_small,
+  product.image_1_small,
+  product.image_2_small,
+  product.image_3_small,
+  product.image_4_small,
+  product.image_5_small,
+  product.image_6_small,
 ]);
 
 const hasImagesSmallEmpty = computed(() => {

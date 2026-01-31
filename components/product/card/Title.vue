@@ -26,16 +26,9 @@ const { product } = defineProps(["product"]);
   display: flex;
   flex-direction: column;
   gap: 40px;
-  // padding: 20px 40px;
-
-  // @media (max-width: 1600px) {
-  //   padding: 20px;
-  // }
 
   @media (max-width: 767px) {
     gap: 10px;
-    // padding-left: 5px;
-    // padding-right: 5px;
   }
 
   &__titleBlock {

@@ -46,7 +46,7 @@
           своей продукции.
         </div>
       </div>
-      <div
+      <!-- <div
         :class="[
           'productCardOptionsMobile__block',
           { productCardOptionsMobile__block_active: commentRef },
@@ -59,7 +59,7 @@
           @toggleOption="toggleOption(4)"
         />
         <ProductCardComments v-if="commentRef" :product="product" />
-      </div>
+      </div> -->
     </div>
   </section>
 </template>

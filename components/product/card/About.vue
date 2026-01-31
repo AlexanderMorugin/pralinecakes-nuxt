@@ -1,7 +1,14 @@
 <template>
   <div class="productCardAbout">
-    <WrapperText>{{ product.description_one }}</WrapperText>
-    <WrapperText>{{ product.description_two }}</WrapperText>
+    <WrapperText v-if="product.description_one">{{
+      product.description_one
+    }}</WrapperText>
+    <WrapperText v-if="product.description_two">{{
+      product.description_two
+    }}</WrapperText>
+    <WrapperText v-if="product.description_three">{{
+      product.description_three
+    }}</WrapperText>
   </div>
 </template>
 

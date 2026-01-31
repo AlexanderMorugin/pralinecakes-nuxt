@@ -1,19 +1,19 @@
 <template>
   <div class="productCardDetails">
     <ul class="productCardDetails__list">
-      <li class="productCardDetails__listItem">
+      <li v-if="product.weight" class="productCardDetails__listItem">
         <span class="productCardDetails__text">Вес:</span>
         <div class="line-dashed" />
-        <span class="productCardDetails__text">{{ product.weigth }} гр</span>
+        <span class="productCardDetails__text">{{ product.weight }} гр</span>
       </li>
 
-      <li class="productCardDetails__listItem">
+      <li v-if="product.width" class="productCardDetails__listItem">
         <span class="productCardDetails__text">Ширина:</span>
         <div class="line-dashed" />
         <span class="productCardDetails__text">{{ product.width }} см</span>
       </li>
 
-      <li class="productCardDetails__listItem">
+      <li v-if="product.height" class="productCardDetails__listItem">
         <span class="productCardDetails__text">Высота:</span>
         <div class="line-dashed" />
         <span class="productCardDetails__text">{{ product.height }} см</span>
@@ -22,22 +22,17 @@
       <li class="productCardDetails__listItem">
         <span class="productCardDetails__text">Срок годности:</span>
         <div class="line-dashed" />
-        <span class="productCardDetails__text"
-          >{{ product.expirationDate }} часа</span
-        >
+        <span class="productCardDetails__text">72 часа</span>
       </li>
 
       <li class="productCardDetails__listItem">
         <span class="productCardDetails__text">Температура хранения:</span>
         <div class="line-dashed" />
-        <span class="productCardDetails__text"
-          >от {{ product.storageTemperature[0] }} до
-          {{ product.storageTemperature[1] }}°C</span
-        >
+        <span class="productCardDetails__text">от 4 до 8°C</span>
       </li>
     </ul>
 
-    <ProductCardCart :product="product" />
+    <ProductCardCart v-if="product.price" :product="product" />
   </div>
 </template>
 
@@ -58,8 +53,6 @@ const { product } = defineProps(["product"]);
 
   @media (max-width: 767px) {
     grid-template-columns: repeat(2, 1fr);
-    // padding-left: 5px;
-    // padding-right: 5px;
   }
 
   @media (max-width: 576px) {
@@ -82,12 +75,6 @@ const { product } = defineProps(["product"]);
     display: flex;
     justify-content: space-between;
   }
-
-  // &__line {
-  //   width: 100%;
-  //   min-width: 20px;
-  //   border-bottom: 1px dashed var(--border-primary);
-  // }
 
   &__text {
     font-family: "Montserrat-Regular", sans-serif;

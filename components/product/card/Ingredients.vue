@@ -1,25 +1,48 @@
 <template>
   <div class="productCardIngredients">
-    <WrapperText class="productCardIngredients__main">{{
-      product.ingredients
-    }}</WrapperText>
+    <WrapperText
+      v-if="product.ingredients"
+      class="productCardIngredients__main"
+      >{{ product.ingredients }}</WrapperText
+    >
 
-    <div class="productCardIngredients__nutritionBlock">
+    <div v-if="product.calories" class="productCardIngredients__nutritionBlock">
       <h3 class="productCardIngredients__nutritionTitle">
         Пищевая ценность на 100 гр
       </h3>
       <ul class="productCardIngredients__nutrition">
-        <li
-          v-for="item in product.nutrition"
-          :key="item.name"
-          class="productCardIngredients__item"
-        >
-          <span class="productCardIngredients__name">{{ item.name }}</span>
+        <li class="productCardIngredients__item">
+          <span class="productCardIngredients__name">Белки</span>
           <div>
-            <span class="productCardIngredients__count">{{ item.count }}</span
-            ><span class="productCardIngredients__countSpan">
-              {{ item.name === "Калории" ? " ккал" : " гр" }}</span
-            >
+            <span class="productCardIngredients__count">{{
+              product.protein
+            }}</span
+            ><span class="productCardIngredients__countSpan"> гр</span>
+          </div>
+        </li>
+        <li class="productCardIngredients__item">
+          <span class="productCardIngredients__name">Жиры</span>
+          <div>
+            <span class="productCardIngredients__count">{{ product.fat }}</span
+            ><span class="productCardIngredients__countSpan"> гр</span>
+          </div>
+        </li>
+        <li class="productCardIngredients__item">
+          <span class="productCardIngredients__name">Углеводы</span>
+          <div>
+            <span class="productCardIngredients__count">{{
+              product.carbohydrates
+            }}</span
+            ><span class="productCardIngredients__countSpan"> гр</span>
+          </div>
+        </li>
+        <li class="productCardIngredients__item">
+          <span class="productCardIngredients__name">Калории</span>
+          <div>
+            <span class="productCardIngredients__count">{{
+              product.calories
+            }}</span
+            ><span class="productCardIngredients__countSpan"> ккал</span>
           </div>
         </li>
       </ul>

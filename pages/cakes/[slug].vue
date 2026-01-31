@@ -1,6 +1,6 @@
 <template>
   <WrapperPage>
-    <ProductCard />
+    <ProductCard :product="cakesStore.cake[0]" />
   </WrapperPage>
 </template>
 
