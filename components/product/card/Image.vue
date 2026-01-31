@@ -37,14 +37,14 @@
     <div class="productCardImage__viewport" ref="emblaRef">
       <ul class="productCardImage__container">
         <li
-          v-for="(item, index) in product.image_800"
+          v-for="(item, index) in imagesSmall"
           :key="index"
           class="productCardImage__slide"
         >
           <img
             :src="item"
-            :alt="product.name"
-            :title="product.name"
+            :alt="cakesStore.cake[0].title"
+            :title="cakesStore.cake[0].title"
             class="productCardImage__image"
           />
           <!-- Кнопка "Включить Модалку" -->
@@ -62,7 +62,6 @@
     <Transition name="top">
       <ModalProductCardImage
         v-if="isImageModalOpen"
-        :product="product"
         @closeModal="isImageModalOpen = false"
       />
     </Transition>
@@ -72,9 +71,21 @@
 <script setup>
 import emblaCarouselVue from "embla-carousel-vue";
 
-const { product } = defineProps(["product"]);
+const cakesStore = useCakesStore();
+
+const imagesSmall = ref([
+  cakesStore.cake[0].image_1_small,
+  cakesStore.cake[0].image_2_small,
+  cakesStore.cake[0].image_3_small,
+  cakesStore.cake[0].image_4_small,
+  cakesStore.cake[0].image_5_small,
+  cakesStore.cake[0].image_6_small,
+]);
 
 const [emblaRef, emblaApi] = emblaCarouselVue();
+
+// const smallImages = ref([{product.image_1_small}, ]
+// );
 
 const isImageModalOpen = ref(false);
 

@@ -1,6 +1,6 @@
 <template>
   <WrapperPage>
-    <ProductCard :product="cakesStore.cake" />
+    <ProductCard />
   </WrapperPage>
 </template>
 
@@ -9,7 +9,8 @@ definePageMeta({
   layout: "main",
 });
 
+const route = useRoute();
 const cakesStore = useCakesStore();
 
-await cakesStore.getCake(useRoute().params.slug);
+await cakesStore.getCake(route.params.slug);
 </script>

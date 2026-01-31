@@ -1,7 +1,8 @@
 <template>
   <WrapperPage>
     <TitlePage title="Торты" />
-    <ProductList type="cakes" />
+    <ProductList v-if="cakesStore.cakes.length" type="cakes" />
+    <ProductListEmpty v-else />
   </WrapperPage>
 </template>
 
@@ -9,4 +10,7 @@
 definePageMeta({
   layout: "main",
 });
+
+const cakesStore = useCakesStore();
+await cakesStore.loadCakes();
 </script>

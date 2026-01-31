@@ -1,26 +1,25 @@
 <template>
   <div class="productCard page-padding-x">
+    <!-- {{ cakesStore.cake[0] }} -->
     <div class="productCard__grid">
-      <ProductCardImage :product="product" />
+      <ProductCardImage />
 
       <div class="productCard__details">
-        <ProductCardTitle :product="product" />
+        <!-- <ProductCardTitle :product="product" /> -->
 
-        <ProductCardDetails :product="product" />
+        <!-- <ProductCardDetails :product="product" /> -->
       </div>
     </div>
 
-    <ProductCardOptions v-if="!isScreenMedium" :product="product" />
+    <!-- <ProductCardOptions v-if="!isScreenMedium" :product="product" /> -->
 
-    <ProductCardOptionsMobile v-if="isScreenMedium" :product="product" />
+    <!-- <ProductCardOptionsMobile v-if="isScreenMedium" :product="product" /> -->
   </div>
 </template>
 
 <script setup>
-const { product } = defineProps(["product"]);
-
 const { isScreenMedium } = useResizeMedium();
-const cakesStore = useCakesStore();
+// const cakesStore = useCakesStore();
 </script>
 
 <style lang="scss" scoped>

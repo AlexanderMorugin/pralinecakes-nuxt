@@ -2,7 +2,7 @@
   <WrapperPage class="page-padding-x">
     <ul v-if="type === 'cakes'" class="productList">
       <li v-for="product in cakesStore.cakes" :key="product.id">
-        <ProductListCard :product="product" />
+        <ProductListCard :product="product" :type="type" />
       </li>
     </ul>
   </WrapperPage>

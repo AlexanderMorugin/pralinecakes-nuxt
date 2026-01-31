@@ -6,6 +6,7 @@ import {
   json,
   integer,
   timestamp,
+  boolean,
 } from "drizzle-orm/pg-core";
 
 export const orders = pgTable("orders", {
@@ -35,6 +36,56 @@ export const orders = pgTable("orders", {
   status_accept: text("status_accept"),
   status_delivery: text("status_delivery"),
   status_complete: text("status_complete"),
+
+  createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
+  updatedAt: timestamp("updated_at", { mode: "string" }).notNull().defaultNow(),
+});
+
+export const cakes = pgTable("cakes", {
+  id: serial("id").primaryKey(),
+  slug: text("slug"),
+  title: text("title"),
+  description_short: text("description_short"),
+  description_one: text("description_one"),
+  description_two: text("description_two"),
+  description_three: text("description_three"),
+
+  image_1_small: text("image_1_small"),
+  image_1_big: text("image_1_big"),
+  image_2_small: text("image_2_small"),
+  image_2_big: text("image_2_big"),
+  image_3_small: text("image_3_small"),
+  image_3_big: text("image_3_big"),
+  image_4_small: text("image_4_small"),
+  image_4_big: text("image_4_big"),
+  image_5_small: text("image_5_small"),
+  image_5_big: text("image_5_big"),
+  image_6_small: text("image_6_small"),
+  image_6_big: text("image_6_big"),
+
+  meta_title: text("meta_title"),
+  meta_description: text("meta_description"),
+  meta_сanonical_url: text("meta_сanonical_url"),
+
+  weight: integer("weight"),
+  width: integer("width"),
+  height: integer("height"),
+
+  price: integer("price"),
+  discount: integer("discount"),
+  discount_price: integer("discount_price"),
+
+  ingredients: text("ingredients"),
+
+  calories: text("calories"),
+  protein: text("protein"),
+  fat: text("fat"),
+  carbohydrates: text("carbohydrates"),
+
+  badge: text("badge"),
+  rating: integer("rating"),
+
+  visibility: boolean("visibility").notNull().default(true),
 
   createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
   updatedAt: timestamp("updated_at", { mode: "string" }).notNull().defaultNow(),

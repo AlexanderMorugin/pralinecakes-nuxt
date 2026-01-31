@@ -1,13 +1,13 @@
 <template>
   <section class="productCardTitle">
     <div class="productCardTitle__titleBlock">
-      <h1 class="productCardTitle__name">
-        {{ product.name }}
+      <h1 class="productCardTitle__title">
+        {{ product.title }}
       </h1>
 
       <div class="productCardTitle__ratingBlock">
         <ProductListCardRating :rating="product.rating" />
-        <ButtonWithIcon name="favorite" :isFavorite="product.isFavorite" />
+        <!-- <ButtonWithIcon name="favorite" :isFavorite="product.isFavorite" /> -->
       </div>
     </div>
 
@@ -61,7 +61,7 @@ const { product } = defineProps(["product"]);
     }
   }
 
-  &__name {
+  &__title {
     font-family: "Montserrat-SemiBold", sans-serif;
     font-size: 36px;
     line-height: 48px;

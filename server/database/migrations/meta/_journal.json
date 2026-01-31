@@ -134,6 +134,13 @@
       "when": 1769252726578,
       "tag": "0018_motionless_lord_hawal",
       "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1769788956858,
+      "tag": "0019_yielding_the_leader",
+      "breakpoints": true
     }
   ]
 }

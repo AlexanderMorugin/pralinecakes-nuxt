@@ -43,14 +43,14 @@
         <div class="productCardImage__viewport" ref="emblaRef">
           <ul class="productCardImage__container">
             <li
-              v-for="(item, index) in product.image_2800"
+              v-for="(item, index) in imagesBig"
               :key="index"
               class="productCardImage__slide"
             >
               <img
                 :src="item"
-                :alt="product.name"
-                :title="product.name"
+                :alt="cakesStore.cake[0].title"
+                :title="cakesStore.cake[0].title"
                 class="productCardImage__image"
               />
             </li>
@@ -65,7 +65,18 @@
 import emblaCarouselVue from "embla-carousel-vue";
 
 const emit = defineEmits(["closeModal"]);
-const { product } = defineProps(["product"]);
+// const { images } = defineProps(["images"]);
+
+const cakesStore = useCakesStore();
+
+const imagesBig = ref([
+  cakesStore.cake[0].image_1_big,
+  cakesStore.cake[0].image_2_big,
+  cakesStore.cake[0].image_3_big,
+  cakesStore.cake[0].image_4_big,
+  cakesStore.cake[0].image_5_big,
+  cakesStore.cake[0].image_6_big,
+]);
 
 const [emblaRef, emblaApi] = emblaCarouselVue();
 

@@ -1,39 +1,38 @@
 <template>
   <div class="productListCard">
+    <!-- {{ product.image_1_small }} -->
+
     <NuxtLink
-      :to="`/${product.type}/${product.slug}`"
+      :to="`/${type}/${product.slug}`"
       class="productListCard__overlay"
     ></NuxtLink>
 
-    <ButtonWithIcon
+    <!-- <ButtonWithIcon
       name="favorite"
       :isFavorite="product.isFavorite"
       class="productListCard__buttonFavorite"
-    />
+    /> -->
 
-    <ProductListCardBadge
-      v-if="product.badgeStatus"
-      :badgeStatus="product.badgeStatus"
-    />
+    <ProductListCardBadge v-if="product.badge" :badgeStatus="product.badge" />
 
     <ProductListCardDiscount
       v-if="product.discount"
       :discount="product.discount"
     />
 
-    <ProductListCardImage :image="product.image_800[0]" :name="product.name" />
+    <ProductListCardImage :image="product.image_1_small" :alt="product.title" />
 
     <div class="productListCard__details">
       <ProductListCardTitle
-        :route="`/${product.type}/${product.slug}`"
-        :name="product.name"
+        :route="`/${type}/${product.slug}`"
+        :title="product.title"
         :description="product.description_short"
       />
 
       <div class="productListCard__cartBox">
         <div class="productListCard__statusBox">
           <ProductListCardRating :rating="product.rating" />
-          <ProductListCardComment :comments="product.comments.length" />
+          <!-- <ProductListCardComment :comments="product.comments.length" /> -->
         </div>
 
         <ProductListCardPrice :product="product" />
@@ -45,7 +44,7 @@
 </template>
 
 <script setup>
-const { product } = defineProps(["product"]);
+const { product, type } = defineProps(["product", "type"]);
 </script>
 
 <style lang="scss" scoped>
@@ -58,9 +57,6 @@ const { product } = defineProps(["product"]);
   border: 1px solid var(--border-primary);
   border-radius: var(--border-radius-s);
   overflow: hidden;
-  // z-index: 2;
-
-  // border: 1px solid red;
 
   @media (max-width: 1600px) {
     height: 500px;
@@ -97,6 +93,7 @@ const { product } = defineProps(["product"]);
     position: relative;
     display: flex;
     flex-direction: column;
+    width: 100%;
     z-index: 2;
   }
 

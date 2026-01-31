@@ -1,16 +1,16 @@
 <template>
   <NuxtLink :to="route" class="productListCardTitle">
     <h2 class="productListCardTitle__name">
-      {{ name }}
+      {{ title }}
     </h2>
     <span class="productListCardTitle__description">{{ description }}</span>
   </NuxtLink>
 </template>
 
 <script setup>
-const { route, name, description } = defineProps([
+const { route, title, description } = defineProps([
   "route",
-  "name",
+  "title",
   "description",
 ]);
 </script>
