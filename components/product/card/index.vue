@@ -1,6 +1,5 @@
 <template>
   <div class="productCard page-padding-x">
-    <!-- {{ cakesStore.cake[0] }} -->
     <div class="productCard__grid">
       <ProductCardImage />
 

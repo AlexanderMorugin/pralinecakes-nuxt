@@ -1,59 +1,67 @@
 <template>
   <section class="productCardImage">
-    <!-- Кнопка "НАЗАД" -->
-    <button
-      @click="scrollPrev"
-      :disabled="!canScrollPrev"
-      :class="[
-        'productCardImage__button productCardImage__button_left',
-        { productCardImage__button_disabled: !canScrollPrev },
-      ]"
-    >
-      <IconArrowBack
+    <div v-if="!hasImagesSmallEmpty">
+      <!-- Кнопка "НАЗАД" -->
+      <button
+        @click="scrollPrev"
+        :disabled="!canScrollPrev"
         :class="[
-          'productCardImage__arrow',
-          { productCardImage__arrow_disabled: !canScrollPrev },
+          'productCardImage__button productCardImage__button_left',
+          { productCardImage__button_disabled: !canScrollPrev },
         ]"
-      />
-    </button>
+      >
+        <IconArrowBack
+          :class="[
+            'productCardImage__arrow',
+            { productCardImage__arrow_disabled: !canScrollPrev },
+          ]"
+        />
+      </button>
 
-    <!-- Кнопка "ВПЕРЕД" -->
-    <button
-      @click="scrollNext"
-      :disabled="!canScrollNext"
-      :class="[
-        'productCardImage__button productCardImage__button_right',
-        { productCardImage__button_disabled: !canScrollNext },
-      ]"
-    >
-      <IconArrowForward
+      <!-- Кнопка "ВПЕРЕД" -->
+      <button
+        @click="scrollNext"
+        :disabled="!canScrollNext"
         :class="[
-          'productCardImage__arrow',
-          { productCardImage__arrow_disabled: !canScrollNext },
+          'productCardImage__button productCardImage__button_right',
+          { productCardImage__button_disabled: !canScrollNext },
         ]"
-      />
-    </button>
+      >
+        <IconArrowForward
+          :class="[
+            'productCardImage__arrow',
+            { productCardImage__arrow_disabled: !canScrollNext },
+          ]"
+        />
+      </button>
 
-    <div class="productCardImage__viewport" ref="emblaRef">
-      <ul class="productCardImage__container">
-        <li
-          v-for="(item, index) in imagesSmall"
-          :key="index"
-          class="productCardImage__slide"
-        >
-          <img
-            :src="item"
-            :alt="cakesStore.cake[0].title"
-            :title="cakesStore.cake[0].title"
-            class="productCardImage__image"
-          />
-          <!-- Кнопка "Включить Модалку" -->
-          <IconLoupe
-            @click="isImageModalOpen = true"
-            class="productCardImage__loupe"
-          />
-        </li>
-      </ul>
+      <div class="productCardImage__viewport" ref="emblaRef">
+        <ul class="productCardImage__container">
+          <li
+            v-for="(item, index) in imagesSmall"
+            :key="index"
+            class="productCardImage__slide"
+          >
+            <img
+              v-if="item"
+              :src="item"
+              :alt="cakesStore.cake[0].title"
+              :title="cakesStore.cake[0].title"
+              class="productCardImage__image"
+            />
+
+            <!-- Кнопка "Включить Модалку" -->
+            <IconLoupe
+              @click="isImageModalOpen = true"
+              class="productCardImage__loupe"
+            />
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div v-else class="productCardImage__noImage">
+      <span class="productCardImage__noImageText">Изображения нет</span>
     </div>
   </section>
 
@@ -82,10 +90,14 @@ const imagesSmall = ref([
   cakesStore.cake[0].image_6_small,
 ]);
 
-const [emblaRef, emblaApi] = emblaCarouselVue();
+const hasImagesSmallEmpty = computed(() => {
+  for (let val of Object.values(imagesSmall.value)) {
+    if (!val) return true;
+  }
+  return false;
+});
 
-// const smallImages = ref([{product.image_1_small}, ]
-// );
+const [emblaRef, emblaApi] = emblaCarouselVue();
 
 const isImageModalOpen = ref(false);
 
@@ -219,6 +231,21 @@ onMounted(() => {
     object-position: center;
     object-fit: cover;
     border-radius: var(--border-radius-s);
+  }
+
+  &__noImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 190px;
+    background: var(--gradient-product-blue-primary);
+  }
+
+  &__noImageText {
+    font-family: "Montserrat-Regular", sans-serif;
+    font-size: 20px;
+    color: var(--mask-white-primary);
+    text-align: center;
   }
 
   &__loupe {

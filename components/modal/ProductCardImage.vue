@@ -65,7 +65,6 @@
 import emblaCarouselVue from "embla-carousel-vue";
 
 const emit = defineEmits(["closeModal"]);
-// const { images } = defineProps(["images"]);
 
 const cakesStore = useCakesStore();
 
@@ -80,7 +79,7 @@ const imagesBig = ref([
 
 const [emblaRef, emblaApi] = emblaCarouselVue();
 
-const isImageModalOpen = ref(false);
+// const isImageModalOpen = ref(false);
 
 const canScrollPrev = ref(false);
 const canScrollNext = ref(false);

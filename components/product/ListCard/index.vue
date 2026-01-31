@@ -1,7 +1,5 @@
 <template>
   <div class="productListCard">
-    <!-- {{ product.image_1_small }} -->
-
     <NuxtLink
       :to="`/${type}/${product.slug}`"
       class="productListCard__overlay"
