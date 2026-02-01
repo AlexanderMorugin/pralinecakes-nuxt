@@ -1,62 +1,19 @@
 import { defineStore } from "pinia";
 
-// export type TComment = {
-//   id: number;
-//   name: string;
-//   rating: number;
-//   date: string;
-//   comment: string;
-//   productId: number;
-// };
-
-export interface ICake {
-  id?: any;
-  type?: string;
-  slug?: string;
-  title?: string;
-  description_short?: string;
-  description_one?: string;
-  description_two?: string;
-  description_three?: string;
-
-  image_1_small?: string;
-  image_1_big?: string;
-  image_2_small?: string;
-  image_2_big?: string;
-  image_3_small?: string;
-  image_3_big?: string;
-  image_4_small?: string;
-  image_4_big?: string;
-  image_5_small?: string;
-  image_5_big?: string;
-  image_6_small?: string;
-  image_6_big?: string;
-
-  meta_title?: string;
-  meta_description?: string;
-  meta_сanonical_url?: string;
-
-  weight?: number;
-  width?: number;
-  height?: number;
-
-  price?: number;
-  discount?: number;
-  discount_price?: number;
-
-  ingredients?: string;
-  protein?: string;
-  fat?: string;
-  carbohydrates?: string;
-  calories?: string;
-
-  visibility: boolean;
+export interface IComment {
+  id?: number;
+  product_id?: number;
+  date?: string;
+  user_name?: string;
+  user_rating?: number;
+  user_comment?: string;
+  visibility?: boolean;
 
   createdAt?: any;
   updatedAt?: any;
 }
 
-export const useCakesStore = defineStore("cakesStore", () => {
+export const useCommentsStore = defineStore("commentsStore", () => {
   // const cakes = ref<ICake[]>([
   //   {
   //     id: 1,
@@ -347,40 +304,42 @@ export const useCakesStore = defineStore("cakesStore", () => {
   //   },
   // ]);
 
-  const cakes = ref<ICake[] | any>([]);
-  const cake = ref<ICake | any>(null);
+  const comments = ref<IComment[] | any>([]);
+  const comment = ref<IComment | any>(null);
 
-  const loadCakes = async () => {
-    const result = await useFetch("/api/cakes/load-cakes", {
+  const loadComments = async () => {
+    const result = await useFetch("/api/comments/load-comments", {
       method: "GET",
     });
 
     if (result.status.value === "success") {
-      cakes.value = result.data.value;
+      comments.value = result.data.value;
     }
 
     return result;
   };
 
-  const getCake = async (cakeSlug: string) => {
-    const result = await useFetch("/api/cakes/get-cake", {
+  const createComment = async (formData: IComment) => {
+    // console.log(formData);
+
+    const result = await useFetch("/api/comments/create-comment", {
       method: "POST",
       body: {
-        slug: cakeSlug,
+        product_id: formData.product_id,
+        date: formData.date,
+        user_name: formData.user_name,
+        user_rating: formData.user_rating,
+        user_comment: formData.user_comment,
       },
     });
-
-    if (result.status.value === "success") {
-      cake.value = result.data.value;
-    }
 
     return result;
   };
 
   return {
-    cakes,
-    cake,
-    loadCakes,
-    getCake,
+    comments,
+    comment,
+    loadComments,
+    createComment,
   };
 });

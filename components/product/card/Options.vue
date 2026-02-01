@@ -22,13 +22,24 @@
         :buttonRef="commentRef"
         @toggleOption="toggleOption(4)"
       /> -->
+      <ButtonProductCardOption
+        title="Отзывы"
+        comments="5"
+        :buttonRef="commentRef"
+        @toggleOption="toggleOption(4)"
+      />
     </div>
 
     <div class="productCardOptions__block">
       <ProductCardAbout v-if="aboutRef" :product="product" />
       <ProductCardIngredients v-if="ingredientRef" :product="product" />
-      <!-- <div v-if="paymentRef">Оплата и доставка</div>
-      <ProductCardComments v-if="commentRef" :product="product" /> -->
+      <div v-if="paymentRef">
+        Вся продукция доставляется в замороженном виде, а наши автомобили
+        оборудованы специальными морозильными камерами. Мы соблюдаем
+        температурный режим транспортировки и несём полную гарантию качества
+        своей продукции.
+      </div>
+      <ProductCardComments v-if="commentRef" :product="product" />
     </div>
   </section>
 </template>

@@ -60,7 +60,18 @@
       </div>
     </div>
 
-    <div v-else class="productCardImage__noImage">
+    <img
+      v-if="hasImagesSmallEmpty && product.image_1_small"
+      :src="product.image_1_small"
+      :alt="product.title"
+      :title="product.title"
+      class="productCardImage__image"
+    />
+
+    <div
+      v-if="hasImagesSmallEmpty && !product.image_1_small"
+      class="productCardImage__noImage"
+    >
       <span class="productCardImage__noImageText">Изображения нет</span>
     </div>
   </section>

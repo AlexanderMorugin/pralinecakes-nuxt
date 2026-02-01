@@ -7,6 +7,7 @@ import {
 } from "~/utils/constants/info";
 
 export interface ICart extends ICake {
+  price: number;
   discount_price: number;
   count: number;
   total_product_price: number;
@@ -17,18 +18,14 @@ export const cartProduct = (product: ICart) => {
     id: product.id,
     type: product.type,
     slug: product.slug,
-    image_800: product.image_800[0],
-    name: product.name,
+    image: product.image_1_small,
+    title: product.title,
     price: product.price,
     discount: product.discount,
-    discount_price: computed(() =>
-      product.discount
-        ? product.price - (product.price * product.discount) / 100
-        : null,
-    ),
-    weigth: product.weigth,
+    discount_price: product.discount_price,
+    weight: product.weight,
     count: 1,
-    total_product_price: computed(() => product.price * product.count),
+    total_product_price: computed(() => product.discount_price * product.count),
   };
 
   return hasProduct;

@@ -50,6 +50,10 @@ import { helpers, required, minLength } from "@vuelidate/validators";
 
 const { product } = defineProps(["product"]);
 
+const toast = useToast();
+const { date } = useDate();
+const commentsStore = useCommentsStore();
+
 const isCommentSend = ref(false);
 const isLoading = ref(false);
 const userName = ref(null);
@@ -81,7 +85,7 @@ const v$ = useVuelidate(rules, {
 });
 
 const isFromEmpty = computed(
-  () => !userName.value || !userComment.value || !productRating.value
+  () => !userName.value || !userComment.value || !productRating.value,
 );
 
 const isValid = computed(() => v$.value.$errors);
@@ -91,19 +95,34 @@ const submitComment = async () => {
     isLoading.value = true;
 
     if (!isFromEmpty.value && !isValid.value.length) {
-      const commentData = {
-        name: userName.value.trim(),
-        rating: productRating.value,
-        comment: userComment.value.trim(),
-        productId: product.id,
+      const formData = {
+        date: date,
+        user_name: userName.value.trim(),
+        user_rating: productRating.value,
+        user_comment: userComment.value.trim(),
+        product_id: product.id,
       };
 
-      console.log(commentData);
+      const result = await commentsStore.createComment(formData);
 
-      isCommentSend.value = true;
-      userName.value = null;
-      productRating.value = null;
-      userComment.value = null;
+      if (result.status.value === "error") {
+        toast.error({
+          title: "Ошибка!",
+          message: "Отзыв отправить не удалось.",
+        });
+      }
+
+      if (result.status.value === "success") {
+        toast.success({
+          title: "Успешно!",
+          message: "Отзыв отправлен.",
+        });
+
+        isCommentSend.value = true;
+        userName.value = null;
+        productRating.value = null;
+        userComment.value = null;
+      }
     }
   } catch (error) {
     console.log(error);

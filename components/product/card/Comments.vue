@@ -1,13 +1,15 @@
 <template>
   <div class="productCardComments">
-    <div v-if="product.comments.length" class="productCardComments__list">
+    <!-- <div v-if="product.comments.length" class="productCardComments__list">
       <CommentProduct
         v-for="comment in product.comments"
         :key="comment.id"
         :comment="comment"
       />
     </div>
-    <WrapperText v-else>Отзывов пока нет.</WrapperText>
+    <WrapperText v-else>Отзывов пока нет.</WrapperText> -->
+
+    <WrapperText>Отзывов пока нет.</WrapperText>
 
     <FormComment :product="product" />
   </div>

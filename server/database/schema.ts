@@ -43,6 +43,7 @@ export const orders = pgTable("orders", {
 
 export const cakes = pgTable("cakes", {
   id: serial("id").primaryKey(),
+  type: text("type"),
   slug: text("slug"),
   title: text("title"),
   description_short: text("description_short"),
@@ -91,34 +92,18 @@ export const cakes = pgTable("cakes", {
   updatedAt: timestamp("updated_at", { mode: "string" }).notNull().defaultNow(),
 });
 
-// export const cart_list = pgTable("cart_list", {
-//   id: integer("id").notNull(),
-//   type: text("type"),
-//   slug: text("slug"),
-//   image_list_card: text("image_list_card"),
-//   name: text("name"),
-//   price: integer("price"),
-//   discount: integer("discount"),
-//   discount_price: integer("discount_price"),
-//   weigth: integer("weigth"),
-//   count: integer("count"),
-//   total_product_price: integer("total_product_price"),
+export const comments = pgTable("comments", {
+  id: serial("order_id").primaryKey(),
+  date: text("date"),
 
-//   order_id: integer("order_id")
-//     .notNull()
-//     .references(() => orders.id),
+  product_id: integer("product_id"),
 
-//   createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
-//   updatedAt: timestamp("updated_at", { mode: "string" }).notNull().defaultNow(),
-// });
+  user_name: text("user_name"),
+  user_rating: integer("user_rating"),
+  user_comment: text("user_comment"),
 
-// export const ordersRelations = relations(orders, ({ many }) => ({
-//   cart_list: many(cart_list),
-// }));
+  visibility: boolean("visibility").notNull().default(false),
 
-// export const cartListRelations = relations(cart_list, ({ one }) => ({
-//   order: one(orders, {
-//     fields: [cart_list.order_id],
-//     references: [orders.id],
-//   }),
-// }));
+  createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
+  updatedAt: timestamp("updated_at", { mode: "string" }).notNull().defaultNow(),
+});

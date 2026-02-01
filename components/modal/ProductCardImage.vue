@@ -67,17 +67,6 @@ import emblaCarouselVue from "embla-carousel-vue";
 const emit = defineEmits(["closeModal"]);
 const { product } = defineProps(["product"]);
 
-// const cakesStore = useCakesStore();
-
-// const imagesBig = ref([
-//   cakesStore.cake[0].image_1_big,
-//   cakesStore.cake[0].image_2_big,
-//   cakesStore.cake[0].image_3_big,
-//   cakesStore.cake[0].image_4_big,
-//   cakesStore.cake[0].image_5_big,
-//   cakesStore.cake[0].image_6_big,
-// ]);
-
 const imagesBig = ref([
   product.image_1_big,
   product.image_2_big,

@@ -27,7 +27,7 @@ const { product } = defineProps(["product"]);
 const cartStore = useCartStore();
 
 const productById = computed(() =>
-  cartStore.cart.filter((item) => item.id === product.id)
+  cartStore.cart.filter((item) => item.id === product.id),
 );
 </script>
 

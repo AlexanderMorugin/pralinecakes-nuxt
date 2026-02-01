@@ -4,11 +4,7 @@
       :to="`/${product.type}/${product.slug}`"
       class="cartCard__imageBox"
     >
-      <img
-        :src="product.image_800"
-        :alt="product.name"
-        class="cartCard__image"
-      />
+      <img :src="product.image" :alt="product.name" class="cartCard__image" />
     </NuxtLink>
     <div class="cartCard__nameBox">
       <span class="cartCard__name">{{ product.name }}</span>

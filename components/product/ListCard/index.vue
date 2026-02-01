@@ -1,7 +1,7 @@
 <template>
   <div class="productListCard">
     <NuxtLink
-      :to="`/${type}/${product.slug}`"
+      :to="`/${product.type}/${product.slug}`"
       class="productListCard__overlay"
     ></NuxtLink>
 
@@ -22,7 +22,7 @@
 
     <div class="productListCard__details">
       <ProductListCardTitle
-        :route="`/${type}/${product.slug}`"
+        :route="`/${product.type}/${product.slug}`"
         :title="product.title"
         :description="product.description_short"
       />
@@ -42,7 +42,7 @@
 </template>
 
 <script setup>
-const { product, type } = defineProps(["product", "type"]);
+const { product } = defineProps(["product"]);
 </script>
 
 <style lang="scss" scoped>
