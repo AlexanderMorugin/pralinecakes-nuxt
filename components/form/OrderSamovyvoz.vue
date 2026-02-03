@@ -86,27 +86,12 @@ const isFromEmpty = computed(() => !nameField.value || !phoneField.value);
 const isValid = computed(() => v$.value.$errors);
 
 const submitOrder = async () => {
-  // let today = new Date();
-
   try {
     isLoading.value = true;
 
     const formData = {
       order_number: "С" + number,
-      // today.getDate() +
-      // (today.getMonth() + 1) +
-      // today.getMinutes() +
-      // today.getSeconds(),
       order_date: date,
-      // today.getDate() +
-      // "." +
-      // (today.getMonth() + 1) +
-      // "." +
-      // today.getFullYear() +
-      // " " +
-      // today.getHours() +
-      // ":" +
-      // today.getMinutes(),
       delivery_type: cartStore.deliveryType,
       total_cart_count: cartStore.totalCartCount,
       total_cart_sum: cartStore.totalCartSum,
