@@ -2,14 +2,14 @@
   <div class="commentProduct">
     <div class="commentProduct__titleBox">
       <div class="commentProduct__title">
-        <span class="commentProduct__name">{{ comment.name }}</span>
+        <span class="commentProduct__name">{{ comment.user_name }}</span>
         <span class="commentProduct__date">{{ comment.date }}</span>
       </div>
-      <ProductListCardRating :rating="comment.rating" />
+      <ProductListCardRating :rating="comment.user_rating" />
     </div>
 
     <WrapperText class="commentProduct__comment">{{
-      comment.comment
+      comment.user_comment
     }}</WrapperText>
   </div>
 </template>

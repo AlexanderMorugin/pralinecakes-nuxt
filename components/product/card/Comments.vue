@@ -1,22 +1,20 @@
 <template>
   <div class="productCardComments">
-    <!-- <div v-if="product.comments.length" class="productCardComments__list">
+    <div v-if="comments.length" class="productCardComments__list">
       <CommentProduct
-        v-for="comment in product.comments"
+        v-for="comment in comments"
         :key="comment.id"
         :comment="comment"
       />
     </div>
-    <WrapperText v-else>Отзывов пока нет.</WrapperText> -->
-
-    <WrapperText>Отзывов пока нет.</WrapperText>
+    <WrapperText v-else>Отзывов пока нет.</WrapperText>
 
     <FormComment :product="product" />
   </div>
 </template>
 
 <script setup>
-const { product } = defineProps(["product"]);
+const { product, comments } = defineProps(["product", "comments"]);
 </script>
 
 <style lang="scss" scoped>

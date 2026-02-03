@@ -10,7 +10,11 @@
       </div>
     </div>
 
-    <ProductCardOptions v-if="!isScreenMedium" :product="product" />
+    <ProductCardOptions
+      v-if="!isScreenMedium"
+      :product="product"
+      :comments="commentsStore.productComments"
+    />
 
     <ProductCardOptionsMobile v-if="isScreenMedium" :product="product" />
   </div>
@@ -19,6 +23,9 @@
 <script setup>
 const { isScreenMedium } = useResizeMedium();
 const { product } = defineProps(["product"]);
+
+const commentsStore = useCommentsStore();
+await commentsStore.getProductComments(product.id);
 </script>
 
 <style lang="scss" scoped>

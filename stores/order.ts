@@ -41,7 +41,7 @@ export const useOrderStore = defineStore("orderStore", () => {
       body: formData,
     });
 
-    console.log("orderStore-orderData - ", formData);
+    // console.log("orderStore-orderData - ", formData);
 
     if (result.status.value === "success") {
       order.value = formData;

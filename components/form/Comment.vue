@@ -50,6 +50,8 @@ import { helpers, required, minLength } from "@vuelidate/validators";
 
 const { product } = defineProps(["product"]);
 
+// console.log(product.id, product.title, product.image_1_small);
+
 const toast = useToast();
 const { date } = useDate();
 const commentsStore = useCommentsStore();
@@ -101,6 +103,8 @@ const submitComment = async () => {
         user_rating: productRating.value,
         user_comment: userComment.value.trim(),
         product_id: product.id,
+        product_image: product.image_1_small,
+        product_title: product.title,
       };
 
       const result = await commentsStore.createComment(formData);

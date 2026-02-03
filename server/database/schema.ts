@@ -97,6 +97,8 @@ export const comments = pgTable("comments", {
   date: text("date"),
 
   product_id: integer("product_id"),
+  product_image: text("product_image"),
+  product_title: text("product_title"),
 
   user_name: text("user_name"),
   user_rating: integer("user_rating"),

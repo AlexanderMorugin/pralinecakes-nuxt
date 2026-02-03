@@ -16,15 +16,9 @@
         :buttonRef="paymentRef"
         @toggleOption="toggleOption(3)"
       />
-      <!-- <ButtonProductCardOption
-        title="Отзывы"
-        :comments="product.comments.length"
-        :buttonRef="commentRef"
-        @toggleOption="toggleOption(4)"
-      /> -->
       <ButtonProductCardOption
         title="Отзывы"
-        comments="5"
+        :comments="comments.length"
         :buttonRef="commentRef"
         @toggleOption="toggleOption(4)"
       />
@@ -39,13 +33,17 @@
         температурный режим транспортировки и несём полную гарантию качества
         своей продукции.
       </div>
-      <ProductCardComments v-if="commentRef" :product="product" />
+      <ProductCardComments
+        v-if="commentRef"
+        :product="product"
+        :comments="comments"
+      />
     </div>
   </section>
 </template>
 
 <script setup>
-const { product } = defineProps(["product"]);
+const { product, comments } = defineProps(["product", "comments"]);
 
 const aboutRef = ref(true);
 const ingredientRef = ref(false);

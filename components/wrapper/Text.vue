@@ -11,6 +11,7 @@
   line-height: 28px;
   color: var(--white-primary);
   letter-spacing: 1px;
+  word-break: break-all;
 
   @media (max-width: 767px) {
     font-size: 16px;

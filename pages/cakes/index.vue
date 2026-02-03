@@ -13,4 +13,7 @@ definePageMeta({
 
 const cakesStore = useCakesStore();
 await cakesStore.loadCakes();
+
+const commentsStore = useCommentsStore();
+await commentsStore.loadComments();
 </script>

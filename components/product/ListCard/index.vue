@@ -30,7 +30,12 @@
       <div class="productListCard__cartBox">
         <div class="productListCard__statusBox">
           <ProductListCardRating :rating="product.rating" />
-          <!-- <ProductListCardComment :comments="product.comments.length" /> -->
+
+          <ProductListCardComment
+            :comments="
+              commentsStore.filterCommentsByProductId(product.id).length
+            "
+          />
         </div>
 
         <ProductListCardPrice v-if="product.price" :product="product" />
@@ -43,6 +48,8 @@
 
 <script setup>
 const { product } = defineProps(["product"]);
+
+const commentsStore = useCommentsStore();
 </script>
 
 <style lang="scss" scoped>
