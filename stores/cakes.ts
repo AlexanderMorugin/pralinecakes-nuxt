@@ -34,7 +34,7 @@ export interface ICake {
 
   meta_title?: string;
   meta_description?: string;
-  meta_сanonical_url?: string;
+  // meta_сanonical_url?: string;
 
   weight?: number;
   width?: number;

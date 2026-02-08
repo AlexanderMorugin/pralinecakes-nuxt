@@ -1,0 +1,1 @@
+ALTER TABLE "cakes" DROP COLUMN "meta_сanonical_url";

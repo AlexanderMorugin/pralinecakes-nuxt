@@ -5,6 +5,8 @@
 </template>
 
 <script setup>
+import { SITE, SITE_NAME, SITE_AUTHOR } from "@/utils/constants/meta";
+
 definePageMeta({
   layout: "main",
 });
@@ -13,4 +15,24 @@ const route = useRoute();
 const cakesStore = useCakesStore();
 
 await cakesStore.getCake(route.params.slug);
+
+// console.log(cakesStore.cake[0].meta_сanonical_url);
+
+useHead({
+  link: [{ rel: "canonical", href: `${route.path}` }],
+});
+
+useSeoMeta({
+  title: cakesStore.cake[0].meta_title,
+  description: cakesStore.cake[0].meta_description,
+  author: `${SITE_AUTHOR}`,
+  robots: "index, follow",
+  ogTitle: cakesStore.cake[0].meta_title,
+  ogDescription: cakesStore.cake[0].meta_description,
+  ogImage: cakesStore.cake[0].image_1_small,
+  ogUrl: `${SITE}${route.path}`,
+  ogSiteName: `${SITE_NAME}`,
+  ogType: "website",
+  ogLocale: "ru_RU",
+});
 </script>

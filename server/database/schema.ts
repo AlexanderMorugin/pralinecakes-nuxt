@@ -66,7 +66,7 @@ export const cakes = pgTable("cakes", {
 
   meta_title: text("meta_title"),
   meta_description: text("meta_description"),
-  meta_сanonical_url: text("meta_сanonical_url"),
+  // meta_сanonical_url: text("meta_сanonical_url"),
 
   weight: integer("weight"),
   width: integer("width"),
