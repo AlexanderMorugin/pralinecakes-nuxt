@@ -16,8 +16,6 @@ const cakesStore = useCakesStore();
 
 await cakesStore.getCake(route.params.slug);
 
-// console.log(cakesStore.cake[0].meta_сanonical_url);
-
 useHead({
   link: [{ rel: "canonical", href: `${route.path}` }],
 });
