@@ -17,7 +17,7 @@ const cakesStore = useCakesStore();
 await cakesStore.getCake(route.params.slug);
 
 useHead({
-  link: [{ rel: "canonical", href: `${route.path}` }],
+  link: [{ rel: "canonical", href: `${SITE}${route.path}` }],
 });
 
 useSeoMeta({
