@@ -25,7 +25,7 @@ const route = useRoute();
 const cartStore = useCartStore();
 
 useHead({
-  link: [{ rel: "canonical", href: `${route.path}` }],
+  link: [{ rel: "canonical", href: `${SITE}${route.path}` }],
 });
 
 useSeoMeta({
