@@ -6,6 +6,8 @@
       >{{ product.ingredients }}</WrapperText
     >
 
+    <WrapperText v-else>Ингредиентов пока нет.</WrapperText>
+
     <div v-if="product.calories" class="productCardIngredients__nutritionBlock">
       <h3 class="productCardIngredients__nutritionTitle">
         Пищевая ценность на 100 гр

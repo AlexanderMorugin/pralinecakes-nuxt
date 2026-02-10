@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import type { IProduct } from "~/types/product";
 
 // export type TComment = {
 //   id: number;
@@ -9,52 +10,52 @@ import { defineStore } from "pinia";
 //   productId: number;
 // };
 
-export interface ICake {
-  id?: any;
-  type?: string;
-  slug?: string;
-  title?: string;
-  description_short?: string;
-  description_one?: string;
-  description_two?: string;
-  description_three?: string;
+// export interface ICake {
+//   id?: any;
+//   type?: string;
+//   slug?: string;
+//   title?: string;
+//   description_short?: string;
+//   description_one?: string;
+//   description_two?: string;
+//   description_three?: string;
 
-  image_1_small?: string;
-  image_1_big?: string;
-  image_2_small?: string;
-  image_2_big?: string;
-  image_3_small?: string;
-  image_3_big?: string;
-  image_4_small?: string;
-  image_4_big?: string;
-  image_5_small?: string;
-  image_5_big?: string;
-  image_6_small?: string;
-  image_6_big?: string;
+//   image_1_small?: string;
+//   image_1_big?: string;
+//   image_2_small?: string;
+//   image_2_big?: string;
+//   image_3_small?: string;
+//   image_3_big?: string;
+//   image_4_small?: string;
+//   image_4_big?: string;
+//   image_5_small?: string;
+//   image_5_big?: string;
+//   image_6_small?: string;
+//   image_6_big?: string;
 
-  meta_title?: string;
-  meta_description?: string;
-  // meta_сanonical_url?: string;
+//   meta_title?: string;
+//   meta_description?: string;
+//   // meta_сanonical_url?: string;
 
-  weight?: number;
-  width?: number;
-  height?: number;
+//   weight?: number;
+//   width?: number;
+//   height?: number;
 
-  price?: number;
-  discount?: number;
-  discount_price?: number;
+//   price?: number;
+//   discount?: number;
+//   discount_price?: number;
 
-  ingredients?: string;
-  protein?: string;
-  fat?: string;
-  carbohydrates?: string;
-  calories?: string;
+//   ingredients?: string;
+//   protein?: string;
+//   fat?: string;
+//   carbohydrates?: string;
+//   calories?: string;
 
-  visibility: boolean;
+//   visibility: boolean;
 
-  createdAt?: any;
-  updatedAt?: any;
-}
+//   createdAt?: any;
+//   updatedAt?: any;
+// }
 
 export const useCakesStore = defineStore("cakesStore", () => {
   // const cakes = ref<ICake[]>([
@@ -347,8 +348,8 @@ export const useCakesStore = defineStore("cakesStore", () => {
   //   },
   // ]);
 
-  const cakes = ref<ICake[] | any>([]);
-  const cake = ref<ICake | any>(null);
+  const cakes = ref<IProduct[] | any>([]);
+  const cake = ref<IProduct | any>(null);
 
   const loadCakes = async () => {
     const result = await useFetch("/api/cakes/load-cakes", {

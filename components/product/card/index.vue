@@ -16,7 +16,11 @@
       :comments="commentsStore.productComments"
     />
 
-    <ProductCardOptionsMobile v-if="isScreenMedium" :product="product" />
+    <ProductCardOptionsMobile
+      v-if="isScreenMedium"
+      :product="product"
+      :comments="commentsStore.productComments"
+    />
   </div>
 </template>
 

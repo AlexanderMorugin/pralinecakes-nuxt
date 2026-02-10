@@ -46,7 +46,7 @@
           своей продукции.
         </div>
       </div>
-      <!-- <div
+      <div
         :class="[
           'productCardOptionsMobile__block',
           { productCardOptionsMobile__block_active: commentRef },
@@ -55,17 +55,21 @@
         <ButtonProductCardOptionMobile
           title="Отзывы"
           :buttonRef="commentRef"
-          :comments="product.comments.length"
+          :comments="comments.length"
           @toggleOption="toggleOption(4)"
         />
-        <ProductCardComments v-if="commentRef" :product="product" />
-      </div> -->
+        <ProductCardComments
+          v-if="commentRef"
+          :product="product"
+          :comments="comments"
+        />
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
-const { product } = defineProps(["product"]);
+const { product, comments } = defineProps(["product", "comments"]);
 
 const aboutRef = ref(false);
 const ingredientRef = ref(false);

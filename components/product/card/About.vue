@@ -1,8 +1,11 @@
 <template>
   <div class="productCardAbout">
-    <WrapperText v-if="product.description_one">{{
-      product.description_one
-    }}</WrapperText>
+    <div>
+      <WrapperText v-if="product.description_one">{{
+        product.description_one
+      }}</WrapperText>
+      <WrapperText v-else>Описания пока нет.</WrapperText>
+    </div>
     <WrapperText v-if="product.description_two">{{
       product.description_two
     }}</WrapperText>
