@@ -47,7 +47,6 @@
     </div>
   </header>
 
-  <!-- <ClientOnly> -->
   <!-- Модалка меню -->
   <Teleport to="#teleports">
     <Transition name="left">
@@ -131,7 +130,6 @@
       />
     </Transition>
   </Teleport>
-  <!-- </ClientOnly> -->
 </template>
 
 <script setup>

@@ -60,6 +60,7 @@ export const useCartStore = defineStore("cartStore", () => {
     cart.value = cart.value.map((item) =>
       item.id === productId ? { ...item, count: item.count + 1 } : item,
     );
+    localStorage.setItem("cart", JSON.stringify(cart.value));
   };
 
   const decrementCartItem = (productId: Number) => {
@@ -71,6 +72,7 @@ export const useCartStore = defineStore("cartStore", () => {
       cart.value = cart.value.map((item) =>
         item.id === productId ? { ...item, count: item.count - 1 } : item,
       );
+      localStorage.setItem("cart", JSON.stringify(cart.value));
     }
   };
 
@@ -78,6 +80,7 @@ export const useCartStore = defineStore("cartStore", () => {
     const currentItem = cart.value.find((item) => item.id === productId);
 
     cart.value = cart.value.filter((item) => item !== currentItem);
+    localStorage.setItem("cart", JSON.stringify(cart.value));
   };
 
   const totalCartCount = computed(
