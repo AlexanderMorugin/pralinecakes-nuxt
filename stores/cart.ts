@@ -175,6 +175,7 @@ export const useCartStore = defineStore("cartStore", () => {
     deliveryCost.value = DELIVERY_SUM;
     samovyvozBonus.value = 0;
     deliveryType.value = "Доставка";
+    localStorage.setItem("cart", JSON.stringify(cart.value));
   };
 
   return {

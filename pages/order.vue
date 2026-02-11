@@ -1,7 +1,5 @@
 <template>
   <WrapperPage>
-    <FormOrderDelete />
-
     <OrderSuccess />
   </WrapperPage>
 </template>

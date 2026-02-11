@@ -1,9 +1,12 @@
 <template>
   <WrapperPage>
     <TitlePage title="Корзина" />
-    <CartEmpty v-if="!cartStore.cart.length" />
+    <!-- <CartEmpty v-if="!cartStore.cart.length" /> -->
 
-    <Cart v-else />
+    <!-- <Cart v-else /> -->
+    <ClientOnly>
+      <Cart />
+    </ClientOnly>
   </WrapperPage>
 </template>
 
@@ -24,8 +27,6 @@ definePageMeta({
 
 const route = useRoute();
 const cartStore = useCartStore();
-
-// await cartStore.getCart();
 
 useHead({
   link: [{ rel: "canonical", href: `${SITE}${route.path}` }],

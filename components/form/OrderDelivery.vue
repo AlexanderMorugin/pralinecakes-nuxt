@@ -241,7 +241,7 @@ const submitOrder = async () => {
         title: "Успешно!",
         message: "Заказ отправлен.",
       });
-
+      cartStore.cleanCart();
       return navigateTo("/order");
     }
   } catch (err) {
