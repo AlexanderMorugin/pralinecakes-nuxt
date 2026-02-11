@@ -1,7 +1,9 @@
 <template>
   <div class="mainLayout">
     <div class="mainLayout__overlay" />
-    <Header />
+    <ClientOnly>
+      <Header />
+    </ClientOnly>
 
     <main class="mainLayout__content">
       <NuxtPage />

@@ -18,11 +18,14 @@ import {
 } from "@/utils/constants/meta";
 
 definePageMeta({
+  middleware: ["cart"],
   layout: "main",
 });
 
 const route = useRoute();
 const cartStore = useCartStore();
+
+// await cartStore.getCart();
 
 useHead({
   link: [{ rel: "canonical", href: `${SITE}${route.path}` }],

@@ -1,6 +1,5 @@
 <template>
   <header class="header">
-    <!-- <WrapperPadding> -->
     <div class="header__container">
       <div class="header__left">
         <ButtonWithIcon
@@ -46,7 +45,6 @@
         </div>
       </div>
     </div>
-    <!-- </WrapperPadding> -->
   </header>
 
   <!-- <ClientOnly> -->

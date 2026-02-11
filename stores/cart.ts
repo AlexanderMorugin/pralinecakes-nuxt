@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import type { IProduct } from "~/types/product";
 import {
   DELIVERY_SUM,
   MIN_ORDER_SUM,
@@ -6,7 +7,7 @@ import {
   USER_BONUS,
 } from "~/utils/constants/info";
 
-export interface ICart extends ICake {
+export interface ICart extends IProduct {
   price: number;
   discount_price: number;
   count: number;
@@ -38,6 +39,12 @@ export const useCartStore = defineStore("cartStore", () => {
   const samovyvozBonus = ref(0);
   const deliveryType = ref<string>("Доставка");
 
+  const setCart = (cartData: any) => {
+    if (cartData) {
+      cart.value = cartData;
+    }
+  };
+
   const addCartItem = (product: ICart) => {
     // Если в корзине есть продукт с таким id, то останавливаем операцию
     // Иначе добавляем продукт в корзину
@@ -45,6 +52,7 @@ export const useCartStore = defineStore("cartStore", () => {
       return;
     } else {
       cart.value.push(product);
+      localStorage.setItem("cart", JSON.stringify(cart.value));
     }
   };
 
@@ -168,6 +176,7 @@ export const useCartStore = defineStore("cartStore", () => {
 
   return {
     cart,
+    setCart,
     addCartItem,
     incrementCartItem,
     decrementCartItem,
