@@ -41,13 +41,19 @@ export const useOrderStore = defineStore("orderStore", () => {
       body: formData,
     });
 
-    // console.log("orderStore-orderData - ", formData);
-
     if (result.status.value === "success") {
       order.value = formData;
-    }
 
-    return result;
+      const data = await $fetch("/api/message/send", {
+        method: "POST",
+        body: {
+          subject: `Заказ ${formData.order_number}`,
+          message: `Новый заказ ${formData.order_number}, проверить на https://praline-crm-nuxt.vercel.app/orders/`,
+        },
+      });
+
+      if (data) return result;
+    }
   };
 
   const deleteOrder = async (orderId: number) => {

@@ -10,9 +10,14 @@ export default defineNuxtConfig({
     "~/assets/styles/_forms.scss",
     "~/assets/styles/_animation.scss",
   ],
-
-  // modules: ["@nuxt/fonts", "@pinia/nuxt", "nuxt-toast"],
-  modules: ["@pinia/nuxt", "nuxt-toast"],
+  modules: ["@pinia/nuxt", "nuxt-toast", "nuxt-nodemailer"],
+  runtimeConfig: {
+    nodemailerHost: process.env.NUXT_NODEMAILER_HOST,
+    nodemailerPort: process.env.NUXT_NODEMAILER_PORT,
+    nodemailerUser: process.env.NUXT_NODEMAILER_USER,
+    nodemailerPassword: process.env.NUXT_NODEMAILER_PASSWORD,
+    nodemailerContactEmail: process.env.NUXT_NODEMAILER_CONTACT_EMAIL,
+  },
   router: {
     options: {
       scrollBehaviorType: "smooth",
