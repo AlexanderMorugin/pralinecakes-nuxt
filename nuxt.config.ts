@@ -10,7 +10,8 @@ export default defineNuxtConfig({
     "~/assets/styles/_forms.scss",
     "~/assets/styles/_animation.scss",
   ],
-  modules: ["@pinia/nuxt", "nuxt-toast", "nuxt-nodemailer"],
+  // modules: ["@pinia/nuxt", "nuxt-toast", "nuxt-nodemailer"],
+  modules: ["@pinia/nuxt", "nuxt-toast"],
   runtimeConfig: {
     nodemailerHost: process.env.NUXT_NODEMAILER_HOST,
     nodemailerPort: process.env.NUXT_NODEMAILER_PORT,
