@@ -12,6 +12,9 @@ export default defineNuxtConfig({
   ],
   // modules: ["@pinia/nuxt", "nuxt-toast", "nuxt-nodemailer"],
   modules: ["@pinia/nuxt", "nuxt-toast"],
+  // nitro: {
+  //   preset: "node-server",
+  // },
   runtimeConfig: {
     nodemailerHost: process.env.NUXT_NODEMAILER_HOST,
     nodemailerPort: process.env.NUXT_NODEMAILER_PORT,
