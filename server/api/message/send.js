@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
     // host: config.nodemailerHost,
     // port: config.nodemailerPort,
     host: "smtp.yandex.ru",
-    port: 465,
+    port: 587,
     secure: true,
     auth: {
       // user: config.nodemailerUser,
