@@ -36,12 +36,12 @@ export const useOrderStore = defineStore("orderStore", () => {
   const order = ref<IOrder | null>(null);
 
   const createOrder = async (formData: IOrder) => {
-    // const result = await useFetch(
-    //   "http://localhost:3000/api/orders/create-order",
-    //   {
     const result = await useFetch(
-      "http://91.229.11.141/api/orders/create-order",
+      "http://localhost:3000/api/orders/create-order",
       {
+        // const result = await useFetch(
+        //   "http://91.229.11.141/api/orders/create-order",
+        //   {
         method: "POST",
         body: formData,
       },
