@@ -5,9 +5,9 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
   const transporter = nodemailer.createTransport({
     host: config.nodemailerHost,
-    port: config.nodemailerPort,
+    // port: config.nodemailerPort,
     // host: "smtp.yandex.ru",
-    // port: 587,
+    port: 587,
     secure: true,
     auth: {
       user: config.nodemailerUser,
