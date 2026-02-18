@@ -50,11 +50,11 @@ export const useOrderStore = defineStore("orderStore", () => {
     if (result.status.value === "success") {
       order.value = formData;
 
-      const data = await useFetch("http://194.67.127.95/api/message/send", {
+      await useFetch("http://194.67.127.95/api/message/send", {
         method: "POST",
         body: {
           subject: `Заказ ${formData.order_number}`,
-          message: `Новый заказ ${formData.order_number}, проверить на https://praline-crm-nuxt.vercel.app/orders/`,
+          // message: `Новый заказ ${formData.order_number}, проверить на https://praline-crm-nuxt.vercel.app/orders/`,
         },
       });
 

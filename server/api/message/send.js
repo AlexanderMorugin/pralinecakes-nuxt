@@ -1,14 +1,18 @@
 import nodemailer from "nodemailer";
 
 export default defineEventHandler(async (event) => {
-  const config = useRuntimeConfig();
+  // const config = useRuntimeConfig();
   const transporter = nodemailer.createTransport({
-    host: config.nodemailerHost,
-    port: config.nodemailerPort,
+    // host: config.nodemailerHost,
+    // port: config.nodemailerPort,
+    host: "smtp.yandex.ru",
+    port: 465,
     secure: true,
     auth: {
-      user: config.nodemailerUser,
-      pass: config.nodemailerPassword,
+      // user: config.nodemailerUser,
+      // pass: config.nodemailerPassword,
+      user: "morug1n.a@ya.ru",
+      pass: "vfkbayytfzoemsvl",
     },
   });
 
@@ -16,8 +20,8 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event);
 
     const data = await transporter.sendMail({
-      from: config.nodemailerUser,
-      to: config.nodemailerContactEmail,
+      from: "morug1n.a@ya.ru",
+      to: "nobilis@bk.ru",
       subject: body.subject,
       text: body.message,
       html: body.message,
