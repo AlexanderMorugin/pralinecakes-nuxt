@@ -60,7 +60,7 @@ export const useOrderStore = defineStore("orderStore", () => {
         },
       );
 
-      console.log(response.data.value);
+      // console.log(response.data.value);
 
       // if (data) return result;
 
