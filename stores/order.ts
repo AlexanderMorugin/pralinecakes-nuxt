@@ -36,12 +36,12 @@ export const useOrderStore = defineStore("orderStore", () => {
   const order = ref<IOrder | null>(null);
 
   const createOrder = async (formData: IOrder) => {
+    // const result = await useFetch(
+    //   "http://localhost:3000/api/orders/create-order",
+    //   {
     const result = await useFetch(
-      "http://localhost:3000/api/orders/create-order",
+      "http://194.67.127.95/api/orders/create-order",
       {
-        // const result = await useFetch(
-        //   "http://91.229.11.141/api/orders/create-order",
-        //   {
         method: "POST",
         body: formData,
       },
@@ -50,7 +50,7 @@ export const useOrderStore = defineStore("orderStore", () => {
     if (result.status.value === "success") {
       order.value = formData;
 
-      const data = await $fetch("/api/message/send", {
+      const data = await useFetch("http://194.67.127.95/api/message/send", {
         method: "POST",
         body: {
           subject: `Заказ ${formData.order_number}`,
