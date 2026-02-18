@@ -16,11 +16,14 @@ export default defineNuxtConfig({
   //   preset: "node-server",
   // },
   runtimeConfig: {
-    nodemailerHost: process.env.NUXT_NODEMAILER_HOST,
-    nodemailerPort: process.env.NUXT_NODEMAILER_PORT,
-    nodemailerUser: process.env.NUXT_NODEMAILER_USER,
-    nodemailerPassword: process.env.NUXT_NODEMAILER_PASSWORD,
-    nodemailerContactEmail: process.env.NUXT_NODEMAILER_CONTACT_EMAIL,
+    public: {
+      baseUrl: process.env.BASE_URL,
+      nodemailerHost: process.env.NUXT_NODEMAILER_HOST,
+      nodemailerPort: process.env.NUXT_NODEMAILER_PORT,
+      nodemailerUser: process.env.NUXT_NODEMAILER_USER,
+      nodemailerPassword: process.env.NUXT_NODEMAILER_PASSWORD,
+      nodemailerContactEmail: process.env.NUXT_NODEMAILER_CONTACT_EMAIL,
+    },
   },
   router: {
     options: {

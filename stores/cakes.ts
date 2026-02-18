@@ -1,14 +1,21 @@
 import { defineStore } from "pinia";
 import type { IProduct } from "~/types/product";
 
+const config = useRuntimeConfig();
+
 export const useCakesStore = defineStore("cakesStore", () => {
   const cakes = ref<IProduct[] | any>([]);
   const cake = ref<IProduct | any>(null);
 
   const loadCakes = async () => {
-    const result = await useFetch("http://194.67.127.95/api/cakes/load-cakes", {
-      method: "GET",
-    });
+    console.log(config.public.baseUrl);
+    // const result = await useFetch("http://194.67.127.95/api/cakes/load-cakes", {
+    const result = await useFetch(
+      `${config.public.baseUrl}/api/cakes/load-cakes`,
+      {
+        method: "GET",
+      },
+    );
 
     if (result.status.value === "success") {
       cakes.value = result.data.value;

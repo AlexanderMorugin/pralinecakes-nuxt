@@ -32,15 +32,14 @@ export interface IOrder {
   user_floor: number;
 }
 
+const config = useRuntimeConfig();
+
 export const useOrderStore = defineStore("orderStore", () => {
   const order = ref<IOrder | null>(null);
 
   const createOrder = async (formData: IOrder) => {
-    // const result = await useFetch(
-    //   "http://localhost:3000/api/orders/create-order",
-    //   {
     const result = await useFetch(
-      "http://194.67.127.95/api/orders/create-order",
+      `${config.public.baseUrl}/api/orders/create-order`,
       {
         method: "POST",
         body: formData,
@@ -50,13 +49,18 @@ export const useOrderStore = defineStore("orderStore", () => {
     if (result.status.value === "success") {
       order.value = formData;
 
-      await useFetch("http://194.67.127.95/api/message/send", {
-        method: "POST",
-        body: {
-          subject: `Заказ ${formData.order_number}`,
-          // message: `Новый заказ ${formData.order_number}, проверить на https://praline-crm-nuxt.vercel.app/orders/`,
+      const response = await useFetch(
+        `${config.public.baseUrl}/api/message/send`,
+        {
+          method: "POST",
+          body: {
+            subject: `Заказ ${formData.order_number}`,
+            // message: `Новый заказ ${formData.order_number}, проверить на https://praline-crm-nuxt.vercel.app/orders/`,
+          },
         },
-      });
+      );
+
+      console.log(response.data.value);
 
       // if (data) return result;
 
