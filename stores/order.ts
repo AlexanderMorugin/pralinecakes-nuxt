@@ -51,10 +51,10 @@ export const useOrderStore = defineStore("orderStore", () => {
 
     await $fetch(`${config.public.baseUrl}/api/message/send`, {
       method: "POST",
-      // body: {
-      //   subject: `Заказ ${formData.order_number}`,
-      //   // message: `Новый заказ ${formData.order_number}, проверить на https://praline-crm-nuxt.vercel.app/orders/`,
-      // },
+      body: {
+        subject: `Заказ ${formData.order_number}`,
+        // message: `Новый заказ ${formData.order_number}, проверить на https://praline-crm-nuxt.vercel.app/orders/`,
+      },
     });
 
     // console.log(response.data.value);
