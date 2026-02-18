@@ -2,13 +2,13 @@ import nodemailer from "nodemailer";
 
 export default defineEventHandler(async (event) => {
   // return "Hello";
-  const config = useRuntimeConfig();
+  // const config = useRuntimeConfig();
   const transporter = nodemailer.createTransport({
     // host: config.nodemailerHost,
     // port: config.nodemailerPort,
     host: "smtp.yandex.ru",
-    port: 465,
-    // secure: true,
+    port: 587,
+    secure: true,
     auth: {
       // user: config.nodemailerUser,
       // pass: config.nodemailerPassword,
@@ -18,9 +18,10 @@ export default defineEventHandler(async (event) => {
   });
 
   try {
-    const body = await readBody(event);
+    // const body = await readBody(event);
 
-    const data = await transporter.sendMail({
+    // const data =
+    await transporter.sendMail({
       from: "morug1n.a@ya.ru",
       to: "nobilis@bk.ru",
       // subject: body.subject,
@@ -31,7 +32,7 @@ export default defineEventHandler(async (event) => {
       html: "Заказ",
     });
 
-    return data;
+    // return data;
   } catch (error) {
     console.log(error);
   }
