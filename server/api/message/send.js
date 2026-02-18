@@ -4,16 +4,16 @@ export default defineEventHandler(async (event) => {
   // return "Hello";
   const config = useRuntimeConfig();
   const transporter = nodemailer.createTransport({
-    host: config.nodemailerHost,
+    // host: config.nodemailerHost,
     // port: config.nodemailerPort,
-    // host: "smtp.yandex.ru",
-    port: 587,
-    secure: true,
+    host: "smtp.yandex.ru",
+    port: 465,
+    // secure: true,
     auth: {
-      user: config.nodemailerUser,
-      pass: config.nodemailerPassword,
-      // user: "morug1n.a@ya.ru",
-      // pass: "vfkbayytfzoemsvl",
+      // user: config.nodemailerUser,
+      // pass: config.nodemailerPassword,
+      user: "morug1n.a@ya.ru",
+      pass: "vfkbayytfzoemsvl",
     },
   });
 
