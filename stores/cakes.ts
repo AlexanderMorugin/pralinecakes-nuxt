@@ -8,13 +8,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
   const cake = ref<IProduct | any>(null);
 
   const loadCakes = async () => {
-    const result = await useFetch(
-      `${config.public.baseUrl}/api/cakes/load-cakes`,
-      {
-        server: true,
-        method: "GET",
-      },
-    );
+    const result = await useFetch("/api/cakes/load-cakes", {
+      server: true,
+      method: "GET",
+    });
 
     if (result.status.value === "success") {
       cakes.value = result.data.value;
