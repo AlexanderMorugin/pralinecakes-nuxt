@@ -9,8 +9,8 @@ export const useCakesStore = defineStore("cakesStore", () => {
 
   const loadCakes = async () => {
     const result = await useFetch("/api/cakes/load-cakes", {
-      server: true,
-      lazy: false,
+      // server: true,
+      // lazy: false,
       method: "GET",
     });
 
