@@ -11,8 +11,8 @@ export const useCakesStore = defineStore("cakesStore", () => {
     const result = await useFetch(
       "https://pralineshop.ru/api/cakes/load-cakes",
       {
-        // server: true,
-        // lazy: false,
+        server: true,
+        lazy: false,
         method: "GET",
       },
     );
