@@ -23,12 +23,12 @@ export default defineEventHandler(async (event) => {
     const data = await transporter.sendMail({
       from: config.public.nodemailerUser,
       to: config.public.nodemailerContactEmail,
-      subject: body.subject,
-      text: body.subject,
-      html: body.subject,
-      // subject: "Заказ",
-      // text: "Заказ",
-      // html: "Заказ",
+      // subject: body.subject,
+      // text: body.subject,
+      // html: body.subject,
+      subject: "Заказ",
+      text: "Заказ",
+      html: "Заказ",
     });
 
     return data;

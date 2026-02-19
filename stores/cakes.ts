@@ -8,11 +8,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
   const cake = ref<IProduct | any>(null);
 
   const loadCakes = async () => {
-    console.log(config.public.baseUrl);
-    // const result = await useFetch("http://194.67.127.95/api/cakes/load-cakes", {
     const result = await useFetch(
       `${config.public.baseUrl}/api/cakes/load-cakes`,
       {
+        server: true,
         method: "GET",
       },
     );
