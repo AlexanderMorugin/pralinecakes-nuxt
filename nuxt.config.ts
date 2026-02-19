@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  ssr: false,
+  // ssr: false,
   css: [
     "~/assets/styles/global.scss",
     "~/assets/styles/_variables.scss",
