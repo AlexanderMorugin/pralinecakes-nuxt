@@ -7,6 +7,13 @@ module.exports = {
       instances: "max",
       script: "./.output/server/index.mjs",
       env: {
+        NODE_ENV: "development",
+        DATABASE_URL:
+          "postgresql://admin:Cosmos1973@193.227.240.14:5433/praline_db?schema=public",
+        BASE_URL: "https://pralineshop.ru",
+      },
+      env_production: {
+        NODE_ENV: "production",
         DATABASE_URL:
           "postgresql://admin:Cosmos1973@193.227.240.14:5433/praline_db?schema=public",
         BASE_URL: "https://pralineshop.ru",
