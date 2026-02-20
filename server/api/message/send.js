@@ -9,9 +9,9 @@ export default defineEventHandler(async (event) => {
     // host: config.public.nodemailerHost,
     // port: config.public.nodemailerPort,
     service: "yandex",
-    // host: "smtp.yandex.ru",
+    host: "smtp.yandex.ru",
     // host: "Yandex",
-    // port: 465,
+    port: 465,
     secure: true,
     // tls: {
     //   // must provide server name, otherwise TLS certificate check will fail
