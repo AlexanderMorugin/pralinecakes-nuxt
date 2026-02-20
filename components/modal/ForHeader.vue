@@ -42,7 +42,7 @@ const emit = defineEmits(["closeModal"]);
   background: var(--mask-black-thirdly);
   padding-top: 20px;
   padding-bottom: 20px;
-  overflow-y: scroll;
+  overflow-y: auto;
   z-index: 10;
 
   @media (max-width: 767px) {

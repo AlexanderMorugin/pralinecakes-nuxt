@@ -2,8 +2,8 @@
   <div
     :class="[
       'modalElement',
-      { modalElement_center: contentPosition === 'center' },
-      { modalElement_left: contentPosition === 'left' },
+      { modalElement_center: props.contentPosition === 'center' },
+      { modalElement_left: props.contentPosition === 'left' },
     ]"
   >
     <slot />
@@ -11,5 +11,7 @@
 </template>
 
 <script setup>
-const { contentPosition } = defineProps(["contentPosition"]);
+const props = defineProps({
+  contentPosition: String,
+});
 </script>
