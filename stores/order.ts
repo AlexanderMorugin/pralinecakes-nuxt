@@ -38,31 +38,31 @@ export const useOrderStore = defineStore("orderStore", () => {
   const order = ref<IOrder | null>(null);
 
   const createOrder = async (formData: IOrder) => {
-    // const result = await useFetch(
-    //   `${config.public.baseUrl}/api/orders/create-order`,
-    //   {
-    //     method: "POST",
-    //     body: formData,
-    //   },
-    // );
-
-    // if (result.status.value === "success") {
-    //   order.value = formData;
-
-    const result = await useFetch("/api/message/send", {
-      method: "POST",
-      body: {
-        subject: `Заказ ${formData.order_number}`,
-        // message: `Новый заказ ${formData.order_number}, проверить на https://praline-crm-nuxt.vercel.app/orders/`,
+    const result = await useFetch(
+      `${config.public.baseUrl}/api/orders/create-order`,
+      {
+        method: "POST",
+        body: formData,
       },
-    });
+    );
 
-    // console.log(response.data.value);
+    if (result.status.value === "success") {
+      order.value = formData;
 
-    // if (data) return result;
+      // const result = await useFetch("/api/message/send", {
+      //   method: "POST",
+      //   body: {
+      //     subject: `Заказ ${formData.order_number}`,
+      //     // message: `Новый заказ ${formData.order_number}, проверить на https://praline-crm-nuxt.vercel.app/orders/`,
+      //   },
+      // });
 
-    return result;
-    // }
+      // console.log(response.data.value);
+
+      // if (data) return result;
+
+      return result;
+    }
   };
 
   const deleteOrder = async (orderId: number) => {
