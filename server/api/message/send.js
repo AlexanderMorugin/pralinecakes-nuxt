@@ -9,9 +9,8 @@ export default defineEventHandler(async (event) => {
     // host: config.public.nodemailerHost,
     // port: config.public.nodemailerPort,
     host: "smtp.yandex.ru",
-    secure: false,
-    requireTLS: true,
-    port: 587,
+    port: 465,
+    secure: true,
     auth: {
       // user: process.env.NUXT_NODEMAILER_USER,
       // pass: process.env.NUXT_NODEMAILER_PASSWORD,
