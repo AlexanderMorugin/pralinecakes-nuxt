@@ -23,8 +23,8 @@ export default defineEventHandler(async (event) => {
       // user: config.public.nodemailerUser,
       // pass: config.public.nodemailerPassword,
       user: "morug1n.a@ya.ru",
-      // user: "morug1n.a",
-      pass: "vfkbayytfzoemsvl",
+      pass: "dkj3Evn78",
+      // pass: "vfkbayytfzoemsvl",
     },
   });
 
