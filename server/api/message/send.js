@@ -8,19 +8,21 @@ export default defineEventHandler(async (event) => {
     // port: process.env.NUXT_NODEMAILER_PORT,
     // host: config.public.nodemailerHost,
     // port: config.public.nodemailerPort,
-    host: "smtp.yandex.ru",
+    // host: "smtp.yandex.ru",
+    host: "yandex",
     port: 465,
     secure: true,
-    tls: {
-      // must provide server name, otherwise TLS certificate check will fail
-      servername: "pralineshop.ru",
-    },
+    // tls: {
+    //   // must provide server name, otherwise TLS certificate check will fail
+    //   servername: "pralineshop.ru",
+    // },
     auth: {
       // user: process.env.NUXT_NODEMAILER_USER,
       // pass: process.env.NUXT_NODEMAILER_PASSWORD,
       // user: config.public.nodemailerUser,
       // pass: config.public.nodemailerPassword,
-      user: "morug1n.a@ya.ru",
+      // user: "morug1n.a@ya.ru",
+      user: "morug1n.a",
       pass: "vfkbayytfzoemsvl",
     },
   });
