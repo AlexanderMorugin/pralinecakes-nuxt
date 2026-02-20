@@ -4,29 +4,34 @@ export default defineEventHandler(async (event) => {
   // return "Hello";
   // const config = useRuntimeConfig();
   const transporter = nodemailer.createTransport({
-    host: process.env.NUXT_NODEMAILER_HOST,
-    port: process.env.NUXT_NODEMAILER_PORT,
+    // host: process.env.NUXT_NODEMAILER_HOST,
+    // port: process.env.NUXT_NODEMAILER_PORT,
     // host: config.public.nodemailerHost,
     // port: config.public.nodemailerPort,
-    // host: "smtp.yandex.ru",
-    // port: 587,
+    host: "smtp.yandex.ru",
+    port: 465,
     secure: true,
     auth: {
-      user: process.env.NUXT_NODEMAILER_USER,
-      pass: process.env.NUXT_NODEMAILER_PASSWORD,
+      // user: process.env.NUXT_NODEMAILER_USER,
+      // pass: process.env.NUXT_NODEMAILER_PASSWORD,
       // user: config.public.nodemailerUser,
       // pass: config.public.nodemailerPassword,
-      // user: "morug1n.a@ya.ru",
-      // pass: "vfkbayytfzoemsvl",
+      user: "morug1n.a",
+      pass: "vfkbayytfzoemsvl",
     },
   });
 
   try {
     const body = await readBody(event);
 
-    const data = await transporter.sendMail({
-      from: process.env.NUXT_NODEMAILER_USER,
-      to: process.env.NUXT_NODEMAILER_CONTACT_EMAIL,
+    const result = await transporter.sendMail({
+      from: {
+        name: "Praline",
+        address: "morug1n.a@ya.ru",
+      },
+      to: "nobilis@bk.ru",
+      // from: process.env.NUXT_NODEMAILER_USER,
+      // to: process.env.NUXT_NODEMAILER_CONTACT_EMAIL,
       // from: config.public.nodemailerUser,
       // to: config.public.nodemailerContactEmail,
       // subject: body.subject,
@@ -37,7 +42,7 @@ export default defineEventHandler(async (event) => {
       html: "Заказ",
     });
 
-    return data;
+    return result;
   } catch (error) {
     console.log(error);
   }
