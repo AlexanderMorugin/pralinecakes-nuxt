@@ -49,7 +49,7 @@ export const useOrderStore = defineStore("orderStore", () => {
     // if (result.status.value === "success") {
     //   order.value = formData;
 
-    const result = await useFetch(`${config.public.baseUrl}/api/message/send`, {
+    const result = await useFetch("/api/message/send", {
       method: "POST",
       body: {
         subject: `Заказ ${formData.order_number}`,
