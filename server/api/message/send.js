@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
     host: "smtp.yandex.ru",
     port: 587,
     secure: false,
-    requireTLS: true,
+    // requireTLS: true,
     // host: "Yandex",
     // port: 465,
     // secure: true,
