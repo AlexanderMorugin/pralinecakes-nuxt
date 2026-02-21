@@ -53,15 +53,15 @@ export const useOrderStore = defineStore("orderStore", () => {
         method: "POST",
         body: {
           subject: `Заказ ${formData.order_number}`,
-          // message: `Новый заказ ${formData.order_number}, проверить на https://praline-crm-nuxt.vercel.app/orders/`,
+          message: `Новый заказ ${formData.order_number}, проверить на https://praline-crm-nuxt.vercel.app/orders/`,
         },
       });
 
       // console.log(response.data.value);
 
-      // if (data) return result;
+      if (response.data.value) return response;
 
-      return response;
+      // return response;
     }
   };
 
