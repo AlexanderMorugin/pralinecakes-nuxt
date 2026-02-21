@@ -49,19 +49,19 @@ export const useOrderStore = defineStore("orderStore", () => {
     if (result.status.value === "success") {
       order.value = formData;
 
-      // const result = await useFetch("/api/message/send", {
-      //   method: "POST",
-      //   body: {
-      //     subject: `Заказ ${formData.order_number}`,
-      //     // message: `Новый заказ ${formData.order_number}, проверить на https://praline-crm-nuxt.vercel.app/orders/`,
-      //   },
-      // });
+      const response = await useFetch("/api/message/send", {
+        method: "POST",
+        body: {
+          subject: `Заказ ${formData.order_number}`,
+          // message: `Новый заказ ${formData.order_number}, проверить на https://praline-crm-nuxt.vercel.app/orders/`,
+        },
+      });
 
       // console.log(response.data.value);
 
       // if (data) return result;
 
-      return result;
+      return response;
     }
   };
 

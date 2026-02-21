@@ -1,4 +1,4 @@
-export const SITE = "https://pralineshop.ru/"; // PUBLISH
+export const SITE = "https://pralineshop.ru"; // PUBLISH
 // export const SITE = "http://localhost:3000"; // DEV
 
 export const SITE_NAME = "Пралине Shop";

@@ -3,7 +3,9 @@
     <ProductCardPrice :product="product" />
 
     <div class="productCardCart__buttonCartBlock">
-      <ButtonCartBlock :product="product" />
+      <ClientOnly>
+        <ButtonCartBlock :product="product" />
+      </ClientOnly>
     </div>
   </div>
 </template>
