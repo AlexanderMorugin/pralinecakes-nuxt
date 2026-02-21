@@ -57,11 +57,7 @@ export const useOrderStore = defineStore("orderStore", () => {
         },
       });
 
-      // console.log(response.data.value);
-
       if (response.data.value) return response;
-
-      // return response;
     }
   };
 
