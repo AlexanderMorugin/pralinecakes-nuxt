@@ -150,11 +150,14 @@ onMounted(() => {
   width: 100%;
   max-width: 100%;
   height: fit-content;
+  // height: 450px;
+  background: var(--gradient-product-blue-primary);
+  border-radius: var(--border-radius-s);
+  // border: 1px solid red;
   --slide-spacing: 1rem;
   --slide-spacing: 0;
   --slide-size: 100%;
   overflow: hidden;
-  border-radius: var(--border-radius-s);
 
   &__button {
     position: absolute;

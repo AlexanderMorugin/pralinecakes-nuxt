@@ -208,8 +208,6 @@ const openModal = (name) => {
   padding-right: 8px;
   z-index: 3;
 
-  // border: 1px solid red;
-
   @media (max-width: 767px) {
     height: 60px;
   }
@@ -219,7 +217,6 @@ const openModal = (name) => {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    // border: 1px solid red;
   }
 
   &__left {
@@ -356,15 +353,15 @@ const openModal = (name) => {
 @keyframes iconCart {
   0% {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateY(100%);
   }
   70% {
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateY(100%);
   }
   75% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
   90% {
     transform: scale(1.2);

@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: false },
-  ssr: true,
+  // ssr: true,
   css: [
     "~/assets/styles/global.scss",
     "~/assets/styles/_variables.scss",
@@ -11,11 +11,7 @@ export default defineNuxtConfig({
     "~/assets/styles/_forms.scss",
     "~/assets/styles/_animation.scss",
   ],
-  // modules: ["@pinia/nuxt", "nuxt-toast", "nuxt-nodemailer"],
   modules: ["@pinia/nuxt", "nuxt-toast"],
-  // nitro: {
-  //   preset: "node-server",
-  // },
   runtimeConfig: {
     public: {
       baseUrl: process.env.BASE_URL,
@@ -29,6 +25,24 @@ export default defineNuxtConfig({
   router: {
     options: {
       scrollBehaviorType: "smooth",
+    },
+  },
+  nitro: {
+    // используем кеширование на стороне сервера
+    routeRules: {
+      // правила роутинга
+      "/": { static: true }, // страница генерируется только один раз
+      "/cakes": { static: true }, // страница генерируется только один раз
+      "/cakes/[slug]": { swr: 60 }, // используем серверный кеш на 60 сек
+      "/pastry": { static: true }, // страница генерируется только один раз
+      "/pastry/[slug]": { swr: 60 }, // используем серверный кеш на 60 сек
+      "/company": { static: true }, // страница генерируется только один раз
+      "/contact": { static: true }, // страница генерируется только один раз
+      "/delivery": { static: true }, // страница генерируется только один раз
+      // для server api
+      "/api/cakes/load-cakes": { swr: 120 }, // кеширует апи роут на 2 мин
+      // выключить режим ssr для админа
+      "/admin/**": { ssr: false },
     },
   },
   app: {

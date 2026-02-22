@@ -20,15 +20,16 @@
         { buttonWithIcon__icon_favoriteActive: isFavorite },
       ]"
     />
-
-    <div
-      v-if="name === 'cart' && cartStore.cart.length"
-      class="buttonWithIcon__cart"
-    >
-      <span class="buttonWithIcon__cartCount">{{
-        cartStore.totalCartCount
-      }}</span>
-    </div>
+    <ClientOnly>
+      <div
+        v-if="name === 'cart' && cartStore.cart.length"
+        class="buttonWithIcon__cart"
+      >
+        <span class="buttonWithIcon__cartCount">{{
+          cartStore.totalCartCount
+        }}</span>
+      </div>
+    </ClientOnly>
   </button>
 </template>
 

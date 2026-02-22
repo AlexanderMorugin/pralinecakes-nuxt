@@ -7,17 +7,19 @@
       },
     ]"
   >
-    <ButtonCart
-      :count="productById.length"
-      @addCartItem="cartStore.addCartItem(cartProduct(product))"
-    />
+    <ClientOnly>
+      <ButtonCart
+        :count="productById.length"
+        @addCartItem="cartStore.addCartItem(cartProduct(product))"
+      />
 
-    <ButtonCounter
-      v-if="productById.length > 0"
-      :count="productById[0].count"
-      @increment="cartStore.incrementCartItem(product.id)"
-      @decrement="cartStore.decrementCartItem(product.id)"
-    />
+      <ButtonCounter
+        v-if="productById.length > 0"
+        :count="productById[0].count"
+        @increment="cartStore.incrementCartItem(product.id)"
+        @decrement="cartStore.decrementCartItem(product.id)"
+      />
+    </ClientOnly>
   </div>
 </template>
 

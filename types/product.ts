@@ -39,7 +39,7 @@ export interface IProduct {
   carbohydrates?: string;
   calories?: string;
 
-  visibility: boolean;
+  visibility?: boolean;
 
   createdAt?: any;
   updatedAt?: any;

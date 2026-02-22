@@ -40,9 +40,7 @@
 
         <ProductListCardPrice v-if="product.price" :product="product" />
 
-        <ClientOnly>
-          <ButtonCartBlock v-if="product.price" :product="product" />
-        </ClientOnly>
+        <ButtonCartBlock v-if="product.price" :product="product" />
       </div>
     </div>
   </div>

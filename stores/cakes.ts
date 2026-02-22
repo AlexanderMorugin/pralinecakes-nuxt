@@ -1,24 +1,51 @@
 import { defineStore } from "pinia";
 import type { IProduct } from "~/types/product";
 
-// const config = useRuntimeConfig();
-
 export const useCakesStore = defineStore("cakesStore", () => {
   const cakes = ref<IProduct[] | any>([]);
   const cake = ref<IProduct | any>(null);
 
   const loadCakes = async () => {
-    const result = await useFetch("/api/cakes/load-cakes", {
-      server: true,
-      lazy: false,
-      method: "GET",
-    });
+    try {
+      const result = await useFetch("/api/cakes/load-cakes", {
+        baseURL: process.env.BASE_URL, // автоматически устанавливается перед /api/cakes/load-cakes
+        // timeout: 10000, // прерывание запроса через 10 сек
+        key: "cakes", // ключ для кеша - на стороне клиента, работает до перезагрузки страницы
+        // server: true, // запрос выполняется на стороне сервера, если false - то на стороне клиента
+        // lazy: false,
+        // immediate: false, // запрос автоматически не запускается, а только по кнопке
+        // default: () => [], // по дефолту показываем пустой массив
+        // transform: (cakes) => cakes.map((item) => item.title), // возвращаем только тайтлы
 
-    if (result.status.value === "success") {
-      cakes.value = result.data.value;
+        // pick: [
+        //   "id"
+        //   // "slug",
+        //   // "type",
+        //   // "badge",
+        //   // "title",
+        //   // "description_short",
+        //   // "rating",
+        //   // "price",
+        //   // "discount",
+        //   // "discount_price",
+        //   // "image_1_small",
+        // ], // вернутся только определенные данные товара
+        method: "GET",
+      });
+
+      // console.log(result.data.value);
+
+      if (result.status.value === "success") {
+        cakes.value = result.data.value;
+      }
+
+      return result;
+    } catch (error) {
+      throw createError({
+        status: 404,
+        statusText: "Данные не найдены",
+      });
     }
-
-    return result;
   };
 
   const getCake = async (cakeSlug: string) => {
