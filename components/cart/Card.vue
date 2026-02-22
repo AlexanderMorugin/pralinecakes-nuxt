@@ -7,8 +7,8 @@
       <img :src="product.image" :alt="product.name" class="cartCard__image" />
     </NuxtLink>
     <div class="cartCard__nameBox">
-      <span class="cartCard__name">{{ product.name }}</span>
-      <span class="cartCard__weigth">{{ product.weigth }}гр</span>
+      <span class="cartCard__name">{{ product.title }}</span>
+      <span class="cartCard__weigth">{{ product.weight }} гр</span>
     </div>
   </div>
 </template>

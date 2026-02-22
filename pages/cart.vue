@@ -2,10 +2,10 @@
   <WrapperPage>
     <TitlePage title="Корзина" />
 
-    <!-- <ClientOnly> -->
-    <CartEmpty v-if="!cartStore.cart.length" />
-    <Cart v-else />
-    <!-- </ClientOnly> -->
+    <ClientOnly>
+      <CartEmpty v-if="!cartStore.cart.length" />
+      <Cart v-else />
+    </ClientOnly>
   </WrapperPage>
 </template>
 
