@@ -2,38 +2,40 @@
   <section class="productCardImage">
     <div v-if="!hasImagesSmallEmpty">
       <!-- Кнопка "НАЗАД" -->
-      <button
-        @click="scrollPrev"
-        :disabled="!canScrollPrev"
-        :class="[
-          'productCardImage__button productCardImage__button_left',
-          { productCardImage__button_disabled: !canScrollPrev },
-        ]"
-      >
-        <IconArrowBack
+      <ClientOnly>
+        <button
+          @click="scrollPrev"
+          :disabled="!canScrollPrev"
           :class="[
-            'productCardImage__arrow',
-            { productCardImage__arrow_disabled: !canScrollPrev },
+            'productCardImage__button productCardImage__button_left',
+            { productCardImage__button_disabled: !canScrollPrev },
           ]"
-        />
-      </button>
+        >
+          <IconArrowBack
+            :class="[
+              'productCardImage__arrow',
+              { productCardImage__arrow_disabled: !canScrollPrev },
+            ]"
+          />
+        </button>
 
-      <!-- Кнопка "ВПЕРЕД" -->
-      <button
-        @click="scrollNext"
-        :disabled="!canScrollNext"
-        :class="[
-          'productCardImage__button productCardImage__button_right',
-          { productCardImage__button_disabled: !canScrollNext },
-        ]"
-      >
-        <IconArrowForward
+        <!-- Кнопка "ВПЕРЕД" -->
+        <button
+          @click="scrollNext"
+          :disabled="!canScrollNext"
           :class="[
-            'productCardImage__arrow',
-            { productCardImage__arrow_disabled: !canScrollNext },
+            'productCardImage__button productCardImage__button_right',
+            { productCardImage__button_disabled: !canScrollNext },
           ]"
-        />
-      </button>
+        >
+          <IconArrowForward
+            :class="[
+              'productCardImage__arrow',
+              { productCardImage__arrow_disabled: !canScrollNext },
+            ]"
+          />
+        </button>
+      </ClientOnly>
 
       <div class="productCardImage__viewport" ref="emblaRef">
         <ul class="productCardImage__container">
@@ -51,10 +53,12 @@
             />
 
             <!-- Кнопка "Включить Модалку" -->
-            <IconLoupe
-              @click="isImageModalOpen = true"
-              class="productCardImage__loupe"
-            />
+            <ClientOnly>
+              <IconLoupe
+                @click="isImageModalOpen = true"
+                class="productCardImage__loupe"
+              />
+            </ClientOnly>
           </li>
         </ul>
       </div>
@@ -150,10 +154,8 @@ onMounted(() => {
   width: 100%;
   max-width: 100%;
   height: fit-content;
-  // height: 450px;
-  background: var(--gradient-product-blue-primary);
+  // background: var(--gradient-product-blue-primary);
   border-radius: var(--border-radius-s);
-  // border: 1px solid red;
   --slide-spacing: 1rem;
   --slide-spacing: 0;
   --slide-size: 100%;
