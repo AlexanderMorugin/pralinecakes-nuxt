@@ -3,7 +3,7 @@
     <IconClose v-if="name === 'close'" class="buttonWithIcon__icon" />
     <IconMenu v-if="name === 'menu'" class="buttonWithIcon__icon" />
     <IconLogin v-if="name === 'login'" class="buttonWithIcon__icon" />
-    <IconCart v-if="name === 'cart'" class="buttonWithIcon__icon" />
+    <IconCartImg v-if="name === 'cart'" class="buttonWithIcon__icon" />
     <IconPhone v-if="name === 'phone'" class="buttonWithIcon__icon" />
     <IconEmail v-if="name === 'email'" class="buttonWithIcon__icon" />
     <IconSearch v-if="name === 'search'" class="buttonWithIcon__icon" />

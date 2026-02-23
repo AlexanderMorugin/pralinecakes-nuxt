@@ -9,7 +9,7 @@
           },
         ]"
       >
-        <ButtonCart
+        <LazyButtonCartBtn
           :count="productById.length"
           @addCartItem="cartStore.addCartItem(cartProduct(product))"
         />
