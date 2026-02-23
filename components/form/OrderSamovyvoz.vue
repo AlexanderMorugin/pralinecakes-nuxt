@@ -14,9 +14,10 @@
     />
     <FormInput
       label="Телефон * "
-      type="text"
+      type="tel"
       name="phoneField"
-      placeholder="8**********"
+      placeholder="+7 (XXX) XXX-XX-XX"
+      v-mask="'+7 (###) ###-##-##'"
       v-model:value="v$.phoneField.$model"
       :error="v$.phoneField.$errors"
       @clearInput="phoneField = null"
@@ -45,11 +46,9 @@
 
 <script setup>
 import { useVuelidate } from "@vuelidate/core";
-import { helpers, required, minLength, numeric } from "@vuelidate/validators";
+import { helpers, required, minLength } from "@vuelidate/validators";
 
 const { date, number } = useDate();
-
-console.log(number);
 
 const toast = useToast();
 const cartStore = useCartStore();
@@ -68,7 +67,6 @@ const rules = computed(() => ({
   },
   phoneField: {
     required: helpers.withMessage("Укажите номер", required),
-    numeric: helpers.withMessage("Введите цифры", numeric),
   },
   commentField: {
     minLength: helpers.withMessage("", minLength(2)),

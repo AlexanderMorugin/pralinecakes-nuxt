@@ -24,7 +24,6 @@ const { product } = defineProps(["product"]);
   grid-template-columns: 150px 1fr;
   gap: 20px;
 
-  // border: 1px solid red;
   @media (max-width: 1280px) {
     gap: 10px;
   }
@@ -41,6 +40,7 @@ const { product } = defineProps(["product"]);
   &__imageBox {
     width: 150px;
     height: 100px;
+    background: var(--gradient-product-blue-primary);
     border-radius: var(--border-radius-s);
     overflow: hidden;
 
@@ -59,8 +59,6 @@ const { product } = defineProps(["product"]);
   &__nameBox {
     display: flex;
     flex-direction: column;
-    // padding-top: 5px;
-    // padding-top: 35px;
 
     @media (max-width: 767px) {
       padding-right: 90px;

@@ -18,9 +18,10 @@
           />
           <FormInput
             label="Телефон * "
-            type="text"
+            type="tel"
             name="phoneField"
-            placeholder="8**********"
+            placeholder="+7 (XXX) XXX-XX-XX"
+            v-mask="'+7 (###) ###-##-##'"
             v-model:value="v$.phoneField.$model"
             :error="v$.phoneField.$errors"
             @clearInput="phoneField = null"
@@ -150,7 +151,6 @@ const rules = computed(() => ({
   },
   phoneField: {
     required: helpers.withMessage("Укажите номер", required),
-    numeric: helpers.withMessage("Введите цифры", numeric),
   },
   cityField: {
     required: helpers.withMessage("Укажите город", required),
