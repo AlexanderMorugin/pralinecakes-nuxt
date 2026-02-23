@@ -14,7 +14,7 @@
               item.title
             }}</span>
             <span class="orderList__noAccent orderList__titleHeight"
-              >{{ item.weigth }}гр</span
+              >{{ item.weight }}гр</span
             >
           </div>
 
