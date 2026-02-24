@@ -1,1 +1,0 @@
-ALTER TABLE "comments" ADD COLUMN "product_id" integer;

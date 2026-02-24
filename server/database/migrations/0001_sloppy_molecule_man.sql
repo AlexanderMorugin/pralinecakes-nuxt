@@ -1,1 +1,0 @@
-ALTER TABLE "comments" DROP COLUMN "product_id";

@@ -21,7 +21,6 @@ CREATE TABLE "cakes" (
 	"image_6_big" text,
 	"meta_title" text,
 	"meta_description" text,
-	"meta_сanonical_url" text,
 	"weight" integer,
 	"width" integer,
 	"height" integer,
@@ -44,6 +43,8 @@ CREATE TABLE "comments" (
 	"order_id" serial PRIMARY KEY NOT NULL,
 	"date" text,
 	"product_id" integer,
+	"product_image" text,
+	"product_title" text,
 	"user_name" text,
 	"user_rating" integer,
 	"user_comment" text,
@@ -76,6 +77,15 @@ CREATE TABLE "orders" (
 	"status_accept" text,
 	"status_delivery" text,
 	"status_complete" text,
+	"created_at" timestamp DEFAULT now() NOT NULL,
+	"updated_at" timestamp DEFAULT now() NOT NULL
+);
+--> statement-breakpoint
+CREATE TABLE "users" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"name" text,
+	"email" text,
+	"password" text,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL
 );

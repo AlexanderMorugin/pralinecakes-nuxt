@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submitRegister" class="form-block">
+  <form @submit.prevent="submitLogin" class="form-block">
     <FormInput
       label="Email * "
       type="email"
@@ -8,6 +8,17 @@
       v-model:value="v$.emailField.$model"
       :error="v$.emailField.$errors"
       @clearInput="emailField = null"
+      @click="clearErrorMessage"
+      firstInput="true"
+    />
+    <FormInput
+      label="Пароль * "
+      type="password"
+      name="passwordField"
+      placeholder="******"
+      v-model:value="v$.passwordField.$model"
+      :error="v$.passwordField.$errors"
+      @clearInput="passwordField = null"
       @click="clearErrorMessage"
       lastInput="true"
     />
@@ -34,6 +45,7 @@ const toast = useToast();
 
 const isLoading = ref(false);
 const emailField = ref(null);
+const passwordField = ref(null);
 
 // Валидация
 const rules = computed(() => ({
@@ -41,21 +53,31 @@ const rules = computed(() => ({
     required: helpers.withMessage("Укажите почту", required),
     email: helpers.withMessage("Не корректно", email),
   },
+  passwordField: {
+    required: helpers.withMessage("Укажите пароль", required),
+    minLength: helpers.withMessage("Не менее 6 символов", minLength(6)),
+  },
 }));
 
 const v$ = useVuelidate(rules, {
   emailField,
+  passwordField,
 });
 
-const isFromEmpty = computed(() => !emailField.value);
+const isFromEmpty = computed(() => !emailField.value || !passwordField.value);
 
 const isValid = computed(() => v$.value.$errors);
 
-const submitRegister = async () => {
+const submitLogin = async () => {
   try {
     isLoading.value = true;
 
-    console.log(emailField.value.trim());
+    const formData = {
+      user_email: emailField.value.trim(),
+      user_password: passwordField.value.trim(),
+    };
+
+    console.log(formData);
   } catch (err) {
     console.log(err);
   } finally {
