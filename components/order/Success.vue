@@ -15,14 +15,10 @@
 </template>
 
 <script setup>
-const cartStore = useCartStore();
 const orderStore = useOrderStore();
 
 const closeOrderSuccess = () => {
-  console.log("closeOrderSuccess");
-  cartStore.cleanCart();
   orderStore.cleanOrder();
-  // location.reload();
   return navigateTo("/");
 };
 </script>
@@ -33,7 +29,7 @@ const closeOrderSuccess = () => {
   flex-direction: column;
   gap: 30px;
   width: 100%;
-  animation: slide-to-left 0.5s ease-in-out;
+  // animation: slide-to-left 0.5s ease-in-out;
   padding-top: 100px;
 
   @media (max-width: 1920px) {

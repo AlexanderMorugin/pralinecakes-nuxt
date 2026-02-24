@@ -5,7 +5,9 @@
       :key="item.id"
       class="orderList__item"
     >
-      <img :src="item.image" :alt="item.title" class="orderList__image" />
+      <div class="orderList__imageBox">
+        <img :src="item.image" :alt="item.title" class="orderList__image" />
+      </div>
 
       <div class="orderList__block">
         <div class="orderList__details">
@@ -98,16 +100,23 @@ const orderStore = useOrderStore();
     // }
   }
 
-  &__image {
+  &__imageBox {
     width: 100px;
-    height: 100%;
+    height: 100px;
+    background: var(--gradient-product-blue-primary);
     border-radius: var(--border-radius-s);
-    object-fit: cover;
+    overflow: hidden;
 
     @media (max-width: 767px) {
       width: 60px;
       height: 60px;
     }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   &__count {

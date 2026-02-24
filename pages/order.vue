@@ -1,8 +1,8 @@
 <template>
   <WrapperPage>
     <ClientOnly>
-      <LazyCartEmpty v-if="!cartStore.cart.length" title="Ваш заказ в пути." />
-      <LazyOrderSuccess v-else />
+      <!-- <LazyCartEmpty v-if="!orderStore.order" title="Ваш заказ в пути." /> -->
+      <LazyOrderSuccess />
     </ClientOnly>
   </WrapperPage>
 </template>
@@ -11,12 +11,9 @@
 import { ORDER_TITLE, ORDER_DESCRIPTION } from "@/utils/constants/meta";
 
 definePageMeta({
-  middleware: ["cart"],
+  middleware: "cart",
   layout: "main",
 });
-
-const cartStore = useCartStore();
-await cartStore.setCart();
 
 useHead({
   title: ORDER_TITLE,

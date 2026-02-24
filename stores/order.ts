@@ -37,6 +37,17 @@ const config = useRuntimeConfig();
 export const useOrderStore = defineStore("orderStore", () => {
   const order = ref<IOrder | null>(null);
 
+  const localStorageOrder = computed(() => localStorage.getItem("order"));
+  //   const localStorageOrder = computed(() => {
+  //   if (import.meta.client) {
+  //     return localStorage.getItem("order");
+  //   }
+  // });
+
+  if (localStorageOrder.value) {
+    order.value = JSON.parse(localStorageOrder.value);
+  }
+
   const createOrder = async (formData: IOrder) => {
     const result = await useFetch(
       `${config.public.baseUrl}/api/orders/create-order`,
@@ -48,6 +59,7 @@ export const useOrderStore = defineStore("orderStore", () => {
 
     if (result.status.value === "success") {
       order.value = formData;
+      localStorage.setItem("order", JSON.stringify(formData));
 
       const response = await useFetch("/api/message/send", {
         method: "POST",
@@ -72,7 +84,10 @@ export const useOrderStore = defineStore("orderStore", () => {
     return result;
   };
 
-  const cleanOrder = () => (order.value = null);
+  const cleanOrder = () => {
+    order.value = null;
+    localStorage.setItem("order", JSON.stringify(order.value));
+  };
 
   return {
     order,
