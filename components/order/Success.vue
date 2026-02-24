@@ -29,7 +29,6 @@ const closeOrderSuccess = () => {
   flex-direction: column;
   gap: 30px;
   width: 100%;
-  // animation: slide-to-left 0.5s ease-in-out;
   padding-top: 100px;
 
   @media (max-width: 1920px) {

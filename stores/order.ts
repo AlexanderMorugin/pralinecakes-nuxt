@@ -38,11 +38,6 @@ export const useOrderStore = defineStore("orderStore", () => {
   const order = ref<IOrder | null>(null);
 
   const localStorageOrder = computed(() => localStorage.getItem("order"));
-  //   const localStorageOrder = computed(() => {
-  //   if (import.meta.client) {
-  //     return localStorage.getItem("order");
-  //   }
-  // });
 
   if (localStorageOrder.value) {
     order.value = JSON.parse(localStorageOrder.value);

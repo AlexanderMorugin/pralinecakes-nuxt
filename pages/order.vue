@@ -1,7 +1,6 @@
 <template>
   <WrapperPage>
     <ClientOnly>
-      <!-- <LazyCartEmpty v-if="!orderStore.order" title="Ваш заказ в пути." /> -->
       <LazyOrderSuccess />
     </ClientOnly>
   </WrapperPage>

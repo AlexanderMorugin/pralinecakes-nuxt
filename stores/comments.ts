@@ -64,7 +64,17 @@ export const useCommentsStore = defineStore("commentsStore", () => {
       },
     });
 
-    return result;
+    if (result.status.value === "success") {
+      const response = await useFetch("/api/message/send", {
+        method: "POST",
+        body: {
+          subject: `Отзыв ${formData.user_name}`,
+          message: `Новый отзыв ${formData.user_name}, проверить на https://praline-crm-nuxt.vercel.app/comments/`,
+        },
+      });
+
+      if (response.data.value) return response;
+    }
   };
 
   const filterCommentsByProductId = (productId: number) => {

@@ -1,5 +1,5 @@
 <template>
-  <CartEmpty v-if="!cartStore.cart.length" />
+  <CartEmpty v-if="!cartStore.cart.length" title="Корзина пуста." />
   <div v-else class="modalCart">
     <CartList />
     <ButtonOrder
@@ -14,6 +14,8 @@
 const emit = defineEmits(["closeModal"]);
 
 const cartStore = useCartStore();
+
+console.log(cartStore.cart.length);
 </script>
 
 <style lang="scss" scoped>
