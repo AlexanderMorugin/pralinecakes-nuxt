@@ -25,6 +25,7 @@ const emit = defineEmits(["handleClick"]);
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   height: 50px;
   background: var(--mask-white-primary);
   border-radius: var(--border-radius-xxl);
