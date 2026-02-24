@@ -1,14 +1,16 @@
 <template>
   <div class="modalProfile">
     <div class="modalProfile__title" v-if="isLogin">
-      Введите email или
+      Войдите в аккаунт или
       <span class="modalProfile__toggle" @click="toggleProfile"
         >зарегистрируйтесь.</span
       >
     </div>
     <div class="modalProfile__title" v-else>
       Зарегистрируйтесь или
-      <span class="modalProfile__toggle" @click="toggleProfile">войдите.</span>
+      <span class="modalProfile__toggle" @click="toggleProfile"
+        >войдите в аккаунт.</span
+      >
     </div>
 
     <FormLogin v-if="isLogin" />
@@ -33,6 +35,7 @@ const toggleProfile = () => {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  padding-bottom: 30px;
 
   &__title {
     font-family: "Montserrat-Regular", sans-serif;
