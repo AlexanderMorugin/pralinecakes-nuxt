@@ -9,17 +9,6 @@ import {
   boolean,
 } from "drizzle-orm/pg-core";
 
-export const users = pgTable("users", {
-  id: serial("id").primaryKey(),
-
-  name: text("name"),
-  email: text("email"),
-  password: text("password"),
-
-  createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
-  updatedAt: timestamp("updated_at", { mode: "string" }).notNull().defaultNow(),
-});
-
 export const orders = pgTable("orders", {
   id: serial("order_id").primaryKey(),
   order_number: text("order_number"),
@@ -116,6 +105,18 @@ export const comments = pgTable("comments", {
   user_comment: text("user_comment"),
 
   visibility: boolean("visibility").notNull().default(false),
+
+  createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
+  updatedAt: timestamp("updated_at", { mode: "string" }).notNull().defaultNow(),
+});
+
+export const users = pgTable("users", {
+  id: serial("user_id").primaryKey(),
+
+  user_name: text("user_name"),
+  user_email: text("user_email"),
+  user_password: text("user_password"),
+  user_role: text("user_role"),
 
   createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
   updatedAt: timestamp("updated_at", { mode: "string" }).notNull().defaultNow(),

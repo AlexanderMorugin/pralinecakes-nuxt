@@ -82,10 +82,11 @@ CREATE TABLE "orders" (
 );
 --> statement-breakpoint
 CREATE TABLE "users" (
-	"id" serial PRIMARY KEY NOT NULL,
-	"name" text,
-	"email" text,
-	"password" text,
+	"user_id" serial PRIMARY KEY NOT NULL,
+	"user_name" text,
+	"user_email" text,
+	"user_password" text,
+	"user_role" text,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL
 );

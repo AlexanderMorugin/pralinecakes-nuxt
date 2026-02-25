@@ -6,11 +6,19 @@
 
   --orange-primary: #ffac30;
 
-  --red-primary: rgb(246, 60, 0);
-  --red-secondary: #ff6400;
+  --gray-primary: #f8fafc;
+  --gray-secondary: #eff6ff;
 
-  --green-primary: rgb(181, 228, 180);
+  --red-primary: #f63c00;
+  --red-secondary: #ff6400;
+  --red-thirdly: #882100;
+  --red-fourthly: #ffc199;
+
+  --green-primary: #b5e4b4;
   --green-secondary: #9ddb9b;
+  --green-thirdly: #00c950;
+  --green-fourthly: #00a63e;
+  --green-fifthly: #006626;
 
   --deep-blue-primary: #081119;
   --deep-blue-secondary: #172c3f;
@@ -27,7 +35,11 @@
   --mask-white-primary: rgba(255, 255, 255, 0.6);
   --mask-white-secondary: rgba(255, 255, 255, 0.8);
   --mask-white-thirdly: rgba(255, 255, 255, 0.1);
+  --mask-white-fourthly: rgba(255, 255, 255, 0.4);
   --mask-blue-primary: rgba(23, 44, 63, 0.2);
+  --mask-blue-secondary: rgba(50, 96, 138, 0.1);
+  --mask-blue-thirdly: rgba(50, 96, 138, 0.7);
+  --mask-blue-fourthly: rgba(50, 96, 138, 0.9);
   --mask-trasparent: rgba(0, 0, 0, 0);
 
   --gradient-page-primary: linear-gradient(
@@ -37,17 +49,13 @@
     var(--deep-blue-secondary) 100%
   );
   --gradient-modal-primary: linear-gradient(135deg, var(--mask-primary) 0%, var(--mask-blue-primary) 100%);
-
-  // --gradient-button-orange-primary: linear-gradient(148deg, var(--orange-primary) 0%, var(--orange-fourthly) 100%);
   --gradient-product-blue-primary: linear-gradient(148deg, var(--deep-blue-thirdly) 0%, var(--deep-blue-secondary) 60%);
-
   --gradient-product-card-primary: linear-gradient(
     to bottom,
     var(--mask-trasparent) 0%,
     var(--mask-trasparent) 30%,
     var(--mask-black-secondary) 50%
   );
-
   --gradient-product-card-discount: linear-gradient(
     to right,
     var(--mask-trasparent) 0%,
@@ -55,7 +63,15 @@
     var(--deep-blue-thirdly) 100%
   );
 
+  --gradient-admin-primary: linear-gradient(135deg, var(--gray-primary) 0%, var(--gray-secondary) 100%);
+  --gradient-admin-secondary: linear-gradient(148deg, var(--mask-blue-primary) 0%, var(--mask-blue-secondary) 100%);
+  --gradient-admin-thirdly: linear-gradient(148deg, var(--deep-blue-fourthly) 0%, var(--mask-blue-secondary) 100%);
+
+  --shadow-primary: 0px 30px 30px 50px rgba(50, 96, 138, 0.1);
+  --shadow-thirdly: 0px 1px 1px 1px var(--border-primary);
+
   --border-primary: #ffffff33;
+  --border-secondary: #e2e8f0;
 
   --border-radius-full: 50%;
   --border-radius-xs: 6px;

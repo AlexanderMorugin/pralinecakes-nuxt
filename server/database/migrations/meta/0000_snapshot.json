@@ -1,5 +1,5 @@
 {
-  "id": "313162c0-47b6-4deb-b7c9-f8db7a679ead",
+  "id": "d0594e1e-a84f-4460-97b2-11f2c814adf5",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -499,26 +499,32 @@
       "name": "users",
       "schema": "",
       "columns": {
-        "id": {
-          "name": "id",
+        "user_id": {
+          "name": "user_id",
           "type": "serial",
           "primaryKey": true,
           "notNull": true
         },
-        "name": {
-          "name": "name",
+        "user_name": {
+          "name": "user_name",
           "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "email": {
-          "name": "email",
+        "user_email": {
+          "name": "user_email",
           "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "password": {
-          "name": "password",
+        "user_password": {
+          "name": "user_password",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_role": {
+          "name": "user_role",
           "type": "text",
           "primaryKey": false,
           "notNull": false

@@ -1,7 +1,11 @@
 <template>
   <button class="buttonWithIcon">
     <IconClose v-if="name === 'close'" class="buttonWithIcon__icon" />
-    <IconMenu v-if="name === 'menu'" class="buttonWithIcon__icon" />
+    <IconMenu
+      v-if="name === 'menu'"
+      class="buttonWithIcon__icon"
+      :class="place === 'admin' ? 'buttonWithIcon__icon_admin' : ''"
+    />
     <IconLogin v-if="name === 'login'" class="buttonWithIcon__icon" />
     <IconCartImg v-if="name === 'cart'" class="buttonWithIcon__icon" />
     <IconPhone v-if="name === 'phone'" class="buttonWithIcon__icon" />
@@ -34,7 +38,11 @@
 </template>
 
 <script setup>
-const { name, isFavorite } = defineProps(["name", "isFavorite"]);
+const { name, isFavorite, place } = defineProps([
+  "name",
+  "isFavorite",
+  "place",
+]);
 
 const cartStore = useCartStore();
 </script>
@@ -58,6 +66,12 @@ const cartStore = useCartStore();
     @media (max-width: 767px) {
       width: 24px;
       height: 24px;
+    }
+
+    &_admin {
+      width: 24px;
+      height: 24px;
+      fill: var(--black-primary);
     }
 
     &_favorite {
