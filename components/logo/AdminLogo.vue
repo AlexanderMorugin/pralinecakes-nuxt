@@ -14,11 +14,10 @@
 
   &__title {
     font-family: "Montserrat-SemiBold", sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     color: var(--black-primary);
     text-transform: uppercase;
     letter-spacing: 4px;
-    animation: ascent-name 1.5s ease-in-out;
     opacity: 0.8;
 
     @media (max-width: 767px) {

@@ -3,7 +3,7 @@
     <div
       :class="['sidebar__content', { 'page-padding-x': place === 'desktop' }]"
     >
-      <!-- <SidebarMenu @closeModal="$emit('closeModal')" /> -->
+      <SidebarAdminMenu @closeModal="$emit('closeModal')" />
     </div>
     <div class="sidebar__counter">counter</div>
   </aside>

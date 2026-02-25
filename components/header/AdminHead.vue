@@ -1,41 +1,43 @@
 <template>
-  <header class="header">
-    <LogoAdminLogo v-if="!isScreenLarge" />
+  <header class="adminHeader">
+    <div class="adminHeader__logo">
+      <LogoAdminLogo v-if="!isScreenLarge" />
+    </div>
 
-    <div class="header__content page-padding-x">
+    <div class="adminHeader__content page-padding-x">
       <ButtonWithIcon
         v-if="isScreenLarge"
         place="admin"
         name="menu"
-        @handleClick="isMenuModalOpen = true"
+        @handleClick="isSidebarModalOpen = true"
       />
 
-      <!-- <HeaderTitle /> -->
-      <!-- <ButtonWithIcon
+      <HeaderAdminTitle />
+      <ButtonWithIcon
         v-if="
-          route.path === `/orders/${route.params.id}` ||
-          route.path === `/comments/${route.params.id}` ||
-          route.path === `/cakes/${route.params.slug}` ||
-          route.path === '/cakes/add'
+          route.path === `/admin/orders/${route.params.id}` ||
+          route.path === `/admin/comments/${route.params.id}` ||
+          route.path === `/admin/cakes/${route.params.slug}` ||
+          route.path === '/admin/cakes/add'
         "
         name="back"
         @handleClick="router.go(-1)"
-      /> -->
+      />
     </div>
-
-    <!-- Сайдбар для мобилки -->
-    <!-- <Teleport to="#teleports">
-      <Transition name="left">
-        <ModalHeader
-          v-if="isMenuModalOpen"
-          :isModalOpen="isMenuModalOpen"
-          place="left"
-          title="Меню"
-          @closeModal="isMenuModalOpen = false"
-        />
-      </Transition>
-    </Teleport> -->
   </header>
+
+  <!-- Сайдбар для мобилки -->
+  <Teleport to="#teleports">
+    <Transition name="left">
+      <ModalForHeader
+        v-if="isSidebarModalOpen"
+        place="left"
+        title="Меню"
+        name="sidebar"
+        @closeModal="isSidebarModalOpen = false"
+      />
+    </Transition>
+  </Teleport>
 </template>
 
 <script setup>
@@ -43,11 +45,11 @@ const route = useRoute();
 const router = useRouter();
 const { isScreenLarge } = useResizeLarge();
 
-const isMenuModalOpen = ref(false);
+const isSidebarModalOpen = ref(false);
 </script>
 
 <style lang="scss" scoped>
-.header {
+.adminHeader {
   display: grid;
   grid-template-columns: 320px 1fr;
   align-items: center;
@@ -57,6 +59,12 @@ const isMenuModalOpen = ref(false);
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
     height: 60px;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__content {

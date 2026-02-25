@@ -1,5 +1,7 @@
 <template>
   <div class="modalProfile">
+    <NuxtLink to="/admin" class="modalProfile__title">Админка</NuxtLink>
+
     <div class="modalProfile__title" v-if="isLogin">
       Войдите в аккаунт или
       <span class="modalProfile__toggle" @click="toggleProfile"

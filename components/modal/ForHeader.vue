@@ -4,6 +4,7 @@
       'modalHeader page-padding-x',
       { modalHeader_left: place === 'left' },
       { modalHeader_right: place === 'right' },
+      { modalHeader_admin: name === 'sidebar' },
     ]"
     click.stop
   >
@@ -13,6 +14,7 @@
         <ButtonWithIcon name="close" @click="$emit('closeModal')" />
       </div>
 
+      <Sidebar v-if="name === 'sidebar'" @closeModal="$emit('closeModal')" />
       <ModalMenu v-if="name === 'menu'" @closeModal="$emit('closeModal')" />
       <ModalPhone v-if="name === 'phone'" />
       <ModalChat v-if="name === 'chat'" />
@@ -26,12 +28,7 @@
 </template>
 
 <script setup>
-const { isModalOpen, place, title, name } = defineProps([
-  "isModalOpen",
-  "place",
-  "title",
-  "name",
-]);
+const { place, title, name } = defineProps(["place", "title", "name"]);
 const emit = defineEmits(["closeModal"]);
 </script>
 
@@ -51,6 +48,10 @@ const emit = defineEmits(["closeModal"]);
 
   @media (max-width: 767px) {
     width: 100%;
+  }
+
+  &_admin {
+    background: var(--deep-blue-secondary);
   }
 
   &_left {

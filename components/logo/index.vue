@@ -18,21 +18,12 @@
     color: var(--white-primary);
     text-transform: uppercase;
     letter-spacing: 4px;
-    animation: ascent-name 1.5s ease-in-out;
     opacity: 0.8;
-
-    // @media (max-width: 767px) {
-    //   font-size: 16px;
-    // }
 
     @media (max-width: 767px) {
       font-size: 12px;
       letter-spacing: 0;
     }
-
-    // @media (max-width: 375px) {
-    //   font-size: 10px;
-    // }
   }
 
   &__shopBox {
@@ -46,11 +37,6 @@
       top: -7px;
       right: -17px;
     }
-
-    // @media (max-width: 375px) {
-    //   top: -5px;
-    //   right: -14px;
-    // }
   }
 
   &__shop {

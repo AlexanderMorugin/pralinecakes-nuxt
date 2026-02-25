@@ -1,11 +1,12 @@
 <template>
-  <button class="buttonWithIcon">
+  <button class="buttonWithIcon" @click="emit('handleClick')">
     <IconClose v-if="name === 'close'" class="buttonWithIcon__icon" />
     <IconMenu
       v-if="name === 'menu'"
       class="buttonWithIcon__icon"
       :class="place === 'admin' ? 'buttonWithIcon__icon_admin' : ''"
     />
+    <IconArrowBack v-if="name === 'back'" class="buttonWithIcon__icon_admin" />
     <IconLogin v-if="name === 'login'" class="buttonWithIcon__icon" />
     <IconCartImg v-if="name === 'cart'" class="buttonWithIcon__icon" />
     <IconPhone v-if="name === 'phone'" class="buttonWithIcon__icon" />
@@ -43,6 +44,7 @@ const { name, isFavorite, place } = defineProps([
   "isFavorite",
   "place",
 ]);
+const emit = defineEmits(["handleClick"]);
 
 const cartStore = useCartStore();
 </script>
@@ -117,6 +119,12 @@ const cartStore = useCartStore();
 
 .buttonWithIcon:hover .buttonWithIcon__icon {
   fill: var(--orange-primary);
+  opacity: 1;
+  animation: scale 0.25s ease-in-out;
+}
+
+.buttonWithIcon:hover .buttonWithIcon__icon_admin {
+  fill: var(--deep-blue-fourthly);
   opacity: 1;
   animation: scale 0.25s ease-in-out;
 }
