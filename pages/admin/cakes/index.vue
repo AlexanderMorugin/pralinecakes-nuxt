@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <!-- <ProductTopAddingBlock />
-  <ProductCakeList v-if="cakesStore.cakes.length" />
-  <ProductListEmpty v-else title="Тортов пока нет" /> -->
-  </div>
+  <!-- <LoaderPage v-if="pending" /> -->
+  <ProductAdminAddBlock />
+  <ProductAdminList
+    v-if="adminCakesStore.adminCakes.length"
+    :products="adminCakesStore.adminCakes"
+  />
+  <ProductAdminListEmpty v-else title="Тортов пока нет..." />
 </template>
 
 <script setup>
@@ -11,7 +13,6 @@ definePageMeta({
   layout: "admin",
 });
 
-// const cakesStore = useCakesStore();
-
-// await cakesStore.loadCakes();
+const adminCakesStore = useAdminCakesStore();
+await adminCakesStore.loadAdminCakes();
 </script>

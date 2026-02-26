@@ -23,7 +23,6 @@ const emit = defineEmits(["closeModal"]);
   display: flex;
   align-items: center;
   width: 100%;
-  // height: 48px;
   border-radius: var(--border-radius-l);
   border: 1px solid var(--border-secondary);
   font-family: "Roboto-Medium", sans-serif;
@@ -40,6 +39,7 @@ const emit = defineEmits(["closeModal"]);
   @media (max-width: 1024px) {
     border: 1px solid var(--border-primary);
     color: var(--white-primary);
+    letter-spacing: 3px;
   }
 
   &_active {

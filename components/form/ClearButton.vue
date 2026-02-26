@@ -1,5 +1,7 @@
 <template>
-  <IconClose class="formClearButton" />
+  <IconClose
+    :class="['formClearButton', { formClearButton_admin: place === 'admin' }]"
+  />
 </template>
 
 <script setup>
@@ -23,6 +25,13 @@ const { place } = defineProps(["place"]);
 
   @media (max-width: 1024px) {
     top: 40px;
+  }
+
+  &_admin {
+    top: 32px;
+    right: 12px;
+    fill: var(--mask-black-thirdly);
+    z-index: 2;
   }
 }
 </style>

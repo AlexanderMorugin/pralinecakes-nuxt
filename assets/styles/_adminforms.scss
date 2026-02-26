@@ -1,0 +1,313 @@
+.admin-form-flex {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 80px;
+  background: var(--gradient-admin-thirdly);
+  border-radius: var(--border-radius-s);
+  padding: 20px;
+  overflow: hidden;
+
+  @media (max-width: 767px) {
+    height: 60px;
+    padding: 10px;
+  }
+
+  &_open {
+    height: 100%;
+  }
+}
+.admin-form-images {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+}
+.admin-form-weight {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+}
+.admin-form-nutritional {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.admin-form-visibility {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  height: 40px;
+}
+.admin-form-submited-text {
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--white-primary);
+}
+.admin-form-submited-text-noAccent {
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  color: var(--mask-white-secondary);
+}
+.admin-form-title {
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 22px;
+  line-height: 38px;
+  color: var(--white-primary);
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+  }
+
+  &_second {
+    font-family: "Montserrat-Regular", sans-serif;
+    font-size: 18px;
+
+    @media (max-width: 767px) {
+      font-size: 14px;
+    }
+  }
+}
+.admin-form-subtitle {
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--deep-blue-fourthly);
+}
+.admin-form-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+.admin-form-field-radio {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.admin-form-label {
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 16px;
+  color: var(--white-primary);
+  padding-bottom: 5px;
+}
+.admin-form-input {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 16px;
+  color: var(--deep-blue-secondary);
+  background: var(--white-primary);
+  border-radius: var(--border-radius-xs);
+  border: 2px solid var(--border-secondary);
+  padding-left: 12px;
+  padding-right: 40px;
+  transition: 0.2s ease;
+  z-index: 2;
+
+  &_number {
+    padding-right: 12px;
+  }
+}
+.admin-form-input:focus {
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 16px;
+  color: var(--black-primary);
+  outline: 0;
+  border: 2px solid var(--green-secondary);
+  box-shadow: 0px 0px 15px rgba(243, 247, 250, 0.5);
+}
+.admin-form-input::placeholder {
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 16px;
+  color: var(--mask-black-thirdly);
+}
+.admin-form-input:focus::placeholder {
+  color: transparent;
+}
+.admin-form-badge-submited {
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+.admin-form-input-submited {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  padding-left: 12px;
+  padding-right: 40px;
+}
+.admin-form-input-text-submited {
+  font-family: "Montserrat-SemiBold", sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: var(--white-primary);
+}
+.admin-form-textarea {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--deep-blue-secondary);
+  background: var(--white-primary);
+  border-radius: var(--border-radius-xs);
+  border: 2px solid var(--border-secondary);
+  padding: 12px 40px 12px 12px;
+  transition: 0.2s ease;
+  z-index: 2;
+}
+.admin-form-textarea:focus {
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--black-primary);
+  outline: 0;
+  border: 2px solid var(--green-secondary);
+  box-shadow: 0px 0px 15px rgba(243, 247, 250, 0.5);
+}
+.admin-form-textarea::placeholder {
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 16px;
+  color: var(--mask-black-thirdly);
+}
+.admin-form-textarea:focus::placeholder {
+  color: transparent;
+}
+.admin-form-textarea-submited {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px 40px 10px 12px;
+}
+.admin-form-textarea-text-submited {
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 1px;
+  color: var(--white-primary);
+  word-break: break-all;
+}
+.admin-form-clear {
+  position: absolute;
+  top: 30px;
+  right: 12px;
+  width: 16px;
+  height: 16px;
+  fill: var(--mask-black-secondary);
+  cursor: pointer;
+  transition: 0.2s ease;
+  z-index: 3;
+
+  &:hover {
+    fill: var(--deep-blue-thirdly);
+  }
+}
+.admin-mark {
+  font-family: "Montserrat-Regular", sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--white-primary);
+}
+.admin-form-top-button {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: var(--mask-blue-thirdly);
+  border-radius: 50%;
+  transition: 0.2s ease;
+
+  &:hover {
+    background: var(--red-secondary);
+  }
+
+  @media (max-width: 767px) {
+    width: 30px;
+    height: 30px;
+  }
+
+  &_right {
+    right: 20px;
+
+    @media (max-width: 767px) {
+      right: 10px;
+    }
+  }
+
+  &_left {
+    right: 70px;
+
+    @media (max-width: 767px) {
+      right: 50px;
+    }
+  }
+}
+.admin-form-bottom-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform: rotate(90deg);
+  transition: 0.5s ease;
+  z-index: 1;
+  opacity: 0.6;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 767px) {
+    width: 30px;
+    height: 30px;
+    right: 10px;
+    bottom: 13px;
+  }
+
+  &_open {
+    transform: rotate(270deg);
+  }
+}
+.admin-form-button-edit {
+  width: 24px;
+  height: 24px;
+  fill: var(--white-primary);
+
+  @media (max-width: 767px) {
+    width: 20px;
+    height: 20px;
+  }
+}
+.admin-form-button-radio {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}

@@ -13,6 +13,7 @@
       />
 
       <HeaderAdminTitle />
+
       <ButtonWithIcon
         v-if="
           route.path === `/admin/orders/${route.params.id}` ||
@@ -32,7 +33,7 @@
       <ModalForHeader
         v-if="isSidebarModalOpen"
         place="left"
-        title="Меню"
+        title="Админка"
         name="sidebar"
         @closeModal="isSidebarModalOpen = false"
       />

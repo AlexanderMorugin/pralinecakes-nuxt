@@ -1,21 +1,28 @@
 <template>
   <div class="adminLayout">
-    <div class="adminLayout__container">
-      <HeaderAdminHead />
-      <div class="adminLayout__content">
-        <!-- Сайдбар для десктопа -->
-        <Sidebar v-if="!isScreenLarge" place="desktop" />
+    <ClientOnly>
+      <div class="adminLayout__container" loading="lazy" hydrate-on-visible>
+        <HeaderAdminHead />
 
-        <main class="adminLayout__main page-padding-x">
-          <NuxtPage />
-        </main>
+        <div class="adminLayout__content">
+          <!-- Сайдбар для десктопа -->
+          <Sidebar v-if="!isScreenLarge" place="desktop" />
+
+          <main class="adminLayout__main page-padding-x">
+            <NuxtPage />
+          </main>
+        </div>
       </div>
-    </div>
+    </ClientOnly>
   </div>
 </template>
 
 <script setup>
 const { isScreenLarge } = useResizeLarge();
+
+useHead({
+  title: "Пралине Shop",
+});
 </script>
 
 <style lang="scss" scoped>
@@ -27,7 +34,6 @@ const { isScreenLarge } = useResizeLarge();
     flex-direction: column;
     width: 100%;
     max-width: var(--screen-xxl);
-    min-height: 100vh;
     border-left: 1px solid var(--border-secondary);
     border-right: 1px solid var(--border-secondary);
     margin: 0 auto;

@@ -1,7 +1,11 @@
 <template>
   <button
     type="submit"
-    :class="['buttonSubmit', { buttonSubmit_active: !isFromEmpty && !isValid }]"
+    :class="[
+      'buttonSubmit',
+      { buttonSubmit_admin: place === 'admin' },
+      { buttonSubmit_active: !isFromEmpty && !isValid },
+    ]"
     @click="$emit('handleClick')"
   >
     <LoaderButton v-if="isLoading" />
@@ -10,11 +14,12 @@
 </template>
 
 <script setup>
-const { title, isFromEmpty, isValid, isLoading } = defineProps([
+const { title, isFromEmpty, isValid, isLoading, place } = defineProps([
   "title",
   "isFromEmpty",
   "isValid",
   "isLoading",
+  "place",
 ]);
 
 const emit = defineEmits(["handleClick"]);
@@ -35,6 +40,10 @@ const emit = defineEmits(["handleClick"]);
   @media (max-width: 1600px) {
     padding-top: 5px;
     padding-bottom: 5px;
+  }
+
+  &_admin {
+    border-radius: var(--border-radius-xs);
   }
 
   &_active {

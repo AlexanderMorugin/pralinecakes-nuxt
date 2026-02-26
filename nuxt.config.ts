@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "~/assets/styles/_transitions.scss",
     "~/assets/styles/_modal.scss",
     "~/assets/styles/_forms.scss",
+    "~/assets/styles/_adminforms.scss",
     "~/assets/styles/_animation.scss",
   ],
   modules: ["@pinia/nuxt", "nuxt-toast"],

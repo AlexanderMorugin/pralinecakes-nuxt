@@ -1,8 +1,12 @@
 <template>
-  <div class="form-field">
-    <label :for="name" class="form-label">{{ label }}</label>
+  <div :class="place === 'admin' ? 'admin-form-field' : 'form-field'">
+    <label
+      :for="name"
+      :class="place === 'admin' ? 'admin-form-label' : 'form-label'"
+      >{{ label }}</label
+    >
     <textarea
-      class="form-textarea"
+      :class="place === 'admin' ? 'admin-form-textarea' : 'form-textarea'"
       :placeholder="placeholder"
       :value="value"
       @input="updateValue"
@@ -14,16 +18,17 @@
       }}</span>
     </TransitionGroup>
 
-    <FormClearButton v-if="value" @click="$emit('clearInput')" />
+    <FormClearButton v-if="value" @click="$emit('clearInput')" :place="place" />
   </div>
 </template>
 
 <script setup>
-const { placeholder, value, label, error } = defineProps([
+const { placeholder, value, label, error, place } = defineProps([
   "placeholder",
   "value",
   "label",
   "error",
+  "place",
 ]);
 
 const emit = defineEmits(["update:value", "clearInput"]);
