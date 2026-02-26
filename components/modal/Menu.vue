@@ -16,7 +16,7 @@ import { menu } from "~/utils/constants/menu";
 const emit = defineEmits(["closeModal"]);
 
 const modalMenu = computed(() =>
-  useRoute().name === "index" ? menu.slice(1, menu.length) : menu
+  useRoute().name === "index" ? menu.slice(1, menu.length) : menu,
 );
 </script>
 

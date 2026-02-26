@@ -5,7 +5,7 @@
     >
       <SidebarAdminMenu @closeModal="$emit('closeModal')" />
     </div>
-    <div class="sidebar__counter">counter</div>
+    <!-- <div class="sidebar__counter">counter</div> -->
   </aside>
 </template>
 

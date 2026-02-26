@@ -30,13 +30,16 @@ const route = useRoute();
 
 <style lang="scss" scoped>
 .headerAdminTitle {
-  font-family: "Montserrat-SemiBold", sans-serif;
-  font-size: 18px;
+  // font-family: "Montserrat-SemiBold", sans-serif;
+  font-family: "Roboto-Regular", sans-serif;
+  font-size: 16px;
   letter-spacing: 4px;
-  color: var(--deep-blue-thirdly);
+  text-transform: uppercase;
+  color: var(--black-primary);
 
   @media (max-width: 767px) {
     font-size: 14px;
+    letter-spacing: 2px;
   }
 }
 </style>

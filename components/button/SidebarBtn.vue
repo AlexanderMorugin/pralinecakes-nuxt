@@ -23,16 +23,18 @@ const emit = defineEmits(["closeModal"]);
   display: flex;
   align-items: center;
   width: 100%;
-  height: 48px;
-  border-radius: var(--border-radius-xs);
+  // height: 48px;
+  border-radius: var(--border-radius-l);
   border: 1px solid var(--border-secondary);
-  font-family: "Montserrat-SemiBold", sans-serif;
+  font-family: "Roboto-Medium", sans-serif;
   font-size: 16px;
+  letter-spacing: 2px;
   color: var(--deep-blue-fourthly);
-  padding: 14px 16px;
+  padding: 20px;
+  transition: 0.2s ease;
 
   &:hover {
-    background: var(--mask-blue-primary);
+    background: var(--mask-blue-secondary);
   }
 
   @media (max-width: 1024px) {
