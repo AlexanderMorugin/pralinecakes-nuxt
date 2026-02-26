@@ -1,10 +1,18 @@
 <template>
   <div class="productListEmpty">
-    <span class="productListEmpty__title">Продукция не найдена...</span>
+    <span
+      :class="[
+        'productListEmpty__title',
+        { productListEmpty__title_admin: place === 'admin' },
+      ]"
+      >{{ title }}</span
+    >
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+const { title, place } = defineProps(["title", "place"]);
+</script>
 
 <style lang="scss" scoped>
 .productListEmpty {
@@ -20,6 +28,10 @@
     letter-spacing: 2px;
     color: var(--white-primary);
     padding-top: 100px;
+
+    &_admin {
+      color: var(--black-primary);
+    }
   }
 }
 </style>

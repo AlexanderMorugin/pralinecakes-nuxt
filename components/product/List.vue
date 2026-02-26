@@ -1,15 +1,22 @@
 <template>
-  <WrapperPage class="page-padding-x">
-    <ul v-if="type === 'cakes'" class="productList">
-      <li v-for="product in cakesStore.cakes" :key="product.id">
-        <ProductListCard :product="product" />
+  <WrapperPage
+    :class="
+      place === 'admin' ? 'page-padding-x page-padding-y' : 'page-padding-x'
+    "
+  >
+    <ul
+      v-if="type === 'cakes'"
+      :class="['productList', { productList_admin: place === 'admin' }]"
+    >
+      <li v-for="product in products" :key="product.id">
+        <ProductListCard :product="product" :place="place" />
       </li>
     </ul>
   </WrapperPage>
 </template>
 
 <script setup>
-const { type } = defineProps(["type"]);
+const { type, products, place } = defineProps(["type", "products", "place"]);
 const cakesStore = useCakesStore();
 </script>
 
@@ -34,6 +41,21 @@ const cakesStore = useCakesStore();
 
   @media (max-width: 576px) {
     grid-template-columns: 1fr;
+  }
+
+  &_admin {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 30px;
+
+    @media (max-width: 1400px) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
+    }
+
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+      column-gap: 10px;
+    }
   }
 }
 </style>

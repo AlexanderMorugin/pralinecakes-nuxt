@@ -1,8 +1,12 @@
 <template>
   <WrapperPage>
     <TitlePage title="Торты" />
-    <ProductList v-if="cakesStore.cakes.length" type="cakes" />
-    <ProductListEmpty v-else />
+    <ProductList
+      v-if="cakesStore.cakes.length"
+      type="cakes"
+      :products="cakesStore.cakes"
+    />
+    <ProductListEmpty v-else title="Продукция не найдена..." />
   </WrapperPage>
 </template>
 

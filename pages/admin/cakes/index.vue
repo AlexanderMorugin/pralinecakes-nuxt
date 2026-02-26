@@ -1,11 +1,12 @@
 <template>
-  <!-- <LoaderPage v-if="pending" /> -->
   <ProductAdminAddBlock />
-  <ProductAdminList
+  <ProductList
     v-if="adminCakesStore.adminCakes.length"
+    type="cakes"
     :products="adminCakesStore.adminCakes"
+    place="admin"
   />
-  <ProductAdminListEmpty v-else title="Тортов пока нет..." />
+  <ProductListEmpty v-else title="Продукция не найдена..." place="admin" />
 </template>
 
 <script setup>

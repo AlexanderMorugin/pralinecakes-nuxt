@@ -6,26 +6,21 @@ export const useAdminCakesStore = defineStore("adminCakesStore", () => {
   const adminCake = ref<IProduct | any>(null);
 
   const loadAdminCakes = async () => {
-    const {
-      data: adminCakesData,
-      status: adminCakesStatus,
-      // pending: adminCakesPending,
-      pending,
-    } = await useFetch("/api/admin/cakes/load-cakes", {
+    const result = await useFetch("/api/admin/cakes/admin-load-cakes", {
       baseURL: process.env.BASE_URL,
       key: "admin-cakes",
       method: "GET",
     });
 
-    if (adminCakesStatus.value === "success") {
-      adminCakes.value = adminCakesData.value;
+    if (result.status.value === "success") {
+      adminCakes.value = result.data.value;
     }
 
-    return { adminCakesData, adminCakesStatus, pending };
+    return result;
   };
 
   const createAdminCakeTitle = async (formData: IProduct) => {
-    const result = await useFetch("/api/admin/cakes/create-title", {
+    const result = await useFetch("/api/admin/cakes/admin-create-title", {
       baseURL: process.env.BASE_URL,
       method: "POST",
       body: {

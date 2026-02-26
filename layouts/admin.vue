@@ -8,7 +8,7 @@
           <!-- Сайдбар для десктопа -->
           <Sidebar v-if="!isScreenLarge" place="desktop" />
 
-          <main class="adminLayout__main page-padding-x">
+          <main class="adminLayout__main">
             <NuxtPage />
           </main>
         </div>

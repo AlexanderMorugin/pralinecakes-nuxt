@@ -71,8 +71,6 @@ const createProductTitle = async () => {
       description_short: descriptionShortField.value.trim(),
     };
 
-    // console.log(formData);
-
     const result = await adminCakesStore.createAdminCakeTitle(formData);
 
     if (result.status.value === "error") {

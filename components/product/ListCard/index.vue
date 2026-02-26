@@ -1,7 +1,18 @@
 <template>
-  <div class="productListCard">
+  <div
+    :class="[
+      'productListCard',
+      {
+        productListCard_admin: place === 'admin',
+      },
+    ]"
+  >
     <NuxtLink
-      :to="`/${product.type}/${product.slug}`"
+      :to="
+        place === 'admin'
+          ? `/admin/${product.type}/${product.slug}`
+          : `/${product.type}/${product.slug}`
+      "
       class="productListCard__overlay"
     ></NuxtLink>
 
@@ -47,7 +58,7 @@
 </template>
 
 <script setup>
-const { product } = defineProps(["product"]);
+const { product, place } = defineProps(["product", "place"]);
 
 const commentsStore = useCommentsStore();
 </script>
@@ -69,6 +80,14 @@ const commentsStore = useCommentsStore();
 
   @media (max-width: 767px) {
     height: 420px;
+  }
+
+  &_admin {
+    height: 500px;
+
+    @media (max-width: 767px) {
+      height: 420px;
+    }
   }
 
   &__buttonFavorite {
