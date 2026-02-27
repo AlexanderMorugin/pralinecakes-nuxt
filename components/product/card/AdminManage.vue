@@ -2,8 +2,8 @@
   <div class="productCardAdminManage page-padding-x">
     <FormAdminProductTitleUpdate />
     <FormAdminProductDescriptionUpdate />
-    <!-- <FormProductImageUpdate />
-    <FormProductMetaUpdate />
+    <FormAdminProductImageUpdate />
+    <!-- <FormProductMetaUpdate />
     <FormProductSizesUpdate />
     <FormProductPriceUpdate />
     <FormProductIgredientsUpdate />

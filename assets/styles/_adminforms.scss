@@ -67,10 +67,11 @@
   color: var(--mask-white-secondary);
 }
 .admin-form-title {
-  font-family: "Montserrat-SemiBold", sans-serif;
+  font-family: "Montserrat-Medium", sans-serif;
   font-size: 22px;
   line-height: 38px;
   color: var(--white-primary);
+  letter-spacing: 2px;
 
   @media (max-width: 767px) {
     font-size: 16px;
