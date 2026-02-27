@@ -33,7 +33,11 @@
 
     <div class="productListCard__details">
       <ProductListCardTitle
-        :route="`/${product.type}/${product.slug}`"
+        :route="
+          place === 'admin'
+            ? `/admin/${product.type}/${product.slug}`
+            : `/${product.type}/${product.slug}`
+        "
         :title="product.title"
         :description="product.description_short"
       />

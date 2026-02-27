@@ -4,7 +4,8 @@
     :class="[
       'buttonSubmit',
       { buttonSubmit_admin: place === 'admin' },
-      { buttonSubmit_active: !isFromEmpty && !isValid },
+      { buttonSubmit_active: place === 'admin' && isActive },
+      { buttonSubmit_active: place === 'client' && !isFromEmpty && !isValid },
     ]"
     @click="$emit('handleClick')"
   >
@@ -14,13 +15,9 @@
 </template>
 
 <script setup>
-const { title, isFromEmpty, isValid, isLoading, place } = defineProps([
-  "title",
-  "isFromEmpty",
-  "isValid",
-  "isLoading",
-  "place",
-]);
+const { title, isFromEmpty, isValid, isLoading, place, isActive } = defineProps(
+  ["title", "isFromEmpty", "isValid", "isLoading", "place", "isActive"],
+);
 
 const emit = defineEmits(["handleClick"]);
 </script>

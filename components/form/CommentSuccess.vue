@@ -10,7 +10,11 @@
       продуктов и не содержат никакой ненормативной лексики. Так же запрещены
       ссылки на любые внешние ресурсы.
     </p>
-    <FormSubmit title="Новый отзыв" @handleClick="$emit('handleClick')" />
+    <FormSubmit
+      title="Новый отзыв"
+      @handleClick="$emit('handleClick')"
+      place="client"
+    />
   </div>
 </template>
 

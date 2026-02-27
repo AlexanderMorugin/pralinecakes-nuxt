@@ -38,6 +38,7 @@
       :isFromEmpty="isFromEmpty"
       :isValid="isValid.length"
       :isLoading="isLoading"
+      place="client"
     />
 
     <div class="mark">* - обязательные для заполнения поля</div>

@@ -14,26 +14,9 @@ export const useCakesStore = defineStore("cakesStore", () => {
         // server: true, // запрос выполняется на стороне сервера, если false - то на стороне клиента
         // lazy: false,
         // immediate: false, // запрос автоматически не запускается, а только по кнопке
-        // default: () => [], // по дефолту показываем пустой массив
         // transform: (cakes) => cakes.map((item) => item.title), // возвращаем только тайтлы
-
-        // pick: [
-        //   "id"
-        //   // "slug",
-        //   // "type",
-        //   // "badge",
-        //   // "title",
-        //   // "description_short",
-        //   // "rating",
-        //   // "price",
-        //   // "discount",
-        //   // "discount_price",
-        //   // "image_1_small",
-        // ], // вернутся только определенные данные товара
         method: "GET",
       });
-
-      // console.log(result.data.value);
 
       if (result.status.value === "success") {
         cakes.value = result.data.value;
@@ -63,10 +46,38 @@ export const useCakesStore = defineStore("cakesStore", () => {
     return result;
   };
 
+  const createCakeTitle = async (formData: IProduct) => {
+    const res = await $fetch("/api/cakes/create-title", {
+      baseURL: process.env.BASE_URL,
+      method: "POST",
+      body: {
+        type: "cakes",
+        slug: formData.slug,
+        title: formData.title,
+        description_short: formData.description_short,
+      },
+    });
+
+    return res;
+  };
+
+  const deleteCake = async () => {
+    const res = await $fetch("/api/cakes/delete-cake", {
+      method: "DELETE",
+      body: {
+        id: cake.value[0].id,
+      },
+    });
+
+    return res;
+  };
+
   return {
     cakes,
     cake,
     loadCakes,
     getCake,
+    createCakeTitle,
+    deleteCake,
   };
 });

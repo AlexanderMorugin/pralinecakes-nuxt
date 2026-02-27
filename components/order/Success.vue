@@ -9,7 +9,11 @@
     <OrderDetails v-if="orderStore.order" />
 
     <div class="orderSuccess__container">
-      <FormSubmit title="Закрыть" @handleClick="closeOrderSuccess" />
+      <FormSubmit
+        title="Закрыть"
+        @handleClick="closeOrderSuccess"
+        place="client"
+      />
     </div>
   </div>
 </template>

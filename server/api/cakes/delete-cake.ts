@@ -1,9 +1,11 @@
-import { desc } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { db } from "~/server";
 import { cakes } from "~/server/database/schema";
 
 export default defineEventHandler(async (event) => {
-  const result = await db.select().from(cakes).orderBy(desc(cakes.createdAt));
+  const { id } = await readBody(event);
+
+  const result = await db.delete(cakes).where(eq(cakes.id, id));
 
   return result;
 });

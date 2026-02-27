@@ -1,5 +1,5 @@
 <template>
-  <div class="adminCakesAdd">
+  <div class="adminCakesAdd page-padding-x">
     <WrapperText place="admin">
       Чтобы создать новый продукт, необходимо сделать первый шаг. При этом будет
       создан товар с уникальным ID. Затем, если все в порядке, сайт

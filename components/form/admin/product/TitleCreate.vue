@@ -54,12 +54,12 @@
 
 <script setup>
 const toast = useToast();
-const adminCakesStore = useAdminCakesStore();
+const cakesStore = useCakesStore();
 
 const isLoading = ref(false);
-const slugField = ref("");
-const titleField = ref("");
-const descriptionShortField = ref("");
+const slugField = ref(null);
+const titleField = ref(null);
+const descriptionShortField = ref(null);
 
 const createProductTitle = async () => {
   try {
@@ -71,16 +71,17 @@ const createProductTitle = async () => {
       description_short: descriptionShortField.value.trim(),
     };
 
-    const result = await adminCakesStore.createAdminCakeTitle(formData);
+    const res = await cakesStore.createCakeTitle(formData);
 
-    if (result.status.value === "error") {
+    if (!res) {
       toast.error({
         title: "Ошибка!",
         message: "Создать продукт не удалось.",
       });
+      return;
     }
 
-    if (result.status.value === "success") {
+    if (res) {
       toast.success({
         title: "Успешно!",
         message: "Продукт создан.",

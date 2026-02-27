@@ -51,6 +51,7 @@
         :isFromEmpty="isFromEmpty"
         :isValid="isValid.length"
         :isLoading="isLoading"
+        place="client"
       />
     </div>
 

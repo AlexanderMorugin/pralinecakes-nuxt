@@ -1,9 +1,9 @@
 <template>
-  <ProductAdminAddBlock />
+  <ButtonAddProduct />
   <ProductList
-    v-if="adminCakesStore.adminCakes.length"
+    v-if="cakesStore.cakes.length"
     type="cakes"
-    :products="adminCakesStore.adminCakes"
+    :products="cakesStore.cakes"
     place="admin"
   />
   <ProductListEmpty v-else title="Продукция не найдена..." place="admin" />
@@ -14,6 +14,6 @@ definePageMeta({
   layout: "admin",
 });
 
-const adminCakesStore = useAdminCakesStore();
-await adminCakesStore.loadAdminCakes();
+const cakesStore = useCakesStore();
+await cakesStore.loadCakes();
 </script>
