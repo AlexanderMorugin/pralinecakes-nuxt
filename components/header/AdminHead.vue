@@ -4,7 +4,7 @@
       <LogoAdminLogo v-if="!isScreenLarge" />
     </div>
 
-    <div class="adminHeader__content page-padding-x">
+    <div class="adminHeader__content">
       <ButtonWithIcon
         v-if="isScreenLarge"
         place="admin"
@@ -56,10 +56,13 @@ const isSidebarModalOpen = ref(false);
   align-items: center;
   height: 80px;
   border-bottom: 1px solid var(--border-secondary);
+  padding-left: 8px;
+  padding-right: 8px;
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
     height: 60px;
+    padding-right: 1rem;
   }
 
   &__logo {

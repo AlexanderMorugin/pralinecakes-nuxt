@@ -87,6 +87,32 @@ export const useCakesStore = defineStore("cakesStore", () => {
     return result;
   };
 
+  const updateCakeDescription = async (formData: IProduct) => {
+    const result = await useFetch("/api/cakes/update-description", {
+      method: "PATCH",
+      body: {
+        id: cake.value[0].id,
+        description_one: formData.description_one,
+        description_two: formData.description_two,
+        description_three: formData.description_three,
+      },
+    });
+
+    if (result.status.value === "success") {
+      cakes.value = cakes.value.map((item: IProduct) =>
+        item.id === cake.value[0].id
+          ? {
+              ...item,
+              title: formData.title,
+              description_short: formData.description_short,
+            }
+          : item,
+      );
+    }
+
+    return result;
+  };
+
   const deleteCake = async () => {
     const result = await useFetch("/api/cakes/delete-cake", {
       method: "DELETE",
@@ -105,6 +131,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
     getCake,
     createCakeTitle,
     updateCakeTitle,
+    updateCakeDescription,
     deleteCake,
   };
 });

@@ -1,8 +1,8 @@
 <template>
   <div class="productCardAdminManage page-padding-x">
     <FormAdminProductTitleUpdate />
-    <!-- <FormProductDescriptionUpdate />
-    <FormProductImageUpdate />
+    <FormAdminProductDescriptionUpdate />
+    <!-- <FormProductImageUpdate />
     <FormProductMetaUpdate />
     <FormProductSizesUpdate />
     <FormProductPriceUpdate />

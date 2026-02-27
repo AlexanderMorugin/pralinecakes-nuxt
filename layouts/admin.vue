@@ -37,6 +37,11 @@ useHead({
     border-left: 1px solid var(--border-secondary);
     border-right: 1px solid var(--border-secondary);
     margin: 0 auto;
+
+    @media (max-width: 1024px) {
+      border-left: 0;
+      border-right: 0;
+    }
   }
 
   &__content {
