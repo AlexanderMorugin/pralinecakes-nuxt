@@ -11,10 +11,10 @@ export default defineEventHandler(async (event) => {
     description_short: body.description_short,
   };
 
-  const result = await db
-    .insert(cakes)
-    .values({ ...cakeTitle })
-    .returning();
+  // console.log(cakeTitle);
+
+  const result = await db.insert(cakes).values({ ...cakeTitle });
+  //   .returning();
 
   return result;
 });

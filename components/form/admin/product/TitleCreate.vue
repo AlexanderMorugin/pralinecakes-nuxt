@@ -71,22 +71,21 @@ const createProductTitle = async () => {
       description_short: descriptionShortField.value.trim(),
     };
 
-    const res = await cakesStore.createCakeTitle(formData);
+    const result = await cakesStore.createCakeTitle(formData);
 
-    if (!res) {
+    if (result.status.value === "error") {
       toast.error({
         title: "Ошибка!",
         message: "Создать продукт не удалось.",
       });
-      return;
+      // return;
     }
 
-    if (res) {
+    if (result.status.value === "success") {
       toast.success({
         title: "Успешно!",
         message: "Продукт создан.",
       });
-
       return navigateTo(`/admin/cakes/${slugField.value.toLowerCase().trim()}`);
     }
   } catch (error) {

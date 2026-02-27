@@ -10,7 +10,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
       const result = await useFetch("/api/cakes/load-cakes", {
         baseURL: process.env.BASE_URL, // автоматически устанавливается перед /api/cakes/load-cakes
         // timeout: 10000, // прерывание запроса через 10 сек
-        key: "cakes", // ключ для кеша - на стороне клиента, работает до перезагрузки страницы
+        // key: "cakes", // ключ для кеша - на стороне клиента, работает до перезагрузки страницы
         // server: true, // запрос выполняется на стороне сервера, если false - то на стороне клиента
         // lazy: false,
         // immediate: false, // запрос автоматически не запускается, а только по кнопке
@@ -33,6 +33,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
 
   const getCake = async (cakeSlug: string) => {
     const result = await useFetch("/api/cakes/get-cake", {
+      baseURL: process.env.BASE_URL,
       method: "POST",
       body: {
         slug: cakeSlug,
@@ -47,7 +48,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
   };
 
   const createCakeTitle = async (formData: IProduct) => {
-    const res = await $fetch("/api/cakes/create-title", {
+    const result = await useFetch("/api/cakes/create-title", {
       baseURL: process.env.BASE_URL,
       method: "POST",
       body: {
@@ -58,18 +59,43 @@ export const useCakesStore = defineStore("cakesStore", () => {
       },
     });
 
-    return res;
+    return result;
+  };
+
+  const updateCakeTitle = async (formData: IProduct) => {
+    const result = await useFetch("/api/cakes/update-title", {
+      method: "PATCH",
+      body: {
+        id: cake.value[0].id,
+        title: formData.title,
+        description_short: formData.description_short,
+      },
+    });
+
+    if (result.status.value === "success") {
+      cakes.value = cakes.value.map((item: IProduct) =>
+        item.id === cake.value[0].id
+          ? {
+              ...item,
+              title: formData.title,
+              description_short: formData.description_short,
+            }
+          : item,
+      );
+    }
+
+    return result;
   };
 
   const deleteCake = async () => {
-    const res = await $fetch("/api/cakes/delete-cake", {
+    const result = await useFetch("/api/cakes/delete-cake", {
       method: "DELETE",
       body: {
         id: cake.value[0].id,
       },
     });
 
-    return res;
+    return result;
   };
 
   return {
@@ -78,6 +104,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
     loadCakes,
     getCake,
     createCakeTitle,
+    updateCakeTitle,
     deleteCake,
   };
 });

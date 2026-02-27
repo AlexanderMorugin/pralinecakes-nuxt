@@ -1,8 +1,7 @@
 <template>
   <div class="productCardAdminManage page-padding-x">
-    {{ product }}
-    <!-- <FormProductTitleUpdate />
-    <FormProductDescriptionUpdate />
+    <FormAdminProductTitleUpdate />
+    <!-- <FormProductDescriptionUpdate />
     <FormProductImageUpdate />
     <FormProductMetaUpdate />
     <FormProductSizesUpdate />
@@ -16,9 +15,23 @@
     <ButtonManager
       name="delete"
       :isLoading="isLoading"
-      @handleClick="deleteCake"
+      @handleClick="isConfirmModalOpen = true"
     />
   </div>
+
+  <!-- Модалка подтверждения -->
+  <Teleport to="#teleports">
+    <Transition name="top">
+      <ModalConfirm
+        v-if="isConfirmModalOpen"
+        :isModalOpen="isConfirmModalOpen"
+        title="Подтвердить удаление?"
+        :isLoading="isLoading"
+        @yesClick="deleteCake"
+        @noClick="isConfirmModalOpen = false"
+      />
+    </Transition>
+  </Teleport>
 </template>
 
 <script setup>
@@ -28,29 +41,28 @@ const toast = useToast();
 const cakesStore = useCakesStore();
 
 const isLoading = ref(false);
+const isConfirmModalOpen = ref(false);
 
 const deleteCake = async () => {
   try {
     isLoading.value = true;
 
-    const res = await cakesStore.deleteCake();
+    const result = await cakesStore.deleteCake();
 
-    if (!res) {
+    if (result.status.value === "error") {
       toast.error({
         title: "Ошибка!",
         message: "Торт удалить не удалось.",
       });
-      return;
     }
 
-    if (res) {
+    if (result.status.value === "success") {
       toast.success({
         title: "Успешно!",
         message: "Торт удален.",
       });
-
-      return navigateTo("/admin/cakes");
     }
+    return navigateTo("/admin/cakes");
   } catch (error) {
     console.log(error);
   } finally {
