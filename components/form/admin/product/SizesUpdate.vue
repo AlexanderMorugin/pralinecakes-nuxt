@@ -60,7 +60,7 @@
       />
     </div>
 
-    <FormAdminSubmit
+    <FormSubmitAdmin
       v-if="isFormEdit"
       :isLoading="isLoading"
       isActive="true"

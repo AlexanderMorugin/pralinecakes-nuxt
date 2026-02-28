@@ -6,32 +6,22 @@
   >
     <div class="admin-form-title">Значок</div>
 
-    <button
-      type="button"
+    <FormButtonAdmin
       v-if="!isFormEdit && isFormOpen"
-      class="admin-form-top-button admin-form-top-button_right"
-    >
-      <IconEdit @click="isFormEdit = true" class="admin-form-button-edit" />
-    </button>
+      name="edit"
+      @handleClick="isFormEdit = true"
+    />
 
-    <button
-      type="button"
+    <FormButtonAdmin
       v-if="isFormEdit && isFormOpen"
-      class="admin-form-top-button admin-form-top-button_left"
-    >
-      <IconUndo @click="isFormEdit = false" class="admin-form-button-edit" />
-    </button>
+      name="undo"
+      @handleClick="isFormEdit = false"
+    />
 
-    <button
-      type="button"
-      class="admin-form-bottom-button"
-      :class="isFormOpen ? 'admin-form-bottom-button_open' : ''"
-    >
-      <IconArrowIos
-        @click="isFormOpen = !isFormOpen"
-        class="admin-form-button-edit wrap"
-      />
-    </button>
+    <FormButtonRoll
+      :isFormOpen="isFormOpen"
+      @handleClick="isFormOpen = !isFormOpen"
+    />
 
     <span class="admin-form-submited-text"
       >Переключатель значка товара на сайте</span
@@ -78,7 +68,7 @@
       >
     </div>
 
-    <FormAdminSubmit
+    <FormSubmitAdmin
       v-if="isFormEdit"
       :isLoading="isLoading"
       isActive="true"
@@ -124,11 +114,3 @@ const updateProductBadge = async () => {
   }
 };
 </script>
-
-<!-- <style lang="scss" scoped>
-.formAddingProduct {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-</style> -->
