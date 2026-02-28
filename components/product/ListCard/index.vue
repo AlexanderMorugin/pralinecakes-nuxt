@@ -22,6 +22,15 @@
       class="productListCard__buttonFavorite"
     /> -->
 
+    <IconVisibility
+      v-if="place === 'admin' && product.visibility"
+      class="productListCard__icon"
+    />
+    <IconVisibilityOff
+      v-if="place === 'admin' && !product.visibility"
+      class="productListCard__icon"
+    />
+
     <ProductListCardBadge v-if="product.badge" :badgeStatus="product.badge" />
 
     <ProductListCardDiscount
@@ -55,7 +64,10 @@
 
         <ProductListCardPrice v-if="product.price" :product="product" />
 
-        <ButtonCartBlock v-if="product.price" :product="product" />
+        <ButtonCartBlock
+          v-if="product.price && place !== 'admin'"
+          :product="product"
+        />
       </div>
     </div>
   </div>
@@ -91,6 +103,23 @@ const commentsStore = useCommentsStore();
 
     @media (max-width: 767px) {
       height: 420px;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 28px;
+    height: 28px;
+    fill: var(--white-primary);
+    z-index: 2;
+
+    @media (max-width: 767px) {
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
     }
   }
 

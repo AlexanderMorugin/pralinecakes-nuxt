@@ -35,7 +35,7 @@
 
     <div v-if="isFormOpen" class="admin-form-images">
       <FormTextareaAdmin
-        label="Маленькое 800-533.webp (20КБ)"
+        label="Малая 800-533.webp (20КБ)"
         type="text"
         name="image1SmallField"
         placeholder="Ссылка на изображение 1"
@@ -44,7 +44,7 @@
         :isFormEdit="isFormEdit"
       />
       <FormTextareaAdmin
-        label="Большое 2800-1866.webp (100КБ)"
+        label="Большая 2800-1866.webp (100КБ)"
         type="text"
         name="image1BigField"
         placeholder="Ссылка на изображение 1"
@@ -53,7 +53,7 @@
         :isFormEdit="isFormEdit"
       />
       <FormTextareaAdmin
-        label="Маленькое 800-533.webp (20КБ)"
+        label="Малая 800-533.webp (20КБ)"
         type="text"
         name="image2SmallField"
         placeholder="Ссылка на изображение 2"
@@ -62,7 +62,7 @@
         :isFormEdit="isFormEdit"
       />
       <FormTextareaAdmin
-        label="Большое 2800-1866.webp (100КБ)"
+        label="Большая 2800-1866.webp (100КБ)"
         type="text"
         name="image2BigField"
         placeholder="Ссылка на изображение 2"
@@ -71,7 +71,7 @@
         :isFormEdit="isFormEdit"
       />
       <FormTextareaAdmin
-        label="Маленькое 800-533.webp (20КБ)"
+        label="Малая 800-533.webp (20КБ)"
         type="text"
         name="image3SmallField"
         placeholder="Ссылка на изображение 3"
@@ -80,7 +80,7 @@
         :isFormEdit="isFormEdit"
       />
       <FormTextareaAdmin
-        label="Большое 2800-1866.webp (100КБ)"
+        label="Большая 2800-1866.webp (100КБ)"
         type="text"
         name="image3BigField"
         placeholder="Ссылка на изображение 3"
@@ -89,7 +89,7 @@
         :isFormEdit="isFormEdit"
       />
       <FormTextareaAdmin
-        label="Маленькое 800-533.webp (20КБ)"
+        label="Малая 800-533.webp (20КБ)"
         type="text"
         name="image4SmallField"
         placeholder="Ссылка на изображение 4"
@@ -98,7 +98,7 @@
         :isFormEdit="isFormEdit"
       />
       <FormTextareaAdmin
-        label="Большое 2800-1866.webp (100КБ)"
+        label="Большая 2800-1866.webp (100КБ)"
         type="text"
         name="image4BigField"
         placeholder="Ссылка на изображение 4"
@@ -107,7 +107,7 @@
         :isFormEdit="isFormEdit"
       />
       <FormTextareaAdmin
-        label="Маленькое 800-533.webp (20КБ)"
+        label="Малая 800-533.webp (20КБ)"
         type="text"
         name="image5SmallField"
         placeholder="Ссылка на изображение 5"
@@ -116,7 +116,7 @@
         :isFormEdit="isFormEdit"
       />
       <FormTextareaAdmin
-        label="Большое 2800-1866.webp (100КБ)"
+        label="Большая 2800-1866.webp (100КБ)"
         type="text"
         name="image5BigField"
         placeholder="Ссылка на изображение 5"
@@ -125,7 +125,7 @@
         :isFormEdit="isFormEdit"
       />
       <FormTextareaAdmin
-        label="Маленькое 800-533.webp (20КБ)"
+        label="Малая 800-533.webp (20КБ)"
         type="text"
         name="image6SmallField"
         placeholder="Ссылка на изображение 6"
@@ -134,7 +134,7 @@
         :isFormEdit="isFormEdit"
       />
       <FormTextareaAdmin
-        label="Большое 2800-1866.webp (100КБ)"
+        label="Большая 2800-1866.webp (100КБ)"
         type="text"
         name="image6BigField"
         placeholder="Ссылка на изображение 6"

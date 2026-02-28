@@ -31,6 +31,26 @@ export const useCakesStore = defineStore("cakesStore", () => {
     }
   };
 
+  const loadAdminCakes = async () => {
+    try {
+      const result = await useFetch("/api/cakes/load-admin-cakes", {
+        baseURL: process.env.BASE_URL,
+        method: "GET",
+      });
+
+      if (result.status.value === "success") {
+        cakes.value = result.data.value;
+      }
+
+      return result;
+    } catch (error) {
+      throw createError({
+        status: 404,
+        statusText: "Данные не найдены",
+      });
+    }
+  };
+
   const getCake = async (cakeSlug: string) => {
     const result = await useFetch("/api/cakes/get-cake", {
       baseURL: process.env.BASE_URL,
@@ -149,6 +169,206 @@ export const useCakesStore = defineStore("cakesStore", () => {
     return result;
   };
 
+  const updateProductMeta = async (formData: IProduct) => {
+    const result = await useFetch("/api/cakes/update-meta", {
+      method: "PATCH",
+      body: {
+        id: cake.value[0].id,
+        meta_title: formData.meta_title,
+        meta_description: formData.meta_description,
+      },
+    });
+
+    if (result.status.value === "success") {
+      cakes.value = cakes.value.map((item: IProduct) =>
+        item.id === cake.value[0].id
+          ? {
+              ...item,
+              meta_title: formData.meta_title,
+              meta_description: formData.meta_description,
+            }
+          : item,
+      );
+    }
+
+    return result;
+  };
+
+  const updateProductSizes = async (formData: IProduct) => {
+    const result = await useFetch("/api/cakes/update-sizes", {
+      method: "PATCH",
+      body: {
+        id: cake.value[0].id,
+        weight: formData.weight,
+        width: formData.width,
+        height: formData.height,
+      },
+    });
+
+    if (result.status.value === "success") {
+      cakes.value = cakes.value.map((item: IProduct) =>
+        item.id === cake.value[0].id
+          ? {
+              ...item,
+              weight: formData.weight,
+              width: formData.width,
+              height: formData.height,
+            }
+          : item,
+      );
+    }
+
+    return result;
+  };
+
+  const updateProductPrice = async (formData: IProduct) => {
+    const result = await useFetch("/api/cakes/update-price", {
+      method: "PATCH",
+      body: {
+        id: cake.value[0].id,
+        price: formData.price,
+        discount: formData.discount,
+        discount_price: formData.discount_price,
+      },
+    });
+
+    if (result.status.value === "success") {
+      cakes.value = cakes.value.map((item: IProduct) =>
+        item.id === cake.value[0].id
+          ? {
+              ...item,
+              price: formData.price,
+              discount: formData.discount,
+              discount_price: formData.discount_price,
+            }
+          : item,
+      );
+    }
+
+    return result;
+  };
+
+  const updateProductIngredients = async (formData: IProduct) => {
+    const result = await useFetch("/api/cakes/update-ingredients", {
+      method: "PATCH",
+      body: {
+        id: cake.value[0].id,
+        ingredients: formData.ingredients,
+      },
+    });
+
+    if (result.status.value === "success") {
+      cakes.value = cakes.value.map((item: IProduct) =>
+        item.id === cake.value[0].id
+          ? {
+              ...item,
+              ingredients: formData.ingredients,
+            }
+          : item,
+      );
+    }
+
+    return result;
+  };
+
+  const updateProductNutritional = async (formData: IProduct) => {
+    const result = await useFetch("/api/cakes/update-nutritional", {
+      method: "PATCH",
+      body: {
+        id: cake.value[0].id,
+        calories: formData.calories,
+        protein: formData.protein,
+        fat: formData.fat,
+        carbohydrates: formData.carbohydrates,
+      },
+    });
+
+    if (result.status.value === "success") {
+      cakes.value = cakes.value.map((item: IProduct) =>
+        item.id === cake.value[0].id
+          ? {
+              ...item,
+              calories: formData.calories,
+              protein: formData.protein,
+              fat: formData.fat,
+              carbohydrates: formData.carbohydrates,
+            }
+          : item,
+      );
+    }
+
+    return result;
+  };
+
+  const updateProductRating = async (rating: number) => {
+    const result = await useFetch("/api/cakes/update-rating", {
+      method: "PATCH",
+      body: {
+        id: cake.value[0].id,
+        rating: rating,
+      },
+    });
+
+    if (result.status.value === "success") {
+      cakes.value = cakes.value.map((item: IProduct) =>
+        item.id === cake.value[0].id
+          ? {
+              ...item,
+              rating: rating,
+            }
+          : item,
+      );
+    }
+
+    return result;
+  };
+
+  const updateProductBadge = async (badge: number) => {
+    const result = await useFetch("/api/cakes/update-badge", {
+      method: "PATCH",
+      body: {
+        id: cake.value[0].id,
+        badge: badge,
+      },
+    });
+
+    if (result.status.value === "success") {
+      cakes.value = cakes.value.map((item: IProduct) =>
+        item.id === cake.value[0].id
+          ? {
+              ...item,
+              badge: badge,
+            }
+          : item,
+      );
+    }
+
+    return result;
+  };
+
+  const updateProductVisibility = async (visibility: boolean) => {
+    const result = await useFetch("/api/cakes/update-visibility", {
+      method: "PATCH",
+      body: {
+        id: cake.value[0].id,
+        visibility: visibility,
+      },
+    });
+
+    if (result.status.value === "success") {
+      cakes.value = cakes.value.map((item: IProduct) =>
+        item.id === cake.value[0].id
+          ? {
+              ...item,
+              visibility: visibility,
+            }
+          : item,
+      );
+    }
+
+    return result;
+  };
+
   const deleteCake = async () => {
     const result = await useFetch("/api/cakes/delete-cake", {
       method: "DELETE",
@@ -164,11 +384,20 @@ export const useCakesStore = defineStore("cakesStore", () => {
     cakes,
     cake,
     loadCakes,
+    loadAdminCakes,
     getCake,
     createCakeTitle,
     updateCakeTitle,
     updateCakeDescription,
     updateProductImages,
+    updateProductMeta,
+    updateProductSizes,
+    updateProductPrice,
+    updateProductIngredients,
+    updateProductNutritional,
+    updateProductRating,
+    updateProductBadge,
+    updateProductVisibility,
     deleteCake,
   };
 });

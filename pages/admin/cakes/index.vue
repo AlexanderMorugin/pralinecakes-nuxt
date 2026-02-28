@@ -15,5 +15,5 @@ definePageMeta({
 });
 
 const cakesStore = useCakesStore();
-await cakesStore.loadCakes();
+await cakesStore.loadAdminCakes();
 </script>

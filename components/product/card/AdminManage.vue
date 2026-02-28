@@ -3,14 +3,14 @@
     <FormAdminProductTitleUpdate />
     <FormAdminProductDescriptionUpdate />
     <FormAdminProductImageUpdate />
-    <!-- <FormProductMetaUpdate />
-    <FormProductSizesUpdate />
-    <FormProductPriceUpdate />
-    <FormProductIgredientsUpdate />
-    <FormProductNutritionalUpdate />
-    <FormProductRatingUpdate />
-    <FormProductBadgeUpdate />
-    <FormProductVisibilityUpdate /> -->
+    <FormAdminProductMetaUpdate />
+    <FormAdminProductSizesUpdate />
+    <FormAdminProductPriceUpdate />
+    <FormAdminProductIgredientsUpdate />
+    <FormAdminProductNutritionalUpdate />
+    <FormAdminProductRatingUpdate />
+    <FormAdminProductBadgeUpdate />
+    <FormAdminProductVisibilityUpdate />
 
     <ButtonManager
       name="delete"

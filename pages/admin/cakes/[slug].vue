@@ -1,6 +1,5 @@
 <template>
   <ProductCardAdminManage :product="cakesStore.cake" />
-  <!-- <ProductCardAdminManage /> -->
 </template>
 
 <script setup>
