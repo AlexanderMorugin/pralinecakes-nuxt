@@ -11,13 +11,11 @@
       name="edit"
       @handleClick="isFormEdit = true"
     />
-
     <FormButtonAdmin
       v-if="isFormEdit && isFormOpen"
       name="undo"
       @handleClick="isFormEdit = false"
     />
-
     <FormButtonRoll
       :isFormOpen="isFormOpen"
       @handleClick="isFormOpen = !isFormOpen"
@@ -47,7 +45,6 @@
         :isFormEdit="false"
       />
     </div>
-
     <FormSubmitAdmin
       v-if="isFormEdit"
       :isLoading="isLoading"
@@ -58,14 +55,23 @@
 </template>
 
 <script setup>
+const { type } = defineProps(["type"]);
+
 const toast = useToast();
 const cakesStore = useCakesStore();
+const pastryStore = usePastryStore();
 
 const isFormOpen = ref(false);
 const isFormEdit = ref(false);
 const isLoading = ref(false);
-const priceField = ref(cakesStore.cake[0].price);
-const discountField = ref(cakesStore.cake[0].discount);
+const priceField = ref(
+  type === "cakes" ? cakesStore.cake[0].price : pastryStore.pastry[0].price,
+);
+const discountField = ref(
+  type === "cakes"
+    ? cakesStore.cake[0].discount
+    : pastryStore.pastry[0].discount,
+);
 const discountPriceField = computed(() =>
   discountField.value
     ? Math.round(
@@ -84,7 +90,10 @@ const updateProductPrice = async () => {
       discount_price: discountPriceField.value,
     };
 
-    const result = await cakesStore.updateProductPrice(formData);
+    const result =
+      type === "cakes"
+        ? await cakesStore.updateProductPrice(formData)
+        : await pastryStore.updateProductPrice(formData);
 
     if (result.status.value === "error") {
       toast.error({

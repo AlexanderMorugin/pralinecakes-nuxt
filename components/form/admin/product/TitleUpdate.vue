@@ -61,7 +61,6 @@
       @clearInput="descriptionShortField = null"
       :isFormEdit="isFormEdit"
     />
-
     <FormSubmitAdmin
       v-if="isFormEdit"
       :isLoading="isLoading"
@@ -100,44 +99,25 @@ const updateProductTitle = async () => {
       description_short: descriptionShortField.value.trim(),
     };
 
-    if (type === "cakes") {
-      const result = await cakesStore.updateCakeTitle(formData);
+    const result =
+      type === "cakes"
+        ? await cakesStore.updateCakeTitle(formData)
+        : await pastryStore.updatePastryTitle(formData);
 
-      if (result.status.value === "error") {
-        toast.error({
-          title: "Ошибка!",
-          message: "Изменения выполнить не удалось.",
-        });
-      }
-
-      if (result.status.value === "success") {
-        toast.success({
-          title: "Успешно!",
-          message: "Изменения сделаны.",
-        });
-
-        isFormEdit.value = false;
-      }
+    if (result.status.value === "error") {
+      toast.error({
+        title: "Ошибка!",
+        message: "Изменения выполнить не удалось.",
+      });
     }
 
-    if (type === "pastry") {
-      const result = await pastryStore.updatePastryTitle(formData);
+    if (result.status.value === "success") {
+      toast.success({
+        title: "Успешно!",
+        message: "Изменения сделаны.",
+      });
 
-      if (result.status.value === "error") {
-        toast.error({
-          title: "Ошибка!",
-          message: "Изменения выполнить не удалось.",
-        });
-      }
-
-      if (result.status.value === "success") {
-        toast.success({
-          title: "Успешно!",
-          message: "Изменения сделаны.",
-        });
-
-        isFormEdit.value = false;
-      }
+      isFormEdit.value = false;
     }
   } catch (error) {
     console.log(error);

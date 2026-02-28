@@ -11,13 +11,11 @@
       name="edit"
       @handleClick="isFormEdit = true"
     />
-
     <FormButtonAdmin
       v-if="isFormEdit && isFormOpen"
       name="undo"
       @handleClick="isFormEdit = false"
     />
-
     <FormButtonRoll
       :isFormOpen="isFormOpen"
       @handleClick="isFormOpen = !isFormOpen"
@@ -78,19 +76,27 @@
 </template>
 
 <script setup>
+const { type } = defineProps(["type"]);
+
 const toast = useToast();
 const cakesStore = useCakesStore();
+const pastryStore = usePastryStore();
 
 const isFormOpen = ref(false);
 const isFormEdit = ref(false);
 const isLoading = ref(false);
-const badgeField = ref(cakesStore.cake[0].badge);
+const badgeField = ref(
+  type === "cakes" ? cakesStore.cake[0].badge : pastryStore.pastry[0].badge,
+);
 
 const updateProductBadge = async () => {
   try {
     isLoading.value = true;
 
-    const result = await cakesStore.updateProductBadge(badgeField.value);
+    const result =
+      type === "cakes"
+        ? await cakesStore.updateProductBadge(badgeField.value)
+        : await pastryStore.updateProductBadge(badgeField.value);
 
     if (result.status.value === "error") {
       toast.error({

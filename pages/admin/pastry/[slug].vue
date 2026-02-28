@@ -1,5 +1,5 @@
 <template>
-  <ProductCardAdminManage :product="pastryStore.pastry" type="pastry" />
+  <ProductCardAdminManage :type="pastryStore.pastry[0].type" />
 </template>
 
 <script setup>
@@ -10,6 +10,4 @@ definePageMeta({
 const route = useRoute();
 const pastryStore = usePastryStore();
 await pastryStore.getPastry(route.params.slug);
-
-console.log(pastryStore.pastry);
 </script>

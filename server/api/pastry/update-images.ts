@@ -1,12 +1,12 @@
 import { eq } from "drizzle-orm";
 import { db } from "~/server";
-import { cakes } from "~/server/database/schema";
+import { pastry } from "~/server/database/schema";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
   const result = await db
-    .update(cakes)
+    .update(pastry)
     .set({
       image_1_small: body.image_1_small,
       image_1_big: body.image_1_big,
@@ -21,8 +21,7 @@ export default defineEventHandler(async (event) => {
       image_6_small: body.image_6_small,
       image_6_big: body.image_6_big,
     })
-    .where(eq(cakes.id, body.id));
-  // .returning();
+    .where(eq(pastry.id, body.id));
 
   return result;
 });

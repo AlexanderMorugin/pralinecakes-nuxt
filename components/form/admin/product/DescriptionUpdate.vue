@@ -50,7 +50,6 @@
       @clearInput="descriptionThreeField = null"
       :isFormEdit="isFormEdit"
     />
-
     <FormSubmitAdmin
       v-if="isFormEdit"
       :isLoading="isLoading"
@@ -61,15 +60,30 @@
 </template>
 
 <script setup>
+const { type } = defineProps(["type"]);
+
 const toast = useToast();
 const cakesStore = useCakesStore();
+const pastryStore = usePastryStore();
 
 const isFormOpen = ref(false);
 const isFormEdit = ref(false);
 const isLoading = ref(false);
-const descriptionOneField = ref(cakesStore.cake[0].description_one);
-const descriptionTwoField = ref(cakesStore.cake[0].description_two);
-const descriptionThreeField = ref(cakesStore.cake[0].description_three);
+const descriptionOneField = ref(
+  type === "cakes"
+    ? cakesStore.cake[0].description_one
+    : pastryStore.pastry[0].description_one,
+);
+const descriptionTwoField = ref(
+  type === "cakes"
+    ? cakesStore.cake[0].description_two
+    : pastryStore.pastry[0].description_two,
+);
+const descriptionThreeField = ref(
+  type === "cakes"
+    ? cakesStore.cake[0].description_three
+    : pastryStore.pastry[0].description_three,
+);
 
 const updateProductDescription = async () => {
   try {
@@ -87,7 +101,10 @@ const updateProductDescription = async () => {
         : null,
     };
 
-    const result = await cakesStore.updateCakeDescription(formData);
+    const result =
+      type === "cakes"
+        ? await cakesStore.updateCakeDescription(formData)
+        : await pastryStore.updatePastryDescription(formData);
 
     if (result.status.value === "error") {
       toast.error({

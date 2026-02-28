@@ -11,13 +11,11 @@
       name="edit"
       @handleClick="isFormEdit = true"
     />
-
     <FormButtonAdmin
       v-if="isFormEdit && isFormOpen"
       name="undo"
       @handleClick="isFormEdit = false"
     />
-
     <FormButtonRoll
       :isFormOpen="isFormOpen"
       @handleClick="isFormOpen = !isFormOpen"
@@ -32,7 +30,6 @@
       @clearInput="ingredientsField = null"
       :isFormEdit="isFormEdit"
     />
-
     <FormSubmitAdmin
       v-if="isFormEdit"
       :isLoading="isLoading"
@@ -43,13 +40,20 @@
 </template>
 
 <script setup>
+const { type } = defineProps(["type"]);
+
 const toast = useToast();
 const cakesStore = useCakesStore();
+const pastryStore = usePastryStore();
 
 const isFormOpen = ref(false);
 const isFormEdit = ref(false);
 const isLoading = ref(false);
-const ingredientsField = ref(cakesStore.cake[0].ingredients);
+const ingredientsField = ref(
+  type === "cakes"
+    ? cakesStore.cake[0].ingredients
+    : pastryStore.pastry[0].ingredients,
+);
 
 const updateProductIngredients = async () => {
   try {
@@ -61,7 +65,10 @@ const updateProductIngredients = async () => {
         : null,
     };
 
-    const result = await cakesStore.updateProductIngredients(formData);
+    const result =
+      type === "cakes"
+        ? await cakesStore.updateProductIngredients(formData)
+        : await pastryStore.updateProductIngredients(formData);
 
     if (result.status.value === "error") {
       toast.error({

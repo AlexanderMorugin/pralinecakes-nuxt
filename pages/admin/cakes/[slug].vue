@@ -1,5 +1,5 @@
 <template>
-  <ProductCardAdminManage :product="cakesStore.cake" type="cakes" />
+  <ProductCardAdminManage :type="cakesStore.cake[0].type" />
 </template>
 
 <script setup>

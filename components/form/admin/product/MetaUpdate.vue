@@ -11,18 +11,15 @@
       name="edit"
       @handleClick="isFormEdit = true"
     />
-
     <FormButtonAdmin
       v-if="isFormEdit && isFormOpen"
       name="undo"
       @handleClick="isFormEdit = false"
     />
-
     <FormButtonRoll
       :isFormOpen="isFormOpen"
       @handleClick="isFormOpen = !isFormOpen"
     />
-
     <FormInputAdmin
       label="Meta Title"
       type="text"
@@ -41,7 +38,6 @@
       @clearInput="metaDescriptionField = null"
       :isFormEdit="isFormEdit"
     />
-
     <FormSubmitAdmin
       v-if="isFormEdit"
       :isLoading="isLoading"
@@ -52,14 +48,25 @@
 </template>
 
 <script setup>
+const { type } = defineProps(["type"]);
+
 const toast = useToast();
 const cakesStore = useCakesStore();
+const pastryStore = usePastryStore();
 
 const isFormOpen = ref(false);
 const isFormEdit = ref(false);
 const isLoading = ref(false);
-const metaTitleField = ref(cakesStore.cake[0].meta_title);
-const metaDescriptionField = ref(cakesStore.cake[0].meta_description);
+const metaTitleField = ref(
+  type === "cakes"
+    ? cakesStore.cake[0].meta_title
+    : pastryStore.pastry[0].meta_title,
+);
+const metaDescriptionField = ref(
+  type === "cakes"
+    ? cakesStore.cake[0].meta_description
+    : pastryStore.pastry[0].meta_description,
+);
 
 const updateProductMeta = async () => {
   try {
@@ -72,7 +79,10 @@ const updateProductMeta = async () => {
         : null,
     };
 
-    const result = await cakesStore.updateProductMeta(formData);
+    const result =
+      type === "cakes"
+        ? await cakesStore.updateProductMeta(formData)
+        : await pastryStore.updateProductMeta(formData);
 
     if (result.status.value === "error") {
       toast.error({

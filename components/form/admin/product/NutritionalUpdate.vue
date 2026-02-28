@@ -11,13 +11,11 @@
       name="edit"
       @handleClick="isFormEdit = true"
     />
-
     <FormButtonAdmin
       v-if="isFormEdit && isFormOpen"
       name="undo"
       @handleClick="isFormEdit = false"
     />
-
     <FormButtonRoll
       :isFormOpen="isFormOpen"
       @handleClick="isFormOpen = !isFormOpen"
@@ -61,7 +59,6 @@
         :isFormEdit="isFormEdit"
       />
     </div>
-
     <FormSubmitAdmin
       v-if="isFormEdit"
       :isLoading="isLoading"
@@ -72,16 +69,31 @@
 </template>
 
 <script setup>
+const { type } = defineProps(["type"]);
+
 const toast = useToast();
 const cakesStore = useCakesStore();
+const pastryStore = usePastryStore();
 
 const isFormOpen = ref(false);
 const isFormEdit = ref(false);
 const isLoading = ref(false);
-const caloriesField = ref(cakesStore.cake[0].calories);
-const proteinField = ref(cakesStore.cake[0].protein);
-const fatField = ref(cakesStore.cake[0].fat);
-const carbohydratesField = ref(cakesStore.cake[0].carbohydrates);
+const caloriesField = ref(
+  type === "cakes"
+    ? cakesStore.cake[0].calories
+    : pastryStore.pastry[0].calories,
+);
+const proteinField = ref(
+  type === "cakes" ? cakesStore.cake[0].protein : pastryStore.pastry[0].protein,
+);
+const fatField = ref(
+  type === "cakes" ? cakesStore.cake[0].fat : pastryStore.pastry[0].fat,
+);
+const carbohydratesField = ref(
+  type === "cakes"
+    ? cakesStore.cake[0].carbohydrates
+    : pastryStore.pastry[0].carbohydrates,
+);
 
 const updateProductNutritional = async () => {
   try {
@@ -96,7 +108,10 @@ const updateProductNutritional = async () => {
         : null,
     };
 
-    const result = await cakesStore.updateProductNutritional(formData);
+    const result =
+      type === "cakes"
+        ? await cakesStore.updateProductNutritional(formData)
+        : await pastryStore.updateProductNutritional(formData);
 
     if (result.status.value === "error") {
       toast.error({
