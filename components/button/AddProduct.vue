@@ -1,8 +1,12 @@
 <template>
   <div class="buttonAddProduct">
-    <ButtonLinkWithIcon path="/admin/cakes/add" title="Добавить новый" />
+    <ButtonLinkWithIcon :path="`/admin/${type}/add`" title="Добавить" />
   </div>
 </template>
+
+<script setup>
+const { type } = defineProps(["type"]);
+</script>
 
 <style lang="scss" scoped>
 .buttonAddProduct {

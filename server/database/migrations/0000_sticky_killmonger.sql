@@ -81,6 +81,47 @@ CREATE TABLE "orders" (
 	"updated_at" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
+CREATE TABLE "pastry" (
+	"id" serial PRIMARY KEY NOT NULL,
+	"type" text,
+	"slug" text,
+	"title" text,
+	"description_short" text,
+	"description_one" text,
+	"description_two" text,
+	"description_three" text,
+	"image_1_small" text,
+	"image_1_big" text,
+	"image_2_small" text,
+	"image_2_big" text,
+	"image_3_small" text,
+	"image_3_big" text,
+	"image_4_small" text,
+	"image_4_big" text,
+	"image_5_small" text,
+	"image_5_big" text,
+	"image_6_small" text,
+	"image_6_big" text,
+	"meta_title" text,
+	"meta_description" text,
+	"weight" integer,
+	"width" integer,
+	"height" integer,
+	"price" integer,
+	"discount" integer,
+	"discount_price" integer,
+	"ingredients" text,
+	"calories" text,
+	"protein" text,
+	"fat" text,
+	"carbohydrates" text,
+	"badge" text,
+	"rating" integer,
+	"visibility" boolean DEFAULT true NOT NULL,
+	"created_at" timestamp DEFAULT now() NOT NULL,
+	"updated_at" timestamp DEFAULT now() NOT NULL
+);
+--> statement-breakpoint
 CREATE TABLE "users" (
 	"user_id" serial PRIMARY KEY NOT NULL,
 	"user_name" text,

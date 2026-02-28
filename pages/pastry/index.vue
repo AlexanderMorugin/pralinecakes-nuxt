@@ -1,7 +1,12 @@
 <template>
   <WrapperPage>
     <TitlePage title="Пирожные" />
-    <ProductList list="pastryList" />
+    <ProductList
+      v-if="pastryStore.pastries.length"
+      type="pastry"
+      :products="pastryStore.pastries"
+    />
+    <ProductListEmpty v-else title="Продукция не найдена..." />
   </WrapperPage>
 </template>
 
@@ -21,6 +26,9 @@ definePageMeta({
 });
 
 const route = useRoute();
+
+const pastryStore = usePastryStore();
+await pastryStore.loadPastries();
 
 useHead({
   link: [{ rel: "canonical", href: `${SITE}${route.path}` }],

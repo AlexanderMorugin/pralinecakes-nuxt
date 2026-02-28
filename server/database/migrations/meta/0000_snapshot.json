@@ -1,5 +1,5 @@
 {
-  "id": "d0594e1e-a84f-4460-97b2-11f2c814adf5",
+  "id": "b8e6776c-fa0d-4cab-8f31-388d18c3c422",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -471,6 +471,250 @@
           "type": "text",
           "primaryKey": false,
           "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.pastry": {
+      "name": "pastry",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "slug": {
+          "name": "slug",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description_short": {
+          "name": "description_short",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description_one": {
+          "name": "description_one",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description_two": {
+          "name": "description_two",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description_three": {
+          "name": "description_three",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_1_small": {
+          "name": "image_1_small",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_1_big": {
+          "name": "image_1_big",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_2_small": {
+          "name": "image_2_small",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_2_big": {
+          "name": "image_2_big",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_3_small": {
+          "name": "image_3_small",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_3_big": {
+          "name": "image_3_big",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_4_small": {
+          "name": "image_4_small",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_4_big": {
+          "name": "image_4_big",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_5_small": {
+          "name": "image_5_small",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_5_big": {
+          "name": "image_5_big",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_6_small": {
+          "name": "image_6_small",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "image_6_big": {
+          "name": "image_6_big",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "meta_title": {
+          "name": "meta_title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "meta_description": {
+          "name": "meta_description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "weight": {
+          "name": "weight",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "width": {
+          "name": "width",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "height": {
+          "name": "height",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "price": {
+          "name": "price",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "discount": {
+          "name": "discount",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "discount_price": {
+          "name": "discount_price",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ingredients": {
+          "name": "ingredients",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "calories": {
+          "name": "calories",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "protein": {
+          "name": "protein",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "fat": {
+          "name": "fat",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "carbohydrates": {
+          "name": "carbohydrates",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "badge": {
+          "name": "badge",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "rating": {
+          "name": "rating",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "visibility": {
+          "name": "visibility",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
         },
         "created_at": {
           "name": "created_at",

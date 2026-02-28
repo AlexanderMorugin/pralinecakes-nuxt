@@ -1,6 +1,6 @@
 <template>
   <div class="productCardAdminManage page-padding-x">
-    <FormAdminProductTitleUpdate />
+    <FormAdminProductTitleUpdate :type="type" />
     <FormAdminProductDescriptionUpdate />
     <FormAdminProductImageUpdate />
     <FormAdminProductMetaUpdate />
@@ -35,7 +35,7 @@
 </template>
 
 <script setup>
-const { product } = defineProps(["product"]);
+const { product, type } = defineProps(["product", "type"]);
 
 const toast = useToast();
 const cakesStore = useCakesStore();
@@ -77,12 +77,5 @@ const deleteCake = async () => {
   flex-direction: column;
   gap: 20px;
   padding-bottom: 40px;
-
-  // &__buttons {
-  //   display: grid;
-  //   grid-template-columns: repeat(4, 1fr);
-  //   gap: 20px;
-  //   border: 1px solid red;
-  // }
 }
 </style>

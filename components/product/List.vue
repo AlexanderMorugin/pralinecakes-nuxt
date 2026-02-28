@@ -5,7 +5,7 @@
     "
   >
     <ul
-      v-if="type === 'cakes'"
+      v-if="type === 'cakes' || type === 'pastry'"
       :class="['productList', { productList_admin: place === 'admin' }]"
     >
       <li v-for="product in products" :key="product.id">
@@ -17,7 +17,6 @@
 
 <script setup>
 const { type, products, place } = defineProps(["type", "products", "place"]);
-const cakesStore = useCakesStore();
 </script>
 
 <style lang="scss" scoped>

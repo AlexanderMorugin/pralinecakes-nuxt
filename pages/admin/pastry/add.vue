@@ -1,7 +1,7 @@
 <template>
   <div class="admin-product-add page-padding-x">
     <ProductGreetingAdmin />
-    <FormAdminProductTitleCreate type="cakes" />
+    <FormAdminProductTitleCreate type="pastry" />
   </div>
 </template>
 

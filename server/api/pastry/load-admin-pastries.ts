@@ -1,9 +1,9 @@
 import { desc } from "drizzle-orm";
 import { db } from "~/server";
-import { cakes } from "~/server/database/schema";
+import { pastry } from "~/server/database/schema";
 
 export default defineEventHandler(async (event) => {
-  const result = await db.select().from(cakes).orderBy(desc(cakes.createdAt));
+  const result = await db.select().from(pastry).orderBy(desc(pastry.createdAt));
 
   return result;
 });

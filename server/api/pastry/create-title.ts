@@ -1,5 +1,5 @@
 import { db } from "~/server";
-import { cakes } from "~/server/database/schema";
+import { pastry } from "~/server/database/schema";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
     description_short: body.description_short,
   };
 
-  const result = await db.insert(cakes).values({ ...productTitle });
+  const result = await db.insert(pastry).values({ ...productTitle });
 
   return result;
 });

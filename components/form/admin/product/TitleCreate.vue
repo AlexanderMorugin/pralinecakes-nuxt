@@ -53,8 +53,11 @@
 </template>
 
 <script setup>
+const { type } = defineProps(["type"]);
+
 const toast = useToast();
 const cakesStore = useCakesStore();
+const pastryStore = usePastryStore();
 
 const isLoading = ref(false);
 const slugField = ref(null);
@@ -71,22 +74,45 @@ const createProductTitle = async () => {
       description_short: descriptionShortField.value.trim(),
     };
 
-    const result = await cakesStore.createCakeTitle(formData);
+    if (type === "cakes") {
+      const result = await cakesStore.createCakeTitle(formData);
+      if (result.status.value === "error") {
+        toast.error({
+          title: "Ошибка!",
+          message: "Создать продукт не удалось.",
+        });
+      }
 
-    if (result.status.value === "error") {
-      toast.error({
-        title: "Ошибка!",
-        message: "Создать продукт не удалось.",
-      });
-      // return;
+      if (result.status.value === "success") {
+        toast.success({
+          title: "Успешно!",
+          message: "Продукт создан.",
+        });
+        return navigateTo(
+          `/admin/cakes/${slugField.value.toLowerCase().trim()}`,
+        );
+      }
     }
 
-    if (result.status.value === "success") {
-      toast.success({
-        title: "Успешно!",
-        message: "Продукт создан.",
-      });
-      return navigateTo(`/admin/cakes/${slugField.value.toLowerCase().trim()}`);
+    if (type === "pastry") {
+      const result = await pastryStore.createPastryTitle(formData);
+
+      if (result.status.value === "error") {
+        toast.error({
+          title: "Ошибка!",
+          message: "Создать продукт не удалось.",
+        });
+      }
+
+      if (result.status.value === "success") {
+        toast.success({
+          title: "Успешно!",
+          message: "Продукт создан.",
+        });
+        return navigateTo(
+          `/admin/pastry/${slugField.value.toLowerCase().trim()}`,
+        );
+      }
     }
   } catch (error) {
     console.log(error);

@@ -14,13 +14,17 @@
                 ? "Новый торт"
                 : route.path === "/admin/pastry"
                   ? "Пирожные"
-                  : route.path === "/admin/comments"
-                    ? "Отзывы"
-                    : route.path === `/admin/comments/${route.params.id}`
-                      ? "Детали отзыва"
-                      : route.path === "/admin/info"
-                        ? "Информация"
-                        : ""
+                  : route.path === `/admin/pastry/${route.params.slug}`
+                    ? "Детали пирожного"
+                    : route.path === "/admin/pastry/add"
+                      ? "Новое пирожное"
+                      : route.path === "/admin/comments"
+                        ? "Отзывы"
+                        : route.path === `/admin/comments/${route.params.id}`
+                          ? "Детали отзыва"
+                          : route.path === "/admin/info"
+                            ? "Информация"
+                            : ""
   }}</span>
 </template>
 

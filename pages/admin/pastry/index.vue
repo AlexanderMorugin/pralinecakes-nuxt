@@ -1,9 +1,9 @@
 <template>
-  <ButtonAddProduct type="cakes" />
+  <ButtonAddProduct type="pastry" />
   <ProductList
-    v-if="cakesStore.cakes.length"
-    type="cakes"
-    :products="cakesStore.cakes"
+    v-if="pastryStore.pastries.length"
+    type="pastry"
+    :products="pastryStore.pastries"
     place="admin"
   />
   <ProductListEmpty v-else title="Продукция не найдена..." place="admin" />
@@ -14,6 +14,6 @@ definePageMeta({
   layout: "admin",
 });
 
-const cakesStore = useCakesStore();
-await cakesStore.loadAdminCakes();
+const pastryStore = usePastryStore();
+await pastryStore.loadAdminPastries();
 </script>

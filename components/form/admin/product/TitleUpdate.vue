@@ -20,17 +20,27 @@
     <div class="admin-form-field-radio">
       <div class="admin-form-submited-text">
         <span class="admin-form-submited-text-noAccent">ID: </span
-        >{{ cakesStore.cake[0].id }}
+        >{{
+          type === "cakes" ? cakesStore.cake[0].id : pastryStore.pastry[0].id
+        }}
       </div>
       <div class="admin-form-submited-text">
         <span class="admin-form-submited-text-noAccent">Type: </span
-        >{{ cakesStore.cake[0].type }}
+        >{{
+          type === "cakes"
+            ? cakesStore.cake[0].type
+            : pastryStore.pastry[0].type
+        }}
       </div>
     </div>
 
     <div class="admin-form-submited-text">
-      <span class="admin-form-submited-text-noAccent">Адрес: ~/cakes/</span
-      >{{ cakesStore.cake[0].slug }}
+      <span class="admin-form-submited-text-noAccent">{{
+        `Адрес: ~/${type}/`
+      }}</span
+      >{{
+        type === "cakes" ? cakesStore.cake[0].slug : pastryStore.pastry[0].slug
+      }}
     </div>
 
     <FormInputAdmin
@@ -64,13 +74,22 @@
 </template>
 
 <script setup>
+const { type } = defineProps(["type"]);
+
 const toast = useToast();
 const cakesStore = useCakesStore();
+const pastryStore = usePastryStore();
 
 const isFormEdit = ref(false);
 const isLoading = ref(false);
-const titleField = ref(cakesStore.cake[0].title);
-const descriptionShortField = ref(cakesStore.cake[0].description_short);
+const titleField = ref(
+  type === "cakes" ? cakesStore.cake[0].title : pastryStore.pastry[0].title,
+);
+const descriptionShortField = ref(
+  type === "cakes"
+    ? cakesStore.cake[0].description_short
+    : pastryStore.pastry[0].description_short,
+);
 
 const updateProductTitle = async () => {
   try {
@@ -81,22 +100,44 @@ const updateProductTitle = async () => {
       description_short: descriptionShortField.value.trim(),
     };
 
-    const result = await cakesStore.updateCakeTitle(formData);
+    if (type === "cakes") {
+      const result = await cakesStore.updateCakeTitle(formData);
 
-    if (result.status.value === "error") {
-      toast.error({
-        title: "Ошибка!",
-        message: "Изменения выполнить не удалось.",
-      });
+      if (result.status.value === "error") {
+        toast.error({
+          title: "Ошибка!",
+          message: "Изменения выполнить не удалось.",
+        });
+      }
+
+      if (result.status.value === "success") {
+        toast.success({
+          title: "Успешно!",
+          message: "Изменения сделаны.",
+        });
+
+        isFormEdit.value = false;
+      }
     }
 
-    if (result.status.value === "success") {
-      toast.success({
-        title: "Успешно!",
-        message: "Изменения сделаны.",
-      });
+    if (type === "pastry") {
+      const result = await pastryStore.updatePastryTitle(formData);
 
-      isFormEdit.value = false;
+      if (result.status.value === "error") {
+        toast.error({
+          title: "Ошибка!",
+          message: "Изменения выполнить не удалось.",
+        });
+      }
+
+      if (result.status.value === "success") {
+        toast.success({
+          title: "Успешно!",
+          message: "Изменения сделаны.",
+        });
+
+        isFormEdit.value = false;
+      }
     }
   } catch (error) {
     console.log(error);

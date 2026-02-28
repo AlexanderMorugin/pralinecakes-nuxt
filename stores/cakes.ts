@@ -10,7 +10,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
       const result = await useFetch("/api/cakes/load-cakes", {
         baseURL: process.env.BASE_URL, // автоматически устанавливается перед /api/cakes/load-cakes
         // timeout: 10000, // прерывание запроса через 10 сек
-        // key: "cakes", // ключ для кеша - на стороне клиента, работает до перезагрузки страницы
+        key: "cakes", // ключ для кеша - на стороне клиента, работает до перезагрузки страницы
         // server: true, // запрос выполняется на стороне сервера, если false - то на стороне клиента
         // lazy: false,
         // immediate: false, // запрос автоматически не запускается, а только по кнопке
@@ -51,12 +51,12 @@ export const useCakesStore = defineStore("cakesStore", () => {
     }
   };
 
-  const getCake = async (cakeSlug: string) => {
+  const getCake = async (productSlug: string) => {
     const result = await useFetch("/api/cakes/get-cake", {
       baseURL: process.env.BASE_URL,
       method: "POST",
       body: {
-        slug: cakeSlug,
+        slug: productSlug,
       },
     });
 
