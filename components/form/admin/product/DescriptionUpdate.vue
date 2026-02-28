@@ -24,7 +24,7 @@
     />
 
     <FormTextareaAdmin
-      label="Описание 1"
+      label="Абзац 1"
       type="text"
       name="descriptionOneField"
       placeholder="Описание продукта"
@@ -33,7 +33,7 @@
       :isFormEdit="isFormEdit"
     />
     <FormTextareaAdmin
-      label="Описание 2"
+      label="Абзац 2"
       type="text"
       name="descriptionTwoField"
       placeholder="Описание продукта"
@@ -42,7 +42,7 @@
       :isFormEdit="isFormEdit"
     />
     <FormTextareaAdmin
-      label="Описание 3"
+      label="Абзац 3"
       type="text"
       name="descriptionThreeField"
       placeholder="Описание продукта"

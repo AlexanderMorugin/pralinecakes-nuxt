@@ -5,21 +5,17 @@
   >
     <div class="admin-form-title">Название</div>
 
-    <button
-      type="button"
+    <FormButtonAdmin
       v-if="!isFormEdit"
-      class="admin-form-top-button admin-form-top-button_right"
-    >
-      <IconEdit @click="isFormEdit = true" class="admin-form-button-edit" />
-    </button>
+      name="edit"
+      @handleClick="isFormEdit = true"
+    />
 
-    <button
-      type="button"
+    <FormButtonAdmin
       v-if="isFormEdit"
-      class="admin-form-top-button admin-form-top-button_left"
-    >
-      <IconUndo @click="isFormEdit = false" class="admin-form-button-edit" />
-    </button>
+      name="undo"
+      @handleClick="isFormEdit = false"
+    />
 
     <div class="admin-form-field-radio">
       <div class="admin-form-submited-text">
