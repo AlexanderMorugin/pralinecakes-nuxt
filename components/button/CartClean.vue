@@ -25,6 +25,7 @@ const emit = defineEmits(["cleanCart"]);
   &__text {
     // font-family: "Montserrat-Regular", sans-serif;
     // font-size: 16px;
+    letter-spacing: 1px;
     color: var(--white-primary);
 
     @media (max-width: 576px) {

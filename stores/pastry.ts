@@ -77,6 +77,7 @@ export const usePastryStore = defineStore("pastryStore", () => {
 
   const updatePastryTitle = async (formData: IProduct) => {
     const result = await useFetch("/api/pastry/update-title", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: pastry.value[0].id,
@@ -102,6 +103,7 @@ export const usePastryStore = defineStore("pastryStore", () => {
 
   const updatePastryDescription = async (formData: IProduct) => {
     const result = await useFetch("/api/pastry/update-description", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: pastry.value[0].id,
@@ -128,6 +130,7 @@ export const usePastryStore = defineStore("pastryStore", () => {
 
   const updatePastryImages = async (formData: IProduct) => {
     const result = await useFetch("/api/pastry/update-images", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: pastry.value[0].id,
@@ -164,6 +167,7 @@ export const usePastryStore = defineStore("pastryStore", () => {
 
   const updateProductMeta = async (formData: IProduct) => {
     const result = await useFetch("/api/pastry/update-meta", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: pastry.value[0].id,
@@ -189,6 +193,7 @@ export const usePastryStore = defineStore("pastryStore", () => {
 
   const updateProductSizes = async (formData: IProduct) => {
     const result = await useFetch("/api/pastry/update-sizes", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: pastry.value[0].id,
@@ -215,6 +220,7 @@ export const usePastryStore = defineStore("pastryStore", () => {
 
   const updateProductPrice = async (formData: IProduct) => {
     const result = await useFetch("/api/pastry/update-price", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: pastry.value[0].id,
@@ -242,6 +248,7 @@ export const usePastryStore = defineStore("pastryStore", () => {
 
   const updateProductIngredients = async (formData: IProduct) => {
     const result = await useFetch("/api/pastry/update-ingredients", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: pastry.value[0].id,
@@ -265,6 +272,7 @@ export const usePastryStore = defineStore("pastryStore", () => {
 
   const updateProductNutritional = async (formData: IProduct) => {
     const result = await useFetch("/api/pastry/update-nutritional", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: pastry.value[0].id,
@@ -294,6 +302,7 @@ export const usePastryStore = defineStore("pastryStore", () => {
 
   const updateProductRating = async (rating: number) => {
     const result = await useFetch("/api/pastry/update-rating", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: pastry.value[0].id,
@@ -317,6 +326,7 @@ export const usePastryStore = defineStore("pastryStore", () => {
 
   const updateProductBadge = async (badge: number) => {
     const result = await useFetch("/api/pastry/update-badge", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: pastry.value[0].id,
@@ -340,6 +350,7 @@ export const usePastryStore = defineStore("pastryStore", () => {
 
   const updateProductVisibility = async (visibility: boolean) => {
     const result = await useFetch("/api/pastry/update-visibility", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: pastry.value[0].id,
@@ -363,6 +374,7 @@ export const usePastryStore = defineStore("pastryStore", () => {
 
   const deletePastry = async () => {
     const result = await useFetch("/api/pastry/delete-pastry", {
+      baseURL: process.env.BASE_URL,
       method: "DELETE",
       body: {
         id: pastry.value[0].id,

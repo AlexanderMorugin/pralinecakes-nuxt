@@ -1,13 +1,6 @@
 <template>
-  <div>
-    <!-- <OrderList v-if="ordersStore.orders.length" />
-    <OrderListEmpty v-else /> -->
-  </div>
-  <!-- <ul class="orders">
-    <li v-for="order in ordersStore.orders" :key="order.id">
-      <OrderListCard :order="order" />
-    </li>
-  </ul> -->
+  <OrderListAdmin v-if="orderStore.orders.length" :orders="orderStore.orders" />
+  <ProductListEmpty v-else title="Заказы не найдены..." place="admin" />
 </template>
 
 <script setup>
@@ -15,7 +8,6 @@ definePageMeta({
   layout: "admin",
 });
 
-// const ordersStore = useOrdersStore();
-
-// await ordersStore.loadOrders();
+const orderStore = useOrderStore();
+await orderStore.loadOrders();
 </script>

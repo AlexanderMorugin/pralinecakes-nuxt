@@ -84,6 +84,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
 
   const updateCakeTitle = async (formData: IProduct) => {
     const result = await useFetch("/api/cakes/update-title", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: cake.value[0].id,
@@ -109,6 +110,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
 
   const updateCakeDescription = async (formData: IProduct) => {
     const result = await useFetch("/api/cakes/update-description", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: cake.value[0].id,
@@ -135,6 +137,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
 
   const updateProductImages = async (formData: IProduct) => {
     const result = await useFetch("/api/cakes/update-images", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: cake.value[0].id,
@@ -171,6 +174,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
 
   const updateProductMeta = async (formData: IProduct) => {
     const result = await useFetch("/api/cakes/update-meta", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: cake.value[0].id,
@@ -196,6 +200,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
 
   const updateProductSizes = async (formData: IProduct) => {
     const result = await useFetch("/api/cakes/update-sizes", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: cake.value[0].id,
@@ -223,6 +228,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
 
   const updateProductPrice = async (formData: IProduct) => {
     const result = await useFetch("/api/cakes/update-price", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: cake.value[0].id,
@@ -250,6 +256,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
 
   const updateProductIngredients = async (formData: IProduct) => {
     const result = await useFetch("/api/cakes/update-ingredients", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: cake.value[0].id,
@@ -273,6 +280,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
 
   const updateProductNutritional = async (formData: IProduct) => {
     const result = await useFetch("/api/cakes/update-nutritional", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: cake.value[0].id,
@@ -302,6 +310,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
 
   const updateProductRating = async (rating: number) => {
     const result = await useFetch("/api/cakes/update-rating", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: cake.value[0].id,
@@ -325,6 +334,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
 
   const updateProductBadge = async (badge: number) => {
     const result = await useFetch("/api/cakes/update-badge", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: cake.value[0].id,
@@ -348,6 +358,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
 
   const updateProductVisibility = async (visibility: boolean) => {
     const result = await useFetch("/api/cakes/update-visibility", {
+      baseURL: process.env.BASE_URL,
       method: "PATCH",
       body: {
         id: cake.value[0].id,
@@ -371,6 +382,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
 
   const deleteCake = async () => {
     const result = await useFetch("/api/cakes/delete-cake", {
+      baseURL: process.env.BASE_URL,
       method: "DELETE",
       body: {
         id: cake.value[0].id,

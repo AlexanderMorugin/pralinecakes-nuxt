@@ -4,9 +4,6 @@ import { orders } from "~/server/database/schema";
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
-  // console.log("API - ORDERS - CREATE-ORDER - ", body);
-
-  // Собираем заказ
   const order = {
     order_number: body.order_number,
     order_date: body.order_date,
@@ -31,11 +28,10 @@ export default defineEventHandler(async (event) => {
     cart_list: body.cart_list,
   };
 
-  // Отправляем заказ в базу данных
-  const newOrder = await db
+  const result = await db
     .insert(orders)
     .values({ ...order })
     .returning();
 
-  return newOrder;
+  return result;
 });
