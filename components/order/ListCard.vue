@@ -60,9 +60,8 @@
       <div class="orderListCard__text">
         сумма:
         <span class="orderListCard__textDoubleAccent">{{
-          order.total_order_sum
+          currencyFormater(order.total_order_sum)
         }}</span>
-        ₽
       </div>
     </div>
 

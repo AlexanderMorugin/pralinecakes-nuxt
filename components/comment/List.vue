@@ -14,6 +14,6 @@ const { comments } = defineProps(["comments"]);
 .commentList {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 </style>

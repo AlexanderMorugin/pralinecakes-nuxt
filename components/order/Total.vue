@@ -2,17 +2,17 @@
   <div class="orderTotal">
     <span class="orderTotal__key">Всего на сумму:</span>
     <span class="orderTotal__key orderTotal__right">{{
-      currencyFormater(orderStore.order.total_cart_sum)
+      currencyFormater(orderStore.order[0].total_cart_sum)
     }}</span>
     <span
       class="orderTotal__key"
       :class="
-        orderStore.order.delivery_type === 'Доставка'
+        orderStore.order[0].delivery_type === 'Доставка'
           ? 'orderTotal__red'
           : 'orderTotal__green'
       "
       >{{
-        orderStore.order.delivery_type === "Доставка"
+        orderStore.order[0].delivery_type === "Доставка"
           ? "Доставка:"
           : "Скидка за самовывоз:"
       }}</span
@@ -20,33 +20,33 @@
     <span
       class="orderTotal__key orderTotal__right"
       :class="
-        orderStore.order.delivery_type === 'Доставка'
+        orderStore.order[0].delivery_type === 'Доставка'
           ? 'orderTotal__red'
           : 'orderTotal__green'
       "
     >
       {{
-        orderStore.order.delivery_type === "Доставка"
-          ? currencyFormater(orderStore.order.delivery_sum)
-          : currencyFormater(orderStore.order.cart_samovyvoz_bonus)
+        orderStore.order[0].delivery_type === "Доставка"
+          ? currencyFormater(orderStore.order[0].delivery_sum)
+          : currencyFormater(orderStore.order[0].cart_samovyvoz_bonus)
       }}</span
     >
     <span class="orderTotal__accent">Итого:</span>
     <span class="orderTotal__accent orderTotal__right">{{
-      currencyFormater(orderStore.order.total_order_sum)
+      currencyFormater(orderStore.order[0].total_order_sum)
     }}</span>
 
     <div class="orderTotal__commentBox">
       <span class="orderTotal__key">Комментарий:</span>
       <span class="orderTotal__comment">{{
-        orderStore.order.user_comment
+        orderStore.order[0].user_comment
       }}</span>
     </div>
   </div>
 </template>
 
 <script setup>
-const cartStore = useCartStore();
+// const cartStore = useCartStore();
 const orderStore = useOrderStore();
 </script>
 

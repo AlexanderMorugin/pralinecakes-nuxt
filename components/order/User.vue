@@ -2,34 +2,36 @@
   <div>
     <div class="orderUser">
       <span class="orderUser__key">Заказчик:</span>
-      <span class="orderUser__accent">{{ orderStore.order.user_name }}</span>
+      <span class="orderUser__accent">{{ orderStore.order[0].user_name }}</span>
     </div>
     <div class="orderUser">
       <span class="orderUser__key">Телефон:</span>
-      <span class="orderUser__accent">{{ orderStore.order.user_phone }}</span>
+      <span class="orderUser__accent">{{
+        orderStore.order[0].user_phone
+      }}</span>
     </div>
     <div class="orderUser">
       <span class="orderUser__key">Тип доставки:</span>
       <span class="orderUser__accent">{{
-        orderStore.order.delivery_type
+        orderStore.order[0].delivery_type
       }}</span>
     </div>
     <div class="orderUser">
       <span class="orderUser__key">Общее количество:</span>
       <span class="orderUser__accent"
-        >{{ orderStore.order.total_cart_count }} шт</span
+        >{{ orderStore.order[0].total_cart_count }} шт</span
       >
     </div>
 
     <div v-if="orderStore.order.delivery_type === 'Доставка'" class="orderUser">
       <span class="orderUser__key">Адрес:</span>
       <span class="orderUser__address"
-        >{{ orderStore.order.user_city }}, ул.
-        {{ orderStore.order.user_street }}, д.
-        {{ orderStore.order.user_building }}, подъезд
-        {{ orderStore.order.user_entrance }}, кв.
-        {{ orderStore.order.user_flat }}, этаж
-        {{ orderStore.order.user_floor }}</span
+        >{{ orderStore.order[0].user_city }}, ул.
+        {{ orderStore.order[0].user_street }}, д.
+        {{ orderStore.order[0].user_building }}, подъезд
+        {{ orderStore.order[0].user_entrance }}, кв.
+        {{ orderStore.order[0].user_flat }}, этаж
+        {{ orderStore.order[0].user_floor }}</span
       >
     </div>
   </div>

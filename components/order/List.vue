@@ -1,7 +1,7 @@
 <template>
   <ul class="orderList">
     <li
-      v-for="item in orderStore.order.cart_list"
+      v-for="item in orderStore.order[0].cart_list"
       :key="item.id"
       class="orderList__item"
     >

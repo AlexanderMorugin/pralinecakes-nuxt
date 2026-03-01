@@ -25,6 +25,22 @@ export const useOrderStore = defineStore("orderStore", () => {
     return result;
   };
 
+  const getOrder = async (orderId: number) => {
+    const result = await useFetch("/api/orders/get-order", {
+      baseURL: process.env.BASE_URL,
+      method: "POST",
+      body: {
+        id: orderId,
+      },
+    });
+
+    if (result.status.value === "success") {
+      order.value = result.data.value;
+    }
+
+    return result;
+  };
+
   const createOrder = async (formData: IOrder) => {
     const result = await useFetch("/api/orders/create-order", {
       baseURL: process.env.BASE_URL,
@@ -33,7 +49,7 @@ export const useOrderStore = defineStore("orderStore", () => {
     });
 
     if (result.status.value === "success") {
-      order.value = formData;
+      order.value = result.data.value;
       localStorage.setItem("order", JSON.stringify(formData));
 
       const response = await useFetch("/api/message/send", {
@@ -71,6 +87,7 @@ export const useOrderStore = defineStore("orderStore", () => {
     orders,
     order,
     loadOrders,
+    getOrder,
     createOrder,
     deleteOrder,
     cleanOrder,

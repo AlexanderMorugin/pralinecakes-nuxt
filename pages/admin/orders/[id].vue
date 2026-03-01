@@ -1,7 +1,8 @@
 <template>
-  <div class="orderPage">
-    <!-- <OrderCard :order="orderStore.order" />
-    <OrderManager /> -->
+  <div class="orderPage page-padding-x">
+    <!-- {{ orderStore.order }} -->
+    <OrderCard :order="orderStore.order" />
+    <!-- <OrderManager /> -->
   </div>
 </template>
 
@@ -9,9 +10,9 @@
 definePageMeta({
   layout: "admin",
 });
-// const route = useRoute();
-// const orderStore = useOrdersStore();
-// await orderStore.getOrder(route.params.id);
+const route = useRoute();
+const orderStore = useOrderStore();
+await orderStore.getOrder(route.params.id);
 </script>
 
 <style lang="scss" scoped>

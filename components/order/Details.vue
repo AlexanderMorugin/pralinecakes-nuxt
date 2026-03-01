@@ -1,8 +1,8 @@
 <template>
   <div class="orderDetails">
     <WrapperText class="orderDetails__title line-dashed"
-      >Заказ № {{ orderStore.order.order_number }} от
-      {{ orderStore.order.order_date }}</WrapperText
+      >Заказ № {{ orderStore.order[0].order_number }} от
+      {{ orderStore.order[0].order_date }}</WrapperText
     >
 
     <OrderUser />
