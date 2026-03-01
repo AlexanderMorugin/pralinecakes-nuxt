@@ -23,8 +23,8 @@ const emit = defineEmits(["cleanCart"]);
   }
 
   &__text {
-    font-family: "Montserrat-Regular", sans-serif;
-    font-size: 16px;
+    // font-family: "Montserrat-Regular", sans-serif;
+    // font-size: 16px;
     color: var(--white-primary);
 
     @media (max-width: 576px) {

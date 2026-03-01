@@ -65,7 +65,7 @@ const { comment } = defineProps(["comment"]);
   }
 
   &__name {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 20px;
     line-height: 28px;
     color: var(--white-primary);
@@ -79,7 +79,7 @@ const { comment } = defineProps(["comment"]);
   }
 
   &__date {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 12px;
     line-height: 18px;
     color: var(--mask-white-primary);

@@ -1,8 +1,9 @@
 <template>
-  <div>
-    <!-- <CommentList v-if="commentsStore.comments.length" />
-    <ProductListEmpty v-else title="Отзывов пока нет" /> -->
-  </div>
+  <CommentList
+    v-if="commentsStore.comments.length"
+    :comments="commentsStore.comments"
+  />
+  <ProductListEmpty v-else title="Отзывов пока нет..." place="admin" />
 </template>
 
 <script setup>
@@ -10,9 +11,6 @@ definePageMeta({
   layout: "admin",
 });
 
-// const commentsStore = useCommentsStore();
-// const cakesStore = useCakesStore();
-
-// await commentsStore.loadComments();
-// await cakesStore.loadCakes();
+const commentsStore = useCommentsStore();
+await commentsStore.loadAdminComments();
 </script>

@@ -66,7 +66,7 @@ const { product } = defineProps(["product"]);
   }
 
   &__name {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 18px;
     line-height: 28px;
     color: var(--white-primary);
@@ -85,7 +85,7 @@ const { product } = defineProps(["product"]);
   }
 
   &__weigth {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 14px;
     line-height: 24px;
     color: var(--mask-white-primary);

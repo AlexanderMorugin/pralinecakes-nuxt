@@ -16,7 +16,7 @@ const { title } = defineProps(["title"]);
   padding-top: 100px;
 
   &__text {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 24px;
     color: var(--white-primary);
 

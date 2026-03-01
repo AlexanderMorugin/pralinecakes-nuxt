@@ -26,7 +26,7 @@ const emit = defineEmits(["closeModal"]);
   border-radius: var(--border-radius-l);
   border: 1px solid var(--border-secondary);
   font-family: "Roboto-Medium", sans-serif;
-  font-size: 16px;
+  // font-size: 16px;
   letter-spacing: 2px;
   color: var(--deep-blue-fourthly);
   padding: 20px;

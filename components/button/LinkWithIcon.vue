@@ -30,7 +30,7 @@ const { path, title } = defineProps(["path", "title"]);
 
   &__title {
     font-family: "Roboto-Regular", sans-serif;
-    font-size: 16px;
+    // font-size: 16px;
     color: var(--white-primary);
   }
 }

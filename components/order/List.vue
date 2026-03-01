@@ -150,7 +150,7 @@ const orderStore = useOrderStore();
   }
 
   &__noAccent {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 12px;
     line-height: 14px;
     vertical-align: bottom;
@@ -162,7 +162,7 @@ const orderStore = useOrderStore();
   }
 
   &__price {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 14px;
     line-height: 14px;
     vertical-align: bottom;

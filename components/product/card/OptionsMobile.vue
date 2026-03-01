@@ -120,8 +120,8 @@ const toggleOption = (number) => {
   }
 
   &__content {
-    font-family: "Montserrat-Regular", sans-serif;
-    font-size: 16px;
+    // font-family: "Montserrat-Regular", sans-serif;
+    // font-size: 16px;
     line-height: 26px;
     color: var(--white-primary);
     padding-bottom: 10px;

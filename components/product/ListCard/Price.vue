@@ -32,8 +32,8 @@ const { product } = defineProps(["product"]);
   }
 
   &__priceOld {
-    font-family: "Montserrat-Regular", sans-serif;
-    font-size: 16px;
+    // font-family: "Montserrat-Regular", sans-serif;
+    // font-size: 16px;
     color: var(--white-primary);
     opacity: 0.7;
     text-decoration-line: line-through;
@@ -59,8 +59,8 @@ const { product } = defineProps(["product"]);
   }
 
   &__weigth {
-    font-family: "Montserrat-Regular", sans-serif;
-    font-size: 16px;
+    // font-family: "Montserrat-Regular", sans-serif;
+    // font-size: 16px;
     color: var(--white-primary);
     opacity: 0.7;
 

@@ -7,8 +7,8 @@
           cartStore.totalCartCount > 4
             ? "продуктов"
             : cartStore.totalCartCount === 1
-            ? "продукт"
-            : "продукта"
+              ? "продукт"
+              : "продукта"
         }}</span
       >
       <ButtonCartClean
@@ -75,8 +75,8 @@ const { isScreenMedium } = useResizeMedium();
   }
 
   &__topBlockText {
-    font-family: "Montserrat-Regular", sans-serif;
-    font-size: 16px;
+    // font-family: "Montserrat-Regular", sans-serif;
+    // font-size: 16px;
     color: var(--white-primary);
 
     @media (max-width: 576px) {
@@ -107,7 +107,7 @@ const { isScreenMedium } = useResizeMedium();
   }
 
   &__top {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 10px;
     color: var(--mask-white-primary);
     text-transform: uppercase;

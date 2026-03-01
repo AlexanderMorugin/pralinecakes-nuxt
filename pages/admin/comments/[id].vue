@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <!-- <CommentCard :comment="commentsStore.comment[0]" /> -->
-  </div>
+  <CommentCard :comment="commentsStore.comment[0]" />
 </template>
 
 <script setup>
@@ -10,6 +8,6 @@ definePageMeta({
 });
 const route = useRoute();
 
-// const commentsStore = useCommentsStore();
-// await commentsStore.getComment(route.params.id);
+const commentsStore = useCommentsStore();
+await commentsStore.getComment(route.params.id);
 </script>

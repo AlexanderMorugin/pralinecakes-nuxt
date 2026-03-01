@@ -20,6 +20,7 @@ const { rating } = defineProps(["rating"]);
   display: flex;
   align-items: center;
   gap: 1px;
+  height: fit-content;
 
   &__star {
     width: 16px;

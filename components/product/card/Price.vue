@@ -73,15 +73,15 @@ const { product } = defineProps(["product"]);
   }
 
   &__priceName {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 18px;
     color: var(--white-primary);
     letter-spacing: 1px;
   }
 
   &__priceOld {
-    font-family: "Montserrat-Regular", sans-serif;
-    font-size: 16px;
+    // font-family: "Montserrat-Regular", sans-serif;
+    // font-size: 16px;
     color: var(--white-primary);
     opacity: 0.7;
     text-decoration-line: line-through;
@@ -95,8 +95,8 @@ const { product } = defineProps(["product"]);
   }
 
   &__bonus {
-    font-family: "Montserrat-Regular", sans-serif;
-    font-size: 16px;
+    // font-family: "Montserrat-Regular", sans-serif;
+    // font-size: 16px;
     color: var(--green-primary);
     text-align: right;
     padding-left: 10px;

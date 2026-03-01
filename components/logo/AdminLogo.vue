@@ -13,8 +13,8 @@
   width: fit-content;
 
   &__title {
-    font-family: "Montserrat-SemiBold", sans-serif;
-    font-size: 16px;
+    // font-family: "Montserrat-SemiBold", sans-serif;
+    // font-size: 16px;
     color: var(--black-primary);
     text-transform: uppercase;
     letter-spacing: 4px;

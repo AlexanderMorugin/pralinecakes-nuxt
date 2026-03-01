@@ -19,7 +19,7 @@ const { discount } = defineProps(["discount"]);
   padding: 10px 14px;
 
   &__number {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 18px;
     color: var(--white-primary);
     letter-spacing: 1px;

@@ -57,7 +57,7 @@ const { image, alt } = defineProps(["image", "alt"]);
   }
 
   &__noPicText {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 20px;
     color: var(--mask-white-primary);
     text-align: center;

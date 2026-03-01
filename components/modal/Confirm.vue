@@ -53,8 +53,8 @@ const emit = defineEmits(["yesClick", "noClick"]);
   }
 
   &__title {
-    font-family: "Montserrat-Regular", sans-serif;
-    font-size: 16px;
+    // font-family: "Montserrat-Regular", sans-serif;
+    // font-size: 16px;
     letter-spacing: 1px;
     color: var(--white-primary);
   }

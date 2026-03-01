@@ -1,22 +1,5 @@
 import { defineStore } from "pinia";
-
-export interface IComment {
-  id?: number;
-  date?: string;
-
-  product_id?: number;
-  product_image?: string;
-  product_title?: string;
-
-  user_name?: string;
-  user_rating?: number;
-  user_comment?: string;
-
-  visibility?: boolean;
-
-  createdAt?: any;
-  updatedAt?: any;
-}
+import type { IComment } from "~/types/comment";
 
 export const useCommentsStore = defineStore("commentsStore", () => {
   const comments = ref<IComment[] | any>([]);
@@ -25,6 +8,8 @@ export const useCommentsStore = defineStore("commentsStore", () => {
 
   const loadComments = async () => {
     const result = await useFetch("/api/comments/load-comments", {
+      baseURL: process.env.BASE_URL,
+      key: "comments",
       method: "GET",
     });
 
@@ -35,8 +20,38 @@ export const useCommentsStore = defineStore("commentsStore", () => {
     return result;
   };
 
+  const loadAdminComments = async () => {
+    const result = await useFetch("/api/comments/load-admin-comments", {
+      baseURL: process.env.BASE_URL,
+      method: "GET",
+    });
+
+    if (result.status.value === "success") {
+      comments.value = result.data.value;
+    }
+
+    return result;
+  };
+
+  const getComment = async (commentId: number) => {
+    const result = await useFetch("/api/comments/get-comment", {
+      baseURL: process.env.BASE_URL,
+      method: "POST",
+      body: {
+        id: commentId,
+      },
+    });
+
+    if (result.status.value === "success") {
+      comment.value = result.data.value;
+    }
+
+    return result;
+  };
+
   const getProductComments = async (productId: number) => {
     const result = await useFetch("/api/comments/get-product-comments", {
+      baseURL: process.env.BASE_URL,
       method: "POST",
       body: {
         product_id: productId,
@@ -52,6 +67,7 @@ export const useCommentsStore = defineStore("commentsStore", () => {
 
   const createComment = async (formData: IComment) => {
     const result = await useFetch("/api/comments/create-comment", {
+      baseURL: process.env.BASE_URL,
       method: "POST",
       body: {
         date: formData.date,
@@ -66,15 +82,51 @@ export const useCommentsStore = defineStore("commentsStore", () => {
 
     if (result.status.value === "success") {
       const response = await useFetch("/api/message/send", {
+        baseURL: process.env.BASE_URL,
         method: "POST",
         body: {
           subject: `Отзыв ${formData.user_name}`,
-          message: `Новый отзыв ${formData.user_name}, проверить на https://praline-crm-nuxt.vercel.app/comments/`,
+          message: `Новый отзыв ${formData.user_name}, проверить на https://pralineshop.ru/admin/comments`,
         },
       });
 
       if (response.data.value) return response;
     }
+  };
+
+  const updateVisibility = async () => {
+    const result = await useFetch("/api/comments/update-comment", {
+      baseURL: process.env.BASE_URL,
+      method: "PATCH",
+      body: {
+        id: comment.value[0].id,
+        visibility: !comment.value[0].visibility,
+      },
+    });
+
+    if (result.status.value === "success") {
+      comment.value[0].visibility = !comment.value[0].visibility;
+    }
+
+    return result;
+  };
+
+  const deleteComment = async () => {
+    const result = await useFetch("/api/comments/delete-comment", {
+      baseURL: process.env.BASE_URL,
+      method: "DELETE",
+      body: {
+        id: comment.value[0].id,
+      },
+    });
+
+    if (result.status.value === "success") {
+      comments.value = comments.value.filter(
+        (item: IComment) => item.id !== comment.value[0].id,
+      );
+    }
+
+    return result;
   };
 
   const filterCommentsByProductId = (productId: number) => {
@@ -88,8 +140,12 @@ export const useCommentsStore = defineStore("commentsStore", () => {
     comment,
     productComments,
     loadComments,
+    loadAdminComments,
+    getComment,
     getProductComments,
     createComment,
+    updateVisibility,
+    deleteComment,
     filterCommentsByProductId,
   };
 });

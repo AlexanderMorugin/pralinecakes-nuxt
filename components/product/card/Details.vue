@@ -77,7 +77,7 @@ const { product } = defineProps(["product"]);
   }
 
   &__text {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 14px;
     color: var(--white-primary);
     opacity: 0.9;

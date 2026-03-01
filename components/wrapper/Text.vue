@@ -10,7 +10,7 @@ const { place } = defineProps(["place"]);
 
 <style lang="scss" scoped>
 .wrapperText {
-  font-family: "Montserrat-Regular", sans-serif;
+  // font-family: "Montserrat-Regular", sans-serif;
   font-size: 18px;
   line-height: 28px;
   color: var(--white-primary);
@@ -24,7 +24,7 @@ const { place } = defineProps(["place"]);
   }
 
   &_admin {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     letter-spacing: 0;
     color: var(--black-primary);
   }

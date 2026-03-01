@@ -40,7 +40,7 @@ const toggleProfile = () => {
   padding-bottom: 30px;
 
   &__title {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 24px;
     line-height: 32px;
     color: var(--white-primary);

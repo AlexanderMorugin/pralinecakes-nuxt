@@ -94,8 +94,8 @@ const cartStore = useCartStore();
   }
 
   &__bonus {
-    font-family: "Montserrat-Regular", sans-serif;
-    font-size: 16px;
+    // font-family: "Montserrat-Regular", sans-serif;
+    // font-size: 16px;
     color: var(--green-primary);
     text-align: right;
 
@@ -113,7 +113,7 @@ const cartStore = useCartStore();
   }
 
   &__comment {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 14px;
     line-height: 28px;
     color: var(--mask-white-primary);

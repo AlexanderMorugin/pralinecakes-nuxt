@@ -24,7 +24,7 @@ const emit = defineEmits(["handleClick"]);
 
 <style lang="scss" scoped>
 .formCommentSuccess {
-  font-family: "Montserrat-Regular", sans-serif;
+  // font-family: "Montserrat-Regular", sans-serif;
   font-size: 14px;
   line-height: 24px;
   color: var(--mask-white-primary);

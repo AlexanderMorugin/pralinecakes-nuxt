@@ -35,7 +35,7 @@ const route = useRoute();
 <style lang="scss" scoped>
 .headerAdminTitle {
   font-family: "Roboto-Medium", sans-serif;
-  font-size: 16px;
+  // font-size: 16px;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--black-primary);

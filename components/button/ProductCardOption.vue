@@ -62,7 +62,7 @@ const { title, buttonRef, comments } = defineProps([
   }
 
   &__title {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 18px;
     line-height: 28px;
     color: var(--white-primary);

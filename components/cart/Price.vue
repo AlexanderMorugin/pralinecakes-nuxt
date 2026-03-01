@@ -5,7 +5,7 @@
         currencyFormater(
           product.discount
             ? product.price - (product.price * product.discount) / 100
-            : product.price
+            : product.price,
         )
       }}
     </span>
@@ -35,7 +35,7 @@ const { product } = defineProps(["product"]);
   }
 
   &__priceOld {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 14px;
     // line-height: 24px;
     color: var(--mask-white-primary);
@@ -48,8 +48,8 @@ const { product } = defineProps(["product"]);
   }
 
   &__price {
-    font-family: "Montserrat-Regular", sans-serif;
-    font-size: 16px;
+    // font-family: "Montserrat-Regular", sans-serif;
+    // font-size: 16px;
     // line-height: 28px;
     line-height: 40px;
     color: var(--white-primary);

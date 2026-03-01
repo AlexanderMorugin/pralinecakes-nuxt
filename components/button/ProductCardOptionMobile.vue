@@ -43,8 +43,8 @@ const { title, buttonRef, comments } = defineProps([
   padding: 10px;
 
   &__title {
-    font-family: "Montserrat-Medium", sans-serif;
-    font-size: 16px;
+    // font-family: "Montserrat-Medium", sans-serif;
+    // font-size: 16px;
     color: var(--white-primary);
     letter-spacing: 2px;
     opacity: 0.8;

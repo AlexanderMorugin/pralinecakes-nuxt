@@ -52,8 +52,8 @@ const orderStore = useOrderStore();
   }
 
   &__key {
-    font-family: "Montserrat-Regular", sans-serif;
-    font-size: 16px;
+    // font-family: "Montserrat-Regular", sans-serif;
+    // font-size: 16px;
     line-height: 20px;
     vertical-align: bottom;
     opacity: 0.6;
@@ -76,8 +76,8 @@ const orderStore = useOrderStore();
   }
 
   &__address {
-    font-family: "Montserrat-Regular", sans-serif;
-    font-size: 16px;
+    // font-family: "Montserrat-Regular", sans-serif;
+    // font-size: 16px;
     line-height: 26px;
     letter-spacing: 1px;
   }

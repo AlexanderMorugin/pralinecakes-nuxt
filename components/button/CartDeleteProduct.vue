@@ -24,7 +24,7 @@ const emit = defineEmits(["deleteProduct"]);
   }
 
   &__title {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 12px;
     line-height: 20px;
     color: var(--white-primary);

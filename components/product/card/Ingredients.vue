@@ -78,7 +78,7 @@ const { product } = defineProps(["product"]);
   }
 
   &__nutritionTitle {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 18px;
     line-height: 28px;
     color: var(--orange-primary);
@@ -119,7 +119,7 @@ const { product } = defineProps(["product"]);
   }
 
   &__name {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 14px;
     color: var(--white-primary);
     letter-spacing: 2px;
@@ -131,7 +131,7 @@ const { product } = defineProps(["product"]);
   }
 
   &__count {
-    font-family: "Montserrat-Regular", sans-serif;
+    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 24px;
     color: var(--orange-primary);
     letter-spacing: 2px;
@@ -142,8 +142,8 @@ const { product } = defineProps(["product"]);
   }
 
   &__countSpan {
-    font-family: "Montserrat-Regular", sans-serif;
-    font-size: 16px;
+    // font-family: "Montserrat-Regular", sans-serif;
+    // font-size: 16px;
     color: var(--orange-primary);
 
     @media (max-width: 767px) {

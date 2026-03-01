@@ -64,8 +64,8 @@ const { route, title, description } = defineProps([
     text-overflow: ellipsis;
 
     @media (max-width: 1600px) {
-      font-family: "Montserrat-Regular", sans-serif;
-      font-size: 16px;
+      // font-family: "Montserrat-Regular", sans-serif;
+      // font-size: 16px;
       line-height: 24px;
       letter-spacing: 1px;
     }
