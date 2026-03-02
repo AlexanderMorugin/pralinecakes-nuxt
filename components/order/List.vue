@@ -16,7 +16,7 @@
               item.title
             }}</span>
             <span class="orderList__noAccent orderList__titleHeight"
-              >{{ item.weight }}гр</span
+              >{{ item.weight }} гр</span
             >
           </div>
 
@@ -58,7 +58,12 @@ const orderStore = useOrderStore();
   display: flex;
   flex-direction: column;
   gap: 40px;
-  width: fit-content;
+  width: 100%;
+  max-width: 450px;
+
+  @media (max-width: 767px) {
+    max-width: 100%;
+  }
 
   &__item {
     display: grid;
@@ -78,7 +83,7 @@ const orderStore = useOrderStore();
 
   &__details {
     display: grid;
-    grid-template-columns: 1fr 25%;
+    grid-template-columns: 1fr 30%;
     column-gap: 10px;
 
     @media (max-width: 767px) {
@@ -90,7 +95,7 @@ const orderStore = useOrderStore();
 
   &__prices {
     display: grid;
-    grid-template-columns: 1fr 25%;
+    grid-template-columns: 1fr 30%;
     column-gap: 10px;
     row-gap: 10px;
     padding-top: 5px;

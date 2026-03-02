@@ -55,8 +55,13 @@ const orderStore = useOrderStore();
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 15px;
-  width: fit-content;
+  width: 100%;
+  max-width: 450px;
   padding-top: 20px;
+
+  @media (max-width: 767px) {
+    max-width: 100%;
+  }
 
   &__key {
     // font-family: "Montserrat-Regular", sans-serif;
