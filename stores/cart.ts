@@ -35,6 +35,8 @@ export const cartProduct = (product: ICart) => {
 export const useCartStore = defineStore("cartStore", () => {
   const cart = ref<ICart[]>([]);
 
+  // console.log(cart.value);
+
   const deliveryCost = ref<number>(DELIVERY_SUM);
   const samovyvozBonus = ref(0);
   const deliveryType = ref<string>("Доставка");

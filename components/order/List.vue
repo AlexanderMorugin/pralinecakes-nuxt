@@ -8,7 +8,7 @@
       <div class="orderList__imageBox">
         <img :src="item.image" :alt="item.title" class="orderList__image" />
       </div>
-
+      <!-- {{ item }} -->
       <div class="orderList__block">
         <div class="orderList__details">
           <div class="orderList__title">

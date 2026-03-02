@@ -11,6 +11,7 @@ export default defineEventHandler(async (event) => {
       title: pastry.title,
       description_short: pastry.description_short,
       image_1_small: pastry.image_1_small,
+      weight: pastry.weight,
       price: pastry.price,
       discount: pastry.discount,
       discount_price: pastry.discount_price,

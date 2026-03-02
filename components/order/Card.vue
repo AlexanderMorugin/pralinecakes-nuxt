@@ -16,7 +16,6 @@
       },
     ]"
   >
-    <!-- {{ order }} -->
     <div class="orderCard__title">
       Заказ №
       <span class="orderCard__titleAccent">{{ order[0].order_number }}</span> от
@@ -24,7 +23,7 @@
     </div>
     <OrderUser />
     <div class="line-solid" />
-    <!-- <OrderList /> -->
+    <OrderList />
     <!-- <OrderProducts /> -->
     <div class="line-solid" />
     <OrderTotal />

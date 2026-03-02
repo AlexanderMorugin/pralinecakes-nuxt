@@ -6,9 +6,11 @@
     </div>
     <div class="orderUser">
       <span class="orderUser__key">Телефон:</span>
-      <span class="orderUser__accent">{{
-        orderStore.order[0].user_phone
-      }}</span>
+      <a
+        :href="`tel:${orderStore.order[0].user_phone}`"
+        class="orderUser__accent"
+        >{{ orderStore.order[0].user_phone }}</a
+      >
     </div>
     <div class="orderUser">
       <span class="orderUser__key">Тип доставки:</span>
@@ -71,6 +73,7 @@ const orderStore = useOrderStore();
     line-height: 20px;
     letter-spacing: 1px;
     vertical-align: bottom;
+    color: var(--white-primary);
 
     @media (max-width: 767px) {
       font-size: 16px;

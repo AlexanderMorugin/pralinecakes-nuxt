@@ -48,6 +48,8 @@ export const useOrderStore = defineStore("orderStore", () => {
       body: formData,
     });
 
+    console.log(result.data.value);
+
     if (result.status.value === "success") {
       order.value = result.data.value;
       localStorage.setItem("order", JSON.stringify(formData));
@@ -63,7 +65,6 @@ export const useOrderStore = defineStore("orderStore", () => {
 
       if (response.status.value === "success") return response;
     }
-    return result;
   };
 
   const deleteOrder = async (orderId: number) => {
