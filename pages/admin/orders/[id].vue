@@ -1,8 +1,7 @@
 <template>
   <div class="orderPage page-padding-x">
-    <!-- {{ orderStore.order }} -->
     <OrderCard :order="orderStore.order" />
-    <!-- <OrderManager /> -->
+    <OrderManager />
   </div>
 </template>
 

@@ -119,7 +119,7 @@ const { order } = defineProps(["order"]);
   }
 
   &_complete {
-    background: var(--deep-blue-fourthly);
+    background: var(--mask-black-thirdly);
   }
 
   &__block {

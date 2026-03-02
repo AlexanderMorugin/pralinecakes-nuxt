@@ -3,16 +3,16 @@
     :class="[
       'orderCard',
       {
-        orderCard_new: !order.status_accept,
+        orderCard_new: !order[0].status_accept,
       },
       {
-        orderCard_accept: order.status_accept,
+        orderCard_accept: order[0].status_accept,
       },
       {
-        orderCard_delivery: order.status_delivery,
+        orderCard_delivery: order[0].status_delivery,
       },
       {
-        orderCard_complete: order.status_complete,
+        orderCard_complete: order[0].status_complete,
       },
     ]"
   >
@@ -60,7 +60,7 @@ const { order } = defineProps(["order"]);
   }
 
   &_complete {
-    background: var(--deep-blue-fourthly);
+    background: var(--mask-black-thirdly);
   }
 
   &__title {

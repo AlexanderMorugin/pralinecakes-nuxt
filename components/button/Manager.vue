@@ -113,7 +113,6 @@ const emit = defineEmits(["handleClick", "handleUndo"]);
   &__status {
     font-family: "Roboto-Regular", sans-serif;
     font-size: 14px;
-    letter-spacing: 2px;
     text-align: center;
     color: var(--black-primary);
   }

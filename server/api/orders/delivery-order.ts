@@ -6,14 +6,17 @@ import { orders } from "~/server/database/schema";
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
-  if (!body?.id) {
+  if (!body?.id || (!body?.status && body?.status !== null)) {
     throw createError({
       statusCode: StatusCodes.UNPROCESSABLE_ENTITY,
-      message: "ID заказа отсутствуют",
+      message: "ID или STATUS заказа отсутствуют",
     });
   }
 
-  const result = await db.delete(orders).where(eq(orders.id, body.id));
+  const result = await db
+    .update(orders)
+    .set({ status_delivery: body.status })
+    .where(eq(orders.id, body.id));
 
   return result;
 });
