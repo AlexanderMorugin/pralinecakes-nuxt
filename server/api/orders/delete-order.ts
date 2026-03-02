@@ -1,4 +1,3 @@
-import { StatusCodes } from "http-status-codes";
 import { eq } from "drizzle-orm";
 import { db } from "~/server";
 import { orders } from "~/server/database/schema";
@@ -8,7 +7,7 @@ export default defineEventHandler(async (event) => {
 
   if (!body?.id) {
     throw createError({
-      statusCode: StatusCodes.UNPROCESSABLE_ENTITY,
+      statusCode: 422,
       message: "ID заказа отсутствуют",
     });
   }
