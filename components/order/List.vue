@@ -158,7 +158,7 @@ const orderStore = useOrderStore();
     font-size: 12px;
     line-height: 14px;
     vertical-align: bottom;
-    opacity: 0.6;
+    // opacity: 0.6;
   }
 
   &__right {

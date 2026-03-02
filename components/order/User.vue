@@ -60,7 +60,7 @@ const orderStore = useOrderStore();
     // font-size: 16px;
     line-height: 20px;
     vertical-align: bottom;
-    opacity: 0.6;
+    // opacity: 0.6;
 
     @media (max-width: 767px) {
       font-size: 14px;

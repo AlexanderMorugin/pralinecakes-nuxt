@@ -19,7 +19,8 @@
     <div class="orderCard__title">
       Заказ №
       <span class="orderCard__titleAccent">{{ order[0].order_number }}</span> от
-      <span class="orderCard__titleAccent">{{ order[0].order_date }}</span>
+      {{ order[0].order_date }}
+      <!-- <span class="orderCard__dateAccent"></span> -->
     </div>
     <OrderUser />
     <div class="line-solid" />
@@ -68,7 +69,7 @@ const { order } = defineProps(["order"]);
     // font-size: 16px;
     line-height: 32px;
     letter-spacing: 1px;
-    color: var(--mask-white-secondary);
+    color: var(--white-primary);
   }
 
   &__titleAccent {
@@ -78,5 +79,10 @@ const { order } = defineProps(["order"]);
     letter-spacing: 1px;
     color: var(--white-primary);
   }
+
+  // &__dateAccent {
+  //   // font-size: 14px;
+  //   color: var(--white-primary);
+  // }
 }
 </style>
