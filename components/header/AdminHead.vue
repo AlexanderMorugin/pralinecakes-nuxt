@@ -52,13 +52,17 @@ const isSidebarModalOpen = ref(false);
 
 <style lang="scss" scoped>
 .adminHeader {
+  position: sticky;
+  top: 0;
   display: grid;
   grid-template-columns: 320px 1fr;
   align-items: center;
   height: 80px;
   border-bottom: 1px solid var(--border-secondary);
+  background: var(--white-primary);
   padding-left: 8px;
   padding-right: 8px;
+  z-index: 3;
 
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
