@@ -5,6 +5,13 @@ import { comments } from "~/server/database/schema";
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
+  if (!body?.product_id) {
+    throw createError({
+      statusCode: 422,
+      message: "ID продукта отсутствует",
+    });
+  }
+
   const result = await db
     .select()
     .from(comments)

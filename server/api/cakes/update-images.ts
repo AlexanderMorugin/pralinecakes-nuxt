@@ -5,6 +5,27 @@ import { cakes } from "~/server/database/schema";
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
+  if (
+    !body?.image_1_small ||
+    !body?.image_1_big ||
+    !body?.image_2_small ||
+    !body?.image_2_big ||
+    !body?.image_3_small ||
+    !body?.image_3_big ||
+    !body?.image_4_small ||
+    !body?.image_4_big ||
+    !body?.image_5_small ||
+    !body?.image_5_big ||
+    !body?.image_6_small ||
+    !body?.image_6_big ||
+    !body?.id
+  ) {
+    throw createError({
+      statusCode: 422,
+      message: "ID или картинки продукта отсутствуют",
+    });
+  }
+
   const result = await db
     .update(cakes)
     .set({

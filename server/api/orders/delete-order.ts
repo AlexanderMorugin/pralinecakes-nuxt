@@ -8,7 +8,7 @@ export default defineEventHandler(async (event) => {
   if (!body?.id) {
     throw createError({
       statusCode: 422,
-      message: "ID заказа отсутствуют",
+      message: "ID заказа отсутствует",
     });
   }
 

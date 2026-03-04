@@ -5,6 +5,13 @@ import { comments } from "~/server/database/schema";
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
+  if (!body?.id || !body?.visibility) {
+    throw createError({
+      statusCode: 422,
+      message: "ID или Статус отзыва отсутствуют",
+    });
+  }
+
   const result = await db
     .update(comments)
     .set({ visibility: body.visibility })

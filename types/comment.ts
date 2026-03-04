@@ -6,6 +6,7 @@ export interface IComment {
   product_image?: string;
   product_title?: string;
 
+  user_id?: number;
   user_name?: string;
   user_rating?: number;
   user_comment?: string;

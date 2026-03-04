@@ -5,6 +5,13 @@ import { cakes } from "~/server/database/schema";
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
+  if (!body?.rating || !body?.id) {
+    throw createError({
+      statusCode: 422,
+      message: "ID или данные продукта отсутствуют",
+    });
+  }
+
   const result = await db
     .update(cakes)
     .set({

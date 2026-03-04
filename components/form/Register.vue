@@ -72,6 +72,7 @@ import {
 } from "@vuelidate/validators";
 
 const toast = useToast();
+const userStore = useUserStore();
 
 const isLoading = ref(false);
 const nameField = ref(null);
@@ -126,7 +127,21 @@ const submitRegister = async () => {
       user_password: passwordField.value.trim(),
     };
 
-    console.log(formData);
+    const result = await userStore.createUser(formData);
+
+    if (result.status.value === "error") {
+      toast.error({
+        title: "Ошибка!",
+        message: "Регистрация не удалась.",
+      });
+    }
+
+    if (result.status.value === "success") {
+      toast.success({
+        title: "Успешно!",
+        message: "Вы зарегистрированы.",
+      });
+    }
   } catch (err) {
     console.log(err);
   } finally {

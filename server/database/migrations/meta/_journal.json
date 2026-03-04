@@ -8,6 +8,20 @@
       "when": 1772278129136,
       "tag": "0000_sticky_killmonger",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1772643183401,
+      "tag": "0001_little_starjammers",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1772643320433,
+      "tag": "0002_faulty_power_man",
+      "breakpoints": true
     }
   ]
 }

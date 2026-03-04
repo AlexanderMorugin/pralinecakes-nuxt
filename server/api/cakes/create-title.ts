@@ -4,6 +4,13 @@ import { cakes } from "~/server/database/schema";
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
+  if (!body?.type || !body?.slug || !body?.title || !body?.description_short) {
+    throw createError({
+      statusCode: 422,
+      message: "Некоторые данные отсутствуют",
+    });
+  }
+
   const productTitle = {
     type: body.type,
     slug: body.slug.toLowerCase(),

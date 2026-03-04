@@ -9,6 +9,7 @@ export interface IOrder {
   total_order_sum?: number;
   delivery_sum?: number;
 
+  user_id?: number;
   user_bonus?: number;
   user_name?: string;
   user_phone?: string;
