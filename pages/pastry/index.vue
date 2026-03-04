@@ -30,6 +30,9 @@ const route = useRoute();
 const pastryStore = usePastryStore();
 await pastryStore.loadPastries();
 
+const commentsStore = useCommentsStore();
+await commentsStore.loadComments();
+
 useHead({
   link: [{ rel: "canonical", href: `${SITE}${route.path}` }],
 });

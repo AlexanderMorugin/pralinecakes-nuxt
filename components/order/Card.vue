@@ -20,7 +20,26 @@
       Заказ №
       <span class="orderCard__titleAccent">{{ order[0].order_number }}</span> от
       {{ order[0].order_date }}
-      <!-- <span class="orderCard__dateAccent"></span> -->
+    </div>
+    <div class="orderCard__title">
+      Статус:
+      <span class="orderCard__titleAccent">
+        {{
+          order[0].status_accept &&
+          !order[0].status_delivery &&
+          !order[0].status_complete
+            ? "Принят"
+            : order[0].status_accept &&
+                order[0].status_delivery &&
+                !order[0].status_complete
+              ? "Доставляется"
+              : order[0].status_accept &&
+                  order[0].status_delivery &&
+                  order[0].status_complete
+                ? "Завершен"
+                : "Новый"
+        }}
+      </span>
     </div>
     <OrderUser />
     <div class="line-solid" />

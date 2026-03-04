@@ -16,4 +16,7 @@ definePageMeta({
 
 const pastryStore = usePastryStore();
 await pastryStore.loadAdminPastries();
+
+const commentsStore = useCommentsStore();
+await commentsStore.loadComments();
 </script>
