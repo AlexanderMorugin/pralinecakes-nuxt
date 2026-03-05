@@ -45,8 +45,6 @@ export default defineEventHandler(async (event) => {
     user_password: hashUserPassword,
   };
 
-  // console.log(userData);
-
   const result = await db.insert(users).values({ ...userData });
 
   return result;

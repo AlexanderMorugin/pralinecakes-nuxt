@@ -59,6 +59,23 @@ export const useUserStore = defineStore("userStore", () => {
     return result;
   };
 
+  const loginUser = async (formData: IUser) => {
+    const result = await useFetch("/api/users/login-user", {
+      baseURL: process.env.BASE_URL,
+      method: "POST",
+      body: {
+        user_email: formData.user_email,
+        user_password: formData.user_password,
+      },
+    });
+
+    if (result.status.value === "success") {
+      user.value = result.data.value;
+    }
+
+    return result;
+  };
+
   const deleteUser = async () => {
     const result = await useFetch("/api/users/delete-user", {
       baseURL: process.env.BASE_URL,
@@ -71,5 +88,5 @@ export const useUserStore = defineStore("userStore", () => {
     return result;
   };
 
-  return { users, user, loadUsers, getUser, createUser, deleteUser };
+  return { users, user, loadUsers, getUser, createUser, loginUser, deleteUser };
 });

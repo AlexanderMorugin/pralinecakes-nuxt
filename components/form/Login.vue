@@ -43,6 +43,7 @@ import { useVuelidate } from "@vuelidate/core";
 import { helpers, required, minLength, email } from "@vuelidate/validators";
 
 const toast = useToast();
+const userStore = useUserStore();
 
 const isLoading = ref(false);
 const emailField = ref(null);
@@ -78,7 +79,26 @@ const submitLogin = async () => {
       user_password: passwordField.value.trim(),
     };
 
-    console.log(formData);
+    const result = await userStore.loginUser(formData);
+
+    // console.log(result.data.value);
+
+    if (result.status.value === "error") {
+      toast.error({
+        title: "Ошибка!",
+        message: "Войти в аккаунт не удалось.",
+      });
+    }
+
+    if (result.status.value === "success") {
+      toast.success({
+        title: "Успешно!",
+        message: "Добро пожаловать.",
+      });
+
+      emailField.value = null;
+      passwordField.value = null;
+    }
   } catch (err) {
     console.log(err);
   } finally {
