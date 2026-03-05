@@ -42,7 +42,11 @@ export default defineEventHandler(async (event) => {
       });
     }
 
-    // const { accessToken, refreshToken } = generateTokens(existUser[0]);
+    // generateTokens(existUser);
+    const { accessToken, refreshToken } = generateTokens(existUser);
+
+    console.log("accessToken", accessToken);
+    console.log("refreshToken", refreshToken);
 
     // setCookie(event, "access_token", accessToken, {
     //   httpOnly: true,

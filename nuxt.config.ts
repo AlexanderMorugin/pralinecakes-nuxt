@@ -21,6 +21,8 @@ export default defineNuxtConfig({
       nodemailerUser: process.env.NUXT_NODEMAILER_USER,
       nodemailerPassword: process.env.NUXT_NODEMAILER_PASSWORD,
       nodemailerContactEmail: process.env.NUXT_NODEMAILER_CONTACT_EMAIL,
+      jwtAccessSecret: process.env.JWT_ACCESS_TOKEN_SECRET,
+      jwtRefreshSecret: process.env.JWT_REFRESH_TOKEN_SECRET,
     },
   },
   router: {
