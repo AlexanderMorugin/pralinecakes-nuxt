@@ -1,7 +1,8 @@
-import { eq, isNull } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { db } from "~/server";
 import { users } from "~/server/database/schema";
 import { comparePassword } from "~/server/utils/hash-password";
+import { transformUser } from "~/server/utils/transform-user";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
@@ -27,8 +28,6 @@ export default defineEventHandler(async (event) => {
       message: "Почта или пароль неверные.",
     });
   }
-
-  // console.log(existUser);
 
   if (existUser.user_password !== null) {
     const doesThePasswordMatch = comparePassword(
@@ -57,26 +56,12 @@ export default defineEventHandler(async (event) => {
     //   sameSite: true,
     // });
 
-    // console.log(doesThePasswordMatch);
-
     // const result = await db
     // .update(users)
     // .set({ refresh_token: refreshToken })
-    // .where(eq(users.email, body.email));
+    // .where(eq(users.user_email, body.user_email));
 
-    // Возвращаем на фронт пользователя
-    return existUser;
+    // console.log(transformUser(existUser));
+    return transformUser(existUser);
   }
-
-  // const userData = {
-  //   id: body.id,
-  //   user_role: body.user_role,
-  //   user_name: body.user_name,
-  //   user_email: body.user_email,
-  //   user_password: hashUserPassword,
-  // };
-
-  // const result = await db.insert(users).values({ ...userData });
-
-  // return result;
 });

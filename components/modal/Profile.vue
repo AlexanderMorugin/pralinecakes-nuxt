@@ -16,7 +16,7 @@
     </div>
 
     <FormLogin v-if="isLogin" />
-    <FormRegister v-else />
+    <FormRegister v-if="!isLogin" />
   </div>
 </template>
 

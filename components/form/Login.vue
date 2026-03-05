@@ -81,8 +81,6 @@ const submitLogin = async () => {
 
     const result = await userStore.loginUser(formData);
 
-    // console.log(result.data.value);
-
     if (result.status.value === "error") {
       toast.error({
         title: "Ошибка!",
@@ -96,6 +94,7 @@ const submitLogin = async () => {
         message: "Добро пожаловать.",
       });
 
+      // console.log(result.data.value);
       emailField.value = null;
       passwordField.value = null;
     }
