@@ -32,6 +32,12 @@ export const adminMenu = [
   },
   {
     id: 7,
+    title: "Клиенты",
+    path: "/admin/users",
+    status: false,
+  },
+  {
+    id: 8,
     title: "На сайт",
     path: "/",
     status: false,

@@ -22,9 +22,13 @@
                         ? "Отзывы"
                         : route.path === `/admin/comments/${route.params.id}`
                           ? "Детали отзыва"
-                          : route.path === "/admin/info"
-                            ? "Информация"
-                            : ""
+                          : route.path === "/admin/users"
+                            ? "Клиенты"
+                            : route.path === `/admin/users/${route.params.id}`
+                              ? "Детали клиента"
+                              : route.path === "/admin/info"
+                                ? "Информация"
+                                : ""
   }}</span>
 </template>
 

@@ -20,7 +20,7 @@ export const orders = pgTable("orders", {
   total_order_sum: integer("total_order_sum"),
   delivery_sum: integer("delivery_sum"),
 
-  user_id: integer("user_id"),
+  user_id: text("user_id"),
   user_bonus: integer("user_bonus"),
   user_name: text("user_name"),
   user_phone: text("user_phone"),
@@ -150,7 +150,7 @@ export const comments = pgTable("comments", {
   product_image: text("product_image"),
   product_title: text("product_title"),
 
-  user_id: integer("user_id"),
+  user_id: text("user_id"),
   user_name: text("user_name"),
   user_rating: integer("user_rating"),
   user_comment: text("user_comment"),
@@ -162,7 +162,7 @@ export const comments = pgTable("comments", {
 });
 
 export const users = pgTable("users", {
-  id: serial("user_id").primaryKey(),
+  id: text("user_id"),
 
   user_name: text("user_name"),
   user_email: text("user_email"),

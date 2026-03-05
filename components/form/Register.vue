@@ -141,6 +141,9 @@ const submitRegister = async () => {
         title: "Успешно!",
         message: "Вы зарегистрированы.",
       });
+      nameField.value = null;
+      emailField.value = null;
+      passwordField.value = null;
     }
   } catch (err) {
     console.log(err);
