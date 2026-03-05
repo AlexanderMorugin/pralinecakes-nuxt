@@ -27,7 +27,7 @@ export const useUserStore = defineStore("userStore", () => {
     }
   };
 
-  const getUser = async (userId: number) => {
+  const getUser = async (userId: string) => {
     const result = await useFetch("/api/users/get-user", {
       baseURL: process.env.BASE_URL,
       method: "POST",
@@ -59,5 +59,17 @@ export const useUserStore = defineStore("userStore", () => {
     return result;
   };
 
-  return { users, user, loadUsers, getUser, createUser };
+  const deleteUser = async () => {
+    const result = await useFetch("/api/users/delete-user", {
+      baseURL: process.env.BASE_URL,
+      method: "DELETE",
+      body: {
+        user_id: user.value[0].id,
+      },
+    });
+
+    return result;
+  };
+
+  return { users, user, loadUsers, getUser, createUser, deleteUser };
 });
