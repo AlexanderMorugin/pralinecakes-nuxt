@@ -5,6 +5,7 @@ export interface IUser {
   user_password?: string;
   user_role?: string;
   user_bonus?: number;
+  refresh_token?: string;
 
   createdAt?: any;
   updatedAt?: any;

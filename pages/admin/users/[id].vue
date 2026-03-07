@@ -1,6 +1,6 @@
 <template>
   <div class="user page-padding-x">
-    <UserCard :user="userStore.user[0]" />
+    <UserCard :user="userStore.user" />
     <UserOrders />
     <UserComments />
 

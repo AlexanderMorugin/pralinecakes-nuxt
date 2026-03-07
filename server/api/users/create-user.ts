@@ -36,6 +36,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const hashUserPassword = hashPassword(body.user_password);
+  const { accessToken, refreshToken } = generateTokens(body.id);
 
   const userData = {
     id: body.id,
@@ -43,9 +44,22 @@ export default defineEventHandler(async (event) => {
     user_name: body.user_name,
     user_email: body.user_email,
     user_password: hashUserPassword,
+    refresh_token: refreshToken,
   };
 
   const result = await db.insert(users).values({ ...userData });
+
+  setCookie(event, "access_token", accessToken, {
+    httpOnly: true,
+    secure: true,
+    sameSite: true,
+  });
+
+  setCookie(event, "refresh_token", refreshToken, {
+    httpOnly: true,
+    secure: true,
+    sameSite: true,
+  });
 
   return result;
 });

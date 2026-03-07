@@ -42,28 +42,27 @@ export default defineEventHandler(async (event) => {
       });
     }
 
-    // generateTokens(existUser);
-    const { accessToken, refreshToken } = generateTokens(existUser);
+    const { accessToken, refreshToken } = generateTokens(existUser.id);
 
-    console.log("accessToken", accessToken);
-    console.log("refreshToken", refreshToken);
+    // console.log("accessToken", accessToken);
+    // console.log("refreshToken", refreshToken);
 
-    // setCookie(event, "access_token", accessToken, {
-    //   httpOnly: true,
-    //   secure: true,
-    //   sameSite: true,
-    // });
+    setCookie(event, "access_token", accessToken, {
+      httpOnly: true,
+      secure: true,
+      sameSite: true,
+    });
 
-    // setCookie(event, "refresh_token", refreshToken, {
-    //   httpOnly: true,
-    //   secure: true,
-    //   sameSite: true,
-    // });
+    setCookie(event, "refresh_token", refreshToken, {
+      httpOnly: true,
+      secure: true,
+      sameSite: true,
+    });
 
-    // const result = await db
-    // .update(users)
-    // .set({ refresh_token: refreshToken })
-    // .where(eq(users.user_email, body.user_email));
+    const result = await db
+      .update(users)
+      .set({ refresh_token: refreshToken })
+      .where(eq(users.user_email, body.user_email));
 
     // console.log(transformUser(existUser));
     return transformUser(existUser);

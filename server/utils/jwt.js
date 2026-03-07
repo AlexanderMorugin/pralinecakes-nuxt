@@ -1,17 +1,17 @@
 import jwt from "jsonwebtoken";
 
-const generateAccessToken = (user) => {
+const generateAccessToken = (userId) => {
   const config = useRuntimeConfig();
 
-  return jwt.sign({ userId: user.id }, config.public.jwtAccessSecret, {
+  return jwt.sign({ userId: userId }, config.public.jwtAccessSecret, {
     expiresIn: "1m",
   });
 };
 
-const generateRefreshToken = (user) => {
+const generateRefreshToken = (userId) => {
   const config = useRuntimeConfig();
 
-  return jwt.sign({ userId: user.id }, config.public.jwtRefreshSecret, {
+  return jwt.sign({ userId: userId }, config.public.jwtRefreshSecret, {
     expiresIn: "30m",
   });
 };
@@ -36,9 +36,9 @@ export const decodeAccessToken = (token) => {
   }
 };
 
-export const generateTokens = (user) => {
-  const accessToken = generateAccessToken(user);
-  const refreshToken = generateRefreshToken(user);
+export const generateTokens = (userId) => {
+  const accessToken = generateAccessToken(userId);
+  const refreshToken = generateRefreshToken(userId);
 
   return { accessToken, refreshToken };
 };

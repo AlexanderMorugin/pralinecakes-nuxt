@@ -14,6 +14,8 @@ export const useUserStore = defineStore("userStore", () => {
         method: "GET",
       });
 
+      // console.log(result);
+
       if (result.status.value === "success") {
         users.value = result.data.value;
       }
@@ -36,6 +38,8 @@ export const useUserStore = defineStore("userStore", () => {
       },
     });
 
+    // console.log(result);
+
     if (result.status.value === "success") {
       user.value = result.data.value;
     }
@@ -49,7 +53,9 @@ export const useUserStore = defineStore("userStore", () => {
       method: "POST",
       body: {
         id: uuidv4(),
-        user_role: "admin",
+        // user_role: "admin",
+        // user_role: "manager",
+        user_role: "client",
         user_name: formData.user_name,
         user_email: formData.user_email,
         user_password: formData.user_password,
@@ -81,7 +87,7 @@ export const useUserStore = defineStore("userStore", () => {
       baseURL: process.env.BASE_URL,
       method: "DELETE",
       body: {
-        user_id: user.value[0].id,
+        user_id: user.value.id,
       },
     });
 

@@ -170,6 +170,8 @@ export const users = pgTable("users", {
   user_role: text("user_role"),
   user_bonus: integer("user_bonus"),
 
+  refresh_token: text("refresh_token"),
+
   createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
   updatedAt: timestamp("updated_at", { mode: "string" }).notNull().defaultNow(),
 });

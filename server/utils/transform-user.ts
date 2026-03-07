@@ -6,6 +6,7 @@ export const transformUser = (userData: IUser | any) => {
     user_name: userData.user_name,
     user_email: userData.user_email,
     user_bonus: userData.user_bonus,
+    user_role: userData.user_role,
   };
 
   return hasUser;

@@ -2,26 +2,31 @@
   <div class="modalProfile">
     <NuxtLink to="/admin" class="modalProfile__title">Админка</NuxtLink>
 
-    <div class="modalProfile__title" v-if="isLogin">
+    <div class="modalProfile__title" v-if="isLogin && !userStore.user">
       Войдите в аккаунт или
       <span class="modalProfile__toggle" @click="toggleProfile"
         >зарегистрируйтесь.</span
       >
     </div>
-    <div class="modalProfile__title" v-else>
+    <div class="modalProfile__title" v-if="!isLogin && !userStore.user">
       Зарегистрируйтесь или
       <span class="modalProfile__toggle" @click="toggleProfile"
         >войдите в аккаунт.</span
       >
     </div>
 
-    <FormLogin v-if="isLogin" />
-    <FormRegister v-if="!isLogin" />
+    <FormLogin v-if="isLogin && !userStore.user" />
+    <FormRegister v-if="!isLogin && !userStore.user" />
+    <UserLink v-if="userStore.user" @closeModal="$emit('closeModal')" />
+    <!-- <div v-if="userStore.user">{{ userStore.user }}</div> -->
   </div>
 </template>
 
 <script setup>
 const emit = defineEmits(["closeModal"]);
+
+const userStore = useUserStore();
+// console.log(userStore.user);
 
 const isLogin = ref(true);
 

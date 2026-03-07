@@ -18,7 +18,10 @@
       <ModalMenu v-if="name === 'menu'" @closeModal="$emit('closeModal')" />
       <ModalPhone v-if="name === 'phone'" />
       <ModalChat v-if="name === 'chat'" />
-      <ModalProfile v-if="name === 'profile'" />
+      <ModalProfile
+        v-if="name === 'profile'"
+        @closeModal="$emit('closeModal')"
+      />
       <ModalCartDialog
         v-if="name === 'cart'"
         @closeModal="$emit('closeModal')"

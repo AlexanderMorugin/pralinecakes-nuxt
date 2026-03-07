@@ -12,10 +12,11 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const result = await db
-    .select()
-    .from(users)
-    .where(eq(users.id, body.user_id));
+  const result = (
+    await db.select().from(users).where(eq(users.id, body.user_id))
+  )[0];
 
-  return result;
+  console.log(result);
+
+  return transformUser(result);
 });

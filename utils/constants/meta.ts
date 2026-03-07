@@ -43,5 +43,10 @@ export const CART_IMAGE =
 
 export const ORDER_TITLE = "ORDER_TITLE";
 export const ORDER_DESCRIPTION = "ORDER_DESCRIPTION";
-export const ORDER_IMAGE =
-  "https://pralinecakes.ru/images/cakes/almond-prune/c-almond-prune-1-800.webp";
+// export const ORDER_IMAGE =
+//   "https://pralinecakes.ru/images/cakes/almond-prune/c-almond-prune-1-800.webp";
+
+export const PROFILE_TITLE = "PROFILE_TITLE";
+export const PROFILE_DESCRIPTION = "PROFILE_DESCRIPTION";
+// export const PROFILE_IMAGE =
+//   "https://pralinecakes.ru/images/cakes/almond-prune/c-almond-prune-1-800.webp";
