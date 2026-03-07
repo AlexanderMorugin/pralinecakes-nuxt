@@ -94,5 +94,20 @@ export const useUserStore = defineStore("userStore", () => {
     return result;
   };
 
-  return { users, user, loadUsers, getUser, createUser, loginUser, deleteUser };
+  const setAuthUser = (userData: IUser) => {
+    user.value = null;
+
+    user.value = userData;
+  };
+
+  return {
+    users,
+    user,
+    loadUsers,
+    getUser,
+    createUser,
+    loginUser,
+    deleteUser,
+    setAuthUser,
+  };
 });
