@@ -52,8 +52,8 @@ export const useUserStore = defineStore("userStore", () => {
       baseURL: process.env.BASE_URL,
       method: "POST",
       body: {
-        // id: uuidv4(),
-        id: "123",
+        id: uuidv4(),
+        // id: "123",
         // user_role: "admin",
         // user_role: "manager",
         user_role: "client",
