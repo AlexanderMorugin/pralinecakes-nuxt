@@ -15,7 +15,7 @@ import {
 } from "@/utils/constants/meta";
 
 definePageMeta({
-  middleware: ["cart", "auth"],
+  middleware: ["cart"],
   layout: "main",
 });
 

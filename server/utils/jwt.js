@@ -5,6 +5,7 @@ const generateAccessToken = (userId) => {
 
   return jwt.sign({ userId: userId }, config.public.jwtAccessSecret, {
     expiresIn: "1m",
+    // expiresIn: "5s",
   });
 };
 
@@ -13,6 +14,7 @@ const generateRefreshToken = (userId) => {
 
   return jwt.sign({ userId: userId }, config.public.jwtRefreshSecret, {
     expiresIn: "30m",
+    // expiresIn: "20s",
   });
 };
 

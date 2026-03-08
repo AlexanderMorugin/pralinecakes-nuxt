@@ -6,15 +6,18 @@ import { transformUser } from "~/server/utils/transform-user";
 export default defineEventHandler(async (event) => {
   const cookieTokenRefresh = getCookie(event, "refresh_token");
 
+  if (!cookieTokenRefresh) {
+    return {
+      user: null,
+    };
+  }
+
   const decodeCookieTokenRefresh = await decodeRefreshToken(cookieTokenRefresh);
 
-  // console.log(decodeCookieTokenRefresh);
-
   if (!decodeCookieTokenRefresh) {
-    throw createError({
-      statusCode: 422,
-      message: "Рефреш токен отсутствует",
-    });
+    return {
+      user: null,
+    };
   }
 
   const existUser = (
@@ -25,23 +28,21 @@ export default defineEventHandler(async (event) => {
       .limit(1)
   )[0];
 
-  // console.log(existUser);
+  if (!existUser) {
+    return {
+      user: null,
+    };
+  }
 
   const rToken = await decodeRefreshToken(existUser.refresh_token);
 
-  // console.log(rToken);
-
   if (!rToken) {
-    throw createError({
-      statusCode: 422,
-      message: "Рефреш токен истёк",
-    });
+    return {
+      user: null,
+    };
   }
 
-  return transformUser(existUser);
-
-  // const existUser = await db
-  //   .select()
-  //   .from(users)
-  //   .where(eq(users.refresh_token, cookieTokenRefresh));
+  return {
+    user: transformUser(existUser),
+  };
 });

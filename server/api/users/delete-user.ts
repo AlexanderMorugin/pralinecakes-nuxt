@@ -13,6 +13,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const result = await db.delete(users).where(eq(users.id, body.user_id));
+  deleteCookie(event, "refresh_token");
 
   return result;
 });

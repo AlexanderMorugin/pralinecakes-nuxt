@@ -8,7 +8,7 @@
 import { SITE, SITE_NAME, SITE_AUTHOR } from "@/utils/constants/meta";
 
 definePageMeta({
-  middleware: ["cart", "auth"],
+  middleware: ["cart"],
   layout: "main",
 });
 

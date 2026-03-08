@@ -101,6 +101,10 @@ export const useUserStore = defineStore("userStore", () => {
     user.value = userData;
   };
 
+  const logoutAuthUser = () => {
+    user.value = null;
+  };
+
   return {
     users,
     user,
@@ -110,5 +114,6 @@ export const useUserStore = defineStore("userStore", () => {
     loginUser,
     deleteUser,
     setAuthUser,
+    logoutAuthUser,
   };
 });
