@@ -11,5 +11,5 @@ definePageMeta({
 const userStore = useUserStore();
 await userStore.loadUsers();
 
-console.log(userStore.users);
+// console.log(userStore.users);
 </script>

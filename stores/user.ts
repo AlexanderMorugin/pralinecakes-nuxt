@@ -14,7 +14,9 @@ export const useUserStore = defineStore("userStore", () => {
         method: "GET",
       });
 
-      // console.log(result);
+      if (result.error.value) {
+        return navigateTo("/auth-page");
+      }
 
       if (result.status.value === "success") {
         users.value = result.data.value;
@@ -38,7 +40,9 @@ export const useUserStore = defineStore("userStore", () => {
       },
     });
 
-    // console.log(result);
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     if (result.status.value === "success") {
       user.value = result.data.value;
@@ -91,6 +95,10 @@ export const useUserStore = defineStore("userStore", () => {
         user_id: user.value.id,
       },
     });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     return result;
   };

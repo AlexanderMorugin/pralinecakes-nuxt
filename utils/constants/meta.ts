@@ -50,3 +50,6 @@ export const PROFILE_TITLE = "PROFILE_TITLE";
 export const PROFILE_DESCRIPTION = "PROFILE_DESCRIPTION";
 // export const PROFILE_IMAGE =
 //   "https://pralinecakes.ru/images/cakes/almond-prune/c-almond-prune-1-800.webp";
+
+export const AUTH_TITLE = "AUTH_TITLE";
+export const AUTH_DESCRIPTION = "AUTH_DESCRIPTION";

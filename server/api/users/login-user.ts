@@ -44,9 +44,6 @@ export default defineEventHandler(async (event) => {
 
     const { accessToken, refreshToken } = generateTokens(existUser.id);
 
-    // console.log("accessToken", accessToken);
-    // console.log("refreshToken", refreshToken);
-
     setCookie(event, "access_token", accessToken, {
       httpOnly: true,
       secure: true,
@@ -64,7 +61,6 @@ export default defineEventHandler(async (event) => {
       .set({ refresh_token: refreshToken })
       .where(eq(users.user_email, body.user_email));
 
-    // console.log(transformUser(existUser));
     return transformUser(existUser);
   }
 });

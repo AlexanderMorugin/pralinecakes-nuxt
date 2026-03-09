@@ -5,6 +5,19 @@ import { pastry } from "~/server/database/schema";
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
+  const accessToken = getCookie(event, "access_token");
+  const refreshToken = getCookie(event, "refresh_token");
+
+  const decodeAccess = await decodeAccessToken(accessToken);
+  const decodeRefresh = await decodeRefreshToken(refreshToken);
+
+  if (!decodeAccess || !decodeRefresh) {
+    throw createError({
+      statusCode: 422,
+      message: "Токены отсутствуют",
+    });
+  }
+
   if (!body?.title || !body?.description_short || !body?.id) {
     throw createError({
       statusCode: 422,

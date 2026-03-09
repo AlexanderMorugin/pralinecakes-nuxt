@@ -31,6 +31,10 @@ export const usePastryStore = defineStore("pastryStore", () => {
         method: "GET",
       });
 
+      if (result.error.value) {
+        return navigateTo("/auth-page");
+      }
+
       if (result.status.value === "success") {
         pastries.value = result.data.value;
       }
@@ -72,6 +76,10 @@ export const usePastryStore = defineStore("pastryStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     return result;
   };
 
@@ -85,6 +93,10 @@ export const usePastryStore = defineStore("pastryStore", () => {
         description_short: formData.description_short,
       },
     });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     if (result.status.value === "success") {
       pastries.value = pastries.value.map((item: IProduct) =>
@@ -112,6 +124,10 @@ export const usePastryStore = defineStore("pastryStore", () => {
         description_three: formData.description_three,
       },
     });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     if (result.status.value === "success") {
       pastries.value = pastries.value.map((item: IProduct) =>
@@ -149,6 +165,10 @@ export const usePastryStore = defineStore("pastryStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       pastries.value = pastries.value.map((item: IProduct) =>
         item.id === pastry.value[0].id
@@ -175,6 +195,10 @@ export const usePastryStore = defineStore("pastryStore", () => {
         meta_description: formData.meta_description,
       },
     });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     if (result.status.value === "success") {
       pastries.value = pastries.value.map((item: IProduct) =>
@@ -203,6 +227,10 @@ export const usePastryStore = defineStore("pastryStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       pastries.value = pastries.value.map((item: IProduct) =>
         item.id === pastry.value[0].id
@@ -230,6 +258,10 @@ export const usePastryStore = defineStore("pastryStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       pastries.value = pastries.value.map((item: IProduct) =>
         item.id === pastry.value[0].id
@@ -255,6 +287,10 @@ export const usePastryStore = defineStore("pastryStore", () => {
         ingredients: formData.ingredients,
       },
     });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     if (result.status.value === "success") {
       pastries.value = pastries.value.map((item: IProduct) =>
@@ -283,6 +319,10 @@ export const usePastryStore = defineStore("pastryStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       pastries.value = pastries.value.map((item: IProduct) =>
         item.id === pastry.value[0].id
@@ -310,6 +350,10 @@ export const usePastryStore = defineStore("pastryStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       pastries.value = pastries.value.map((item: IProduct) =>
         item.id === pastry.value[0].id
@@ -333,6 +377,10 @@ export const usePastryStore = defineStore("pastryStore", () => {
         badge: badge,
       },
     });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     if (result.status.value === "success") {
       pastries.value = pastries.value.map((item: IProduct) =>
@@ -358,6 +406,10 @@ export const usePastryStore = defineStore("pastryStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       pastries.value = pastries.value.map((item: IProduct) =>
         item.id === pastry.value[0].id
@@ -380,6 +432,10 @@ export const usePastryStore = defineStore("pastryStore", () => {
         id: pastry.value[0].id,
       },
     });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     return result;
   };

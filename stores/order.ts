@@ -18,6 +18,10 @@ export const useOrderStore = defineStore("orderStore", () => {
       method: "GET",
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       orders.value = result.data.value;
     }
@@ -75,6 +79,10 @@ export const useOrderStore = defineStore("orderStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       order.value[0].status_accept = date;
 
@@ -95,6 +103,10 @@ export const useOrderStore = defineStore("orderStore", () => {
         status: date,
       },
     });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     if (result.status.value === "success") {
       order.value[0].status_delivery = date;
@@ -117,6 +129,10 @@ export const useOrderStore = defineStore("orderStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       order.value[0].status_complete = date;
 
@@ -136,6 +152,10 @@ export const useOrderStore = defineStore("orderStore", () => {
         id: order.value[0].id,
       },
     });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     return result;
   };

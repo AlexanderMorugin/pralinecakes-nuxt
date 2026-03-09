@@ -26,6 +26,10 @@ export const useCommentsStore = defineStore("commentsStore", () => {
       method: "GET",
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       comments.value = result.data.value;
     }
@@ -104,6 +108,10 @@ export const useCommentsStore = defineStore("commentsStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       comment.value[0].visibility = !comment.value[0].visibility;
     }
@@ -119,6 +127,10 @@ export const useCommentsStore = defineStore("commentsStore", () => {
         id: comment.value[0].id,
       },
     });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     if (result.status.value === "success") {
       comments.value = comments.value.filter(

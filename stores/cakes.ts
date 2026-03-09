@@ -38,6 +38,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
         method: "GET",
       });
 
+      if (result.error.value) {
+        return navigateTo("/auth-page");
+      }
+
       if (result.status.value === "success") {
         cakes.value = result.data.value;
       }
@@ -79,6 +83,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     return result;
   };
 
@@ -92,6 +100,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
         description_short: formData.description_short,
       },
     });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     if (result.status.value === "success") {
       cakes.value = cakes.value.map((item: IProduct) =>
@@ -119,6 +131,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
         description_three: formData.description_three,
       },
     });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     if (result.status.value === "success") {
       cakes.value = cakes.value.map((item: IProduct) =>
@@ -156,6 +172,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       cakes.value = cakes.value.map((item: IProduct) =>
         item.id === cake.value[0].id
@@ -183,6 +203,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       cakes.value = cakes.value.map((item: IProduct) =>
         item.id === cake.value[0].id
@@ -209,6 +233,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
         height: formData.height,
       },
     });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     if (result.status.value === "success") {
       cakes.value = cakes.value.map((item: IProduct) =>
@@ -238,6 +266,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       cakes.value = cakes.value.map((item: IProduct) =>
         item.id === cake.value[0].id
@@ -263,6 +295,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
         ingredients: formData.ingredients,
       },
     });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     if (result.status.value === "success") {
       cakes.value = cakes.value.map((item: IProduct) =>
@@ -291,6 +327,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       cakes.value = cakes.value.map((item: IProduct) =>
         item.id === cake.value[0].id
@@ -318,6 +358,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       cakes.value = cakes.value.map((item: IProduct) =>
         item.id === cake.value[0].id
@@ -341,6 +385,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
         badge: badge,
       },
     });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     if (result.status.value === "success") {
       cakes.value = cakes.value.map((item: IProduct) =>
@@ -366,6 +414,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
       },
     });
 
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
     if (result.status.value === "success") {
       cakes.value = cakes.value.map((item: IProduct) =>
         item.id === cake.value[0].id
@@ -388,6 +440,10 @@ export const useCakesStore = defineStore("cakesStore", () => {
         id: cake.value[0].id,
       },
     });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
 
     return result;
   };
