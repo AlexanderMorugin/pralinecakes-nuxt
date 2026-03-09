@@ -38,6 +38,7 @@ const { title, buttonRef, comments } = defineProps([
   display: flex;
   justify-content: space-between;
   align-items: center;
+  // gap: 10px;
   width: 100%;
   height: 60px;
   padding: 10px;
@@ -57,8 +58,8 @@ const { title, buttonRef, comments } = defineProps([
 
   &__comments {
     position: absolute;
-    top: 34%;
-    left: 94px;
+    top: 37%;
+    left: 100px;
   }
 
   &__icon {

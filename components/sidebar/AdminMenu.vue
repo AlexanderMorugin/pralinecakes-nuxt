@@ -3,6 +3,9 @@
     <li v-for="button in adminMenu" :key="button.id">
       <ButtonSidebarBtn :button="button" @closeModal="$emit('closeModal')" />
     </li>
+    <li>
+      <ButtonLogout text="Выйти" @closeModal="$emit('closeModal')" />
+    </li>
   </ul>
 </template>
 
@@ -16,5 +19,6 @@ const emit = defineEmits(["closeModal"]);
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding-bottom: 40px;
 }
 </style>

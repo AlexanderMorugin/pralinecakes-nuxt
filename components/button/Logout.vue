@@ -13,16 +13,13 @@ const emit = defineEmits(["closeModal"]);
 const userStore = useUserStore();
 
 const handleLogout = async () => {
-  // Удаляем куки
   await $fetch("/api/users/logout", {
     method: "POST",
   });
 
-  // Очищаем пользователя в сторе
   userStore.logoutAuthUser();
-  location.reload();
   emit("closeModal");
-  // return navigateTo("/");
+  location.reload();
 };
 </script>
 
