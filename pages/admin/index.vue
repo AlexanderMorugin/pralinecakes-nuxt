@@ -4,7 +4,13 @@
 
 <script setup>
 definePageMeta({
-  middleware: ["auth"],
+  middleware: ["admin"],
   layout: "admin",
 });
+
+const cakesStore = useCakesStore();
+await cakesStore.loadAdminCakes();
+
+const commentsStore = useCommentsStore();
+await commentsStore.loadComments();
 </script>
