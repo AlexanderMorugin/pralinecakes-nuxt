@@ -11,15 +11,26 @@ const { text } = defineProps(["text"]);
 const emit = defineEmits(["closeModal"]);
 
 const userStore = useUserStore();
+const orderStore = useOrderStore();
+// const router = useRouter();
 
 const handleLogout = async () => {
   await $fetch("/api/users/logout", {
     method: "POST",
   });
 
-  userStore.logoutAuthUser();
+  // emit("closeModal");
+  // userStore.logoutAuthUser();
+  // location.reload();
+
+  // if (userStore.user && userStore.user.user_role !== "client") {
   emit("closeModal");
+  userStore.logoutAuthUser();
+  orderStore.cleanOrder();
   location.reload();
+  // router.push("/");
+  // await navigateTo("/");
+  // }
 };
 </script>
 

@@ -7,48 +7,63 @@ export const useUserStore = defineStore("userStore", () => {
   const user = ref<IUser | any>(null);
 
   const loadUsers = async () => {
-    try {
-      const result = await useFetch("/api/users/load-users", {
-        baseURL: process.env.BASE_URL,
-        key: "users",
-        method: "GET",
-      });
+    if (user.value) {
+      try {
+        const result = await useFetch("/api/users/load-users", {
+          baseURL: process.env.BASE_URL,
+          key: "users",
+          method: "GET",
+        });
 
-      if (result.error.value) {
-        return navigateTo("/auth-page");
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
+
+        if (result.status.value === "success") {
+          users.value = result.data.value;
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
       }
-
-      if (result.status.value === "success") {
-        users.value = result.data.value;
-      }
-
-      return result;
-    } catch (error) {
-      throw createError({
-        status: 404,
-        statusText: "Данные не найдены",
-      });
+    } else {
+      return navigateTo("/");
     }
   };
 
   const getUser = async (userId: string) => {
-    const result = await useFetch("/api/users/get-user", {
-      baseURL: process.env.BASE_URL,
-      method: "POST",
-      body: {
-        user_id: userId,
-      },
-    });
+    if (user.value) {
+      try {
+        const result = await useFetch("/api/users/get-user", {
+          baseURL: process.env.BASE_URL,
+          method: "POST",
+          body: {
+            user_id: userId,
+          },
+        });
 
-    if (result.error.value) {
-      return navigateTo("/auth-page");
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
+
+        if (result.status.value === "success") {
+          user.value = result.data.value;
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
     }
-
-    if (result.status.value === "success") {
-      user.value = result.data.value;
-    }
-
-    return result;
   };
 
   const createUser = async (formData: IUser) => {

@@ -5,6 +5,8 @@ export const usePastryStore = defineStore("pastryStore", () => {
   const pastries = ref<IProduct[] | any>([]);
   const pastry = ref<IProduct | any>(null);
 
+  const userStore = useUserStore();
+
   const loadPastries = async () => {
     try {
       const result = await useFetch("/api/pastry/load-pastries", {
@@ -25,26 +27,30 @@ export const usePastryStore = defineStore("pastryStore", () => {
   };
 
   const loadAdminPastries = async () => {
-    try {
-      const result = await useFetch("/api/pastry/load-admin-pastries", {
-        baseURL: process.env.BASE_URL,
-        method: "GET",
-      });
+    if (userStore.user) {
+      try {
+        const result = await useFetch("/api/pastry/load-admin-pastries", {
+          baseURL: process.env.BASE_URL,
+          method: "GET",
+        });
 
-      if (result.error.value) {
-        return navigateTo("/auth-page");
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
+
+        if (result.status.value === "success") {
+          pastries.value = result.data.value;
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
       }
-
-      if (result.status.value === "success") {
-        pastries.value = result.data.value;
-      }
-
-      return result;
-    } catch (error) {
-      throw createError({
-        status: 404,
-        statusText: "Данные не найдены",
-      });
+    } else {
+      return navigateTo("/");
     }
   };
 
@@ -62,6 +68,37 @@ export const usePastryStore = defineStore("pastryStore", () => {
     }
 
     return result;
+  };
+
+  const getAdminPastry = async (productSlug: string) => {
+    if (userStore.user) {
+      try {
+        const result = await useFetch("/api/pastry/get-admin-pastry", {
+          baseURL: process.env.BASE_URL,
+          method: "POST",
+          body: {
+            slug: productSlug,
+          },
+        });
+
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
+
+        if (result.status.value === "success") {
+          pastry.value = result.data.value;
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
+    }
   };
 
   const createPastryTitle = async (formData: IProduct) => {
@@ -446,6 +483,7 @@ export const usePastryStore = defineStore("pastryStore", () => {
     loadPastries,
     loadAdminPastries,
     getPastry,
+    getAdminPastry,
     createPastryTitle,
     updatePastryTitle,
     updatePastryDescription,

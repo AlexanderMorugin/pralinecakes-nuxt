@@ -2,8 +2,14 @@
   <div class="productCardAdminManage page-padding-x">
     <FormAdminProductTitleUpdate :type="type" />
     <FormAdminProductDescriptionUpdate :type="type" />
-    <FormAdminProductImageUpdate :type="type" />
-    <FormAdminProductMetaUpdate :type="type" />
+    <FormAdminProductImageUpdate
+      v-if="userStore.user && userStore.user.user_role === 'admin'"
+      :type="type"
+    />
+    <FormAdminProductMetaUpdate
+      v-if="userStore.user && userStore.user.user_role === 'admin'"
+      :type="type"
+    />
     <FormAdminProductSizesUpdate :type="type" />
     <FormAdminProductPriceUpdate :type="type" />
     <FormAdminProductIgredientsUpdate :type="type" />
@@ -13,6 +19,7 @@
     <FormAdminProductVisibilityUpdate :type="type" />
 
     <ButtonManager
+      v-if="userStore.user && userStore.user.user_role === 'admin'"
       name="delete"
       :isLoading="isLoading"
       @handleClick="isConfirmModalOpen = true"
@@ -40,6 +47,7 @@ const { type } = defineProps(["type"]);
 const toast = useToast();
 const cakesStore = useCakesStore();
 const pastryStore = usePastryStore();
+const userStore = useUserStore();
 
 const isLoading = ref(false);
 const isConfirmModalOpen = ref(false);

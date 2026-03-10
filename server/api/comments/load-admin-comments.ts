@@ -15,6 +15,7 @@ export default defineEventHandler(async (event) => {
       message: "Токены отсутствуют",
     });
   }
+
   const result = await db
     .select()
     .from(comments)

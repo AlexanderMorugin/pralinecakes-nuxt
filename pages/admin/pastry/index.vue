@@ -1,5 +1,8 @@
 <template>
-  <ButtonAddProduct type="pastry" />
+  <ButtonAddProduct
+    v-if="userStore.user && userStore.user.user_role === 'admin'"
+    type="pastry"
+  />
   <ProductList
     v-if="pastryStore.pastries.length"
     type="pastry"
@@ -20,4 +23,6 @@ await pastryStore.loadAdminPastries();
 
 const commentsStore = useCommentsStore();
 await commentsStore.loadComments();
+
+const userStore = useUserStore();
 </script>

@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { db } from "~/server";
-import { orders } from "~/server/database/schema";
+import { pastry } from "~/server/database/schema";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
@@ -18,14 +18,17 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  if (!body?.id) {
+  if (!body?.slug) {
     throw createError({
       statusCode: 422,
-      message: "ID заказа отсутствуют",
+      message: "slug продукта отсутствует",
     });
   }
 
-  const result = await db.select().from(orders).where(eq(orders.id, body.id));
+  const result = await db
+    .select()
+    .from(pastry)
+    .where(eq(pastry.slug, body.slug));
 
   return result;
 });

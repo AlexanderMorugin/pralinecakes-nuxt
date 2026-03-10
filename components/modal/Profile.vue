@@ -1,7 +1,5 @@
 <template>
   <div class="modalProfile">
-    <!-- <NuxtLink to="/admin" class="modalProfile__title">Админка</NuxtLink> -->
-
     <div class="modalProfile__title" v-if="isLogin && !userStore.user">
       Войдите в аккаунт или
       <span class="modalProfile__toggle" @click="toggleProfile"
@@ -17,7 +15,7 @@
 
     <FormLogin v-if="isLogin && !userStore.user" />
     <FormRegister v-if="!isLogin && !userStore.user" />
-    <UserBlockForModal
+    <LazyUserBlockForModal
       v-if="userStore.user"
       :user="userStore.user"
       @closeModal="$emit('closeModal')"

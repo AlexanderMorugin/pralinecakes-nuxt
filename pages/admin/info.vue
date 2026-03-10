@@ -9,4 +9,7 @@ definePageMeta({
   middleware: ["admin"],
   layout: "admin",
 });
+
+const cakesStore = useCakesStore();
+await cakesStore.loadAdminCakes();
 </script>

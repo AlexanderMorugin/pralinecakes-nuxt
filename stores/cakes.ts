@@ -5,6 +5,8 @@ export const useCakesStore = defineStore("cakesStore", () => {
   const cakes = ref<IProduct[] | any>([]);
   const cake = ref<IProduct | any>(null);
 
+  const userStore = useUserStore();
+
   const loadCakes = async () => {
     try {
       const result = await useFetch("/api/cakes/load-cakes", {
@@ -17,30 +19,6 @@ export const useCakesStore = defineStore("cakesStore", () => {
         // transform: (cakes) => cakes.map((item) => item.title), // возвращаем только тайтлы
         method: "GET",
       });
-
-      if (result.status.value === "success") {
-        cakes.value = result.data.value;
-      }
-
-      return result;
-    } catch (error) {
-      throw createError({
-        status: 404,
-        statusText: "Данные не найдены",
-      });
-    }
-  };
-
-  const loadAdminCakes = async () => {
-    try {
-      const result = await useFetch("/api/cakes/load-admin-cakes", {
-        baseURL: process.env.BASE_URL,
-        method: "GET",
-      });
-
-      if (result.error.value) {
-        return navigateTo("/auth-page");
-      }
 
       if (result.status.value === "success") {
         cakes.value = result.data.value;
@@ -69,6 +47,65 @@ export const useCakesStore = defineStore("cakesStore", () => {
     }
 
     return result;
+  };
+
+  const loadAdminCakes = async () => {
+    if (userStore.user) {
+      try {
+        const result = await useFetch("/api/cakes/load-admin-cakes", {
+          baseURL: process.env.BASE_URL,
+          method: "GET",
+        });
+
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
+
+        if (result.status.value === "success") {
+          cakes.value = result.data.value;
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
+    }
+  };
+
+  const getAdminCake = async (productSlug: string) => {
+    if (userStore.user) {
+      try {
+        const result = await useFetch("/api/cakes/get-admin-cake", {
+          baseURL: process.env.BASE_URL,
+          method: "POST",
+          body: {
+            slug: productSlug,
+          },
+        });
+
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
+
+        if (result.status.value === "success") {
+          cake.value = result.data.value;
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
+    }
   };
 
   const createCakeTitle = async (formData: IProduct) => {
@@ -454,6 +491,7 @@ export const useCakesStore = defineStore("cakesStore", () => {
     loadCakes,
     loadAdminCakes,
     getCake,
+    getAdminCake,
     createCakeTitle,
     updateCakeTitle,
     updateCakeDescription,

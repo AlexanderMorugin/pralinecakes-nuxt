@@ -1,5 +1,8 @@
 <template>
-  <ProductCardAdminManage :type="pastryStore.pastry[0].type" />
+  <ProductCardAdminManage
+    v-if="pastryStore.pastry"
+    :type="pastryStore.pastry[0].type"
+  />
 </template>
 
 <script setup>
@@ -10,5 +13,5 @@ definePageMeta({
 
 const route = useRoute();
 const pastryStore = usePastryStore();
-await pastryStore.getPastry(route.params.slug);
+await pastryStore.getAdminPastry(route.params.slug);
 </script>

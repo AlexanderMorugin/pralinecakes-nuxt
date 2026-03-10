@@ -6,6 +6,8 @@ export const useCommentsStore = defineStore("commentsStore", () => {
   const comment = ref<IComment | any>(null);
   const productComments = ref<IComment[] | any>([]);
 
+  const userStore = useUserStore();
+
   const loadComments = async () => {
     const result = await useFetch("/api/comments/load-comments", {
       baseURL: process.env.BASE_URL,
@@ -21,36 +23,62 @@ export const useCommentsStore = defineStore("commentsStore", () => {
   };
 
   const loadAdminComments = async () => {
-    const result = await useFetch("/api/comments/load-admin-comments", {
-      baseURL: process.env.BASE_URL,
-      method: "GET",
-    });
+    if (userStore.user) {
+      try {
+        const result = await useFetch("/api/comments/load-admin-comments", {
+          baseURL: process.env.BASE_URL,
+          method: "GET",
+        });
 
-    if (result.error.value) {
-      return navigateTo("/auth-page");
+        if (result.error.value) {
+          return navigateTo("/");
+        }
+
+        if (result.status.value === "success") {
+          comments.value = result.data.value;
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
     }
-
-    if (result.status.value === "success") {
-      comments.value = result.data.value;
-    }
-
-    return result;
   };
 
   const getComment = async (commentId: number) => {
-    const result = await useFetch("/api/comments/get-comment", {
-      baseURL: process.env.BASE_URL,
-      method: "POST",
-      body: {
-        id: commentId,
-      },
-    });
+    if (userStore.user) {
+      try {
+        const result = await useFetch("/api/comments/get-comment", {
+          baseURL: process.env.BASE_URL,
+          method: "POST",
+          body: {
+            id: commentId,
+          },
+        });
 
-    if (result.status.value === "success") {
-      comment.value = result.data.value;
+        if (result.error.value) {
+          return navigateTo("/");
+        }
+
+        if (result.status.value === "success") {
+          comment.value = result.data.value;
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
     }
-
-    return result;
   };
 
   const getProductComments = async (productId: number) => {

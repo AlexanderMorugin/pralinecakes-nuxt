@@ -1,5 +1,8 @@
 <template>
-  <CommentCard :comment="commentsStore.comment[0]" />
+  <CommentCard
+    v-if="commentsStore.comment"
+    :comment="commentsStore.comment[0]"
+  />
 </template>
 
 <script setup>

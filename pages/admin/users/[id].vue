@@ -1,10 +1,11 @@
 <template>
   <div class="user page-padding-x">
-    <UserCard :user="userStore.user" />
-    <UserOrders />
-    <UserComments />
+    <UserCard v-if="userStore.user" :user="userStore.user" />
+    <UserOrders v-if="userStore.user" />
+    <UserComments v-if="userStore.user" />
 
     <ButtonWithText
+      v-if="userStore.user"
       color="red"
       text="удалить"
       @handleClick="isConfirmModalOpen = true"

@@ -20,6 +20,7 @@
           route.path === `/admin/orders/${route.params.id}` ||
           route.path === `/admin/comments/${route.params.id}` ||
           route.path === `/admin/cakes/${route.params.slug}` ||
+          route.path === `/admin/pastry/${route.params.slug}` ||
           route.path === '/admin/cakes/add' ||
           route.path === '/admin/pastry/add'
         "

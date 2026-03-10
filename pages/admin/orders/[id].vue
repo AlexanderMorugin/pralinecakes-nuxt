@@ -1,7 +1,7 @@
 <template>
   <div class="orderPage page-padding-x">
-    <OrderCard :order="orderStore.order" />
-    <OrderManager />
+    <OrderCard v-if="orderStore.order" :order="orderStore.order" />
+    <OrderManager v-if="orderStore.order" />
   </div>
 </template>
 

@@ -7,6 +7,17 @@ import { transformUser } from "~/server/utils/transform-user";
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
+  // deleteCookie(event, "refresh_token", {
+  //   httpOnly: true,
+  //   secure: true,
+  //   sameSite: true,
+  // });
+  // deleteCookie(event, "access_token", {
+  //   httpOnly: true,
+  //   secure: true,
+  //   sameSite: true,
+  // });
+
   if (!body?.user_email || !body?.user_password) {
     throw createError({
       statusCode: 422,

@@ -5,6 +5,8 @@ export const useOrderStore = defineStore("orderStore", () => {
   const orders = ref<IOrder[] | any>([]);
   const order = ref<IOrder | any>(null);
 
+  const userStore = useUserStore();
+
   const localStorageOrder = computed(() => localStorage.getItem("order"));
 
   if (localStorageOrder.value) {
@@ -12,37 +14,63 @@ export const useOrderStore = defineStore("orderStore", () => {
   }
 
   const loadOrders = async () => {
-    const result = await useFetch("/api/orders/load-orders", {
-      baseURL: process.env.BASE_URL,
-      key: "orders",
-      method: "GET",
-    });
+    if (userStore.user) {
+      try {
+        const result = await useFetch("/api/orders/load-orders", {
+          baseURL: process.env.BASE_URL,
+          key: "orders",
+          method: "GET",
+        });
 
-    if (result.error.value) {
-      return navigateTo("/auth-page");
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
+
+        if (result.status.value === "success") {
+          orders.value = result.data.value;
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
     }
-
-    if (result.status.value === "success") {
-      orders.value = result.data.value;
-    }
-
-    return result;
   };
 
   const getOrder = async (orderId: number) => {
-    const result = await useFetch("/api/orders/get-order", {
-      baseURL: process.env.BASE_URL,
-      method: "POST",
-      body: {
-        id: orderId,
-      },
-    });
+    if (userStore.user) {
+      try {
+        const result = await useFetch("/api/orders/get-order", {
+          baseURL: process.env.BASE_URL,
+          method: "POST",
+          body: {
+            id: orderId,
+          },
+        });
 
-    if (result.status.value === "success") {
-      order.value = result.data.value;
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
+
+        if (result.status.value === "success") {
+          order.value = result.data.value;
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
     }
-
-    return result;
   };
 
   const createOrder = async (formData: IOrder) => {

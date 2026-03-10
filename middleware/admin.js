@@ -15,7 +15,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (
       result.data.value.user &&
-      result.data.value.user.user_role !== "admin" &&
+      result.data.value.user.user_role === "client" &&
       to.path === "/admin"
     ) {
       return navigateTo("/");
@@ -23,7 +23,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (
       result.data.value.user &&
-      result.data.value.user.user_role !== "admin" &&
+      result.data.value.user.user_role === "client" &&
       to.path === "/admin/cakes"
     ) {
       return navigateTo("/");
@@ -31,7 +31,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (
       result.data.value.user &&
-      result.data.value.user.user_role !== "admin" &&
+      result.data.value.user.user_role === "client" &&
       to.path === "/admin/cakes/add"
     ) {
       return navigateTo("/");
@@ -39,7 +39,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (
       result.data.value.user &&
-      result.data.value.user.user_role !== "admin" &&
+      result.data.value.user.user_role === "client" &&
       to.path === `/admin/cakes/${to.params.slug}`
     ) {
       return navigateTo("/");
@@ -47,7 +47,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (
       result.data.value.user &&
-      result.data.value.user.user_role !== "admin" &&
+      result.data.value.user.user_role === "client" &&
       to.path === "/admin/pastry"
     ) {
       return navigateTo("/");
@@ -55,7 +55,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (
       result.data.value.user &&
-      result.data.value.user.user_role !== "admin" &&
+      result.data.value.user.user_role === "client" &&
       to.path === "/admin/pastry/add"
     ) {
       return navigateTo("/");
@@ -63,7 +63,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (
       result.data.value.user &&
-      result.data.value.user.user_role !== "admin" &&
+      result.data.value.user.user_role === "client" &&
       to.path === `/admin/pastry/${to.params.slug}`
     ) {
       return navigateTo("/");
@@ -71,7 +71,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (
       result.data.value.user &&
-      result.data.value.user.user_role !== "admin" &&
+      result.data.value.user.user_role === "client" &&
       to.path === "/admin/comments"
     ) {
       return navigateTo("/");
@@ -79,7 +79,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (
       result.data.value.user &&
-      result.data.value.user.user_role !== "admin" &&
+      result.data.value.user.user_role === "client" &&
       to.path === `/admin/comments/${to.params.id}`
     ) {
       return navigateTo("/");
@@ -87,7 +87,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (
       result.data.value.user &&
-      result.data.value.user.user_role !== "admin" &&
+      result.data.value.user.user_role === "client" &&
       to.path === "/admin/orders"
     ) {
       return navigateTo("/");
@@ -95,7 +95,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (
       result.data.value.user &&
-      result.data.value.user.user_role !== "admin" &&
+      result.data.value.user.user_role === "client" &&
       to.path === `/admin/orders/${to.params.id}`
     ) {
       return navigateTo("/");
@@ -103,7 +103,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (
       result.data.value.user &&
-      result.data.value.user.user_role !== "admin" &&
+      result.data.value.user.user_role === "client" &&
       to.path === "/admin/users"
     ) {
       return navigateTo("/");
@@ -111,7 +111,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (
       result.data.value.user &&
-      result.data.value.user.user_role !== "admin" &&
+      result.data.value.user.user_role === "client" &&
       to.path === `/admin/users/${to.params.id}`
     ) {
       return navigateTo("/");
@@ -119,7 +119,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if (
       result.data.value.user &&
-      result.data.value.user.user_role !== "admin" &&
+      result.data.value.user.user_role === "client" &&
       to.path === "/admin/info"
     ) {
       return navigateTo("/");
