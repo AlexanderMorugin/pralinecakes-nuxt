@@ -82,7 +82,20 @@ export const useOrderStore = defineStore("orderStore", () => {
 
     if (result.status.value === "success") {
       order.value = result.data.value;
+
+      console.log("order.value ", order.value);
+
       localStorage.setItem("order", JSON.stringify(formData));
+
+      // console.log(result.data.value[0].user_bonus);
+      const res = await useFetch("/api/users/update-bonus", {
+        baseURL: process.env.BASE_URL,
+        method: "PATCH",
+        body: {
+          user_id: order.value.user_id,
+          user_bonus: order.value.user_bonus,
+        },
+      });
 
       const response = await useFetch("/api/message/send", {
         baseURL: process.env.BASE_URL,
