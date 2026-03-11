@@ -1,60 +1,38 @@
 <template>
-  <button class="userOrderListCard">
-    <div class="userOrderListCard__content">
-      <span class="userOrderListCard__text userOrderListCard__text_left">
-        {{ order.order_date }}
-      </span>
+  <div>
+    <button @click="isOrderModalOpen = true" class="userOrderListCard">
+      <div class="userOrderListCard__content">
+        <span class="userOrderListCard__text userOrderListCard__text_left">
+          {{ order.order_date }}
+        </span>
 
-      <span class="userOrderListCard__text">№ {{ order.order_number }}</span>
-      <span class="userOrderListCard__text userOrderListCard__text_right"
-        >Сумма: {{ currencyFormater(order.total_order_sum) }}</span
-      >
-    </div>
-    <div class="userOrderListCard__content">
-      <span
-        class="userOrderListCard__status"
-        :class="
-          order.status_accept && !order.status_delivery
-            ? 'userOrderListCard__status_accept'
-            : order.status_accept &&
-                order.status_delivery &&
-                !order.status_complete
-              ? 'userOrderListCard__status_delivery'
-              : order.status_accept &&
-                  order.status_delivery &&
-                  order.status_complete
-                ? 'userOrderListCard__status_complete'
-                : ''
-        "
-      >
-        {{
-          order.status_accept &&
-          !order.status_delivery &&
-          !order.status_complete
-            ? "Принят"
-            : order.status_accept &&
-                order.status_delivery &&
-                !order.status_complete
-              ? "Доставляется"
-              : order.status_accept &&
-                  order.status_delivery &&
-                  order.status_complete
-                ? "Выполнен"
-                : "В обработке"
-        }}
-      </span>
-      <span
-        class="userOrderListCard__text userOrderListCard__text_right userOrderListCard__bonus"
-        >Бонус: {{ currencyFormater(order.user_bonus) }}</span
-      >
-    </div>
-  </button>
+        <span class="userOrderListCard__text">№ {{ order.order_number }}</span>
+        <span class="userOrderListCard__text userOrderListCard__text_right"
+          >Сумма: {{ currencyFormater(order.total_order_sum) }}</span
+        >
+      </div>
+      <div class="userOrderListCard__content">
+        <UserOrderStatus :order="order" />
+      </div>
+    </button>
+
+    <Teleport to="#teleports">
+      <Transition name="right">
+        <ModalOrder
+          v-if="isOrderModalOpen"
+          :order="order"
+          @closeModal="isOrderModalOpen = false"
+        />
+      </Transition>
+    </Teleport>
+  </div>
 </template>
 
 <script setup>
 const { order } = defineProps(["order"]);
 
-console.log(order);
+const isOrderModalOpen = ref(false);
+// console.log(order);
 </script>
 
 <style lang="scss" scoped>
@@ -90,26 +68,6 @@ console.log(order);
 
     &_right {
       text-align: right;
-    }
-  }
-
-  &__status {
-    font-family: "Roboto-Regular", sans-serif;
-    font-size: 14px;
-    color: var(--mask-white-primary);
-    text-align: left;
-    letter-spacing: 1px;
-
-    &_accept {
-      color: var(--red-secondary);
-    }
-
-    &_delivery {
-      color: var(--green-primary);
-    }
-
-    &_complete {
-      color: var(--mask-white-primary);
     }
   }
 
