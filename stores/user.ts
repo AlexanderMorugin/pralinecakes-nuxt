@@ -132,8 +132,6 @@ export const useUserStore = defineStore("userStore", () => {
           },
         });
 
-        // console.log(result.data.value);
-
         if (result.error.value) {
           return navigateTo("/auth-page");
         }
@@ -141,7 +139,6 @@ export const useUserStore = defineStore("userStore", () => {
         if (result.status.value === "success") {
           userOrders.value = result.data.value;
         }
-
         return result;
       } catch (error) {
         throw createError({

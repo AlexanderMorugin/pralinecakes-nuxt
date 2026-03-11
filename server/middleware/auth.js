@@ -11,6 +11,9 @@ export default defineEventHandler((event) => {
   const decodeAccess = decodeAccessToken(cookieTokenAccess);
   const decodeRefresh = decodeRefreshToken(refreshCookieToken);
 
+  // console.log(decodeAccess);
+  // console.log(decodeRefresh);
+
   // Если access истек, но refresh действует, переиздаем access и передаем в куки
   if (!decodeAccess && decodeRefresh) {
     const accessToken = jwt.sign(

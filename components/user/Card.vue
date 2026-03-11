@@ -1,16 +1,15 @@
 <template>
   <div :class="['userCard', { userCard_admin: place === 'admin' }]">
     <span v-if="place === 'admin'">id: {{ user.id }}</span>
-    <span class="userCard__title">Здравствуйте {{ user.user_name }}!</span>
-    <span>Ваша почта: {{ user.user_email }}</span>
-    <div>
-      Бонусный счёт:
-      <span class="userCard__title">{{
+    <UserSubtitle :subtitle="`Здравствуйте ${user.user_name}!`" />
+    <span>Почта: {{ user.user_email }}</span>
+    <UserSubtitle
+      :subtitle="`Бонусный счёт: ${
         user.user_bonus
           ? currencyFormater(user.user_bonus)
           : currencyFormater(0)
-      }}</span>
-    </div>
+      }`"
+    />
   </div>
 </template>
 
@@ -26,10 +25,6 @@ const { user, place } = defineProps(["user", "place"]);
 
   &_admin {
     color: var(--black-primary);
-  }
-
-  &__title {
-    font-size: 22px;
   }
 }
 </style>

@@ -1,9 +1,13 @@
 <template>
   <WrapperPage class="page-padding-x">
     <TitlePage title="Профиль" />
-    <UserCard v-if="userStore.user" :user="userStore.user" />
-    <UserOrders v-if="userStore.user" />
-    <UserComments v-if="userStore.user" />
+    <ClientOnly>
+      <div class="profile">
+        <LazyUserCard v-if="userStore.user" :user="userStore.user" />
+        <LazyUserOrders v-if="userStore.user" />
+        <LazyUserComments v-if="userStore.user" />
+      </div>
+    </ClientOnly>
   </WrapperPage>
 </template>
 
@@ -23,4 +27,10 @@ useHead({
 });
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+</style>
