@@ -1,7 +1,9 @@
 <template>
-  <WrapperPage>
+  <WrapperPage class="page-padding-x">
     <TitlePage title="Профиль" />
-    <div>{{ userStore.user }}</div>
+    <UserCard v-if="userStore.user" :user="userStore.user" />
+    <UserOrders />
+    <UserComments v-if="userStore.user" />
   </WrapperPage>
 </template>
 

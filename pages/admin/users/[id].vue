@@ -1,8 +1,8 @@
 <template>
   <div class="user page-padding-x">
-    <UserCard v-if="userStore.user" :user="userStore.user" />
-    <UserOrders v-if="userStore.user" />
-    <UserComments v-if="userStore.user" />
+    <UserCard v-if="userStore.user" :user="userStore.user" place="admin" />
+    <UserOrders v-if="userStore.user" place="admin" />
+    <UserComments v-if="userStore.user" place="admin" />
 
     <ButtonWithText
       v-if="userStore.user"

@@ -1,20 +1,35 @@
 <template>
-  <div class="userCard">
-    <span>id: {{ user.id }}</span>
-    <span>user_name: {{ user.user_name }}</span>
-    <span>user_email: {{ user.user_email }}</span>
+  <div :class="['userCard', { userCard_admin: place === 'admin' }]">
+    <span v-if="place === 'admin'">id: {{ user.id }}</span>
+    <span class="userCard__title">Здравствуйте {{ user.user_name }}!</span>
+    <span>Ваша почта: {{ user.user_email }}</span>
+    <div>
+      Бонусный счёт:
+      <span class="userCard__title">{{
+        user.user_bonus
+          ? currencyFormater(user.user_bonus)
+          : currencyFormater(0)
+      }}</span>
+    </div>
   </div>
 </template>
 
 <script setup>
-const { user } = defineProps(["user"]);
+const { user, place } = defineProps(["user", "place"]);
 </script>
 
 <style lang="scss" scoped>
 .userCard {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  color: var(--black-primary);
+  gap: 30px;
+
+  &_admin {
+    color: var(--black-primary);
+  }
+
+  &__title {
+    font-size: 22px;
+  }
 }
 </style>

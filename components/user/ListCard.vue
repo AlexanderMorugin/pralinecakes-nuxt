@@ -3,7 +3,7 @@
     <span>{{ user.user_name }}</span>
     <span>{{ user.user_email }}</span>
     <span class="userListCard__bonus">{{
-      user.user_bonus ? user.user_bonus : 0
+      user.user_bonus ? currencyFormater(user.user_bonus) : currencyFormater(0)
     }}</span>
   </NuxtLink>
 </template>
