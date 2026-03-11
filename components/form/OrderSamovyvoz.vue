@@ -46,6 +46,7 @@
 </template>
 
 <script setup>
+import { v4 as uuidv4 } from "uuid";
 import { useVuelidate } from "@vuelidate/core";
 import { helpers, required, minLength } from "@vuelidate/validators";
 
@@ -54,6 +55,7 @@ const { date, number } = useDate();
 const toast = useToast();
 const cartStore = useCartStore();
 const orderStore = useOrderStore();
+const userStore = useUserStore();
 
 const isLoading = ref(false);
 const nameField = ref(null);
@@ -97,6 +99,7 @@ const submitOrder = async () => {
       cart_samovyvoz_bonus: cartStore.cartSamovyvozBonus,
       total_order_sum: cartStore.totalOrderSum,
       cart_list: cartStore.cart,
+      user_id: userStore.user ? userStore.user.id : uuidv4(),
       user_bonus: cartStore.cartBonus,
       user_name: nameField.value.trim(),
       user_phone: phoneField.value.trim(),

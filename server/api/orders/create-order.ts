@@ -14,6 +14,7 @@ export default defineEventHandler(async (event) => {
     total_order_sum: body.total_order_sum,
     delivery_sum: body.delivery_sum,
 
+    user_id: body.user_id,
     user_bonus: body.user_bonus,
     user_name: body.user_name,
     user_phone: body.user_phone,

@@ -18,14 +18,17 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  if (!body?.id) {
+  if (!body?.user_id) {
     throw createError({
       statusCode: 422,
-      message: "ID заказа отсутствует",
+      message: "ID пользователя отсутствует",
     });
   }
 
-  const result = await db.select().from(orders).where(eq(orders.id, body.id));
+  const result = await db
+    .select()
+    .from(orders)
+    .where(eq(orders.user_id, body.user_id));
 
   return result;
 });

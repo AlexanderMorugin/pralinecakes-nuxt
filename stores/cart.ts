@@ -8,6 +8,7 @@ import {
 } from "~/utils/constants/info";
 
 export interface ICart extends IProduct {
+  // user_id: string;
   price: number;
   discount_price: number;
   count: number;
@@ -34,12 +35,11 @@ export const cartProduct = (product: ICart) => {
 
 export const useCartStore = defineStore("cartStore", () => {
   const cart = ref<ICart[]>([]);
-
-  // console.log(cart.value);
-
   const deliveryCost = ref<number>(DELIVERY_SUM);
   const samovyvozBonus = ref(0);
   const deliveryType = ref<string>("Доставка");
+
+  // const userStore = useUserStore();
 
   const setCart = (cartData: any) => {
     if (cartData) {
@@ -54,6 +54,9 @@ export const useCartStore = defineStore("cartStore", () => {
       return;
     } else {
       cart.value.push(product);
+
+      // console.log(cart.value);
+
       localStorage.setItem("cart", JSON.stringify(cart.value));
     }
   };

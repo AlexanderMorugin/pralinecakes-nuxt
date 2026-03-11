@@ -5,7 +5,7 @@
 <script setup>
 const { place } = defineProps(["place"]);
 
-const userStore = useUserStore();
+// const userStore = useUserStore();
 </script>
 
-<style lang="scss" scoped></style>
+<!-- <style lang="scss" scoped></style> -->

@@ -1,10 +1,12 @@
 import { defineStore } from "pinia";
 import { v4 as uuidv4 } from "uuid";
 import type { IUser } from "~/types/user";
+import type { IOrder } from "~/types/order";
 
 export const useUserStore = defineStore("userStore", () => {
   const users = ref<IUser[] | any>([]);
   const user = ref<IUser | any>(null);
+  const userOrders = ref<IOrder[] | any>([]);
 
   const loadUsers = async () => {
     if (user.value) {
@@ -118,6 +120,40 @@ export const useUserStore = defineStore("userStore", () => {
     return result;
   };
 
+  const loadUserOrders = async () => {
+    if (user.value) {
+      try {
+        const result = await useFetch("/api/users/load-user-orders", {
+          baseURL: process.env.BASE_URL,
+          key: "user-orders",
+          method: "POST",
+          body: {
+            user_id: user.value.id,
+          },
+        });
+
+        // console.log(result.data.value);
+
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
+
+        if (result.status.value === "success") {
+          userOrders.value = result.data.value;
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
+    }
+  };
+
   const setAuthUser = (userData: IUser) => {
     user.value = null;
 
@@ -131,6 +167,7 @@ export const useUserStore = defineStore("userStore", () => {
   return {
     users,
     user,
+    userOrders,
     loadUsers,
     getUser,
     createUser,
@@ -138,5 +175,6 @@ export const useUserStore = defineStore("userStore", () => {
     deleteUser,
     setAuthUser,
     logoutAuthUser,
+    loadUserOrders,
   };
 });

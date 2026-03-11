@@ -16,6 +16,8 @@
       },
     ]"
   >
+    {{ order[0].user_id }}
+
     <div class="orderCard__title">
       Заказ №
       <span class="orderCard__titleAccent">{{ order[0].order_number }}</span> от

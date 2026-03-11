@@ -125,6 +125,7 @@
 </template>
 
 <script setup>
+import { v4 as uuidv4 } from "uuid";
 import { useVuelidate } from "@vuelidate/core";
 import { helpers, required, minLength, numeric } from "@vuelidate/validators";
 
@@ -132,6 +133,7 @@ const toast = useToast();
 const { date, number } = useDate();
 const cartStore = useCartStore();
 const orderStore = useOrderStore();
+const userStore = useUserStore();
 
 const isLoading = ref(false);
 const nameField = ref(null);
@@ -202,7 +204,7 @@ const isFromEmpty = computed(
 const isValid = computed(() => v$.value.$errors);
 
 const submitOrder = async () => {
-  let today = new Date();
+  // let today = new Date();
 
   try {
     isLoading.value = true;
@@ -216,6 +218,7 @@ const submitOrder = async () => {
       total_cart_sum: cartStore.totalCartSum,
       total_order_sum: cartStore.totalOrderSum,
       cart_list: cartStore.cart,
+      user_id: userStore.user ? userStore.user.id : uuidv4(),
       user_bonus: cartStore.cartBonus,
       user_name: nameField.value.trim(),
       user_phone: phoneField.value.trim(),

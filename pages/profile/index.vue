@@ -2,7 +2,7 @@
   <WrapperPage class="page-padding-x">
     <TitlePage title="Профиль" />
     <UserCard v-if="userStore.user" :user="userStore.user" />
-    <UserOrders />
+    <UserOrders v-if="userStore.user" />
     <UserComments v-if="userStore.user" />
   </WrapperPage>
 </template>
