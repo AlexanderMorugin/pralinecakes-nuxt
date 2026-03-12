@@ -1,6 +1,11 @@
 <template>
-  <div class="commentProduct">
-    <div class="commentProduct__titleBox">
+  <div :class="['commentProduct', { commentProduct_admin: place === 'admin' }]">
+    <div
+      :class="[
+        'commentProduct__titleBox',
+        { commentProduct__titleBox_admin: place === 'admin' },
+      ]"
+    >
       <div class="commentProduct__title">
         <span class="commentProduct__name">{{ comment.user_name }}</span>
         <span class="commentProduct__date">{{ comment.date }}</span>
@@ -8,7 +13,12 @@
       <ProductListCardRating :rating="comment.user_rating" />
     </div>
 
-    <WrapperText class="commentProduct__comment">
+    <WrapperText
+      :class="[
+        'commentProduct__comment',
+        { commentProduct__comment_admin: place === 'admin' },
+      ]"
+    >
       <span>{{ comment.user_comment }}</span>
       <div class="commentProduct__product">
         <CommentImage
@@ -22,7 +32,7 @@
 </template>
 
 <script setup>
-const { comment } = defineProps(["comment"]);
+const { comment, place } = defineProps(["comment", "place"]);
 
 console.log("comment", comment);
 </script>
@@ -60,12 +70,20 @@ console.log("comment", comment);
     animation: slide-to-top 1s ease-in-out;
   }
 
+  &_admin {
+    border: 1px solid var(--mask-blue-primary);
+  }
+
   &__titleBox {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
     padding: 10px;
+
+    &_admin {
+      background: var(--mask-blue-fourthly);
+    }
   }
 
   &__title {
@@ -85,6 +103,10 @@ console.log("comment", comment);
       line-height: 26px;
       // letter-spacing: 0;
     }
+
+    // &_admin {
+    //   color: var(--black-primary);
+    // }
   }
 
   &__date {
@@ -92,11 +114,20 @@ console.log("comment", comment);
     font-size: 12px;
     line-height: 18px;
     color: var(--mask-white-primary);
+
+    // &_admin {
+    //   color: var(--black-primary);
+    // }
   }
 
   &__comment {
     background: var(--deep-blue-fourthly);
     padding: 20px;
+
+    &_admin {
+      background: var(--white-primary);
+      color: var(--black-primary);
+    }
   }
 
   &__product {

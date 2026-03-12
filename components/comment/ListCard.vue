@@ -8,15 +8,30 @@
 
     <div class="commentListCard__detailsBox">
       <div class="commentListCard__details">
-        <span class="commentListCard__user">{{ comment.user_name }}</span>
-        <span class="commentListCard__date">{{ comment.date }}</span>
+        <span
+          :class="[
+            'commentListCard__user',
+            { commentListCard__user_active: comment.visibility },
+          ]"
+          >{{ comment.user_name }}</span
+        >
+        <span
+          :class="[
+            'commentListCard__date',
+            { commentListCard__date_active: comment.visibility },
+          ]"
+          >{{ comment.date }}</span
+        >
       </div>
       <div class="commentListCard__details">
         <ProductListCardRating :rating="comment.user_rating" :maxStars="5" />
         <div class="commentListCard__right">
           <IconVisibility
             v-if="comment.visibility"
-            class="commentListCard__icon"
+            :class="[
+              'commentListCard__icon',
+              { commentListCard__icon_active: comment.visibility },
+            ]"
           />
           <IconVisibilityOff v-else class="commentListCard__icon" />
         </div>
@@ -50,27 +65,8 @@ const { comment } = defineProps(["comment"]);
   }
 
   &_active {
-    background: var(--green-secondary);
+    background: var(--mask-blue-fourthly);
   }
-
-  // &__imageBox {
-  //   width: 100px;
-  //   height: 78px;
-  //   border-radius: var(--border-radius-s);
-  //   background: var(--gradient-product-blue-primary);
-  //   overflow: hidden;
-
-  //   @media (max-width: 767px) {
-  //     width: 40px;
-  //     height: 40px;
-  //   }
-  // }
-
-  // &__image {
-  //   width: 100%;
-  //   height: 100%;
-  //   object-fit: cover;
-  // }
 
   &__detailsBox {
     display: flex;
@@ -94,6 +90,10 @@ const { comment } = defineProps(["comment"]);
       font-size: 14px;
       line-height: 20px;
     }
+
+    &_active {
+      color: var(--white-primary);
+    }
   }
 
   &__date {
@@ -101,6 +101,10 @@ const { comment } = defineProps(["comment"]);
     font-size: 12px;
     line-height: 18px;
     color: var(--black-primary);
+
+    &_active {
+      color: var(--white-primary);
+    }
   }
 
   &__right {
@@ -116,6 +120,10 @@ const { comment } = defineProps(["comment"]);
     @media (max-width: 767px) {
       width: 20px;
       height: 20px;
+    }
+
+    &_active {
+      fill: var(--white-primary);
     }
   }
 }
