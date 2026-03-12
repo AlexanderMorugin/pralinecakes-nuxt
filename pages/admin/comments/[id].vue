@@ -14,6 +14,4 @@ const route = useRoute();
 
 const commentsStore = useCommentsStore();
 await commentsStore.getComment(route.params.id);
-
-console.log(commentsStore.comment);
 </script>

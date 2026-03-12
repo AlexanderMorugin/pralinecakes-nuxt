@@ -8,14 +8,23 @@
       <ProductListCardRating :rating="comment.user_rating" />
     </div>
 
-    <WrapperText class="commentProduct__comment">{{
-      comment.user_comment
-    }}</WrapperText>
+    <WrapperText class="commentProduct__comment">
+      <span>{{ comment.user_comment }}</span>
+      <div class="commentProduct__product">
+        <CommentImage
+          :src="comment.product_image"
+          :alt="comment.product_title"
+        />
+        <span>{{ comment.product_title }}</span>
+      </div>
+    </WrapperText>
   </div>
 </template>
 
 <script setup>
 const { comment } = defineProps(["comment"]);
+
+console.log("comment", comment);
 </script>
 
 <style lang="scss" scoped>
@@ -88,6 +97,17 @@ const { comment } = defineProps(["comment"]);
   &__comment {
     background: var(--deep-blue-fourthly);
     padding: 20px;
+  }
+
+  &__product {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    padding-top: 20px;
+
+    @media (max-width: 767px) {
+      padding-top: 10px;
+    }
   }
 }
 </style>

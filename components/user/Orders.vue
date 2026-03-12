@@ -12,14 +12,7 @@
 <script setup>
 const { place } = defineProps(["place"]);
 
-const ordersLimit = ref(4);
-
-// const setUnlimit = async () => {
-//   await userStore.loadUserOrders(1000);
-// };
-
 const userStore = useUserStore();
-// await userStore.getUser();
 await userStore.loadUserOrders();
 </script>
 
