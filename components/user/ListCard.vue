@@ -2,7 +2,7 @@
   <NuxtLink :to="`/admin/users/${user.id}`" class="userListCard">
     <span>{{ user.user_name }}</span>
     <span>{{ user.user_email }}</span>
-    <span class="userListCard__bonus">{{
+    <span v-if="user.user_role === 'client'" class="userListCard__bonus">{{
       user.user_bonus ? currencyFormater(user.user_bonus) : currencyFormater(0)
     }}</span>
   </NuxtLink>
@@ -21,6 +21,10 @@ const { user } = defineProps(["user"]);
   border-radius: var(--border-radius-xs);
   padding: 10px;
   transition: 0.2s ease;
+
+  @media (max-width: 576px) {
+    font-size: 12px;
+  }
 
   &:hover {
     background: var(--deep-blue-fourthly);

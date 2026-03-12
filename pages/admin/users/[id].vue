@@ -4,6 +4,7 @@
     <UserOrders v-if="userStore.user" place="admin" />
     <UserComments v-if="userStore.user" place="admin" />
 
+    <!-- {{ userStore.user }} -->
     <ButtonWithText
       v-if="userStore.user"
       color="red"
