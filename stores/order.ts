@@ -73,6 +73,29 @@ export const useOrderStore = defineStore("orderStore", () => {
     }
   };
 
+  const updateBonus = async () => {
+    try {
+      const result = await useFetch("/api/users/update-bonus", {
+        baseURL: process.env.BASE_URL,
+        method: "PATCH",
+        body: {
+          user_id: order.value[0].user_id,
+          user_bonus: userStore.user.user_bonus + order.value[0].user_bonus,
+        },
+      });
+
+      if (result.status.value === "success") {
+        userStore.user.user_bonus =
+          userStore.user.user_bonus + order.value[0].user_bonus;
+      }
+    } catch (error) {
+      throw createError({
+        status: 404,
+        statusText: "Данные не найдены",
+      });
+    }
+  };
+
   const createOrder = async (formData: IOrder) => {
     const result = await useFetch("/api/orders/create-order", {
       baseURL: process.env.BASE_URL,
@@ -82,20 +105,11 @@ export const useOrderStore = defineStore("orderStore", () => {
 
     if (result.status.value === "success") {
       order.value = result.data.value;
-
-      console.log("order.value ", order.value);
-
       localStorage.setItem("order", JSON.stringify(formData));
 
-      // console.log(result.data.value[0].user_bonus);
-      const res = await useFetch("/api/users/update-bonus", {
-        baseURL: process.env.BASE_URL,
-        method: "PATCH",
-        body: {
-          user_id: order.value.user_id,
-          user_bonus: order.value.user_bonus,
-        },
-      });
+      if (userStore.user) {
+        await updateBonus();
+      }
 
       const response = await useFetch("/api/message/send", {
         baseURL: process.env.BASE_URL,
