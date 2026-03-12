@@ -61,6 +61,8 @@
       <div class="line-dashed" />
       <span>{{ currencyFormater(cartStore.totalOrderSum) }}</span>
     </div>
+
+    <OrderBonus v-if="userStore.user" />
   </div>
 </template>
 
@@ -74,6 +76,12 @@ import {
 const selectDelivery = ref(DELIVERY_SUM);
 
 const cartStore = useCartStore();
+const userStore = useUserStore();
+
+// const payUserBonus = ref(0);
+
+// console.log(payUserBonus.value);
+// console.log(userStore.user.user_bonus);
 </script>
 
 <style lang="scss" scoped>

@@ -19,7 +19,6 @@
 const isOrderContinue = ref(false);
 
 const cartStore = useCartStore();
-// const orderStore = useOrderStore();
 </script>
 
 <style lang="scss" scoped>

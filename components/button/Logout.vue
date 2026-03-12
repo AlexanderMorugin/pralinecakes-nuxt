@@ -11,6 +11,7 @@ const { text } = defineProps(["text"]);
 const emit = defineEmits(["closeModal"]);
 
 const userStore = useUserStore();
+const cartStore = useCartStore();
 const orderStore = useOrderStore();
 // const router = useRouter();
 
@@ -26,6 +27,7 @@ const handleLogout = async () => {
   // if (userStore.user && userStore.user.user_role !== "client") {
   emit("closeModal");
   userStore.logoutAuthUser();
+  cartStore.cleanCart();
   orderStore.cleanOrder();
   location.reload();
   // router.push("/");
