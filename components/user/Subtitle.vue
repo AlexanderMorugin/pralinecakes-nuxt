@@ -1,9 +1,11 @@
 <template>
-  <span class="userSubtitle">{{ subtitle }}</span>
+  <span :class="['userSubtitle', { userSubtitle_admin: place === 'admin' }]">{{
+    subtitle
+  }}</span>
 </template>
 
 <script setup>
-const { subtitle } = defineProps(["subtitle"]);
+const { subtitle, place } = defineProps(["subtitle", "place"]);
 </script>
 
 <style lang="scss" scoped>
@@ -13,5 +15,9 @@ const { subtitle } = defineProps(["subtitle"]);
   line-height: 32px;
   letter-spacing: 2px;
   color: var(--white-primary);
+
+  &_admin {
+    color: var(--black-primary);
+  }
 }
 </style>

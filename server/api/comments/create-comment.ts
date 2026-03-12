@@ -6,6 +6,7 @@ export default defineEventHandler(async (event) => {
 
   if (
     !body?.date ||
+    !body?.user_id ||
     !body?.user_name ||
     !body?.user_rating ||
     !body?.user_comment ||
@@ -21,6 +22,7 @@ export default defineEventHandler(async (event) => {
 
   const commentData = {
     date: body.date,
+    user_id: body.user_id,
     user_name: body.user_name,
     user_rating: body.user_rating,
     user_comment: body.user_comment,
@@ -29,10 +31,8 @@ export default defineEventHandler(async (event) => {
     product_title: body.product_title,
   };
 
-  const result = await db
-    .insert(comments)
-    .values({ ...commentData })
-    .returning();
+  const result = await db.insert(comments).values({ ...commentData });
+  // .returning();
 
   return result;
 });

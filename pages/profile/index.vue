@@ -21,7 +21,7 @@ definePageMeta({
 
 const userStore = useUserStore();
 
-console.log(userStore.user);
+// console.log(userStore.user);
 
 useHead({
   title: PROFILE_TITLE,

@@ -120,7 +120,7 @@ export const useUserStore = defineStore("userStore", () => {
     return result;
   };
 
-  const loadUserOrders = async () => {
+  const loadUserOrders = async (limit: number) => {
     if (user.value) {
       try {
         const result = await useFetch("/api/users/load-user-orders", {
@@ -129,6 +129,7 @@ export const useUserStore = defineStore("userStore", () => {
           method: "POST",
           body: {
             user_id: user.value.id,
+            // limit: limit,
           },
         });
 

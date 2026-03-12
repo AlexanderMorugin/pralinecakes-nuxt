@@ -36,6 +36,7 @@ export default defineEventHandler(async (event) => {
     .select()
     .from(orders)
     .where(eq(orders.user_id, body.user_id))
+    // .limit(body.limit)
     .orderBy(desc(orders.createdAt));
 
   return result;

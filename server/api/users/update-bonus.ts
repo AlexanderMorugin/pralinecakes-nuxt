@@ -5,8 +5,6 @@ import { users } from "~/server/database/schema";
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
-  // console.log(body.user_id, body.user_bonus);
-
   const accessToken = getCookie(event, "access_token");
   const refreshToken = getCookie(event, "refresh_token");
 

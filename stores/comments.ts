@@ -103,6 +103,7 @@ export const useCommentsStore = defineStore("commentsStore", () => {
       method: "POST",
       body: {
         date: formData.date,
+        user_id: userStore.user ? userStore.user.id : null,
         user_name: formData.user_name,
         user_rating: formData.user_rating,
         user_comment: formData.user_comment,
