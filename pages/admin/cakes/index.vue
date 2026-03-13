@@ -18,11 +18,7 @@ definePageMeta({
   layout: "admin",
 });
 
+const userStore = useUserStore();
 const adminCakeStore = useAdminCakeStore();
 await adminCakeStore.loadAdminCakes();
-
-// const commentsStore = useCommentsStore();
-// await commentsStore.loadComments();
-
-const userStore = useUserStore();
 </script>

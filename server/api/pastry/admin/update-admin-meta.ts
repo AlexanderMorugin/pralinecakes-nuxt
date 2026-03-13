@@ -4,12 +4,10 @@ import { pastry } from "~/server/database/schema";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
+  const cookie = parseCookies(event);
 
-  const accessToken = getCookie(event, "access_token");
-  const refreshToken = getCookie(event, "refresh_token");
-
-  const decodeAccess = await decodeAccessToken(accessToken);
-  const decodeRefresh = await decodeRefreshToken(refreshToken);
+  const decodeAccess = await decodeAccessToken(cookie.access_token);
+  const decodeRefresh = await decodeRefreshToken(cookie.refresh_token);
 
   if (!decodeAccess || !decodeRefresh) {
     throw createError({
@@ -18,17 +16,18 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  if (!body?.rating || !body?.id) {
+  if (!body) {
     throw createError({
       statusCode: 422,
-      message: "ID или данные продукта отсутствуют",
+      message: "ID или описания продукта отсутствуют",
     });
   }
 
   const result = await db
     .update(pastry)
     .set({
-      rating: body.rating,
+      meta_title: body.meta_title,
+      meta_description: body.meta_description,
     })
     .where(eq(pastry.id, body.id));
 

@@ -57,7 +57,7 @@ const { type } = defineProps(["type"]);
 
 const toast = useToast();
 const adminCakeStore = useAdminCakeStore();
-const pastryStore = usePastryStore();
+const adminPastryStore = useAdminPastryStore();
 
 const isLoading = ref(false);
 const slugField = ref(null);
@@ -77,7 +77,7 @@ const createProductTitle = async () => {
     const result =
       type === "cakes"
         ? await adminCakeStore.createAdminCakeTitle(formData)
-        : await pastryStore.createPastryTitle(formData);
+        : await adminPastryStore.createAdminPastryTitle(formData);
     if (result.status.value === "error") {
       toast.error({
         title: "Ошибка!",

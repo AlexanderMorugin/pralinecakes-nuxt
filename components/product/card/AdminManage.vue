@@ -46,7 +46,7 @@ const { type } = defineProps(["type"]);
 
 const toast = useToast();
 const adminCakeStore = useAdminCakeStore();
-const pastryStore = usePastryStore();
+const adminPastryStore = useAdminPastryStore();
 const userStore = useUserStore();
 
 const isLoading = ref(false);
@@ -59,7 +59,7 @@ const deleteCake = async () => {
     const result =
       type === "cakes"
         ? await adminCakeStore.deleteAdminCake()
-        : await pastryStore.deletePastry();
+        : await adminPastryStore.deleteAdminPastry();
 
     if (result.status.value === "error") {
       toast.error({

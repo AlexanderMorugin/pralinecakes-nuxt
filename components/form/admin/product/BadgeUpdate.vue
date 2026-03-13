@@ -80,7 +80,7 @@ const { type } = defineProps(["type"]);
 
 const toast = useToast();
 const adminCakeStore = useAdminCakeStore();
-const pastryStore = usePastryStore();
+const adminPastryStore = useAdminPastryStore();
 
 const isFormOpen = ref(false);
 const isFormEdit = ref(false);
@@ -88,7 +88,7 @@ const isLoading = ref(false);
 const badgeField = ref(
   type === "cakes"
     ? adminCakeStore.adminCake[0].badge
-    : pastryStore.pastry[0].badge,
+    : adminPastryStore.adminPastry[0].badge,
 );
 
 const updateProductBadge = async () => {
@@ -98,7 +98,7 @@ const updateProductBadge = async () => {
     const result =
       type === "cakes"
         ? await adminCakeStore.updateAdminProductBadge(badgeField.value)
-        : await pastryStore.updateProductBadge(badgeField.value);
+        : await adminPastryStore.updateAdminProductBadge(badgeField.value);
 
     if (result.status.value === "error") {
       toast.error({

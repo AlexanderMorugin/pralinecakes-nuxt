@@ -68,7 +68,7 @@ const { type } = defineProps(["type"]);
 
 const toast = useToast();
 const adminCakeStore = useAdminCakeStore();
-const pastryStore = usePastryStore();
+const adminPastryStore = useAdminPastryStore();
 
 const isFormOpen = ref(false);
 const isFormEdit = ref(false);
@@ -76,7 +76,7 @@ const isLoading = ref(false);
 const visibilityField = ref(
   type === "cakes"
     ? adminCakeStore.adminCake[0].visibility
-    : pastryStore.pastry[0].visibility,
+    : adminPastryStore.adminPastry[0].visibility,
 );
 
 const updateProductVisibility = async () => {
@@ -88,7 +88,9 @@ const updateProductVisibility = async () => {
         ? await adminCakeStore.updateAdminProductVisibility(
             visibilityField.value,
           )
-        : await pastryStore.updateProductVisibility(visibilityField.value);
+        : await adminPastryStore.updateAdminProductVisibility(
+            visibilityField.value,
+          );
 
     if (result.status.value === "error") {
       toast.error({

@@ -23,7 +23,7 @@
         >{{
           type === "cakes"
             ? adminCakeStore.adminCake[0].id
-            : pastryStore.pastry[0].id
+            : adminPastryStore.adminPastry[0].id
         }}
       </div>
       <div class="admin-form-submited-text">
@@ -31,7 +31,7 @@
         >{{
           type === "cakes"
             ? adminCakeStore.adminCake[0].type
-            : pastryStore.pastry[0].type
+            : adminPastryStore.adminPastry[0].type
         }}
       </div>
     </div>
@@ -43,7 +43,7 @@
       >{{
         type === "cakes"
           ? adminCakeStore.adminCake[0].slug
-          : pastryStore.pastry[0].slug
+          : adminPastryStore.adminPastry[0].slug
       }}
     </div>
 
@@ -81,19 +81,19 @@ const { type } = defineProps(["type"]);
 
 const toast = useToast();
 const adminCakeStore = useAdminCakeStore();
-const pastryStore = usePastryStore();
+const adminPastryStore = useAdminPastryStore();
 
 const isFormEdit = ref(false);
 const isLoading = ref(false);
 const titleField = ref(
   type === "cakes"
     ? adminCakeStore.adminCake[0].title
-    : pastryStore.pastry[0].title,
+    : adminPastryStore.adminPastry[0].title,
 );
 const descriptionShortField = ref(
   type === "cakes"
     ? adminCakeStore.adminCake[0].description_short
-    : pastryStore.pastry[0].description_short,
+    : adminPastryStore.adminPastry[0].description_short,
 );
 
 const updateProductTitle = async () => {
@@ -108,7 +108,7 @@ const updateProductTitle = async () => {
     const result =
       type === "cakes"
         ? await adminCakeStore.updateAdminCakeTitle(formData)
-        : await pastryStore.updatePastryTitle(formData);
+        : await adminPastryStore.updateAdminPastryTitle(formData);
 
     if (result.status.value === "error") {
       toast.error({

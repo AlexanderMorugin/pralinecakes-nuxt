@@ -4,9 +4,9 @@
     type="pastry"
   />
   <ProductList
-    v-if="pastryStore.pastries.length"
+    v-if="adminPastryStore.adminPastries.length"
     type="pastry"
-    :products="pastryStore.pastries"
+    :products="adminPastryStore.adminPastries"
     place="admin"
   />
   <ProductListEmpty v-else title="Продукция не найдена..." place="admin" />
@@ -18,11 +18,7 @@ definePageMeta({
   layout: "admin",
 });
 
-const pastryStore = usePastryStore();
-await pastryStore.loadAdminPastries();
-
-const commentsStore = useCommentsStore();
-await commentsStore.loadComments();
-
 const userStore = useUserStore();
+const adminPastryStore = useAdminPastryStore();
+await adminPastryStore.loadAdminPastries();
 </script>

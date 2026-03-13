@@ -59,7 +59,7 @@ const { type } = defineProps(["type"]);
 
 const toast = useToast();
 const adminCakeStore = useAdminCakeStore();
-const pastryStore = usePastryStore();
+const adminPastryStore = useAdminPastryStore();
 
 const isFormOpen = ref(false);
 const isFormEdit = ref(false);
@@ -67,12 +67,12 @@ const isLoading = ref(false);
 const priceField = ref(
   type === "cakes"
     ? adminCakeStore.adminCake[0].price
-    : pastryStore.pastry[0].price,
+    : adminPastryStore.adminPastry[0].price,
 );
 const discountField = ref(
   type === "cakes"
     ? adminCakeStore.adminCake[0].discount
-    : pastryStore.pastry[0].discount,
+    : adminPastryStore.adminPastry[0].discount,
 );
 const discountPriceField = computed(() =>
   discountField.value
@@ -95,7 +95,7 @@ const updateProductPrice = async () => {
     const result =
       type === "cakes"
         ? await adminCakeStore.updateAdminProductPrice(formData)
-        : await pastryStore.updateProductPrice(formData);
+        : await adminPastryStore.updateAdminProductPrice(formData);
 
     if (result.status.value === "error") {
       toast.error({

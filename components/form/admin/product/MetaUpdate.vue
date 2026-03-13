@@ -52,7 +52,7 @@ const { type } = defineProps(["type"]);
 
 const toast = useToast();
 const adminCakeStore = useAdminCakeStore();
-const pastryStore = usePastryStore();
+const adminPastryStore = useAdminPastryStore();
 
 const isFormOpen = ref(false);
 const isFormEdit = ref(false);
@@ -60,12 +60,12 @@ const isLoading = ref(false);
 const metaTitleField = ref(
   type === "cakes"
     ? adminCakeStore.adminCake[0].meta_title
-    : pastryStore.pastry[0].meta_title,
+    : adminPastryStore.adminPastry[0].meta_title,
 );
 const metaDescriptionField = ref(
   type === "cakes"
     ? adminCakeStore.adminCake[0].meta_description
-    : pastryStore.pastry[0].meta_description,
+    : adminPastryStore.adminPastry[0].meta_description,
 );
 
 const updateProductMeta = async () => {
@@ -82,7 +82,7 @@ const updateProductMeta = async () => {
     const result =
       type === "cakes"
         ? await adminCakeStore.updateAdminProductMeta(formData)
-        : await pastryStore.updateProductMeta(formData);
+        : await adminPastryStore.updateAdminProductMeta(formData);
 
     if (result.status.value === "error") {
       toast.error({

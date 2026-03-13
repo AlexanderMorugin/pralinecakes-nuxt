@@ -3,12 +3,10 @@ import { pastry } from "~/server/database/schema";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
+  const cookie = parseCookies(event);
 
-  const accessToken = getCookie(event, "access_token");
-  const refreshToken = getCookie(event, "refresh_token");
-
-  const decodeAccess = await decodeAccessToken(accessToken);
-  const decodeRefresh = await decodeRefreshToken(refreshToken);
+  const decodeAccess = await decodeAccessToken(cookie.access_token);
+  const decodeRefresh = await decodeRefreshToken(cookie.refresh_token);
 
   if (!decodeAccess || !decodeRefresh) {
     throw createError({
@@ -17,13 +15,7 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  if (
-    !body?.type ||
-    !body?.slug ||
-    !body?.title ||
-    !body?.description_short ||
-    !body?.id
-  ) {
+  if (!body?.type || !body?.slug || !body?.title || !body?.description_short) {
     throw createError({
       statusCode: 422,
       message: "ID или данные продукта отсутствуют",
