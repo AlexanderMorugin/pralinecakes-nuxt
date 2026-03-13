@@ -82,6 +82,19 @@ const emit = defineEmits(["handleClick", "handleUndo"]);
     background: var(--green-thirdly);
   }
 
+  &_delete {
+    background: var(--red-primary);
+    min-height: 60px;
+
+    @media (max-width: 767px) {
+      min-height: 40px;
+    }
+
+    &:hover {
+      background: var(--red-secondary);
+    }
+  }
+
   &_active {
     position: relative;
     flex-direction: column;
@@ -115,14 +128,6 @@ const emit = defineEmits(["handleClick", "handleUndo"]);
     font-size: 14px;
     text-align: center;
     color: var(--black-primary);
-  }
-
-  &_delete {
-    background: var(--red-primary);
-
-    &:hover {
-      background: var(--red-secondary);
-    }
   }
 
   &__undo {

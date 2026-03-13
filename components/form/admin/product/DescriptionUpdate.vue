@@ -63,7 +63,7 @@
 const { type } = defineProps(["type"]);
 
 const toast = useToast();
-const cakesStore = useCakesStore();
+const adminCakeStore = useAdminCakeStore();
 const pastryStore = usePastryStore();
 
 const isFormOpen = ref(false);
@@ -71,17 +71,17 @@ const isFormEdit = ref(false);
 const isLoading = ref(false);
 const descriptionOneField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].description_one
+    ? adminCakeStore.adminCake[0].description_one
     : pastryStore.pastry[0].description_one,
 );
 const descriptionTwoField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].description_two
+    ? adminCakeStore.adminCake[0].description_two
     : pastryStore.pastry[0].description_two,
 );
 const descriptionThreeField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].description_three
+    ? adminCakeStore.adminCake[0].description_three
     : pastryStore.pastry[0].description_three,
 );
 
@@ -103,7 +103,7 @@ const updateProductDescription = async () => {
 
     const result =
       type === "cakes"
-        ? await cakesStore.updateCakeDescription(formData)
+        ? await adminCakeStore.updateAdminCakeDescription(formData)
         : await pastryStore.updatePastryDescription(formData);
 
     if (result.status.value === "error") {

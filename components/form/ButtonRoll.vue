@@ -16,7 +16,7 @@ const emit = defineEmits(["handleClick"]);
 <style lang="scss" scoped>
 .formButtonRoll {
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   right: 20px;
   display: flex;
   justify-content: center;
@@ -37,7 +37,7 @@ const emit = defineEmits(["handleClick"]);
     width: 30px;
     height: 30px;
     right: 10px;
-    bottom: 13px;
+    bottom: 6px;
   }
 
   &_open {

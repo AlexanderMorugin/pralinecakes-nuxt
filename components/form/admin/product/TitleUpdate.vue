@@ -21,14 +21,16 @@
       <div class="admin-form-submited-text">
         <span class="admin-form-submited-text-noAccent">ID: </span
         >{{
-          type === "cakes" ? cakesStore.cake[0].id : pastryStore.pastry[0].id
+          type === "cakes"
+            ? adminCakeStore.adminCake[0].id
+            : pastryStore.pastry[0].id
         }}
       </div>
       <div class="admin-form-submited-text">
         <span class="admin-form-submited-text-noAccent">Type: </span
         >{{
           type === "cakes"
-            ? cakesStore.cake[0].type
+            ? adminCakeStore.adminCake[0].type
             : pastryStore.pastry[0].type
         }}
       </div>
@@ -39,7 +41,9 @@
         `Адрес: ~/${type}/`
       }}</span
       >{{
-        type === "cakes" ? cakesStore.cake[0].slug : pastryStore.pastry[0].slug
+        type === "cakes"
+          ? adminCakeStore.adminCake[0].slug
+          : pastryStore.pastry[0].slug
       }}
     </div>
 
@@ -76,17 +80,19 @@
 const { type } = defineProps(["type"]);
 
 const toast = useToast();
-const cakesStore = useCakesStore();
+const adminCakeStore = useAdminCakeStore();
 const pastryStore = usePastryStore();
 
 const isFormEdit = ref(false);
 const isLoading = ref(false);
 const titleField = ref(
-  type === "cakes" ? cakesStore.cake[0].title : pastryStore.pastry[0].title,
+  type === "cakes"
+    ? adminCakeStore.adminCake[0].title
+    : pastryStore.pastry[0].title,
 );
 const descriptionShortField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].description_short
+    ? adminCakeStore.adminCake[0].description_short
     : pastryStore.pastry[0].description_short,
 );
 
@@ -101,7 +107,7 @@ const updateProductTitle = async () => {
 
     const result =
       type === "cakes"
-        ? await cakesStore.updateCakeTitle(formData)
+        ? await adminCakeStore.updateAdminCakeTitle(formData)
         : await pastryStore.updatePastryTitle(formData);
 
     if (result.status.value === "error") {

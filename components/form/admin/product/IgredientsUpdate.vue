@@ -43,7 +43,7 @@
 const { type } = defineProps(["type"]);
 
 const toast = useToast();
-const cakesStore = useCakesStore();
+const adminCakeStore = useAdminCakeStore();
 const pastryStore = usePastryStore();
 
 const isFormOpen = ref(false);
@@ -51,7 +51,7 @@ const isFormEdit = ref(false);
 const isLoading = ref(false);
 const ingredientsField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].ingredients
+    ? adminCakeStore.adminCake[0].ingredients
     : pastryStore.pastry[0].ingredients,
 );
 
@@ -67,7 +67,7 @@ const updateProductIngredients = async () => {
 
     const result =
       type === "cakes"
-        ? await cakesStore.updateProductIngredients(formData)
+        ? await adminCakeStore.updateAdminProductIngredients(formData)
         : await pastryStore.updateProductIngredients(formData);
 
     if (result.status.value === "error") {
@@ -92,11 +92,3 @@ const updateProductIngredients = async () => {
   }
 };
 </script>
-
-<!-- <style lang="scss" scoped>
-.formAddingProduct {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-</style> -->

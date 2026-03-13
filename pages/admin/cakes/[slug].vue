@@ -1,7 +1,7 @@
 <template>
   <ProductCardAdminManage
-    v-if="cakesStore.cake"
-    :type="cakesStore.cake[0].type"
+    v-if="adminCakeStore.adminCake"
+    :type="adminCakeStore.adminCake[0].type"
   />
 </template>
 
@@ -12,6 +12,6 @@ definePageMeta({
 });
 
 const route = useRoute();
-const cakesStore = useCakesStore();
-await cakesStore.getAdminCake(route.params.slug);
+const adminCakeStore = useAdminCakeStore();
+await adminCakeStore.getAdminCake(route.params.slug);
 </script>

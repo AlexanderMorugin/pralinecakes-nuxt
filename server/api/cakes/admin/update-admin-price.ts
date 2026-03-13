@@ -4,12 +4,10 @@ import { cakes } from "~/server/database/schema";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
+  const cookie = parseCookies(event);
 
-  const accessToken = getCookie(event, "access_token");
-  const refreshToken = getCookie(event, "refresh_token");
-
-  const decodeAccess = await decodeAccessToken(accessToken);
-  const decodeRefresh = await decodeRefreshToken(refreshToken);
+  const decodeAccess = await decodeAccessToken(cookie.access_token);
+  const decodeRefresh = await decodeRefreshToken(cookie.refresh_token);
 
   if (!decodeAccess || !decodeRefresh) {
     throw createError({
@@ -18,7 +16,7 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  if (!body?.price || !body?.discount || !body?.discount_price || !body?.id) {
+  if (!body) {
     throw createError({
       statusCode: 422,
       message: "ID или данные продукта отсутствуют",
@@ -33,7 +31,6 @@ export default defineEventHandler(async (event) => {
       discount_price: body.discount_price,
     })
     .where(eq(cakes.id, body.id));
-  // .returning();
 
   return result;
 });

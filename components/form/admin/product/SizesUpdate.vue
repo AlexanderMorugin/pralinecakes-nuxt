@@ -60,20 +60,26 @@
 const { type } = defineProps(["type"]);
 
 const toast = useToast();
-const cakesStore = useCakesStore();
+const adminCakeStore = useAdminCakeStore();
 const pastryStore = usePastryStore();
 
 const isFormOpen = ref(false);
 const isFormEdit = ref(false);
 const isLoading = ref(false);
 const weightField = ref(
-  type === "cakes" ? cakesStore.cake[0].weight : pastryStore.pastry[0].weight,
+  type === "cakes"
+    ? adminCakeStore.adminCake[0].weight
+    : pastryStore.pastry[0].weight,
 );
 const widthField = ref(
-  type === "cakes" ? cakesStore.cake[0].width : pastryStore.pastry[0].width,
+  type === "cakes"
+    ? adminCakeStore.adminCake[0].width
+    : pastryStore.pastry[0].width,
 );
 const heightField = ref(
-  type === "cakes" ? cakesStore.cake[0].height : pastryStore.pastry[0].height,
+  type === "cakes"
+    ? adminCakeStore.adminCake[0].height
+    : pastryStore.pastry[0].height,
 );
 
 const updateProductSizes = async () => {
@@ -88,7 +94,7 @@ const updateProductSizes = async () => {
 
     const result =
       type === "cakes"
-        ? await cakesStore.updateProductSizes(formData)
+        ? await adminCakeStore.updateAdminProductSizes(formData)
         : await pastryStore.updateProductSizes(formData);
 
     if (result.status.value === "error") {
@@ -113,11 +119,3 @@ const updateProductSizes = async () => {
   }
 };
 </script>
-
-<!-- <style lang="scss" scoped>
-.formAddingProduct {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-</style> -->

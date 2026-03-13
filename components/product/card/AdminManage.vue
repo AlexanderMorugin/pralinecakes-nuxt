@@ -45,7 +45,7 @@
 const { type } = defineProps(["type"]);
 
 const toast = useToast();
-const cakesStore = useCakesStore();
+const adminCakeStore = useAdminCakeStore();
 const pastryStore = usePastryStore();
 const userStore = useUserStore();
 
@@ -58,7 +58,7 @@ const deleteCake = async () => {
 
     const result =
       type === "cakes"
-        ? await cakesStore.deleteCake()
+        ? await adminCakeStore.deleteAdminCake()
         : await pastryStore.deletePastry();
 
     if (result.status.value === "error") {
@@ -87,7 +87,7 @@ const deleteCake = async () => {
 .productCardAdminManage {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   padding-bottom: 40px;
 }
 </style>

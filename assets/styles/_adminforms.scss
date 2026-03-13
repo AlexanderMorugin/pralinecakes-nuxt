@@ -3,14 +3,14 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  height: 80px;
+  height: 60px;
   background: var(--gradient-admin-thirdly);
-  border-radius: var(--border-radius-s);
-  padding: 20px;
+  border-radius: var(--border-radius-xs);
+  padding: 10px 20px;
   overflow: hidden;
 
   @media (max-width: 767px) {
-    height: 60px;
+    height: 40px;
     padding: 10px;
   }
 
@@ -75,6 +75,7 @@
 
   @media (max-width: 767px) {
     font-size: 16px;
+    line-height: 20px;
   }
 
   &_second {

@@ -1,6 +1,6 @@
 <template>
   <WrapperPage>
-    <ProductCard :product="cakesStore.cake[0]" />
+    <ProductCard :product="clientCakeStore.clientCake[0]" />
   </WrapperPage>
 </template>
 
@@ -13,22 +13,21 @@ definePageMeta({
 });
 
 const route = useRoute();
-const cakesStore = useCakesStore();
-
-await cakesStore.getCake(route.params.slug);
+const clientCakeStore = useClientCakeStore();
+await clientCakeStore.getClientCake(route.params.slug);
 
 useHead({
   link: [{ rel: "canonical", href: `${SITE}${route.path}` }],
 });
 
 useSeoMeta({
-  title: cakesStore.cake[0].meta_title,
-  description: cakesStore.cake[0].meta_description,
+  title: clientCakeStore.clientCake[0].meta_title,
+  description: clientCakeStore.clientCake[0].meta_description,
   author: `${SITE_AUTHOR}`,
   robots: "index, follow",
-  ogTitle: cakesStore.cake[0].meta_title,
-  ogDescription: cakesStore.cake[0].meta_description,
-  ogImage: cakesStore.cake[0].image_1_small,
+  ogTitle: clientCakeStore.clientCake[0].meta_title,
+  ogDescription: clientCakeStore.clientCake[0].meta_description,
+  ogImage: clientCakeStore.clientCake[0].image_1_small,
   ogUrl: `${SITE}${route.path}`,
   ogSiteName: `${SITE_NAME}`,
   ogType: "website",

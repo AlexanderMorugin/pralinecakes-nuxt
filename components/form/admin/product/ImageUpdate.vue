@@ -144,7 +144,7 @@
 const { type } = defineProps(["type"]);
 
 const toast = useToast();
-const cakesStore = useCakesStore();
+const adminCakeStore = useAdminCakeStore();
 const pastryStore = usePastryStore();
 
 const isFormOpen = ref(false);
@@ -153,67 +153,67 @@ const isLoading = ref(false);
 
 const image1SmallField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].image_1_small
+    ? adminCakeStore.adminCake[0].image_1_small
     : pastryStore.pastry[0].image_1_small,
 );
 const image1BigField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].image_1_big
+    ? adminCakeStore.adminCake[0].image_1_big
     : pastryStore.pastry[0].image_1_big,
 );
 
 const image2SmallField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].image_2_small
+    ? adminCakeStore.adminCake[0].image_2_small
     : pastryStore.pastry[0].image_2_small,
 );
 const image2BigField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].image_2_big
+    ? adminCakeStore.adminCake[0].image_2_big
     : pastryStore.pastry[0].image_2_big,
 );
 
 const image3SmallField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].image_3_small
+    ? adminCakeStore.adminCake[0].image_3_small
     : pastryStore.pastry[0].image_3_small,
 );
 const image3BigField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].image_3_big
+    ? adminCakeStore.adminCake[0].image_3_big
     : pastryStore.pastry[0].image_3_big,
 );
 
 const image4SmallField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].image_4_small
+    ? adminCakeStore.adminCake[0].image_4_small
     : pastryStore.pastry[0].image_4_small,
 );
 const image4BigField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].image_4_big
+    ? adminCakeStore.adminCake[0].image_4_big
     : pastryStore.pastry[0].image_4_big,
 );
 
 const image5SmallField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].image_5_small
+    ? adminCakeStore.adminCake[0].image_5_small
     : pastryStore.pastry[0].image_5_small,
 );
 const image5BigField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].image_5_big
+    ? adminCakeStore.adminCake[0].image_5_big
     : pastryStore.pastry[0].image_5_big,
 );
 
 const image6SmallField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].image_6_small
+    ? adminCakeStore.adminCake[0].image_6_small
     : pastryStore.pastry[0].image_6_small,
 );
 const image6BigField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].image_6_big
+    ? adminCakeStore.adminCake[0].image_6_big
     : pastryStore.pastry[0].image_6_big,
 );
 
@@ -255,7 +255,7 @@ const updateProductImages = async () => {
 
     const result =
       type === "cakes"
-        ? await cakesStore.updateProductImages(formData)
+        ? await adminCakeStore.updateAdminProductImages(formData)
         : await pastryStore.updatePastryImages(formData);
 
     if (result.status.value === "error") {

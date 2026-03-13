@@ -19,9 +19,9 @@ export const useUserStore = defineStore("userStore", () => {
           method: "GET",
         });
 
-        if (result.error.value) {
-          return navigateTo("/auth-page");
-        }
+        // if (result.error.value) {
+        //   return navigateTo("/auth-page");
+        // }
 
         if (result.status.value === "success") {
           users.value = result.data.value;
@@ -76,7 +76,6 @@ export const useUserStore = defineStore("userStore", () => {
       method: "POST",
       body: {
         id: uuidv4(),
-        // id: "123",
         // user_role: "admin",
         // user_role: "manager",
         user_role: "client",
@@ -85,6 +84,12 @@ export const useUserStore = defineStore("userStore", () => {
         user_password: formData.user_password,
       },
     });
+
+    if (result.status.value === "success") {
+      user.value = result.data.value;
+
+      console.log("createUser - ", user.value);
+    }
 
     return result;
   };
@@ -115,9 +120,9 @@ export const useUserStore = defineStore("userStore", () => {
       },
     });
 
-    if (result.error.value) {
-      return navigateTo("/auth-page");
-    }
+    // if (result.error.value) {
+    //   return navigateTo("/auth-page");
+    // }
 
     return result;
   };
@@ -134,9 +139,9 @@ export const useUserStore = defineStore("userStore", () => {
           },
         });
 
-        if (result.error.value) {
-          return navigateTo("/auth-page");
-        }
+        // if (result.error.value) {
+        //   return navigateTo("/auth-page");
+        // }
 
         if (result.status.value === "success") {
           userOrders.value = result.data.value;
@@ -165,9 +170,9 @@ export const useUserStore = defineStore("userStore", () => {
           },
         });
 
-        if (result.error.value) {
-          return navigateTo("/auth-page");
-        }
+        // if (result.error.value) {
+        //   return navigateTo("/auth-page");
+        // }
 
         if (result.status.value === "success") {
           userComments.value = result.data.value;

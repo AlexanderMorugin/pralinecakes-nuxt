@@ -4,7 +4,7 @@
     <UserOrders v-if="userStore.user" place="admin" />
     <UserComments v-if="userStore.user" place="admin" />
 
-    <!-- {{ userStore.user }} -->
+    <!-- Кнопка удалить пользователя -->
     <ButtonWithText
       v-if="userStore.user"
       color="red"
@@ -65,7 +65,7 @@ const deleteUser = async () => {
   } catch (error) {
     console.log(error);
   } finally {
-    // isLoading.value = false;
+    isLoading.value = false;
   }
 };
 </script>

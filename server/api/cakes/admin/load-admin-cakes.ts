@@ -3,11 +3,10 @@ import { db } from "~/server";
 import { cakes } from "~/server/database/schema";
 
 export default defineEventHandler(async (event) => {
-  const accessToken = getCookie(event, "access_token");
-  const refreshToken = getCookie(event, "refresh_token");
+  const cookie = parseCookies(event);
 
-  const decodeAccess = await decodeAccessToken(accessToken);
-  const decodeRefresh = await decodeRefreshToken(refreshToken);
+  const decodeAccess = await decodeAccessToken(cookie.access_token);
+  const decodeRefresh = await decodeRefreshToken(cookie.refresh_token);
 
   if (!decodeAccess || !decodeRefresh) {
     throw createError({

@@ -72,7 +72,7 @@
 const { type } = defineProps(["type"]);
 
 const toast = useToast();
-const cakesStore = useCakesStore();
+const adminCakeStore = useAdminCakeStore();
 const pastryStore = usePastryStore();
 
 const isFormOpen = ref(false);
@@ -80,18 +80,22 @@ const isFormEdit = ref(false);
 const isLoading = ref(false);
 const caloriesField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].calories
+    ? adminCakeStore.adminCake[0].calories
     : pastryStore.pastry[0].calories,
 );
 const proteinField = ref(
-  type === "cakes" ? cakesStore.cake[0].protein : pastryStore.pastry[0].protein,
+  type === "cakes"
+    ? adminCakeStore.adminCake[0].protein
+    : pastryStore.pastry[0].protein,
 );
 const fatField = ref(
-  type === "cakes" ? cakesStore.cake[0].fat : pastryStore.pastry[0].fat,
+  type === "cakes"
+    ? adminCakeStore.adminCake[0].fat
+    : pastryStore.pastry[0].fat,
 );
 const carbohydratesField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].carbohydrates
+    ? adminCakeStore.adminCake[0].carbohydrates
     : pastryStore.pastry[0].carbohydrates,
 );
 
@@ -110,7 +114,7 @@ const updateProductNutritional = async () => {
 
     const result =
       type === "cakes"
-        ? await cakesStore.updateProductNutritional(formData)
+        ? await adminCakeStore.updateAdminProductNutritional(formData)
         : await pastryStore.updateProductNutritional(formData);
 
     if (result.status.value === "error") {
@@ -135,11 +139,3 @@ const updateProductNutritional = async () => {
   }
 };
 </script>
-
-<!-- <style lang="scss" scoped>
-.formAddingProduct {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-</style> -->

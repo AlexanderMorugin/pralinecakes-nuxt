@@ -58,18 +58,20 @@
 const { type } = defineProps(["type"]);
 
 const toast = useToast();
-const cakesStore = useCakesStore();
+const adminCakeStore = useAdminCakeStore();
 const pastryStore = usePastryStore();
 
 const isFormOpen = ref(false);
 const isFormEdit = ref(false);
 const isLoading = ref(false);
 const priceField = ref(
-  type === "cakes" ? cakesStore.cake[0].price : pastryStore.pastry[0].price,
+  type === "cakes"
+    ? adminCakeStore.adminCake[0].price
+    : pastryStore.pastry[0].price,
 );
 const discountField = ref(
   type === "cakes"
-    ? cakesStore.cake[0].discount
+    ? adminCakeStore.adminCake[0].discount
     : pastryStore.pastry[0].discount,
 );
 const discountPriceField = computed(() =>
@@ -92,7 +94,7 @@ const updateProductPrice = async () => {
 
     const result =
       type === "cakes"
-        ? await cakesStore.updateProductPrice(formData)
+        ? await adminCakeStore.updateAdminProductPrice(formData)
         : await pastryStore.updateProductPrice(formData);
 
     if (result.status.value === "error") {
@@ -117,11 +119,3 @@ const updateProductPrice = async () => {
   }
 };
 </script>
-
-<!-- <style lang="scss" scoped>
-.formAddingProduct {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-</style> -->

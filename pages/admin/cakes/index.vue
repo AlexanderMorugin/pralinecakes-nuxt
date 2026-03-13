@@ -4,9 +4,9 @@
     type="cakes"
   />
   <ProductList
-    v-if="cakesStore.cakes.length"
+    v-if="adminCakeStore.adminCakes.length"
     type="cakes"
-    :products="cakesStore.cakes"
+    :products="adminCakeStore.adminCakes"
     place="admin"
   />
   <ProductListEmpty v-else title="Продукция не найдена..." place="admin" />
@@ -18,11 +18,11 @@ definePageMeta({
   layout: "admin",
 });
 
-const cakesStore = useCakesStore();
-await cakesStore.loadAdminCakes();
+const adminCakeStore = useAdminCakeStore();
+await adminCakeStore.loadAdminCakes();
 
-const commentsStore = useCommentsStore();
-await commentsStore.loadComments();
+// const commentsStore = useCommentsStore();
+// await commentsStore.loadComments();
 
 const userStore = useUserStore();
 </script>

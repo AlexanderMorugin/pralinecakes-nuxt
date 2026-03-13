@@ -2,9 +2,9 @@
   <WrapperPage>
     <TitlePage title="Торты" />
     <ProductList
-      v-if="cakesStore.cakes.length"
+      v-if="clientCakeStore.clientCakes.length"
       type="cakes"
-      :products="cakesStore.cakes"
+      :products="clientCakeStore.clientCakes"
     />
     <ProductListEmpty v-else title="Продукция не найдена..." />
   </WrapperPage>
@@ -27,8 +27,8 @@ definePageMeta({
 
 const route = useRoute();
 
-const cakesStore = useCakesStore();
-await cakesStore.loadCakes();
+const clientCakeStore = useClientCakeStore();
+await clientCakeStore.loadClientCakes();
 
 const commentsStore = useCommentsStore();
 await commentsStore.loadComments();

@@ -56,7 +56,7 @@
 const { type } = defineProps(["type"]);
 
 const toast = useToast();
-const cakesStore = useCakesStore();
+const adminCakeStore = useAdminCakeStore();
 const pastryStore = usePastryStore();
 
 const isLoading = ref(false);
@@ -76,7 +76,7 @@ const createProductTitle = async () => {
 
     const result =
       type === "cakes"
-        ? await cakesStore.createCakeTitle(formData)
+        ? await adminCakeStore.createAdminCakeTitle(formData)
         : await pastryStore.createPastryTitle(formData);
     if (result.status.value === "error") {
       toast.error({

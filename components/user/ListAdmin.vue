@@ -43,7 +43,7 @@ const { users } = defineProps(["users"]);
 .userList {
   display: flex;
   flex-direction: column;
-  // gap: 10px;
+  gap: 10px;
   // padding-bottom: 20px;
 }
 </style>
