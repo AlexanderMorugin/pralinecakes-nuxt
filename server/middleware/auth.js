@@ -1,15 +1,24 @@
 import jwt from "jsonwebtoken";
 
-export default defineEventHandler((event) => {
+export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
+  const cookie = parseCookies(event);
 
-  // Находим в куках токены
-  const cookieTokenAccess = getCookie(event, "access_token");
-  const refreshCookieToken = getCookie(event, "refresh_token");
+  if (!cookie.refresh_token || !cookie.access_token) {
+    deleteCookie(event, "refresh_token", {
+      httpOnly: true,
+      secure: true,
+      sameSite: true,
+    });
+    deleteCookie(event, "access_token", {
+      httpOnly: true,
+      secure: true,
+      sameSite: true,
+    });
+  }
 
-  // Валидируем их
-  const decodeAccess = decodeAccessToken(cookieTokenAccess);
-  const decodeRefresh = decodeRefreshToken(refreshCookieToken);
+  const decodeAccess = await decodeAccessToken(cookie.access_token);
+  const decodeRefresh = await decodeRefreshToken(cookie.refresh_token);
 
   // console.log(decodeAccess);
   // console.log(decodeRefresh);
@@ -20,7 +29,8 @@ export default defineEventHandler((event) => {
       { userId: decodeRefresh.userId },
       config.public.jwtAccessSecret,
       {
-        expiresIn: "10m",
+        // expiresIn: "10m",
+        expiresIn: "1m",
       },
     );
     setCookie(event, "access_token", accessToken, {

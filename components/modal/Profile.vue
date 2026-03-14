@@ -1,29 +1,23 @@
 <template>
   <div class="modalProfile">
-    <div
-      class="modalProfile__title"
-      v-if="isLogin && !clientUserStore.clientUser"
-    >
+    <div class="modalProfile__title" v-if="isLogin && !userStore.user">
       Войдите в аккаунт или
       <span class="modalProfile__toggle" @click="toggleProfile"
         >зарегистрируйтесь.</span
       >
     </div>
-    <div
-      class="modalProfile__title"
-      v-if="!isLogin && !clientUserStore.clientUser"
-    >
+    <div class="modalProfile__title" v-if="!isLogin && !userStore.user">
       Зарегистрируйтесь или
       <span class="modalProfile__toggle" @click="toggleProfile"
         >войдите в аккаунт.</span
       >
     </div>
 
-    <FormLogin v-if="isLogin && !clientUserStore.clientUser" />
-    <FormRegister v-if="!isLogin && !clientUserStore.clientUser" />
+    <FormLogin v-if="isLogin && !userStore.user" />
+    <FormRegister v-if="!isLogin && !userStore.user" />
     <LazyUserBlockForModal
-      v-if="clientUserStore.clientUser"
-      :user="clientUserStore.clientUser"
+      v-if="userStore.user"
+      :user="userStore.user"
       @closeModal="$emit('closeModal')"
     />
   </div>
@@ -32,7 +26,7 @@
 <script setup>
 const emit = defineEmits(["closeModal"]);
 
-const clientUserStore = useClientUserStore();
+const userStore = useUserStore();
 
 const isLogin = ref(true);
 

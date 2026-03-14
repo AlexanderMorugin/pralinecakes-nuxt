@@ -1,18 +1,19 @@
 import jwt from "jsonwebtoken";
 
-const generateAccessToken = (userId) => {
+export const generateAccessToken = (userId) => {
   const config = useRuntimeConfig();
 
   return jwt.sign({ userId: userId }, config.public.jwtAccessSecret, {
-    expiresIn: "10m",
+    expiresIn: "1m",
   });
 };
 
-const generateRefreshToken = (userId) => {
+export const generateRefreshToken = (userId) => {
   const config = useRuntimeConfig();
 
   return jwt.sign({ userId: userId }, config.public.jwtRefreshSecret, {
-    expiresIn: "30d",
+    // expiresIn: "30d",
+    expiresIn: "2m",
   });
 };
 

@@ -1,5 +1,8 @@
 <template>
-  <UserListAdmin v-if="userStore.users.length" :users="userStore.users" />
+  <UserListAdmin
+    v-if="userStore.adminUsers.length"
+    :users="userStore.adminUsers"
+  />
   <ProductListEmpty v-else title="Клиенты не найдены..." place="admin" />
 </template>
 
@@ -10,7 +13,5 @@ definePageMeta({
 });
 
 const userStore = useUserStore();
-await userStore.loadUsers();
-
-// console.log(userStore.users);
+await userStore.loadAdminUsers();
 </script>

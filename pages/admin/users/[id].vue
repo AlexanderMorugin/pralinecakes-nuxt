@@ -1,16 +1,20 @@
 <template>
   <div class="user page-padding-x">
-    <UserCard v-if="userStore.user" :user="userStore.user" place="admin" />
-    <UserOrders v-if="userStore.user" place="admin" />
-    <UserComments v-if="userStore.user" place="admin" />
+    <UserCard
+      v-if="userStore.adminUser"
+      :user="userStore.adminUser"
+      place="admin"
+    />
+    <!-- <UserOrders v-if="userStore.adminUser" place="admin" /> -->
+    <!-- <UserComments v-if="userStore.adminUser" place="admin" /> -->
 
     <!-- Кнопка удалить пользователя -->
-    <ButtonWithText
+    <!-- <ButtonWithText
       v-if="userStore.user"
       color="red"
       text="удалить"
       @handleClick="isConfirmModalOpen = true"
-    />
+    /> -->
   </div>
 
   <!-- Модалка подтверждения -->
@@ -37,7 +41,9 @@ definePageMeta({
 const toast = useToast();
 const route = useRoute();
 const userStore = useUserStore();
-await userStore.getUser(route.params.id);
+await userStore.getAdminUser(route.params.id);
+
+// console.log(userStore.adminUser);
 
 const isLoading = ref(false);
 const isConfirmModalOpen = ref(false);

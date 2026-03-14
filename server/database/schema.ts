@@ -168,7 +168,7 @@ export const users = pgTable("users", {
   user_email: text("user_email"),
   user_password: text("user_password"),
   user_role: text("user_role"),
-  user_bonus: integer("user_bonus").default(0),
+  user_bonus: integer("user_bonus"),
 
   refresh_token: text("refresh_token"),
 

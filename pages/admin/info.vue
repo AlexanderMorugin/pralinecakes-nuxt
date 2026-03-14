@@ -10,6 +10,6 @@ definePageMeta({
   layout: "admin",
 });
 
-const cakesStore = useCakesStore();
-await cakesStore.loadAdminCakes();
+// const cakesStore = useCakesStore();
+// await cakesStore.loadAdminCakes();
 </script>
