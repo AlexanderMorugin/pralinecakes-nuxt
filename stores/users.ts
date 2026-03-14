@@ -98,8 +98,6 @@ export const useUserStore = defineStore("userStore", () => {
   };
 
   const getAdminUser = async (clientUserId: number) => {
-    // console.log("clientUserId", clientUserId);
-
     if (user.value && user.value.user_role !== "client") {
       try {
         const result = await useFetch("/api/users/admin/get-admin-user", {
@@ -130,21 +128,33 @@ export const useUserStore = defineStore("userStore", () => {
     }
   };
 
-  // const deleteUser = async () => {
-  //   const result = await useFetch("/api/users/delete-user", {
-  //     baseURL: process.env.BASE_URL,
-  //     method: "DELETE",
-  //     body: {
-  //       user_id: user.value.id,
-  //     },
-  //   });
+  const deleteAdminUser = async () => {
+    // console.log(adminUser.value.id);
+    if (user.value && user.value.user_role !== "client") {
+      try {
+        const result = await useFetch("/api/users/admin/delete-admin-user", {
+          baseURL: process.env.BASE_URL,
+          method: "DELETE",
+          body: {
+            user_id: adminUser.value.id,
+          },
+        });
 
-  //   // if (result.error.value) {
-  //   //   return navigateTo("/auth-page");
-  //   // }
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
 
-  //   return result;
-  // };
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
+    }
+  };
 
   // const loadUserOrders = async () => {
   //   if (user.value) {
@@ -227,7 +237,7 @@ export const useUserStore = defineStore("userStore", () => {
     loginUser,
     loadAdminUsers,
     getAdminUser,
-    // deleteUser,
+    deleteAdminUser,
     setAuthUser,
     logoutAuthUser,
     // loadUserOrders,

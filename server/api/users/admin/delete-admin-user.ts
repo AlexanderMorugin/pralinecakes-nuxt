@@ -15,18 +15,16 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  if (!body?.id) {
+  // console.log(body.user_id);
+
+  if (!body?.user_id) {
     throw createError({
       statusCode: 422,
       message: "ID клиента отсутствует",
     });
   }
 
-  const result = (
-    await db.select().from(users).where(eq(users.id, body.id))
-  )[0];
+  const result = await db.delete(users).where(eq(users.id, body.user_id));
 
-  return transformUser(result);
-
-  // return result;
+  return result;
 });

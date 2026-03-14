@@ -9,12 +9,12 @@
     <!-- <UserComments v-if="userStore.adminUser" place="admin" /> -->
 
     <!-- Кнопка удалить пользователя -->
-    <!-- <ButtonWithText
-      v-if="userStore.user"
+    <ButtonWithText
+      v-if="userStore.adminUser"
       color="red"
       text="удалить"
       @handleClick="isConfirmModalOpen = true"
-    /> -->
+    />
   </div>
 
   <!-- Модалка подтверждения -->
@@ -43,8 +43,6 @@ const route = useRoute();
 const userStore = useUserStore();
 await userStore.getAdminUser(route.params.id);
 
-// console.log(userStore.adminUser);
-
 const isLoading = ref(false);
 const isConfirmModalOpen = ref(false);
 
@@ -52,7 +50,7 @@ const deleteUser = async () => {
   try {
     isLoading.value = true;
 
-    const result = await userStore.deleteUser();
+    const result = await userStore.deleteAdminUser();
 
     if (result.status.value === "error") {
       toast.error({
