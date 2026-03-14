@@ -33,8 +33,6 @@
 
 <script setup>
 const { comment, place } = defineProps(["comment", "place"]);
-
-console.log("comment", comment);
 </script>
 
 <style lang="scss" scoped>

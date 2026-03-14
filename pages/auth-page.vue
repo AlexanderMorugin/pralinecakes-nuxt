@@ -21,6 +21,8 @@ definePageMeta({
 
 const route = useRoute();
 
+// location.reload();
+
 useHead({
   link: [{ rel: "canonical", href: `${SITE}${route.path}` }],
 });

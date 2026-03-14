@@ -9,7 +9,7 @@
 <script setup>
 const { order } = defineProps(["order"]);
 
-console.log(order);
+// console.log(order);
 </script>
 
 <style lang="scss" scoped>

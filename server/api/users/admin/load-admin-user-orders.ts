@@ -1,6 +1,6 @@
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 import { db } from "~/server";
-import { users } from "~/server/database/schema";
+import { orders } from "~/server/database/schema";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
@@ -18,11 +18,16 @@ export default defineEventHandler(async (event) => {
   if (!body?.user_id) {
     throw createError({
       statusCode: 422,
-      message: "ID клиента отсутствует",
+      message: "ID пользователя отсутствует",
     });
   }
 
-  const result = await db.delete(users).where(eq(users.id, body.user_id));
+  const result = await db
+    .select()
+    .from(orders)
+    .where(eq(orders.user_id, body.user_id))
+    // .limit(body.limit)
+    .orderBy(desc(orders.createdAt));
 
   return result;
 });

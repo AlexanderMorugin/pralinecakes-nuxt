@@ -10,9 +10,8 @@ export const useUserStore = defineStore("userStore", () => {
   // for admin app
   const adminUsers = ref<IUser[] | any>([]);
   const adminUser = ref<IUser | any>(null);
-
-  const userOrders = ref<IOrder[] | any>([]);
-  const userComments = ref<IComment[] | any>([]);
+  const adminUserOrders = ref<IOrder[] | any>([]);
+  const adminUserComments = ref<IComment[] | any>([]);
 
   // for client app
   const createUser = async (formData: IUser) => {
@@ -129,7 +128,6 @@ export const useUserStore = defineStore("userStore", () => {
   };
 
   const deleteAdminUser = async () => {
-    // console.log(adminUser.value.id);
     if (user.value && user.value.user_role !== "client") {
       try {
         const result = await useFetch("/api/users/admin/delete-admin-user", {
@@ -156,67 +154,74 @@ export const useUserStore = defineStore("userStore", () => {
     }
   };
 
-  // const loadUserOrders = async () => {
-  //   if (user.value) {
-  //     try {
-  //       const result = await useFetch("/api/users/load-user-orders", {
-  //         baseURL: process.env.BASE_URL,
-  //         key: "user-orders",
-  //         method: "POST",
-  //         body: {
-  //           user_id: user.value.id,
-  //         },
-  //       });
+  const loadAdminUserOrders = async () => {
+    if (user.value && user.value.user_role !== "client") {
+      try {
+        const result = await useFetch(
+          "/api/users/admin/load-admin-user-orders",
+          {
+            baseURL: process.env.BASE_URL,
+            key: "admin-user-orders",
+            method: "POST",
+            body: {
+              user_id: adminUser.value.id,
+            },
+          },
+        );
 
-  //       // if (result.error.value) {
-  //       //   return navigateTo("/auth-page");
-  //       // }
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
 
-  //       if (result.status.value === "success") {
-  //         userOrders.value = result.data.value;
-  //       }
-  //       return result;
-  //     } catch (error) {
-  //       throw createError({
-  //         status: 404,
-  //         statusText: "Данные не найдены",
-  //       });
-  //     }
-  //   } else {
-  //     return navigateTo("/");
-  //   }
-  // };
+        if (result.status.value === "success") {
+          adminUserOrders.value = result.data.value;
+        }
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
+    }
+  };
 
-  // const loadUserComments = async () => {
-  //   if (user.value) {
-  //     try {
-  //       const result = await useFetch("/api/users/load-user-comments", {
-  //         baseURL: process.env.BASE_URL,
-  //         key: "user-comments",
-  //         method: "POST",
-  //         body: {
-  //           user_id: user.value.id,
-  //         },
-  //       });
+  const loadAdminUserComments = async () => {
+    // console.log(clientUserId);
+    if (user.value && user.value.user_role !== "client") {
+      try {
+        const result = await useFetch(
+          "/api/users/admin/load-admin-user-comments",
+          {
+            baseURL: process.env.BASE_URL,
+            key: "admin-user-comments",
+            method: "POST",
+            body: {
+              user_id: adminUser.value.id,
+            },
+          },
+        );
 
-  //       // if (result.error.value) {
-  //       //   return navigateTo("/auth-page");
-  //       // }
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
 
-  //       if (result.status.value === "success") {
-  //         userComments.value = result.data.value;
-  //       }
-  //       return result;
-  //     } catch (error) {
-  //       throw createError({
-  //         status: 404,
-  //         statusText: "Данные не найдены",
-  //       });
-  //     }
-  //   } else {
-  //     return navigateTo("/");
-  //   }
-  // };
+        if (result.status.value === "success") {
+          adminUserComments.value = result.data.value;
+        }
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
+    }
+  };
 
   const setAuthUser = (userData: IUser) => {
     user.value = null;
@@ -232,6 +237,8 @@ export const useUserStore = defineStore("userStore", () => {
     user,
     adminUsers,
     adminUser,
+    adminUserOrders,
+    adminUserComments,
     createUser,
     getUser,
     loginUser,
@@ -240,7 +247,7 @@ export const useUserStore = defineStore("userStore", () => {
     deleteAdminUser,
     setAuthUser,
     logoutAuthUser,
-    // loadUserOrders,
-    // loadUserComments,
+    loadAdminUserOrders,
+    loadAdminUserComments,
   };
 });
