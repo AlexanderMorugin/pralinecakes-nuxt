@@ -1,8 +1,8 @@
 <template>
   <WrapperPage class="authPage">
-    <span class="authPage__title">Недостаточно прав...</span>
-    <span class="authPage__subtitle">Выполните авторизацию</span>
-    <NuxtLink to="/" class="authPage__link">Или пройдите на главную</NuxtLink>
+    <span class="authPage__title">Срок сессии истёк...</span>
+    <span class="authPage__subtitle">Выполните авторизацию заново</span>
+    <!-- <NuxtLink to="/" class="authPage__link">Или пройдите на главную</NuxtLink> -->
   </WrapperPage>
 </template>
 
@@ -20,8 +20,24 @@ definePageMeta({
 });
 
 const route = useRoute();
+// await location.reload();
+const userStore = useUserStore();
+await userStore.logoutAuthUser();
+// const cartStore = useCartStore();
+// const orderStore = useOrderStore();
 
-// location.reload();
+// const handleLogout = async () => {
+//   await $fetch("/api/users/logout", {
+//     method: "POST",
+//   });
+
+//   userStore.logoutAuthUser();
+//   // cartStore.cleanCart();
+//   // orderStore.cleanOrder();
+//   // location.reload();
+// };
+
+// handleLogout();
 
 useHead({
   link: [{ rel: "canonical", href: `${SITE}${route.path}` }],
