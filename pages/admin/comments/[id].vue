@@ -1,7 +1,7 @@
 <template>
   <CommentCard
-    v-if="commentsStore.comment"
-    :comment="commentsStore.comment[0]"
+    v-if="adminCommentStore.adminComment"
+    :comment="adminCommentStore.adminComment[0]"
   />
 </template>
 
@@ -12,6 +12,6 @@ definePageMeta({
 });
 const route = useRoute();
 
-const commentsStore = useCommentsStore();
-await commentsStore.getComment(route.params.id);
+const adminCommentStore = useAdminCommentStore();
+await adminCommentStore.getAdminComment(route.params.id);
 </script>

@@ -30,8 +30,8 @@ const route = useRoute();
 const clientCakeStore = useClientCakeStore();
 await clientCakeStore.loadClientCakes();
 
-const commentsStore = useCommentsStore();
-await commentsStore.loadComments();
+const clientCommentStore = useClientCommentStore();
+await clientCommentStore.loadClientComments();
 
 useHead({
   link: [{ rel: "canonical", href: `${SITE}${route.path}` }],

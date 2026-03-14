@@ -4,16 +4,7 @@ import { comments } from "~/server/database/schema";
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
-  if (
-    !body?.date ||
-    !body?.user_id ||
-    !body?.user_name ||
-    !body?.user_rating ||
-    !body?.user_comment ||
-    !body?.product_id ||
-    !body?.product_image ||
-    !body?.product_title
-  ) {
+  if (!body) {
     throw createError({
       statusCode: 422,
       message: "Некоторые данные отсутствуют",
@@ -32,7 +23,6 @@ export default defineEventHandler(async (event) => {
   };
 
   const result = await db.insert(comments).values({ ...commentData });
-  // .returning();
 
   return result;
 });

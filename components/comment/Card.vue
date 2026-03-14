@@ -67,7 +67,7 @@
 const { comment } = defineProps(["comment"]);
 
 const toast = useToast();
-const commentsStore = useCommentsStore();
+const adminCommentStore = useAdminCommentStore();
 
 const isLoading = ref(false);
 const isConfirmModalOpen = ref(false);
@@ -76,7 +76,7 @@ const updateVisibility = async () => {
   try {
     isLoading.value = true;
 
-    const result = await commentsStore.updateVisibility();
+    const result = await adminCommentStore.updateAdminVisibility();
 
     if (result.status.value === "error") {
       toast.error({
@@ -102,7 +102,7 @@ const deleteComment = async () => {
   try {
     isLoading.value = true;
 
-    const result = await commentsStore.deleteComment();
+    const result = await adminCommentStore.deleteAdminComment();
 
     if (result.status.value === "error") {
       toast.error({
@@ -149,33 +149,28 @@ const deleteComment = async () => {
   }
 
   &__productTitle {
-    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 14px;
     line-height: 22px;
     color: var(--mask-black-thirdly);
   }
 
   &__user {
-    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 20px;
     line-height: 28px;
     color: var(--black-primary);
   }
 
   &__date {
-    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 12px;
     color: var(--mask-black-thirdly);
   }
 
   &__title {
-    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 14px;
     color: var(--mask-black-thirdly);
   }
 
   &__text {
-    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 20px;
     line-height: 28px;
     color: var(--black-primary);

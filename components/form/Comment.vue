@@ -51,11 +51,9 @@ import { helpers, required, minLength } from "@vuelidate/validators";
 
 const { product } = defineProps(["product"]);
 
-// console.log(product.id, product.title, product.image_1_small);
-
 const toast = useToast();
 const { date } = useDate();
-const commentsStore = useCommentsStore();
+const clientCommentStore = useClientCommentStore();
 
 const isCommentSend = ref(false);
 const isLoading = ref(false);
@@ -108,7 +106,7 @@ const submitComment = async () => {
         product_title: product.title,
       };
 
-      const result = await commentsStore.createComment(formData);
+      const result = await clientCommentStore.createClientComment(formData);
 
       if (result.status.value === "error") {
         toast.error({

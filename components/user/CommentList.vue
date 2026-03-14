@@ -11,9 +11,6 @@
         :comment="comment"
         :place="place"
       />
-      <!-- <li v-for="comment in comments" :key="comment.id">
-        {{ comment }}
-      </li> -->
     </div>
   </div>
 </template>

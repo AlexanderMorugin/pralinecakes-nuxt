@@ -57,7 +57,7 @@
 
           <ProductListCardComment
             :comments="
-              commentsStore.filterCommentsByProductId(product.id).length
+              clientCommentStore.filterCommentsByProductId(product.id).length
             "
           />
         </div>
@@ -76,7 +76,7 @@
 <script setup>
 const { product, place } = defineProps(["product", "place"]);
 
-const commentsStore = useCommentsStore();
+const clientCommentStore = useClientCommentStore();
 </script>
 
 <style lang="scss" scoped>

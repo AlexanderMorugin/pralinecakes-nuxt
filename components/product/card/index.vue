@@ -13,13 +13,13 @@
     <ProductCardOptions
       v-if="!isScreenMedium"
       :product="product"
-      :comments="commentsStore.productComments"
+      :comments="clientCommentStore.productComments"
     />
 
     <ProductCardOptionsMobile
       v-if="isScreenMedium"
       :product="product"
-      :comments="commentsStore.productComments"
+      :comments="clientCommentStore.productComments"
     />
   </div>
 </template>
@@ -28,8 +28,8 @@
 const { isScreenMedium } = useResizeMedium();
 const { product } = defineProps(["product"]);
 
-const commentsStore = useCommentsStore();
-await commentsStore.getProductComments(product.id);
+const clientCommentStore = useClientCommentStore();
+await clientCommentStore.getProductComments(product.id);
 </script>
 
 <style lang="scss" scoped>

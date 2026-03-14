@@ -1,23 +1,29 @@
 <template>
   <div class="modalProfile">
-    <div class="modalProfile__title" v-if="isLogin && !userStore.user">
+    <div
+      class="modalProfile__title"
+      v-if="isLogin && !clientUserStore.clientUser"
+    >
       Войдите в аккаунт или
       <span class="modalProfile__toggle" @click="toggleProfile"
         >зарегистрируйтесь.</span
       >
     </div>
-    <div class="modalProfile__title" v-if="!isLogin && !userStore.user">
+    <div
+      class="modalProfile__title"
+      v-if="!isLogin && !clientUserStore.clientUser"
+    >
       Зарегистрируйтесь или
       <span class="modalProfile__toggle" @click="toggleProfile"
         >войдите в аккаунт.</span
       >
     </div>
 
-    <FormLogin v-if="isLogin && !userStore.user" />
-    <FormRegister v-if="!isLogin && !userStore.user" />
+    <FormLogin v-if="isLogin && !clientUserStore.clientUser" />
+    <FormRegister v-if="!isLogin && !clientUserStore.clientUser" />
     <LazyUserBlockForModal
-      v-if="userStore.user"
-      :user="userStore.user"
+      v-if="clientUserStore.clientUser"
+      :user="clientUserStore.clientUser"
       @closeModal="$emit('closeModal')"
     />
   </div>
@@ -26,7 +32,7 @@
 <script setup>
 const emit = defineEmits(["closeModal"]);
 
-const userStore = useUserStore();
+const clientUserStore = useClientUserStore();
 
 const isLogin = ref(true);
 
@@ -45,7 +51,6 @@ const toggleProfile = () => {
   padding-bottom: 30px;
 
   &__title {
-    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 24px;
     line-height: 32px;
     color: var(--white-primary);
@@ -59,7 +64,6 @@ const toggleProfile = () => {
   &__toggle {
     border-bottom: 1px dashed var(--orange-primary);
     color: var(--orange-primary);
-
     cursor: pointer;
   }
 }
