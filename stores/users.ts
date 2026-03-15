@@ -8,6 +8,7 @@ export const useUserStore = defineStore("userStore", () => {
   // for client app
   const user = ref<IUser | any>(null);
   const userOrders = ref<IOrder[] | any>([]);
+  const userComments = ref<IComment[] | any>([]);
   // for admin app
   const adminUsers = ref<IUser[] | any>([]);
   const adminUser = ref<IUser | any>(null);
@@ -83,6 +84,26 @@ export const useUserStore = defineStore("userStore", () => {
 
     if (result.status.value === "success") {
       userOrders.value = result.data.value;
+    }
+    return result;
+  };
+
+  const loadUserComments = async () => {
+    const result = await useFetch("/api/users/load-user-comments", {
+      baseURL: process.env.BASE_URL,
+      key: "user-comments",
+      method: "POST",
+      body: {
+        user_id: user.value.id,
+      },
+    });
+
+    if (result.error.value) {
+      return navigateTo("/auth-page");
+    }
+
+    if (result.status.value === "success") {
+      userComments.value = result.data.value;
     }
     return result;
   };
@@ -190,11 +211,13 @@ export const useUserStore = defineStore("userStore", () => {
 
   const logoutAuthUser = () => {
     user.value = null;
+    adminUser.value = null;
   };
 
   return {
     user,
     userOrders,
+    userComments,
     adminUsers,
     adminUser,
     adminUserOrders,
@@ -203,6 +226,7 @@ export const useUserStore = defineStore("userStore", () => {
     getUser,
     loginUser,
     loadUserOrders,
+    loadUserComments,
     loadAdminUsers,
     getAdminUser,
     deleteAdminUser,

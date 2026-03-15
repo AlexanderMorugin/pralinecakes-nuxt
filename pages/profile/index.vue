@@ -5,7 +5,7 @@
       <div class="profile">
         <LazyUserCard v-if="userStore.user" :user="userStore.user" />
         <LazyUserOrders v-if="userStore.user" />
-        <!-- <LazyUserComments v-if="userStore.user" /> -->
+        <LazyUserComments v-if="userStore.user" />
       </div>
     </ClientOnly>
   </WrapperPage>

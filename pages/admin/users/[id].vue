@@ -6,7 +6,7 @@
       place="admin"
     />
     <UserOrdersAdmin v-if="userStore.adminUser" place="admin" />
-    <UserComments
+    <UserCommentsAdmin
       v-if="userStore.adminUser"
       :user="userStore.adminUser"
       place="admin"

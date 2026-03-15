@@ -14,8 +14,6 @@
 
 <script setup>
 const { orders, place } = defineProps(["orders", "place"]);
-
-console.log(orders);
 </script>
 
 <style lang="scss" scoped>
