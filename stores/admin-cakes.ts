@@ -8,7 +8,7 @@ export const useAdminCakeStore = defineStore("adminCakeStore", () => {
   const userStore = useUserStore();
 
   const loadAdminCakes = async () => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/cakes/admin/load-admin-cakes", {
           baseURL: process.env.BASE_URL,
@@ -37,7 +37,7 @@ export const useAdminCakeStore = defineStore("adminCakeStore", () => {
   };
 
   const getAdminCake = async (productSlug: string) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/cakes/admin/get-admin-cake", {
           baseURL: process.env.BASE_URL,
@@ -68,7 +68,7 @@ export const useAdminCakeStore = defineStore("adminCakeStore", () => {
   };
 
   const createAdminCakeTitle = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/cakes/admin/create-admin-title", {
           baseURL: process.env.BASE_URL,
@@ -98,7 +98,7 @@ export const useAdminCakeStore = defineStore("adminCakeStore", () => {
   };
 
   const updateAdminCakeTitle = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/cakes/admin/update-admin-title", {
           baseURL: process.env.BASE_URL,
@@ -139,7 +139,7 @@ export const useAdminCakeStore = defineStore("adminCakeStore", () => {
   };
 
   const updateAdminCakeDescription = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch(
           "/api/cakes/admin/update-admin-description",
@@ -184,7 +184,7 @@ export const useAdminCakeStore = defineStore("adminCakeStore", () => {
   };
 
   const updateAdminProductImages = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/cakes/admin/update-admin-images", {
           baseURL: process.env.BASE_URL,
@@ -236,7 +236,7 @@ export const useAdminCakeStore = defineStore("adminCakeStore", () => {
   };
 
   const updateAdminProductMeta = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/cakes/admin/update-admin-meta", {
           baseURL: process.env.BASE_URL,
@@ -277,7 +277,7 @@ export const useAdminCakeStore = defineStore("adminCakeStore", () => {
   };
 
   const updateAdminProductSizes = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/cakes/admin/update-admin-sizes", {
           baseURL: process.env.BASE_URL,
@@ -320,7 +320,7 @@ export const useAdminCakeStore = defineStore("adminCakeStore", () => {
   };
 
   const updateAdminProductPrice = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/cakes/admin/update-admin-price", {
           baseURL: process.env.BASE_URL,
@@ -363,7 +363,7 @@ export const useAdminCakeStore = defineStore("adminCakeStore", () => {
   };
 
   const updateAdminProductIngredients = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch(
           "/api/cakes/admin/update-admin-ingredients",
@@ -405,7 +405,7 @@ export const useAdminCakeStore = defineStore("adminCakeStore", () => {
   };
 
   const updateAdminProductNutritional = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch(
           "/api/cakes/admin/update-admin-nutritional",
@@ -453,7 +453,7 @@ export const useAdminCakeStore = defineStore("adminCakeStore", () => {
   };
 
   const updateAdminProductRating = async (rating: number) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/cakes/admin/update-admin-rating", {
           baseURL: process.env.BASE_URL,
@@ -492,7 +492,7 @@ export const useAdminCakeStore = defineStore("adminCakeStore", () => {
   };
 
   const updateAdminProductBadge = async (badge: number) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/cakes/admin/update-admin-badge", {
           baseURL: process.env.BASE_URL,
@@ -531,7 +531,7 @@ export const useAdminCakeStore = defineStore("adminCakeStore", () => {
   };
 
   const updateAdminProductVisibility = async (visibility: boolean) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch(
           "/api/cakes/admin/update-admin-visibility",
@@ -573,7 +573,7 @@ export const useAdminCakeStore = defineStore("adminCakeStore", () => {
   };
 
   const deleteAdminCake = async () => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/cakes/admin/delete-admin-cake", {
           baseURL: process.env.BASE_URL,

@@ -10,5 +10,5 @@ definePageMeta({
 });
 
 const orderStore = useOrderStore();
-await orderStore.loadOrders();
+await orderStore.loadAdminOrders();
 </script>

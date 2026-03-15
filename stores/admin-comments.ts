@@ -8,7 +8,7 @@ export const useAdminCommentStore = defineStore("adminCommentStore", () => {
   const userStore = useUserStore();
 
   const loadAdminComments = async () => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch(
           "/api/comments/admin/load-admin-comments",
@@ -40,7 +40,7 @@ export const useAdminCommentStore = defineStore("adminCommentStore", () => {
   };
 
   const getAdminComment = async (commentId: number) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/comments/admin/get-admin-comment", {
           baseURL: process.env.BASE_URL,
@@ -71,7 +71,7 @@ export const useAdminCommentStore = defineStore("adminCommentStore", () => {
   };
 
   const updateAdminVisibility = async () => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch(
           "/api/comments/admin/update-admin-comment",
@@ -106,7 +106,7 @@ export const useAdminCommentStore = defineStore("adminCommentStore", () => {
   };
 
   const deleteAdminComment = async () => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch(
           "/api/comments/admin/delete-admin-comment",

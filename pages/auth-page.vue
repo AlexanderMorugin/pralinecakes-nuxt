@@ -1,8 +1,10 @@
 <template>
   <WrapperPage class="authPage">
-    <span class="authPage__title">Срок сессии истёк...</span>
-    <span class="authPage__subtitle">Выполните авторизацию заново</span>
-    <!-- <NuxtLink to="/" class="authPage__link">Или пройдите на главную</NuxtLink> -->
+    <span class="authPage__title">Сессия завершена.</span>
+    <span class="authPage__subtitle"
+      >Нажмите на кнопку и авторизуйтесь заново.</span
+    >
+    <button class="authPage__button" @click="restart">RESTART</button>
   </WrapperPage>
 </template>
 
@@ -15,29 +17,19 @@ import {
 } from "@/utils/constants/meta";
 
 definePageMeta({
-  middleware: ["cart", "auth"],
+  // middleware: ["cart", "auth"],
   layout: "main",
 });
 
 const route = useRoute();
-// await location.reload();
 const userStore = useUserStore();
-await userStore.logoutAuthUser();
-// const cartStore = useCartStore();
-// const orderStore = useOrderStore();
 
-// const handleLogout = async () => {
-//   await $fetch("/api/users/logout", {
-//     method: "POST",
-//   });
+const restart = async () => {
+  userStore.logoutAuthUser();
 
-//   userStore.logoutAuthUser();
-//   // cartStore.cleanCart();
-//   // orderStore.cleanOrder();
-//   // location.reload();
-// };
-
-// handleLogout();
+  await navigateTo("/");
+  location.reload();
+};
 
 useHead({
   link: [{ rel: "canonical", href: `${SITE}${route.path}` }],
@@ -73,9 +65,20 @@ useSeoMeta({
     color: var(--white-primary);
   }
 
-  &__link {
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--border-primary);
+    border-radius: var(--border-radius-xs);
+    background: var(--mask-blue-thirdly);
     color: var(--white-primary);
-    text-decoration: underline;
+    padding: 10px 20px;
+    transition: 0.2s ease;
+
+    &:hover {
+      background: var(--mask-blue-fourthly);
+    }
   }
 }
 </style>

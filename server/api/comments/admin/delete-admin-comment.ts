@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   const body = await readBody(event);
   const cookie = parseCookies(event);
 
-  if (!cookie) {
+  if (!cookie.access_token || !cookie.refresh_token) {
     throw createError({
       statusCode: 422,
       message: "Токены отсутствуют",

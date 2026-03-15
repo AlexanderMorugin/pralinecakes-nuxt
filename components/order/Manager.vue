@@ -78,7 +78,7 @@ const acceptOrder = async () => {
   try {
     isAcceptLoading.value = true;
 
-    const result = await orderStore.updateStatusAcceptOrder(date);
+    const result = await orderStore.updateAdminStatusAcceptOrder(date);
 
     if (result.status.value === "error") {
       toast.error({
@@ -104,7 +104,7 @@ const undoAcceptOrder = async () => {
   try {
     isAcceptLoading.value = true;
 
-    const result = await orderStore.updateStatusAcceptOrder(null);
+    const result = await orderStore.updateAdminStatusAcceptOrder(null);
 
     if (result.status.value === "error") {
       toast.error({
@@ -130,7 +130,7 @@ const deliveryOrder = async () => {
   try {
     isDeliveryLoading.value = true;
 
-    const result = await orderStore.updateStatusDeliveryOrder(date);
+    const result = await orderStore.updateAdminStatusDeliveryOrder(date);
 
     if (result.status.value === "error") {
       toast.error({
@@ -156,7 +156,7 @@ const undoDeliveryOrder = async () => {
   try {
     isDeliveryLoading.value = true;
 
-    const result = await orderStore.updateStatusDeliveryOrder(null);
+    const result = await orderStore.updateAdminStatusDeliveryOrder(null);
 
     if (result.status.value === "error") {
       toast.error({
@@ -182,7 +182,7 @@ const completeOrder = async () => {
   try {
     isCompleteLoading.value = true;
 
-    const result = await orderStore.updateStatusCompleteOrder(date);
+    const result = await orderStore.updateAdminStatusCompleteOrder(date);
 
     if (result.status.value === "error") {
       toast.error({
@@ -208,7 +208,7 @@ const undoCompleteOrder = async () => {
   try {
     isCompleteLoading.value = true;
 
-    const result = await orderStore.updateStatusCompleteOrder(null);
+    const result = await orderStore.updateAdminStatusCompleteOrder(null);
 
     if (result.status.value === "error") {
       toast.error({
@@ -234,7 +234,7 @@ const deleteOrder = async () => {
   try {
     isDeleteLoading.value = true;
 
-    const result = await orderStore.deleteOrder();
+    const result = await orderStore.deleteAdminOrder();
 
     if (result.status.value === "error") {
       toast.error({

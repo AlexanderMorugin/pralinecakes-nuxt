@@ -5,7 +5,7 @@ import { comments } from "~/server/database/schema";
 export default defineEventHandler(async (event) => {
   const cookie = parseCookies(event);
 
-  if (!cookie) {
+  if (!cookie.access_token || !cookie.refresh_token) {
     throw createError({
       statusCode: 422,
       message: "Токены отсутствуют",

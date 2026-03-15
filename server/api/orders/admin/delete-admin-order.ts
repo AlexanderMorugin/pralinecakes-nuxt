@@ -4,14 +4,9 @@ import { orders } from "~/server/database/schema";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
+  const cookie = parseCookies(event);
 
-  const accessToken = getCookie(event, "access_token");
-  const refreshToken = getCookie(event, "refresh_token");
-
-  const decodeAccess = await decodeAccessToken(accessToken);
-  const decodeRefresh = await decodeRefreshToken(refreshToken);
-
-  if (!decodeAccess || !decodeRefresh) {
+  if (!cookie.access_token || !cookie.refresh_token) {
     throw createError({
       statusCode: 422,
       message: "Токены отсутствуют",
@@ -25,7 +20,7 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const result = await db.select().from(orders).where(eq(orders.id, body.id));
+  const result = await db.delete(orders).where(eq(orders.id, body.id));
 
   return result;
 });

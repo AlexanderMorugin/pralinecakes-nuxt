@@ -8,7 +8,7 @@ export const useAdminPastryStore = defineStore("adminPastryStore", () => {
   const userStore = useUserStore();
 
   const loadAdminPastries = async () => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/pastry/admin/load-admin-pastries", {
           baseURL: process.env.BASE_URL,
@@ -36,7 +36,7 @@ export const useAdminPastryStore = defineStore("adminPastryStore", () => {
   };
 
   const getAdminPastry = async (productSlug: string) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/pastry/admin/get-admin-pastry", {
           baseURL: process.env.BASE_URL,
@@ -67,7 +67,7 @@ export const useAdminPastryStore = defineStore("adminPastryStore", () => {
   };
 
   const createAdminPastryTitle = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/pastry/admin/create-admin-title", {
           baseURL: process.env.BASE_URL,
@@ -97,7 +97,7 @@ export const useAdminPastryStore = defineStore("adminPastryStore", () => {
   };
 
   const updateAdminPastryTitle = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/pastry/admin/update-admin-title", {
           baseURL: process.env.BASE_URL,
@@ -138,7 +138,7 @@ export const useAdminPastryStore = defineStore("adminPastryStore", () => {
   };
 
   const updateAdminPastryDescription = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch(
           "/api/pastry/admin/update-admin-description",
@@ -183,7 +183,7 @@ export const useAdminPastryStore = defineStore("adminPastryStore", () => {
   };
 
   const updateAdminPastryImages = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/pastry/admin/update-admin-images", {
           baseURL: process.env.BASE_URL,
@@ -235,7 +235,7 @@ export const useAdminPastryStore = defineStore("adminPastryStore", () => {
   };
 
   const updateAdminProductMeta = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/pastry/admin/update-admin-meta", {
           baseURL: process.env.BASE_URL,
@@ -276,7 +276,7 @@ export const useAdminPastryStore = defineStore("adminPastryStore", () => {
   };
 
   const updateAdminProductSizes = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/pastry/admin/update-admin-sizes", {
           baseURL: process.env.BASE_URL,
@@ -318,7 +318,7 @@ export const useAdminPastryStore = defineStore("adminPastryStore", () => {
   };
 
   const updateAdminProductPrice = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/pastry/admin/update-admin-price", {
           baseURL: process.env.BASE_URL,
@@ -361,7 +361,7 @@ export const useAdminPastryStore = defineStore("adminPastryStore", () => {
   };
 
   const updateAdminProductIngredients = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch(
           "/api/pastry/admin/update-admin-ingredients",
@@ -403,7 +403,7 @@ export const useAdminPastryStore = defineStore("adminPastryStore", () => {
   };
 
   const updateAdminProductNutritional = async (formData: IProduct) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch(
           "/api/pastry/admin/update-admin-nutritional",
@@ -451,7 +451,7 @@ export const useAdminPastryStore = defineStore("adminPastryStore", () => {
   };
 
   const updateAdminProductRating = async (rating: number) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/pastry/admin/update-admin-rating", {
           baseURL: process.env.BASE_URL,
@@ -490,7 +490,7 @@ export const useAdminPastryStore = defineStore("adminPastryStore", () => {
   };
 
   const updateAdminProductBadge = async (badge: number) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/pastry/admin/update-admin-badge", {
           baseURL: process.env.BASE_URL,
@@ -529,7 +529,7 @@ export const useAdminPastryStore = defineStore("adminPastryStore", () => {
   };
 
   const updateAdminProductVisibility = async (visibility: boolean) => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch(
           "/api/pastry/admin/update-admin-visibility",
@@ -571,7 +571,7 @@ export const useAdminPastryStore = defineStore("adminPastryStore", () => {
   };
 
   const deleteAdminPastry = async () => {
-    if (userStore.user) {
+    if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/pastry/admin/delete-admin-pastry", {
           baseURL: process.env.BASE_URL,

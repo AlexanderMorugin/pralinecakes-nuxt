@@ -44,6 +44,17 @@ export default defineEventHandler(async (event) => {
 
     const { accessToken, refreshToken } = generateTokens(existUser.id);
 
+    // deleteCookie(event, "refresh_token", {
+    //   httpOnly: true,
+    //   secure: true,
+    //   sameSite: true,
+    // });
+    // deleteCookie(event, "access_token", {
+    //   httpOnly: true,
+    //   secure: true,
+    //   sameSite: true,
+    // });
+
     setCookie(event, "access_token", accessToken, {
       httpOnly: true,
       secure: true,

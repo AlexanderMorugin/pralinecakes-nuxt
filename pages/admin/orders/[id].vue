@@ -12,7 +12,7 @@ definePageMeta({
 });
 const route = useRoute();
 const orderStore = useOrderStore();
-await orderStore.getOrder(route.params.id);
+await orderStore.getAdminOrder(route.params.id);
 </script>
 
 <style lang="scss" scoped>

@@ -13,66 +13,7 @@ export const useOrderStore = defineStore("orderStore", () => {
     order.value = JSON.parse(localStorageOrder.value);
   }
 
-  const loadOrders = async () => {
-    if (userStore.user) {
-      try {
-        const result = await useFetch("/api/orders/load-orders", {
-          baseURL: process.env.BASE_URL,
-          key: "orders",
-          method: "GET",
-        });
-
-        if (result.error.value) {
-          return navigateTo("/auth-page");
-        }
-
-        if (result.status.value === "success") {
-          orders.value = result.data.value;
-        }
-
-        return result;
-      } catch (error) {
-        throw createError({
-          status: 404,
-          statusText: "Данные не найдены",
-        });
-      }
-    } else {
-      return navigateTo("/");
-    }
-  };
-
-  const getOrder = async (orderId: number) => {
-    if (userStore.user) {
-      try {
-        const result = await useFetch("/api/orders/get-order", {
-          baseURL: process.env.BASE_URL,
-          method: "POST",
-          body: {
-            id: orderId,
-          },
-        });
-
-        if (result.error.value) {
-          return navigateTo("/auth-page");
-        }
-
-        if (result.status.value === "success") {
-          order.value = result.data.value;
-        }
-
-        return result;
-      } catch (error) {
-        throw createError({
-          status: 404,
-          statusText: "Данные не найдены",
-        });
-      }
-    } else {
-      return navigateTo("/");
-    }
-  };
-
+  // for client app
   const updateBonus = async () => {
     try {
       const result = await useFetch("/api/users/update-bonus", {
@@ -96,6 +37,7 @@ export const useOrderStore = defineStore("orderStore", () => {
     }
   };
 
+  // for client app
   const createOrder = async (formData: IOrder) => {
     const result = await useFetch("/api/orders/create-order", {
       baseURL: process.env.BASE_URL,
@@ -124,97 +66,216 @@ export const useOrderStore = defineStore("orderStore", () => {
     }
   };
 
-  const updateStatusAcceptOrder = async (date: string) => {
-    const result = await useFetch("/api/orders/accept-order", {
-      baseURL: process.env.BASE_URL,
-      method: "PATCH",
-      body: {
-        id: order.value[0].id,
-        status: date,
-      },
-    });
+  // for admin app
+  const loadAdminOrders = async () => {
+    if (userStore.user && userStore.user.user_role !== "client") {
+      try {
+        const result = await useFetch("/api/orders/admin/load-admin-orders", {
+          baseURL: process.env.BASE_URL,
+          key: "admin-orders",
+          method: "GET",
+        });
 
-    if (result.error.value) {
-      return navigateTo("/auth-page");
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
+
+        if (result.status.value === "success") {
+          orders.value = result.data.value;
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
     }
-
-    if (result.status.value === "success") {
-      order.value[0].status_accept = date;
-
-      orders.value = orders.value.map((item: any) =>
-        item.id === order.value.id ? { ...item, status_accept: date } : item,
-      );
-    }
-
-    return result;
   };
 
-  const updateStatusDeliveryOrder = async (date: string) => {
-    const result = await useFetch("/api/orders/delivery-order", {
-      baseURL: process.env.BASE_URL,
-      method: "PATCH",
-      body: {
-        id: order.value[0].id,
-        status: date,
-      },
-    });
+  // for admin app
+  const getAdminOrder = async (orderId: number) => {
+    if (userStore.user && userStore.user.user_role !== "client") {
+      try {
+        const result = await useFetch("/api/orders/admin/get-admin-order", {
+          baseURL: process.env.BASE_URL,
+          method: "POST",
+          body: {
+            id: orderId,
+          },
+        });
 
-    if (result.error.value) {
-      return navigateTo("/auth-page");
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
+
+        if (result.status.value === "success") {
+          order.value = result.data.value;
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
     }
-
-    if (result.status.value === "success") {
-      order.value[0].status_delivery = date;
-
-      orders.value = orders.value.map((item: any) =>
-        item.id === order.value.id ? { ...item, status_delivery: date } : item,
-      );
-    }
-
-    return result;
   };
 
-  const updateStatusCompleteOrder = async (date: string) => {
-    const result = await useFetch("/api/orders/complete-order", {
-      baseURL: process.env.BASE_URL,
-      method: "PATCH",
-      body: {
-        id: order.value[0].id,
-        status: date,
-      },
-    });
+  const updateAdminStatusAcceptOrder = async (date: string) => {
+    if (userStore.user && userStore.user.user_role !== "client") {
+      try {
+        const result = await useFetch("/api/orders/admin/accept-admin-order", {
+          baseURL: process.env.BASE_URL,
+          method: "PATCH",
+          body: {
+            id: order.value[0].id,
+            status: date,
+          },
+        });
 
-    if (result.error.value) {
-      return navigateTo("/auth-page");
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
+
+        if (result.status.value === "success") {
+          order.value[0].status_accept = date;
+
+          orders.value = orders.value.map((item: any) =>
+            item.id === order.value.id
+              ? { ...item, status_accept: date }
+              : item,
+          );
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
     }
-
-    if (result.status.value === "success") {
-      order.value[0].status_complete = date;
-
-      orders.value = orders.value.map((item: any) =>
-        item.id === order.value.id ? { ...item, status_complete: date } : item,
-      );
-    }
-
-    return result;
   };
 
-  const deleteOrder = async (orderId: number) => {
-    const result = await useFetch("/api/orders/delete-order", {
-      baseURL: process.env.BASE_URL,
-      method: "DELETE",
-      body: {
-        id: order.value[0].id,
-      },
-    });
+  const updateAdminStatusDeliveryOrder = async (date: string) => {
+    if (userStore.user && userStore.user.user_role !== "client") {
+      try {
+        const result = await useFetch(
+          "/api/orders/admin/delivery-admin-order",
+          {
+            baseURL: process.env.BASE_URL,
+            method: "PATCH",
+            body: {
+              id: order.value[0].id,
+              status: date,
+            },
+          },
+        );
 
-    if (result.error.value) {
-      return navigateTo("/auth-page");
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
+
+        if (result.status.value === "success") {
+          order.value[0].status_delivery = date;
+
+          orders.value = orders.value.map((item: any) =>
+            item.id === order.value.id
+              ? { ...item, status_delivery: date }
+              : item,
+          );
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
     }
-
-    return result;
   };
 
+  const updateAdminStatusCompleteOrder = async (date: string) => {
+    if (userStore.user && userStore.user.user_role !== "client") {
+      try {
+        const result = await useFetch(
+          "/api/orders/admin/complete-admin-order",
+          {
+            baseURL: process.env.BASE_URL,
+            method: "PATCH",
+            body: {
+              id: order.value[0].id,
+              status: date,
+            },
+          },
+        );
+
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
+
+        if (result.status.value === "success") {
+          order.value[0].status_complete = date;
+
+          orders.value = orders.value.map((item: any) =>
+            item.id === order.value.id
+              ? { ...item, status_complete: date }
+              : item,
+          );
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
+    }
+  };
+
+  const deleteAdminOrder = async () => {
+    if (userStore.user && userStore.user.user_role !== "client") {
+      try {
+        const result = await useFetch("/api/orders/admin/delete-admin-order", {
+          baseURL: process.env.BASE_URL,
+          method: "DELETE",
+          body: {
+            id: order.value[0].id,
+          },
+        });
+
+        if (result.error.value) {
+          return navigateTo("/auth-page");
+        }
+
+        return result;
+      } catch (error) {
+        throw createError({
+          status: 404,
+          statusText: "Данные не найдены",
+        });
+      }
+    } else {
+      return navigateTo("/");
+    }
+  };
+
+  // for client app
   const cleanOrder = () => {
     order.value = null;
     localStorage.setItem("order", JSON.stringify(order.value));
@@ -223,13 +284,13 @@ export const useOrderStore = defineStore("orderStore", () => {
   return {
     orders,
     order,
-    loadOrders,
-    getOrder,
+    loadAdminOrders,
+    getAdminOrder,
     createOrder,
-    updateStatusAcceptOrder,
-    updateStatusDeliveryOrder,
-    updateStatusCompleteOrder,
-    deleteOrder,
+    updateAdminStatusAcceptOrder,
+    updateAdminStatusDeliveryOrder,
+    updateAdminStatusCompleteOrder,
+    deleteAdminOrder,
     cleanOrder,
   };
 });

@@ -189,7 +189,6 @@ export const useUserStore = defineStore("userStore", () => {
   };
 
   const loadAdminUserComments = async () => {
-    // console.log(clientUserId);
     if (user.value && user.value.user_role !== "client") {
       try {
         const result = await useFetch(
