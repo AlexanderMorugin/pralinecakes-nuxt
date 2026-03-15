@@ -4,7 +4,7 @@
     <ClientOnly>
       <div class="profile">
         <LazyUserCard v-if="userStore.user" :user="userStore.user" />
-        <!-- <LazyUserOrders v-if="userStore.user" /> -->
+        <LazyUserOrders v-if="userStore.user" />
         <!-- <LazyUserComments v-if="userStore.user" /> -->
       </div>
     </ClientOnly>
@@ -20,8 +20,6 @@ definePageMeta({
 });
 
 const userStore = useUserStore();
-
-// console.log(userStore.user);
 
 useHead({
   title: PROFILE_TITLE,

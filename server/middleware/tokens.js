@@ -27,8 +27,8 @@ export default defineEventHandler(async (event) => {
       { userId: decodeRefresh.userId },
       config.public.jwtAccessSecret,
       {
-        // expiresIn: "10m", // 10 min
-        expiresIn: "20", // 20 sec
+        expiresIn: "10m", // 10 min
+        // expiresIn: "20", // 20 sec
       },
     );
     setCookie(event, "access_token", accessToken, {

@@ -64,19 +64,14 @@ const { order } = defineProps(["order"]);
   grid-template-columns: 1fr auto;
   gap: 15px;
   width: 100%;
-  // max-width: 450px;
-  // padding-top: 20px;
 
   @media (max-width: 767px) {
     max-width: 100%;
   }
 
   &__key {
-    // font-family: "Montserrat-Regular", sans-serif;
-    // font-size: 16px;
     line-height: 20px;
     vertical-align: bottom;
-    // opacity: 0.6;
 
     @media (max-width: 767px) {
       font-size: 14px;
@@ -98,7 +93,6 @@ const { order } = defineProps(["order"]);
   }
 
   &__commentBox {
-    // font-family: "Montserrat-Regular", sans-serif;
     font-size: 18px;
     line-height: 28px;
 

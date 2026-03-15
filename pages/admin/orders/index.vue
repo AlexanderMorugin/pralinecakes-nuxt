@@ -1,5 +1,8 @@
 <template>
-  <OrderListAdmin v-if="orderStore.orders.length" :orders="orderStore.orders" />
+  <OrderListAdmin
+    v-if="adminOrderStore.adminOrders.length"
+    :orders="adminOrderStore.adminOrders"
+  />
   <ProductListEmpty v-else title="Заказы не найдены..." place="admin" />
 </template>
 
@@ -9,6 +12,6 @@ definePageMeta({
   layout: "admin",
 });
 
-const orderStore = useOrderStore();
-await orderStore.loadAdminOrders();
+const adminOrderStore = useAdminOrderStore();
+await adminOrderStore.loadAdminOrders();
 </script>

@@ -1,7 +1,7 @@
 <template>
   <ul class="orderList">
     <li
-      v-for="item in orderStore.order[0].cart_list"
+      v-for="item in order[0].cart_list"
       :key="item.id"
       class="orderList__item"
     >
@@ -49,7 +49,7 @@
 </template>
 
 <script setup>
-const orderStore = useOrderStore();
+const { order } = defineProps(["order"]);
 </script>
 
 <style lang="scss" scoped>

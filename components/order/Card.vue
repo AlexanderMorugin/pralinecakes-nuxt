@@ -43,12 +43,11 @@
         }}
       </span>
     </div>
-    <OrderUser />
+    <OrderUser :order="order" />
     <div class="line-solid" />
-    <OrderList />
-    <!-- <OrderProducts /> -->
+    <OrderList :order="order" />
     <div class="line-solid" />
-    <OrderTotal />
+    <UserOrderTotal :order="order[0]" />
   </div>
 </template>
 
@@ -86,8 +85,6 @@ const { order } = defineProps(["order"]);
   }
 
   &__title {
-    // font-family: "Inter-Regular", sans-serif;
-    // font-size: 16px;
     line-height: 32px;
     letter-spacing: 1px;
     color: var(--white-primary);
@@ -100,10 +97,5 @@ const { order } = defineProps(["order"]);
     letter-spacing: 1px;
     color: var(--white-primary);
   }
-
-  // &__dateAccent {
-  //   // font-size: 14px;
-  //   color: var(--white-primary);
-  // }
 }
 </style>

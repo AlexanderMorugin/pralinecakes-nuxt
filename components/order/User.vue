@@ -2,45 +2,36 @@
   <div>
     <div class="orderUser">
       <span class="orderUser__key">Заказчик:</span>
-      <span class="orderUser__accent">{{ orderStore.order[0].user_name }}</span>
+      <span class="orderUser__accent">{{ order[0].user_name }}</span>
     </div>
     <div class="orderUser">
       <span class="orderUser__key">Телефон:</span>
-      <a
-        :href="`tel:${orderStore.order[0].user_phone}`"
-        class="orderUser__accent"
-        >{{ orderStore.order[0].user_phone }}</a
-      >
+      <a :href="`tel:${order[0].user_phone}`" class="orderUser__accent">{{
+        order[0].user_phone
+      }}</a>
     </div>
     <div class="orderUser">
       <span class="orderUser__key">Тип доставки:</span>
-      <span class="orderUser__accent">{{
-        orderStore.order[0].delivery_type
-      }}</span>
+      <span class="orderUser__accent">{{ order[0].delivery_type }}</span>
     </div>
     <div class="orderUser">
       <span class="orderUser__key">Общее количество:</span>
-      <span class="orderUser__accent"
-        >{{ orderStore.order[0].total_cart_count }} шт</span
-      >
+      <span class="orderUser__accent">{{ order[0].total_cart_count }} шт</span>
     </div>
 
-    <div v-if="orderStore.order.delivery_type === 'Доставка'" class="orderUser">
+    <div v-if="order[0].delivery_type === 'Доставка'" class="orderUser">
       <span class="orderUser__key">Адрес:</span>
       <span class="orderUser__address"
-        >{{ orderStore.order[0].user_city }}, ул.
-        {{ orderStore.order[0].user_street }}, д.
-        {{ orderStore.order[0].user_building }}, подъезд
-        {{ orderStore.order[0].user_entrance }}, кв.
-        {{ orderStore.order[0].user_flat }}, этаж
-        {{ orderStore.order[0].user_floor }}</span
+        >{{ order[0].user_city }}, ул. {{ order[0].user_street }}, д.
+        {{ order[0].user_building }}, подъезд {{ order[0].user_entrance }}, кв.
+        {{ order[0].user_flat }}, этаж {{ order[0].user_floor }}</span
       >
     </div>
   </div>
 </template>
 
 <script setup>
-const orderStore = useOrderStore();
+const { order } = defineProps(["order"]);
 </script>
 
 <style lang="scss" scoped>
@@ -56,11 +47,8 @@ const orderStore = useOrderStore();
   }
 
   &__key {
-    // font-family: "Montserrat-Regular", sans-serif;
-    // font-size: 16px;
     line-height: 20px;
     vertical-align: bottom;
-    // opacity: 0.6;
 
     @media (max-width: 767px) {
       font-size: 14px;
@@ -81,8 +69,6 @@ const orderStore = useOrderStore();
   }
 
   &__address {
-    // font-family: "Montserrat-Regular", sans-serif;
-    // font-size: 16px;
     line-height: 26px;
     letter-spacing: 1px;
   }

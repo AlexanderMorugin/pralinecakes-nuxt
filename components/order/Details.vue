@@ -5,13 +5,11 @@
       {{ orderStore.order[0].order_date }}</WrapperText
     >
 
-    <OrderUser />
+    <OrderUser :order="orderStore.order" />
     <div class="line-solid" />
-    <OrderList />
+    <OrderList :order="orderStore.order" />
     <div class="line-solid" />
-    <OrderTotal />
-
-    <!-- {{ orderStore.order }} -->
+    <OrderTotal :order="orderStore.order" />
   </div>
 </template>
 

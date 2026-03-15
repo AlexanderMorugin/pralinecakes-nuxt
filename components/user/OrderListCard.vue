@@ -32,7 +32,6 @@
 const { order } = defineProps(["order"]);
 
 const isOrderModalOpen = ref(false);
-// console.log(order);
 </script>
 
 <style lang="scss" scoped>

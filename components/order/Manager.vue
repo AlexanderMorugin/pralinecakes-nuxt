@@ -1,50 +1,49 @@
 <template>
-  <ul class="orderManager">
-    <li>
-      <ButtonManager
-        name="accept"
-        :status="orderStore.order[0].status_accept"
-        :undoStatus="
-          orderStore.order[0].status_accept &&
-          !orderStore.order[0].status_delivery &&
-          !orderStore.order[0].status_complete
-        "
-        :isLoading="isAcceptLoading"
-        @handleClick="acceptOrder"
-        @handleUndo="undoAcceptOrder"
-      />
-    </li>
-    <li v-if="orderStore.order[0].status_accept">
+  <div class="orderManager">
+    <ButtonManager
+      name="accept"
+      :status="adminOrderStore.adminOrder[0].status_accept"
+      :undoStatus="
+        adminOrderStore.adminOrder[0].status_accept &&
+        !adminOrderStore.adminOrder[0].status_delivery &&
+        !adminOrderStore.adminOrder[0].status_complete
+      "
+      :isLoading="isAcceptLoading"
+      @handleClick="acceptOrder"
+      @handleUndo="undoAcceptOrder"
+    />
+
+    <div v-if="adminOrderStore.adminOrder[0].status_accept">
       <ButtonManager
         name="delivery"
-        :status="orderStore.order[0].status_delivery"
+        :status="adminOrderStore.adminOrder[0].status_delivery"
         :undoStatus="
-          orderStore.order[0].status_accept &&
-          orderStore.order[0].status_delivery &&
-          !orderStore.order[0].status_complete
+          adminOrderStore.adminOrder[0].status_accept &&
+          adminOrderStore.adminOrder[0].status_delivery &&
+          !adminOrderStore.adminOrder[0].status_complete
         "
         :isLoading="isDeliveryLoading"
         @handleClick="deliveryOrder"
         @handleUndo="undoDeliveryOrder"
       />
-    </li>
-    <li v-if="orderStore.order[0].status_delivery">
+    </div>
+
+    <div v-if="adminOrderStore.adminOrder[0].status_delivery">
       <ButtonManager
         name="complete"
-        :status="orderStore.order[0].status_complete"
+        :status="adminOrderStore.adminOrder[0].status_complete"
         :undoStatus="
-          orderStore.order[0].status_accept &&
-          orderStore.order[0].status_delivery &&
-          orderStore.order[0].status_complete
+          adminOrderStore.adminOrder[0].status_accept &&
+          adminOrderStore.adminOrder[0].status_delivery &&
+          adminOrderStore.adminOrder[0].status_complete
         "
         :isLoading="isCompleteLoading"
         @handleClick="completeOrder"
         @handleUndo="undoCompleteOrder"
       />
-    </li>
-    <li>
-      <ButtonManager name="delete" @handleClick="isConfirmModalOpen = true" />
-    </li>
+    </div>
+
+    <ButtonManager name="delete" @handleClick="isConfirmModalOpen = true" />
 
     <!-- Модалка подтверждения -->
     <Teleport to="#teleports">
@@ -59,12 +58,12 @@
         />
       </Transition>
     </Teleport>
-  </ul>
+  </div>
 </template>
 
 <script setup>
 const toast = useToast();
-const orderStore = useOrderStore();
+const adminOrderStore = useAdminOrderStore();
 const { date } = useDate();
 
 const isAcceptLoading = ref(false);
@@ -78,7 +77,7 @@ const acceptOrder = async () => {
   try {
     isAcceptLoading.value = true;
 
-    const result = await orderStore.updateAdminStatusAcceptOrder(date);
+    const result = await adminOrderStore.updateAdminStatusAcceptOrder(date);
 
     if (result.status.value === "error") {
       toast.error({
@@ -104,7 +103,7 @@ const undoAcceptOrder = async () => {
   try {
     isAcceptLoading.value = true;
 
-    const result = await orderStore.updateAdminStatusAcceptOrder(null);
+    const result = await adminOrderStore.updateAdminStatusAcceptOrder(null);
 
     if (result.status.value === "error") {
       toast.error({
@@ -130,7 +129,7 @@ const deliveryOrder = async () => {
   try {
     isDeliveryLoading.value = true;
 
-    const result = await orderStore.updateAdminStatusDeliveryOrder(date);
+    const result = await adminOrderStore.updateAdminStatusDeliveryOrder(date);
 
     if (result.status.value === "error") {
       toast.error({
@@ -156,7 +155,7 @@ const undoDeliveryOrder = async () => {
   try {
     isDeliveryLoading.value = true;
 
-    const result = await orderStore.updateAdminStatusDeliveryOrder(null);
+    const result = await adminOrderStore.updateAdminStatusDeliveryOrder(null);
 
     if (result.status.value === "error") {
       toast.error({
@@ -182,7 +181,7 @@ const completeOrder = async () => {
   try {
     isCompleteLoading.value = true;
 
-    const result = await orderStore.updateAdminStatusCompleteOrder(date);
+    const result = await adminOrderStore.updateAdminStatusCompleteOrder(date);
 
     if (result.status.value === "error") {
       toast.error({
@@ -208,7 +207,7 @@ const undoCompleteOrder = async () => {
   try {
     isCompleteLoading.value = true;
 
-    const result = await orderStore.updateAdminStatusCompleteOrder(null);
+    const result = await adminOrderStore.updateAdminStatusCompleteOrder(null);
 
     if (result.status.value === "error") {
       toast.error({
@@ -234,7 +233,7 @@ const deleteOrder = async () => {
   try {
     isDeleteLoading.value = true;
 
-    const result = await orderStore.deleteAdminOrder();
+    const result = await adminOrderStore.deleteAdminOrder();
 
     if (result.status.value === "error") {
       toast.error({

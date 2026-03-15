@@ -1,15 +1,15 @@
 <template>
   <UserListEmpty
-    v-if="!userStore.userOrders.length"
+    v-if="!userStore.adminUserOrders.length"
     title="Заказы не найдены..."
     :place="place"
   />
-  <UserOrderList v-else :orders="userStore.userOrders" :place="place" />
+  <UserOrderList v-else :orders="userStore.adminUserOrders" :place="place" />
 </template>
 
 <script setup>
 const { place } = defineProps(["place"]);
 
 const userStore = useUserStore();
-await userStore.loadUserOrders();
+await userStore.loadAdminUserOrders();
 </script>

@@ -1,72 +1,12 @@
 import { defineStore } from "pinia";
 import type { IOrder } from "~/types/order";
 
-export const useOrderStore = defineStore("orderStore", () => {
-  const orders = ref<IOrder[] | any>([]);
-  const order = ref<IOrder | any>(null);
+export const useAdminOrderStore = defineStore("adminOrderStore", () => {
+  const adminOrders = ref<IOrder[] | any>([]);
+  const adminOrder = ref<IOrder | any>(null);
 
   const userStore = useUserStore();
 
-  const localStorageOrder = computed(() => localStorage.getItem("order"));
-
-  if (localStorageOrder.value) {
-    order.value = JSON.parse(localStorageOrder.value);
-  }
-
-  // for client app
-  const updateBonus = async () => {
-    try {
-      const result = await useFetch("/api/users/update-bonus", {
-        baseURL: process.env.BASE_URL,
-        method: "PATCH",
-        body: {
-          user_id: order.value[0].user_id,
-          user_bonus: userStore.user.user_bonus + order.value[0].user_bonus,
-        },
-      });
-
-      if (result.status.value === "success") {
-        userStore.user.user_bonus =
-          userStore.user.user_bonus + order.value[0].user_bonus;
-      }
-    } catch (error) {
-      throw createError({
-        status: 404,
-        statusText: "Данные не найдены",
-      });
-    }
-  };
-
-  // for client app
-  const createOrder = async (formData: IOrder) => {
-    const result = await useFetch("/api/orders/create-order", {
-      baseURL: process.env.BASE_URL,
-      method: "POST",
-      body: formData,
-    });
-
-    if (result.status.value === "success") {
-      order.value = result.data.value;
-      localStorage.setItem("order", JSON.stringify(formData));
-
-      if (userStore.user) {
-        await updateBonus();
-      }
-
-      const response = await useFetch("/api/message/send", {
-        baseURL: process.env.BASE_URL,
-        method: "POST",
-        body: {
-          subject: `Заказ ${formData.order_number}`,
-          message: `Новый заказ ${formData.order_number}, проверить на https://pralineshop.ru/admin/orders/`,
-        },
-      });
-
-      if (response.status.value === "success") return response;
-    }
-  };
-
-  // for admin app
   const loadAdminOrders = async () => {
     if (userStore.user && userStore.user.user_role !== "client") {
       try {
@@ -81,7 +21,7 @@ export const useOrderStore = defineStore("orderStore", () => {
         }
 
         if (result.status.value === "success") {
-          orders.value = result.data.value;
+          adminOrders.value = result.data.value;
         }
 
         return result;
@@ -96,7 +36,6 @@ export const useOrderStore = defineStore("orderStore", () => {
     }
   };
 
-  // for admin app
   const getAdminOrder = async (orderId: number) => {
     if (userStore.user && userStore.user.user_role !== "client") {
       try {
@@ -113,7 +52,7 @@ export const useOrderStore = defineStore("orderStore", () => {
         }
 
         if (result.status.value === "success") {
-          order.value = result.data.value;
+          adminOrder.value = result.data.value;
         }
 
         return result;
@@ -135,7 +74,7 @@ export const useOrderStore = defineStore("orderStore", () => {
           baseURL: process.env.BASE_URL,
           method: "PATCH",
           body: {
-            id: order.value[0].id,
+            id: adminOrder.value[0].id,
             status: date,
           },
         });
@@ -145,10 +84,10 @@ export const useOrderStore = defineStore("orderStore", () => {
         }
 
         if (result.status.value === "success") {
-          order.value[0].status_accept = date;
+          adminOrder.value[0].status_accept = date;
 
-          orders.value = orders.value.map((item: any) =>
-            item.id === order.value.id
+          adminOrders.value = adminOrders.value.map((item: any) =>
+            item.id === adminOrder.value.id
               ? { ...item, status_accept: date }
               : item,
           );
@@ -175,7 +114,7 @@ export const useOrderStore = defineStore("orderStore", () => {
             baseURL: process.env.BASE_URL,
             method: "PATCH",
             body: {
-              id: order.value[0].id,
+              id: adminOrder.value[0].id,
               status: date,
             },
           },
@@ -186,10 +125,10 @@ export const useOrderStore = defineStore("orderStore", () => {
         }
 
         if (result.status.value === "success") {
-          order.value[0].status_delivery = date;
+          adminOrder.value[0].status_delivery = date;
 
-          orders.value = orders.value.map((item: any) =>
-            item.id === order.value.id
+          adminOrders.value = adminOrders.value.map((item: any) =>
+            item.id === adminOrder.value.id
               ? { ...item, status_delivery: date }
               : item,
           );
@@ -216,7 +155,7 @@ export const useOrderStore = defineStore("orderStore", () => {
             baseURL: process.env.BASE_URL,
             method: "PATCH",
             body: {
-              id: order.value[0].id,
+              id: adminOrder.value[0].id,
               status: date,
             },
           },
@@ -227,10 +166,10 @@ export const useOrderStore = defineStore("orderStore", () => {
         }
 
         if (result.status.value === "success") {
-          order.value[0].status_complete = date;
+          adminOrder.value[0].status_complete = date;
 
-          orders.value = orders.value.map((item: any) =>
-            item.id === order.value.id
+          adminOrders.value = adminOrders.value.map((item: any) =>
+            item.id === adminOrder.value.id
               ? { ...item, status_complete: date }
               : item,
           );
@@ -255,7 +194,7 @@ export const useOrderStore = defineStore("orderStore", () => {
           baseURL: process.env.BASE_URL,
           method: "DELETE",
           body: {
-            id: order.value[0].id,
+            id: adminOrder.value[0].id,
           },
         });
 
@@ -275,22 +214,14 @@ export const useOrderStore = defineStore("orderStore", () => {
     }
   };
 
-  // for client app
-  const cleanOrder = () => {
-    order.value = null;
-    localStorage.setItem("order", JSON.stringify(order.value));
-  };
-
   return {
-    orders,
-    order,
+    adminOrders,
+    adminOrder,
     loadAdminOrders,
     getAdminOrder,
-    createOrder,
     updateAdminStatusAcceptOrder,
     updateAdminStatusDeliveryOrder,
     updateAdminStatusCompleteOrder,
     deleteAdminOrder,
-    cleanOrder,
   };
 });

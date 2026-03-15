@@ -1,7 +1,10 @@
 <template>
   <div class="orderPage page-padding-x">
-    <OrderCard v-if="orderStore.order" :order="orderStore.order" />
-    <OrderManager v-if="orderStore.order" />
+    <OrderCard
+      v-if="adminOrderStore.adminOrder"
+      :order="adminOrderStore.adminOrder"
+    />
+    <OrderManager v-if="adminOrderStore.adminOrder" />
   </div>
 </template>
 
@@ -11,8 +14,8 @@ definePageMeta({
   layout: "admin",
 });
 const route = useRoute();
-const orderStore = useOrderStore();
-await orderStore.getAdminOrder(route.params.id);
+const adminOrderStore = useAdminOrderStore();
+await adminOrderStore.getAdminOrder(route.params.id);
 </script>
 
 <style lang="scss" scoped>

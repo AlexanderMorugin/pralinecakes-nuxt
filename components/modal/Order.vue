@@ -17,7 +17,6 @@
       <UserOrderContent :order="order" />
       <UserOrderTotal :order="order" />
     </div>
-    <!-- <div>{{ order }}</div> -->
   </div>
 </template>
 
