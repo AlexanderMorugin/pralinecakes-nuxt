@@ -37,7 +37,7 @@ export const useOrderStore = defineStore("orderStore", () => {
   };
 
   const createOrder = async (formData: IOrder) => {
-    const result = await useFetch("/api/orders/create-order", {
+    const result = await useFetch("/api/orders/client/create-client-order", {
       baseURL: process.env.BASE_URL,
       method: "POST",
       body: formData,

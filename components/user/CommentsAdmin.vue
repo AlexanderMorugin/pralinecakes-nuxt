@@ -1,12 +1,12 @@
 <template>
   <UserListEmpty
-    v-if="!userStore.adminUserComments.length"
+    v-if="!adminUserStore.adminUserComments.length"
     title="Отзывы не найдены..."
     :place="place"
   />
   <UserCommentList
     v-else
-    :comments="userStore.adminUserComments"
+    :comments="adminUserStore.adminUserComments"
     :place="place"
   />
 </template>
@@ -14,6 +14,6 @@
 <script setup>
 const { place, user } = defineProps(["place", "user"]);
 
-const userStore = useUserStore();
-await userStore.loadAdminUserComments();
+const adminUserStore = useAdminUserStore();
+await adminUserStore.loadAdminUserComments();
 </script>

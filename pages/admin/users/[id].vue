@@ -1,20 +1,20 @@
 <template>
   <div class="user page-padding-x">
     <UserCard
-      v-if="userStore.adminUser"
-      :user="userStore.adminUser"
+      v-if="adminUserStore.adminUser"
+      :user="adminUserStore.adminUser"
       place="admin"
     />
-    <UserOrdersAdmin v-if="userStore.adminUser" place="admin" />
+    <UserOrdersAdmin v-if="adminUserStore.adminUser" place="admin" />
     <UserCommentsAdmin
-      v-if="userStore.adminUser"
-      :user="userStore.adminUser"
+      v-if="adminUserStore.adminUser"
+      :user="adminUserStore.adminUser"
       place="admin"
     />
 
     <!-- Кнопка удалить пользователя -->
     <ButtonWithText
-      v-if="userStore.adminUser"
+      v-if="adminUserStore.adminUser"
       color="red"
       text="удалить"
       @handleClick="isConfirmModalOpen = true"
@@ -44,8 +44,8 @@ definePageMeta({
 
 const toast = useToast();
 const route = useRoute();
-const userStore = useUserStore();
-await userStore.getAdminUser(route.params.id);
+const adminUserStore = useAdminUserStore();
+await adminUserStore.getAdminUser(route.params.id);
 
 const isLoading = ref(false);
 const isConfirmModalOpen = ref(false);
@@ -54,7 +54,7 @@ const deleteUser = async () => {
   try {
     isLoading.value = true;
 
-    const result = await userStore.deleteAdminUser();
+    const result = await adminUserStore.deleteAdminUser();
 
     if (result.status.value === "error") {
       toast.error({
