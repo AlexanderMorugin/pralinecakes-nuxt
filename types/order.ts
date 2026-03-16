@@ -20,6 +20,7 @@ export interface IOrder {
   user_flat?: string;
   user_floor?: string;
   user_comment?: string;
+  user_spend_bonus?: number;
 
   cart_list?: any;
 

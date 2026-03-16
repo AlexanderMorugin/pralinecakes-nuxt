@@ -1,5 +1,5 @@
 {
-  "id": "b8e6776c-fa0d-4cab-8f31-388d18c3c422",
+  "id": "f4c98d4d-de47-4d4d-8c5b-0bc3ef19ce75",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -282,6 +282,12 @@
           "primaryKey": false,
           "notNull": false
         },
+        "user_id": {
+          "name": "user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
         "user_name": {
           "name": "user_name",
           "type": "text",
@@ -388,6 +394,12 @@
           "primaryKey": false,
           "notNull": false
         },
+        "user_id": {
+          "name": "user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
         "user_bonus": {
           "name": "user_bonus",
           "type": "integer",
@@ -445,6 +457,12 @@
         "user_comment": {
           "name": "user_comment",
           "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_spend_bonus": {
+          "name": "user_spend_bonus",
+          "type": "integer",
           "primaryKey": false,
           "notNull": false
         },
@@ -745,9 +763,9 @@
       "columns": {
         "user_id": {
           "name": "user_id",
-          "type": "serial",
-          "primaryKey": true,
-          "notNull": true
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         },
         "user_name": {
           "name": "user_name",
@@ -769,6 +787,18 @@
         },
         "user_role": {
           "name": "user_role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_bonus": {
+          "name": "user_bonus",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "refresh_token": {
+          "name": "refresh_token",
           "type": "text",
           "primaryKey": false,
           "notNull": false

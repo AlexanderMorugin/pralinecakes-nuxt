@@ -39,7 +39,7 @@ export const useCartStore = defineStore("cartStore", () => {
   const deliveryCost = ref<number>(DELIVERY_SUM);
   const samovyvozBonus = ref(0);
   const deliveryType = ref<string>("Доставка");
-  // const userBonusForPay = ref<number | null>(null);
+  const isUserBonusForPay = ref(false);
 
   const userStore = useUserStore();
 
@@ -116,7 +116,7 @@ export const useCartStore = defineStore("cartStore", () => {
     let payBonus = null;
 
     if (totalCartSum.value) {
-      let data = totalCartSum.value * PAY_USER_BONUS_ABLE;
+      let data = Math.round(totalCartSum.value * PAY_USER_BONUS_ABLE);
 
       payBonus =
         data < userStore.user.user_bonus ? data : userStore.user.user_bonus;
@@ -135,12 +135,6 @@ export const useCartStore = defineStore("cartStore", () => {
       totalCartSum.value
     ) {
       data = totalCartSum.value - userBonusForPay.value;
-
-      // > userStore.user.user_bonus
-      //   ? userStore.user.user_bonus
-      //   : userBonusForPay.value);
-      // data = totalCartSum.value;
-      // data = userBonusForPay.value;
     }
 
     return data;
@@ -149,11 +143,15 @@ export const useCartStore = defineStore("cartStore", () => {
   const deliverySum = computed(() => {
     let data = 0;
 
-    if (totalCartSum.value) {
+    if (totalCartSum.value && totalCartSumMinusUserBonus.value) {
       data =
-        totalCartSum.value >= MIN_ORDER_SUM
+        (isUserBonusForPay.value
+          ? totalCartSumMinusUserBonus.value
+          : totalCartSum.value) >= MIN_ORDER_SUM
           ? 0
-          : totalCartSum.value <= MIN_ORDER_SUM
+          : (isUserBonusForPay.value
+                ? totalCartSumMinusUserBonus.value
+                : totalCartSum.value) <= MIN_ORDER_SUM
             ? deliveryCost.value
             : deliveryCost.value;
 
@@ -164,13 +162,23 @@ export const useCartStore = defineStore("cartStore", () => {
   const totalOrderSum = computed(() => {
     let data = null;
 
-    if (totalCartSum.value && cartSamovyvozBonus.value) {
+    if (
+      totalCartSum.value &&
+      cartSamovyvozBonus.value &&
+      totalCartSumMinusUserBonus.value
+    ) {
       data =
         samovyvozBonus.value > 0
-          ? totalCartSum.value - cartSamovyvozBonus.value
+          ? (isUserBonusForPay.value
+              ? totalCartSumMinusUserBonus.value
+              : totalCartSum.value) - cartSamovyvozBonus.value
           : deliverySum.value
-            ? totalCartSum.value + deliverySum.value
-            : totalCartSum.value;
+            ? (isUserBonusForPay.value
+                ? totalCartSumMinusUserBonus.value
+                : totalCartSum.value) + deliverySum.value
+            : isUserBonusForPay.value
+              ? totalCartSumMinusUserBonus.value
+              : totalCartSum.value;
 
       return data;
     }
@@ -204,8 +212,14 @@ export const useCartStore = defineStore("cartStore", () => {
   const cartSamovyvozBonus = computed(() => {
     let data = null;
 
-    if (totalCartSum.value) {
-      data = Math.round((totalCartSum.value * SAMOVYVOZ_BONUS) / 100);
+    if (totalCartSum.value && totalCartSumMinusUserBonus.value) {
+      data = Math.round(
+        ((isUserBonusForPay.value
+          ? totalCartSum.value
+          : totalCartSumMinusUserBonus.value) *
+          SAMOVYVOZ_BONUS) /
+          100,
+      );
 
       return data;
     }
@@ -219,6 +233,12 @@ export const useCartStore = defineStore("cartStore", () => {
     localStorage.setItem("cart", JSON.stringify(cart.value));
   };
 
+  const useUserBonusForPay = () => {
+    isUserBonusForPay.value = !isUserBonusForPay.value;
+
+    console.log(isUserBonusForPay.value);
+  };
+
   return {
     cart,
     setCart,
@@ -228,6 +248,7 @@ export const useCartStore = defineStore("cartStore", () => {
     deleteCartItem,
     cleanCart,
     setDeliveryCost,
+    useUserBonusForPay,
     // setUserBonusForPay,
 
     totalCartCount,
@@ -240,5 +261,6 @@ export const useCartStore = defineStore("cartStore", () => {
     cartSamovyvozBonus,
     userBonusForPay,
     totalCartSumMinusUserBonus,
+    isUserBonusForPay,
   };
 });

@@ -16,7 +16,7 @@ export const useAdminUserStore = defineStore("adminUserStore", () => {
       try {
         const result = await useFetch("/api/users/admin/load-admin-users", {
           baseURL: process.env.BASE_URL,
-          key: "users",
+          key: "admin-users",
           method: "GET",
         });
 

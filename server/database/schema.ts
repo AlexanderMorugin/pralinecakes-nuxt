@@ -31,6 +31,7 @@ export const orders = pgTable("orders", {
   user_flat: text("user_flat"),
   user_floor: text("user_floor"),
   user_comment: text("user_comment"),
+  user_spend_bonus: integer("user_spend_bonus"),
 
   cart_list: json("cart_list"),
 

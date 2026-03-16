@@ -45,6 +45,7 @@ CREATE TABLE "comments" (
 	"product_id" integer,
 	"product_image" text,
 	"product_title" text,
+	"user_id" text,
 	"user_name" text,
 	"user_rating" integer,
 	"user_comment" text,
@@ -63,6 +64,7 @@ CREATE TABLE "orders" (
 	"cart_samovyvoz_bonus" integer,
 	"total_order_sum" integer,
 	"delivery_sum" integer,
+	"user_id" text,
 	"user_bonus" integer,
 	"user_name" text,
 	"user_phone" text,
@@ -73,6 +75,7 @@ CREATE TABLE "orders" (
 	"user_flat" text,
 	"user_floor" text,
 	"user_comment" text,
+	"user_spend_bonus" integer,
 	"cart_list" json,
 	"status_accept" text,
 	"status_delivery" text,
@@ -123,11 +126,13 @@ CREATE TABLE "pastry" (
 );
 --> statement-breakpoint
 CREATE TABLE "users" (
-	"user_id" serial PRIMARY KEY NOT NULL,
+	"user_id" text,
 	"user_name" text,
 	"user_email" text,
 	"user_password" text,
 	"user_role" text,
+	"user_bonus" integer,
+	"refresh_token" text,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL
 );

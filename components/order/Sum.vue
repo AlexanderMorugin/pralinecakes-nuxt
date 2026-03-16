@@ -3,7 +3,13 @@
     <div class="orderSum__block text-price">
       <span>Сумма</span>
       <div class="line-dashed" />
-      <span>{{ currencyFormater(cartStore.totalCartSum) }}</span>
+      <span>{{
+        currencyFormater(
+          cartStore.isUserBonusForPay
+            ? cartStore.totalCartSumMinusUserBonus
+            : cartStore.totalCartSum,
+        )
+      }}</span>
     </div>
     <span class="orderSum__bonus">
       + {{ currencyFormater(cartStore.cartBonus) }} на ваш бонусный счет

@@ -95,7 +95,9 @@ const submitOrder = async () => {
       order_date: date,
       delivery_type: cartStore.deliveryType,
       total_cart_count: cartStore.totalCartCount,
-      total_cart_sum: cartStore.totalCartSum,
+      total_cart_sum: cartStore.isUserBonusForPay
+        ? cartStore.totalCartSumMinusUserBonus
+        : cartStore.totalCartSum,
       cart_samovyvoz_bonus: cartStore.cartSamovyvozBonus,
       total_order_sum: cartStore.totalOrderSum,
       cart_list: cartStore.cart,
@@ -104,7 +106,10 @@ const submitOrder = async () => {
       user_name: nameField.value.trim(),
       user_phone: phoneField.value.trim(),
       user_comment: commentField.value?.trim(),
+      user_spend_bonus: cartStore.userBonusForPay,
     };
+
+    // console.log(formData);
 
     const result = await orderStore.createOrder(formData);
 

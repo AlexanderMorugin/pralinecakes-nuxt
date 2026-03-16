@@ -11,14 +11,30 @@
       >Для этого нужно позвонить или написать нам и сообщить номер вашего
       заказа.</span
     > -->
-    <span>totalCartSum: {{ currencyFormater(cartStore.totalCartSum) }}</span>
-    <span
+    <!-- <span>totalCartSum: {{ currencyFormater(cartStore.totalCartSum) }}</span> -->
+    <div>
+      <span class="orderBonus__accent">{{
+        currencyFormater(cartStore.userBonusForPay)
+      }}</span>
+      <!-- можно списать. -->
+      {{ cartStore.isUserBonusForPay ? "списано бонусов" : "можно списать" }}
+    </div>
+    <!-- <span
       >userBonusForPay: {{ currencyFormater(cartStore.userBonusForPay) }}</span
-    >
-    <span
+    > -->
+    <!-- <span
       >totalCartSumMinusUserBonus:
       {{ currencyFormater(cartStore.totalCartSumMinusUserBonus) }}</span
+    > -->
+    <button
+      :class="[
+        'orderBonus__button',
+        { orderBonus__button_active: cartStore.isUserBonusForPay },
+      ]"
+      @click="useBonus"
     >
+      {{ cartStore.isUserBonusForPay ? "отменить" : "списать" }}
+    </button>
   </div>
 </template>
 
@@ -28,6 +44,10 @@ import { PAY_USER_BONUS } from "~/utils/constants/info";
 const userStore = useUserStore();
 const cartStore = useCartStore();
 // await cartStore.setUserBonusForPay();
+
+const useBonus = () => {
+  cartStore.useUserBonusForPay();
+};
 </script>
 
 <style lang="scss" scoped>
@@ -35,15 +55,35 @@ const cartStore = useCartStore();
   display: flex;
   flex-direction: column;
   gap: 12px;
-  // border: 2px solid var(--border-primary);
-  border-radius: var(--border-radius-l);
+  // border: 2px solid var(--black-primary);
+  border-radius: var(--border-radius-xs);
   background: var(--border-primary);
   // font-family: "Montserrat-Regular", sans-serif;
   line-height: 22px;
   padding: 10px;
+  margin-top: 20px;
 
   &__accent {
     font-family: "Montserrat-SemiBold", sans-serif;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--green-primary);
+    border-radius: var(--border-radius-xs);
+    font-family: "Roboto-Regular", sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--black-primary);
+    padding: 10px;
+
+    &_active {
+      background: var(--border-primary);
+      color: var(--white-primary);
+    }
   }
 }
 </style>

@@ -37,6 +37,7 @@ export const useOrderStore = defineStore("orderStore", () => {
   };
 
   const createOrder = async (formData: IOrder) => {
+    // console.log(formData);
     const result = await useFetch("/api/orders/client/create-client-order", {
       baseURL: process.env.BASE_URL,
       method: "POST",
@@ -47,9 +48,9 @@ export const useOrderStore = defineStore("orderStore", () => {
       order.value = result.data.value;
       localStorage.setItem("order", JSON.stringify(formData));
 
-      if (userStore.user) {
-        await updateBonus();
-      }
+      // if (userStore.user) {
+      //   await updateBonus();
+      // }
 
       const response = await useFetch("/api/message/send", {
         baseURL: process.env.BASE_URL,

@@ -5,57 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1772278129136,
-      "tag": "0000_sticky_killmonger",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1772643183401,
-      "tag": "0001_little_starjammers",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1772643320433,
-      "tag": "0002_faulty_power_man",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1772709714672,
-      "tag": "0003_breezy_metal_master",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "7",
-      "when": 1772709795773,
-      "tag": "0004_known_ego",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "7",
-      "when": 1772710875141,
-      "tag": "0005_flat_quentin_quire",
-      "breakpoints": true
-    },
-    {
-      "idx": 6,
-      "version": "7",
-      "when": 1772710921421,
-      "tag": "0006_wild_war_machine",
-      "breakpoints": true
-    },
-    {
-      "idx": 7,
-      "version": "7",
-      "when": 1772894022709,
-      "tag": "0007_lying_steel_serpent",
+      "when": 1773671156362,
+      "tag": "0000_plain_doctor_spectrum",
       "breakpoints": true
     }
   ]
