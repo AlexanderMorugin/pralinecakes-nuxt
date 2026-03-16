@@ -7,9 +7,17 @@
       на вашем бонусном счету.
     </div>
     <span>Бонусами можно оплатить не более {{ PAY_USER_BONUS }}% заказа.</span>
-    <span
+    <!-- <span
       >Для этого нужно позвонить или написать нам и сообщить номер вашего
       заказа.</span
+    > -->
+    <span>totalCartSum: {{ currencyFormater(cartStore.totalCartSum) }}</span>
+    <span
+      >userBonusForPay: {{ currencyFormater(cartStore.userBonusForPay) }}</span
+    >
+    <span
+      >totalCartSumMinusUserBonus:
+      {{ currencyFormater(cartStore.totalCartSumMinusUserBonus) }}</span
     >
   </div>
 </template>
@@ -18,6 +26,8 @@
 import { PAY_USER_BONUS } from "~/utils/constants/info";
 
 const userStore = useUserStore();
+const cartStore = useCartStore();
+// await cartStore.setUserBonusForPay();
 </script>
 
 <style lang="scss" scoped>

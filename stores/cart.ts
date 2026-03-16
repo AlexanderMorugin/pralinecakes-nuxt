@@ -5,6 +5,7 @@ import {
   MIN_ORDER_SUM,
   SAMOVYVOZ_BONUS,
   USER_BONUS,
+  PAY_USER_BONUS_ABLE,
 } from "~/utils/constants/info";
 
 export interface ICart extends IProduct {
@@ -38,8 +39,9 @@ export const useCartStore = defineStore("cartStore", () => {
   const deliveryCost = ref<number>(DELIVERY_SUM);
   const samovyvozBonus = ref(0);
   const deliveryType = ref<string>("Доставка");
+  // const userBonusForPay = ref<number | null>(null);
 
-  // const userStore = useUserStore();
+  const userStore = useUserStore();
 
   const setCart = (cartData: any) => {
     if (cartData) {
@@ -105,6 +107,40 @@ export const useCartStore = defineStore("cartStore", () => {
       );
 
       return data.reduce((a, b) => a + b);
+    }
+
+    return data;
+  });
+
+  const userBonusForPay = computed(() => {
+    let payBonus = null;
+
+    if (totalCartSum.value) {
+      let data = totalCartSum.value * PAY_USER_BONUS_ABLE;
+
+      payBonus =
+        data < userStore.user.user_bonus ? data : userStore.user.user_bonus;
+    }
+
+    return payBonus;
+  });
+
+  const totalCartSumMinusUserBonus = computed(() => {
+    let data = null;
+
+    if (
+      userStore.user &&
+      userStore.user.user_bonus &&
+      userBonusForPay.value &&
+      totalCartSum.value
+    ) {
+      data = totalCartSum.value - userBonusForPay.value;
+
+      // > userStore.user.user_bonus
+      //   ? userStore.user.user_bonus
+      //   : userBonusForPay.value);
+      // data = totalCartSum.value;
+      // data = userBonusForPay.value;
     }
 
     return data;
@@ -192,6 +228,8 @@ export const useCartStore = defineStore("cartStore", () => {
     deleteCartItem,
     cleanCart,
     setDeliveryCost,
+    // setUserBonusForPay,
+
     totalCartCount,
     totalCartSum,
     deliverySum,
@@ -200,5 +238,7 @@ export const useCartStore = defineStore("cartStore", () => {
     totalOrderSum,
     cartBonus,
     cartSamovyvozBonus,
+    userBonusForPay,
+    totalCartSumMinusUserBonus,
   };
 });
