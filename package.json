@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@esbuild-kit/core-utils": "^3.3.2",
     "@pinia/nuxt": "^0.11.3",
     "@vuelidate/core": "^2.0.3",
     "@vuelidate/validators": "^2.0.4",
@@ -29,6 +30,7 @@
     "vue-the-mask": "^0.11.1"
   },
   "devDependencies": {
+    "@esbuild-kit/esm-loader": "^2.6.5",
     "@types/pg": "^8.18.0",
     "drizzle-kit": "^0.31.9",
     "nodemailer": "^8.0.2",

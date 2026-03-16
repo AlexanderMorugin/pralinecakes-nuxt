@@ -30,6 +30,16 @@ export default defineNuxtConfig({
       scrollBehaviorType: "smooth",
     },
   },
+  vite: {
+    optimizeDeps: {
+      include: [
+        "vue-the-mask", // CJS
+        "uuid",
+        "@vuelidate/core",
+        "@vuelidate/validators",
+      ],
+    },
+  },
   // nitro: {
   //   // используем кеширование на стороне сервера
   //   routeRules: {
