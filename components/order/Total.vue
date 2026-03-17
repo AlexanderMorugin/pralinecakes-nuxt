@@ -2,17 +2,17 @@
   <div class="orderTotal">
     <span class="orderTotal__key">Всего на сумму:</span>
     <span class="orderTotal__key orderTotal__right">{{
-      currencyFormater(orderStore.order[0].total_cart_sum)
+      currencyFormater(order.total_cart_sum)
     }}</span>
     <span
       class="orderTotal__key"
       :class="
-        orderStore.order[0].delivery_type === 'Доставка'
+        order.delivery_type === 'Доставка'
           ? 'orderTotal__red'
           : 'orderTotal__green'
       "
       >{{
-        orderStore.order[0].delivery_type === "Доставка"
+        order.delivery_type === "Доставка"
           ? "Доставка:"
           : "Скидка за самовывоз:"
       }}</span
@@ -20,34 +20,41 @@
     <span
       class="orderTotal__key orderTotal__right"
       :class="
-        orderStore.order[0].delivery_type === 'Доставка'
+        order.delivery_type === 'Доставка'
           ? 'orderTotal__red'
           : 'orderTotal__green'
       "
     >
       {{
-        orderStore.order[0].delivery_type === "Доставка"
-          ? currencyFormater(orderStore.order[0].delivery_sum)
-          : currencyFormater(orderStore.order[0].cart_samovyvoz_bonus)
+        order.delivery_type === "Доставка"
+          ? currencyFormater(order.delivery_sum)
+          : currencyFormater(order.cart_samovyvoz_bonus)
       }}</span
     >
     <span class="orderTotal__accent">Итого:</span>
     <span class="orderTotal__accent orderTotal__right">{{
-      currencyFormater(orderStore.order[0].total_order_sum)
+      currencyFormater(order.total_order_sum)
     }}</span>
 
-    <div class="orderTotal__commentBox">
+    <span v-if="userStore.user" class="orderTotal__key orderTotal__red"
+      >Начисленный бонус:</span
+    >
+    <span
+      v-if="userStore.user"
+      class="orderTotal__key orderTotal__right orderTotal__red"
+      >{{ currencyFormater(order.user_bonus) }}</span
+    >
+
+    <div v-if="order.user_comment" class="orderTotal__commentBox">
       <span class="orderTotal__key">Комментарий:</span>
-      <span class="orderTotal__comment">{{
-        orderStore.order[0].user_comment
-      }}</span>
+      <span class="orderTotal__comment">{{ order.user_comment }}</span>
     </div>
   </div>
 </template>
 
 <script setup>
-// const cartStore = useCartStore();
-const orderStore = useOrderStore();
+const { order } = defineProps(["order"]);
+const userStore = useUserStore();
 </script>
 
 <style lang="scss" scoped>
@@ -101,7 +108,7 @@ const orderStore = useOrderStore();
 
   &__red {
     opacity: 1;
-    color: var(--red-primary);
+    color: var(--red-fourthly);
   }
 
   &__green {

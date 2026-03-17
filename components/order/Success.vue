@@ -6,7 +6,7 @@
       указанному телефону.</WrapperText
     >
     <div class="line-solid" />
-    <OrderDetails v-if="orderStore.order" />
+    <OrderDetails v-if="orderStore.order" :order="orderStore.order[0]" />
 
     <div class="orderSuccess__container">
       <FormSubmit
@@ -20,6 +20,8 @@
 
 <script setup>
 const orderStore = useOrderStore();
+
+// console.log(orderStore.order[0]);
 
 const closeOrderSuccess = () => {
   orderStore.cleanOrder();

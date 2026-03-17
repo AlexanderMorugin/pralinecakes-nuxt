@@ -2,7 +2,7 @@
   <div class="orderPage page-padding-x">
     <OrderCard
       v-if="adminOrderStore.adminOrder"
-      :order="adminOrderStore.adminOrder"
+      :order="adminOrderStore.adminOrder[0]"
     />
     <OrderManager v-if="adminOrderStore.adminOrder" />
   </div>

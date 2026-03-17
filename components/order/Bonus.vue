@@ -7,25 +7,15 @@
       на вашем бонусном счету.
     </div>
     <span>Бонусами можно оплатить не более {{ PAY_USER_BONUS }}% заказа.</span>
-    <!-- <span
-      >Для этого нужно позвонить или написать нам и сообщить номер вашего
-      заказа.</span
-    > -->
-    <!-- <span>totalCartSum: {{ currencyFormater(cartStore.totalCartSum) }}</span> -->
+
     <div>
       <span class="orderBonus__accent">{{
         currencyFormater(cartStore.userBonusForPay)
       }}</span>
-      <!-- можно списать. -->
+
       {{ cartStore.isUserBonusForPay ? "списано бонусов" : "можно списать" }}
     </div>
-    <!-- <span
-      >userBonusForPay: {{ currencyFormater(cartStore.userBonusForPay) }}</span
-    > -->
-    <!-- <span
-      >totalCartSumMinusUserBonus:
-      {{ currencyFormater(cartStore.totalCartSumMinusUserBonus) }}</span
-    > -->
+
     <button
       :class="[
         'orderBonus__button',

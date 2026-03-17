@@ -15,9 +15,9 @@ export const useUserStore = defineStore("userStore", () => {
       method: "POST",
       body: {
         id: uuidv4(),
-        user_role: "admin",
+        // user_role: "admin",
         // user_role: "manager",
-        // user_role: "client",
+        user_role: "client",
         user_name: formData.user_name,
         user_email: formData.user_email,
         user_password: formData.user_password,

@@ -13,6 +13,7 @@
     <ul class="userList">
       <li v-for="user in users" :key="user.id">
         <UserListCard v-if="user.user_role === 'client'" :user="user" />
+        <ProductListEmpty v-else title="Клиенты не найдены..." place="admin" />
       </li>
     </ul>
   </div>

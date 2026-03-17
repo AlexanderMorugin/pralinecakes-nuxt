@@ -10,7 +10,6 @@
     <div v-if="isOrderContinue" class="cart__orderDetails">
       <FormOrderDelivery v-if="cartStore.deliveryType === 'Доставка'" />
       <CartSamovyvoz v-if="cartStore.deliveryType === 'Самовывоз'" />
-      <!-- <OrderSuccess v-if="orderStore.order" /> -->
     </div>
   </div>
 </template>

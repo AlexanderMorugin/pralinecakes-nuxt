@@ -68,7 +68,8 @@
       <span>{{ currencyFormater(cartStore.totalOrderSum) }}</span>
     </div>
 
-    <OrderBonus v-if="userStore.user" />
+    <OrderBonus v-if="userStore.user && userStore.user.user_bonus" />
+    <OrderBonusNoAuthUser v-if="!userStore.user" :bonus="cartStore.cartBonus" />
   </div>
 </template>
 
@@ -83,11 +84,6 @@ const selectDelivery = ref(DELIVERY_SUM);
 
 const cartStore = useCartStore();
 const userStore = useUserStore();
-
-// const payUserBonus = ref(0);
-
-// console.log(payUserBonus.value);
-// console.log(userStore.user.user_bonus);
 </script>
 
 <style lang="scss" scoped>

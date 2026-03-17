@@ -2,6 +2,16 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: false },
   // ssr: true,
+  vite: {
+    optimizeDeps: {
+      include: [
+        "vue-the-mask", // CJS
+        "uuid",
+        "@vuelidate/core",
+        "@vuelidate/validators",
+      ],
+    },
+  },
   css: [
     "~/assets/styles/global.scss",
     "~/assets/styles/_variables.scss",
@@ -30,16 +40,7 @@ export default defineNuxtConfig({
       scrollBehaviorType: "smooth",
     },
   },
-  vite: {
-    optimizeDeps: {
-      include: [
-        "vue-the-mask", // CJS
-        "uuid",
-        "@vuelidate/core",
-        "@vuelidate/validators",
-      ],
-    },
-  },
+
   // nitro: {
   //   // используем кеширование на стороне сервера
   //   routeRules: {

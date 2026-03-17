@@ -2,29 +2,29 @@
   <div>
     <div class="orderUser">
       <span class="orderUser__key">Заказчик:</span>
-      <span class="orderUser__accent">{{ order[0].user_name }}</span>
+      <span class="orderUser__accent">{{ order.user_name }}</span>
     </div>
     <div class="orderUser">
       <span class="orderUser__key">Телефон:</span>
-      <a :href="`tel:${order[0].user_phone}`" class="orderUser__accent">{{
-        order[0].user_phone
+      <a :href="`tel:${order.user_phone}`" class="orderUser__accent">{{
+        order.user_phone
       }}</a>
     </div>
     <div class="orderUser">
       <span class="orderUser__key">Тип доставки:</span>
-      <span class="orderUser__accent">{{ order[0].delivery_type }}</span>
+      <span class="orderUser__accent">{{ order.delivery_type }}</span>
     </div>
     <div class="orderUser">
       <span class="orderUser__key">Общее количество:</span>
-      <span class="orderUser__accent">{{ order[0].total_cart_count }} шт</span>
+      <span class="orderUser__accent">{{ order.total_cart_count }} шт</span>
     </div>
 
-    <div v-if="order[0].delivery_type === 'Доставка'" class="orderUser">
+    <div v-if="order.delivery_type === 'Доставка'" class="orderUser">
       <span class="orderUser__key">Адрес:</span>
       <span class="orderUser__address"
-        >{{ order[0].user_city }}, ул. {{ order[0].user_street }}, д.
-        {{ order[0].user_building }}, подъезд {{ order[0].user_entrance }}, кв.
-        {{ order[0].user_flat }}, этаж {{ order[0].user_floor }}</span
+        >{{ order.user_city }}, ул. {{ order.user_street }}, д.
+        {{ order.user_building }}, подъезд {{ order.user_entrance }}, кв.
+        {{ order.user_flat }}, этаж {{ order.user_floor }}</span
       >
     </div>
   </div>

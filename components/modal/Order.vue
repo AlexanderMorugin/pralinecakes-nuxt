@@ -15,7 +15,8 @@
       </div>
 
       <UserOrderContent :order="order" />
-      <UserOrderTotal :order="order" />
+      <OrderTotal :order="order" />
+      <!-- <UserOrderTotal :order="order" /> -->
     </div>
   </div>
 </template>

@@ -15,7 +15,7 @@ export const useOrderStore = defineStore("orderStore", () => {
 
   const updateBonus = async () => {
     try {
-      const result = await useFetch("/api/users/update-bonus", {
+      const result = await useFetch("/api/users/client/update-client-bonus", {
         baseURL: process.env.BASE_URL,
         method: "PATCH",
         body: {
@@ -46,11 +46,11 @@ export const useOrderStore = defineStore("orderStore", () => {
 
     if (result.status.value === "success") {
       order.value = result.data.value;
-      localStorage.setItem("order", JSON.stringify(formData));
+      localStorage.setItem("order", JSON.stringify([formData]));
 
-      // if (userStore.user) {
-      //   await updateBonus();
-      // }
+      if (userStore.user) {
+        await updateBonus();
+      }
 
       const response = await useFetch("/api/message/send", {
         baseURL: process.env.BASE_URL,

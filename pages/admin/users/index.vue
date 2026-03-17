@@ -1,9 +1,6 @@
 <template>
   <UserListAdmin
-    v-if="
-      adminUserStore.adminUsers.length &&
-      adminUserStore.adminUsers.length === 'client'
-    "
+    v-if="adminUserStore.adminUsers"
     :users="adminUserStore.adminUsers"
   />
   <ProductListEmpty v-else title="Клиенты не найдены..." place="admin" />

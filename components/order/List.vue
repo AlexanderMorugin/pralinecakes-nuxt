@@ -1,46 +1,50 @@
 <template>
   <ul class="orderList">
     <li
-      v-for="item in order[0].cart_list"
-      :key="item.id"
+      v-for="orderItem in orderList"
+      :key="orderItem.id"
       class="orderList__item"
     >
       <div class="orderList__imageBox">
-        <img :src="item.image" :alt="item.title" class="orderList__image" />
+        <img
+          :src="orderItem.image"
+          :alt="orderItem.title"
+          class="orderList__image"
+        />
       </div>
       <div class="orderList__block">
         <div class="orderList__details">
           <div class="orderList__title">
             <span class="orderList__accent orderList__titleHeight">{{
-              item.title
+              orderItem.title
             }}</span>
             <span class="orderList__noAccent orderList__titleHeight"
-              >{{ item.weight }} гр</span
+              >{{ orderItem.weight }} гр</span
             >
           </div>
 
           <span class="orderList__accent orderList__count"
-            >{{ item.count }} шт</span
+            >{{ orderItem.count }} шт</span
           >
         </div>
 
         <div class="orderList__prices">
           <span class="orderList__noAccent orderList__right">{{
-            item.discount ? `Цена со скидкой` : "Цена без скидки"
+            orderItem.discount ? `Цена со скидкой` : "Цена без скидки"
           }}</span>
           <span class="orderList__noAccent orderList__right">{{
-            item.discount
-              ? `${currencyFormater(item.discount_price)}`
-              : `${currencyFormater(item.price)}`
+            orderItem.discount
+              ? `${currencyFormater(orderItem.discount_price)}`
+              : `${currencyFormater(orderItem.price)}`
           }}</span>
         </div>
 
         <div class="orderList__prices">
           <span class="orderList__noAccent orderList__right">Сумма</span>
           <span class="orderList__price orderList__right">{{
-            item.discount
-              ? `${currencyFormater(item.discount_price * item.count)}`
-              : `${currencyFormater(item.price * item.count)}`
+            orderItem.discount
+              ? `${currencyFormater(orderItem.discount_price * orderItem.count)}`
+              : `${currencyFormater(orderItem.price * orderItem.count)}`
           }}</span>
         </div>
       </div>
@@ -49,7 +53,7 @@
 </template>
 
 <script setup>
-const { order } = defineProps(["order"]);
+const { orderList } = defineProps(["orderList"]);
 </script>
 
 <style lang="scss" scoped>

@@ -1,4 +1,6 @@
-<template>
+<template>Этот компонент удалить</template>
+
+<!-- <template>
   <div class="userOrderTotal">
     <span class="userOrderTotal__key">Всего на сумму:</span>
 
@@ -42,7 +44,6 @@
     }}</span>
 
     <span class="userOrderTotal__key">Начисленный бонус:</span>
-
     <span class="userOrderTotal__key userOrderTotal__right">{{
       currencyFormater(order.user_bonus)
     }}</span>
@@ -111,4 +112,4 @@ const { order } = defineProps(["order"]);
     color: var(--green-primary);
   }
 }
-</style>
+</style> -->

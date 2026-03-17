@@ -3,41 +3,41 @@
     :class="[
       'orderCard',
       {
-        orderCard_new: !order[0].status_accept,
+        orderCard_new: !order.status_accept,
       },
       {
-        orderCard_accept: order[0].status_accept,
+        orderCard_accept: order.status_accept,
       },
       {
-        orderCard_delivery: order[0].status_delivery,
+        orderCard_delivery: order.status_delivery,
       },
       {
-        orderCard_complete: order[0].status_complete,
+        orderCard_complete: order.status_complete,
       },
     ]"
   >
-    {{ order[0].user_id }}
+    {{ order.user_id }}
 
     <div class="orderCard__title">
       Заказ №
-      <span class="orderCard__titleAccent">{{ order[0].order_number }}</span> от
-      {{ order[0].order_date }}
+      <span class="orderCard__titleAccent">{{ order.order_number }}</span> от
+      {{ order.order_date }}
     </div>
     <div class="orderCard__title">
       Статус:
       <span class="orderCard__titleAccent">
         {{
-          order[0].status_accept &&
-          !order[0].status_delivery &&
-          !order[0].status_complete
+          order.status_accept &&
+          !order.status_delivery &&
+          !order.status_complete
             ? "Принят"
-            : order[0].status_accept &&
-                order[0].status_delivery &&
-                !order[0].status_complete
+            : order.status_accept &&
+                order.status_delivery &&
+                !order.status_complete
               ? "Доставляется"
-              : order[0].status_accept &&
-                  order[0].status_delivery &&
-                  order[0].status_complete
+              : order.status_accept &&
+                  order.status_delivery &&
+                  order.status_complete
                 ? "Завершен"
                 : "Новый"
         }}
@@ -45,14 +45,17 @@
     </div>
     <OrderUser :order="order" />
     <div class="line-solid" />
-    <OrderList :order="order" />
+    <OrderList :orderList="order.cart_list" />
     <div class="line-solid" />
-    <UserOrderTotal :order="order[0]" />
+    <OrderTotal :order="order" />
+    <!-- <UserOrderTotal :order="order" /> -->
   </div>
 </template>
 
 <script setup>
 const { order } = defineProps(["order"]);
+
+// console.log(order);
 </script>
 
 <style lang="scss" scoped>

@@ -1,20 +1,24 @@
 <template>
   <div class="orderDetails">
+    <!-- <ClientOnly> -->
     <WrapperText class="orderDetails__title line-dashed"
-      >Заказ № {{ orderStore.order[0].order_number }} от
-      {{ orderStore.order[0].order_date }}</WrapperText
+      >Заказ № {{ order.order_number }} от {{ order.order_date }}</WrapperText
     >
 
-    <OrderUser :order="orderStore.order" />
+    <OrderUser :order="order" />
     <div class="line-solid" />
-    <OrderList :order="orderStore.order" />
+    <OrderList :orderList="order.cart_list" />
     <div class="line-solid" />
-    <OrderTotal :order="orderStore.order" />
+    <OrderTotal :order="order" />
+    <!-- </ClientOnly> -->
   </div>
 </template>
 
 <script setup>
-const orderStore = useOrderStore();
+const { order } = defineProps(["order"]);
+// const orderStore = useOrderStore();
+
+// console.log(order);
 </script>
 
 <style lang="scss" scoped>
