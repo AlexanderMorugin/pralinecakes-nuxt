@@ -2,7 +2,8 @@
   <div class="orderTotal">
     <span class="orderTotal__key">Всего на сумму:</span>
     <span class="orderTotal__key orderTotal__right">{{
-      currencyFormater(order.total_cart_sum)
+      // currencyFormater(order.total_cart_sum)
+      currencyFormater(order.total_order_sum)
     }}</span>
     <span
       class="orderTotal__key"
@@ -45,16 +46,18 @@
       >{{ currencyFormater(order.user_bonus) }}</span
     >
 
-    <div v-if="order.user_comment" class="orderTotal__commentBox">
-      <span class="orderTotal__key">Комментарий:</span>
-      <span class="orderTotal__comment">{{ order.user_comment }}</span>
-    </div>
+    <span v-if="order.user_comment" class="orderTotal__key">Комментарий:</span>
+    <span v-if="order.user_comment" class="orderTotal__comment">{{
+      order.user_comment
+    }}</span>
   </div>
 </template>
 
 <script setup>
 const { order } = defineProps(["order"]);
 const userStore = useUserStore();
+
+console.log(order);
 </script>
 
 <style lang="scss" scoped>
@@ -71,11 +74,8 @@ const userStore = useUserStore();
   }
 
   &__key {
-    // font-family: "Montserrat-Regular", sans-serif;
-    // font-size: 16px;
     line-height: 20px;
     vertical-align: bottom;
-    // opacity: 0.6;
 
     @media (max-width: 767px) {
       font-size: 14px;
@@ -91,15 +91,10 @@ const userStore = useUserStore();
     font-size: 20px;
   }
 
-  &__commentBox {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  &__commentBox {
-    // font-family: "Montserrat-Regular", sans-serif;
+  &__comment {
     font-size: 18px;
     line-height: 28px;
+    word-break: break-all;
 
     @media (max-width: 767px) {
       font-size: 16px;

@@ -3,13 +3,7 @@
     <div class="orderSum__block text-price">
       <span>Сумма</span>
       <div class="line-dashed" />
-      <span>{{
-        currencyFormater(
-          cartStore.isUserBonusForPay
-            ? cartStore.totalCartSumMinusUserBonus
-            : cartStore.totalCartSum,
-        )
-      }}</span>
+      <span>{{ currencyFormater(cartStore.totalCartSum) }}</span>
     </div>
     <span class="orderSum__bonus">
       + {{ currencyFormater(cartStore.cartBonus) }} на ваш бонусный счет
@@ -84,6 +78,8 @@ const selectDelivery = ref(DELIVERY_SUM);
 
 const cartStore = useCartStore();
 const userStore = useUserStore();
+
+// console.log(cartStore.)
 </script>
 
 <style lang="scss" scoped>
@@ -92,7 +88,7 @@ const userStore = useUserStore();
   flex-direction: column;
   gap: 20px;
   padding-top: 20px;
-  padding-bottom: 20px;
+  // padding-bottom: 20px;
 
   &__block {
     display: flex;

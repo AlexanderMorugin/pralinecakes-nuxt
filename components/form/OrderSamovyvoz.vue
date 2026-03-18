@@ -95,9 +95,7 @@ const submitOrder = async () => {
       order_date: date,
       delivery_type: cartStore.deliveryType,
       total_cart_count: cartStore.totalCartCount,
-      total_cart_sum: cartStore.isUserBonusForPay
-        ? cartStore.totalCartSumMinusUserBonus
-        : cartStore.totalCartSum,
+      total_cart_sum: cartStore.totalCartSum,
       cart_samovyvoz_bonus: cartStore.cartSamovyvozBonus,
       total_order_sum: cartStore.totalOrderSum,
       cart_list: cartStore.cart,

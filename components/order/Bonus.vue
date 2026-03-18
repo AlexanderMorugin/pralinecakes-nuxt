@@ -1,19 +1,27 @@
 <template>
-  <div class="orderBonus">
-    <div>
+  <div
+    :class="['orderBonus', { orderBonus_active: cartStore.isUserBonusForPay }]"
+  >
+    <div v-if="!cartStore.isUserBonusForPay">
       <span class="orderBonus__accent">{{
         currencyFormater(userStore.user.user_bonus)
       }}</span>
       на вашем бонусном счету.
     </div>
-    <span>Бонусами можно оплатить не более {{ PAY_USER_BONUS }}% заказа.</span>
+    <span v-if="!cartStore.isUserBonusForPay"
+      >Бонусами можно оплатить не более {{ PAY_USER_BONUS }}% заказа.</span
+    >
 
     <div>
       <span class="orderBonus__accent">{{
         currencyFormater(cartStore.userBonusForPay)
       }}</span>
 
-      {{ cartStore.isUserBonusForPay ? "списано бонусов" : "можно списать" }}
+      {{
+        cartStore.isUserBonusForPay
+          ? "бонусов будут списаны."
+          : "бонусов можно списать..."
+      }}
     </div>
 
     <button
@@ -21,9 +29,9 @@
         'orderBonus__button',
         { orderBonus__button_active: cartStore.isUserBonusForPay },
       ]"
-      @click="useBonus"
+      @click="useBonusForPay"
     >
-      {{ cartStore.isUserBonusForPay ? "отменить" : "списать" }}
+      {{ cartStore.isUserBonusForPay ? "отменить списание" : "списать бонусы" }}
     </button>
   </div>
 </template>
@@ -35,7 +43,7 @@ const userStore = useUserStore();
 const cartStore = useCartStore();
 // await cartStore.setUserBonusForPay();
 
-const useBonus = () => {
+const useBonusForPay = () => {
   cartStore.useUserBonusForPay();
 };
 </script>
@@ -53,6 +61,10 @@ const useBonus = () => {
   padding: 10px;
   margin-top: 20px;
 
+  &_active {
+    background: transparent;
+  }
+
   &__accent {
     font-family: "Montserrat-SemiBold", sans-serif;
   }
@@ -64,9 +76,9 @@ const useBonus = () => {
     background: var(--green-primary);
     border-radius: var(--border-radius-xs);
     font-family: "Roboto-Regular", sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 2px;
-    text-transform: uppercase;
+    // text-transform: uppercase;
     color: var(--black-primary);
     padding: 10px;
 

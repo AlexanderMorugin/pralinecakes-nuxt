@@ -16,7 +16,7 @@
       },
     ]"
   >
-    {{ order.user_id }}
+    <!-- {{ order.user_id }} -->
 
     <div class="orderCard__title">
       Заказ №

@@ -5,6 +5,7 @@ import {
   MIN_ORDER_SUM,
   SAMOVYVOZ_BONUS,
   USER_BONUS,
+  PAY_USER_BONUS_ABLE,
 } from "~/utils/constants/info";
 
 export interface ICart extends IProduct {
@@ -35,8 +36,11 @@ export const cartProduct = (product: ICart) => {
 export const useCartStore = defineStore("cartStore", () => {
   const cart = ref<ICart[]>([]);
   const deliveryCost = ref<number>(DELIVERY_SUM);
-  const samovyvozBonus = ref(0);
+  const samovyvozBonus = ref<number>(0);
   const deliveryType = ref<string>("Доставка");
+  const isUserBonusForPay = ref<boolean>(false);
+
+  const userStore = useUserStore();
 
   const setCart = (cartData: any) => {
     if (cartData) {
@@ -88,6 +92,26 @@ export const useCartStore = defineStore("cartStore", () => {
       cart.value.map((item) => item.count).reduce((a, b) => a + b),
   );
 
+  const useUserBonusForPay = () => {
+    isUserBonusForPay.value = !isUserBonusForPay.value;
+  };
+
+  // const totalCartSum = computed(() => {
+  //   let data = null;
+
+  //   if (cart.value.length) {
+  //     data = cart.value.map((item) =>
+  //       item.discount
+  //         ? item.discount_price * item.count
+  //         : item.price * item.count,
+  //     );
+
+  //     return data.reduce((a, b) => a + b);
+  //   }
+
+  //   return data;
+  // });
+
   const totalCartSum = computed(() => {
     let data = null;
 
@@ -97,11 +121,34 @@ export const useCartStore = defineStore("cartStore", () => {
           ? item.discount_price * item.count
           : item.price * item.count,
       );
+    }
 
+    if (!isUserBonusForPay.value && data) {
       return data.reduce((a, b) => a + b);
     }
 
+    if (isUserBonusForPay.value && data) {
+      return data.reduce((a, b) => a + b) - userBonusForPay.value;
+    }
+
     return data;
+  });
+
+  const userBonusForPay = computed(() => {
+    let payBonus = null;
+
+    if (userStore.user && totalCartSum.value) {
+      payBonus = Math.round(
+        (totalCartSum.value as number) * PAY_USER_BONUS_ABLE,
+      );
+
+      payBonus =
+        payBonus < userStore.user.user_bonus
+          ? payBonus
+          : userStore.user.user_bonus;
+    }
+
+    return payBonus;
   });
 
   const deliverySum = computed(() => {
@@ -109,9 +156,9 @@ export const useCartStore = defineStore("cartStore", () => {
 
     if (totalCartSum.value) {
       data =
-        totalCartSum.value >= MIN_ORDER_SUM
+        (totalCartSum.value as number) >= MIN_ORDER_SUM
           ? 0
-          : totalCartSum.value <= MIN_ORDER_SUM
+          : (totalCartSum.value as number) <= MIN_ORDER_SUM
             ? deliveryCost.value
             : deliveryCost.value;
 
@@ -125,9 +172,9 @@ export const useCartStore = defineStore("cartStore", () => {
     if (totalCartSum.value && cartSamovyvozBonus.value) {
       data =
         samovyvozBonus.value > 0
-          ? totalCartSum.value - cartSamovyvozBonus.value
+          ? (totalCartSum.value as number) - cartSamovyvozBonus.value
           : deliverySum.value
-            ? totalCartSum.value + deliverySum.value
+            ? (totalCartSum.value as number) + deliverySum.value
             : totalCartSum.value;
 
       return data;
@@ -153,7 +200,7 @@ export const useCartStore = defineStore("cartStore", () => {
     let data = null;
 
     if (totalCartSum.value) {
-      data = Math.round(totalCartSum.value * USER_BONUS);
+      data = Math.round((totalCartSum.value as number) * USER_BONUS);
 
       return data;
     }
@@ -163,7 +210,9 @@ export const useCartStore = defineStore("cartStore", () => {
     let data = null;
 
     if (totalCartSum.value) {
-      data = Math.round((totalCartSum.value * SAMOVYVOZ_BONUS) / 100);
+      data = Math.round(
+        ((totalCartSum.value as number) * SAMOVYVOZ_BONUS) / 100,
+      );
 
       return data;
     }
@@ -186,6 +235,7 @@ export const useCartStore = defineStore("cartStore", () => {
     deleteCartItem,
     cleanCart,
     setDeliveryCost,
+    useUserBonusForPay,
     totalCartCount,
     totalCartSum,
     deliverySum,
@@ -194,5 +244,7 @@ export const useCartStore = defineStore("cartStore", () => {
     totalOrderSum,
     cartBonus,
     cartSamovyvozBonus,
+    userBonusForPay,
+    isUserBonusForPay,
   };
 });
