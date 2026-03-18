@@ -3,6 +3,7 @@ import { orders } from "~/server/database/schema";
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
+  // console.log(body);
 
   const order = {
     order_number: body.order_number,
@@ -16,6 +17,7 @@ export default defineEventHandler(async (event) => {
 
     user_id: body.user_id,
     user_bonus: body.user_bonus,
+    user_spend_bonus: body.user_spend_bonus,
     user_name: body.user_name,
     user_phone: body.user_phone,
     user_city: body.user_city ? body.user_city : null,
@@ -28,8 +30,6 @@ export default defineEventHandler(async (event) => {
 
     cart_list: body.cart_list,
   };
-
-  // console.log(order);
 
   const result = await db
     .insert(orders)

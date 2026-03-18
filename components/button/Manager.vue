@@ -74,9 +74,10 @@ const emit = defineEmits(["handleClick", "handleUndo"]);
   background: var(--green-fourthly);
   padding: 10px;
 
-  @media (max-width: 767px) {
-    min-height: 80px;
-  }
+  // @media (max-width: 767px) {
+  //   // min-height: 80px;
+  //   min-height: 40px;
+  // }
 
   &:hover {
     background: var(--green-thirdly);
@@ -84,11 +85,11 @@ const emit = defineEmits(["handleClick", "handleUndo"]);
 
   &_delete {
     background: var(--red-primary);
-    min-height: 60px;
+    // min-height: 60px;
 
-    @media (max-width: 767px) {
-      min-height: 40px;
-    }
+    // @media (max-width: 767px) {
+    //   min-height: 40px;
+    // }
 
     &:hover {
       background: var(--red-secondary);

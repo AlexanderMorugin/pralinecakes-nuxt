@@ -78,8 +78,6 @@ const selectDelivery = ref(DELIVERY_SUM);
 
 const cartStore = useCartStore();
 const userStore = useUserStore();
-
-// console.log(cartStore.)
 </script>
 
 <style lang="scss" scoped>

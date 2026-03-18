@@ -1,10 +1,10 @@
 <template>
   <div class="orderTotal">
-    <span class="orderTotal__key">Всего на сумму:</span>
+    <!-- <span class="orderTotal__key">Всего на сумму:</span>
     <span class="orderTotal__key orderTotal__right">{{
       // currencyFormater(order.total_cart_sum)
       currencyFormater(order.total_order_sum)
-    }}</span>
+    }}</span> -->
     <span
       class="orderTotal__key"
       :class="
@@ -32,6 +32,16 @@
           : currencyFormater(order.cart_samovyvoz_bonus)
       }}</span
     >
+
+    <span v-if="userStore.user" class="orderTotal__key orderTotal__green"
+      >Списаный бонус:</span
+    >
+    <span
+      v-if="userStore.user"
+      class="orderTotal__key orderTotal__right orderTotal__green"
+      >{{ currencyFormater(order.user_spend_bonus) }}</span
+    >
+
     <span class="orderTotal__accent">Итого:</span>
     <span class="orderTotal__accent orderTotal__right">{{
       currencyFormater(order.total_order_sum)
@@ -57,7 +67,7 @@
 const { order } = defineProps(["order"]);
 const userStore = useUserStore();
 
-console.log(order);
+// console.log(order);
 </script>
 
 <style lang="scss" scoped>

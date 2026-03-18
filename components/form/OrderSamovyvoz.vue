@@ -57,6 +57,8 @@ const cartStore = useCartStore();
 const orderStore = useOrderStore();
 const userStore = useUserStore();
 
+console.log(cartStore.userBonusForPay);
+
 const isLoading = ref(false);
 const nameField = ref(null);
 const phoneField = ref(null);
