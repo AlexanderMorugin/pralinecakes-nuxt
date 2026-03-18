@@ -60,13 +60,18 @@ export const useCartStore = defineStore("cartStore", () => {
   };
 
   const incrementCartItem = (productId: Number) => {
+    isUserBonusForPay.value = false;
+
     cart.value = cart.value.map((item) =>
       item.id === productId ? { ...item, count: item.count + 1 } : item,
     );
+
     localStorage.setItem("cart", JSON.stringify(cart.value));
   };
 
   const decrementCartItem = (productId: Number) => {
+    isUserBonusForPay.value = false;
+
     const currentItem = cart.value.find((item) => item.id === productId);
 
     if (currentItem?.count === 1) {

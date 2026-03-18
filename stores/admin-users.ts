@@ -51,7 +51,13 @@ export const useAdminUserStore = defineStore("adminUserStore", () => {
           },
         });
 
+        if (result === null) {
+          adminUser.value = null;
+          // return navigateTo("/auth-page");
+        }
+
         if (result.error.value) {
+          // adminUser.value = null;
           return navigateTo("/auth-page");
         }
 

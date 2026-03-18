@@ -16,7 +16,7 @@
       },
     ]"
   >
-    <!-- {{ order.user_id }} -->
+    {{ order.user_id }}
 
     <div class="orderCard__title">
       Заказ №
@@ -48,14 +48,11 @@
     <OrderList :orderList="order.cart_list" />
     <div class="line-solid" />
     <OrderTotal :order="order" />
-    <!-- <UserOrderTotal :order="order" /> -->
   </div>
 </template>
 
 <script setup>
 const { order } = defineProps(["order"]);
-
-// console.log(order);
 </script>
 
 <style lang="scss" scoped>

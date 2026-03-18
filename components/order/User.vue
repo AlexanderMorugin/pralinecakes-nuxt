@@ -3,6 +3,19 @@
     <div class="orderUser">
       <span class="orderUser__key">Заказчик:</span>
       <span class="orderUser__accent">{{ order.user_name }}</span>
+
+      <span class="orderUser__key">Пользователь:</span>
+      <NuxtLink
+        v-if="adminUserStore.adminUser.result !== null"
+        :to="`/admin/users/${order.user_id}`"
+        class="orderUser__link"
+        >зарегистрирован</NuxtLink
+      >
+      <span
+        v-if="adminUserStore.adminUser.result === null"
+        class="orderUser__key"
+        >Без регистрации</span
+      >
     </div>
     <div class="orderUser">
       <span class="orderUser__key">Телефон:</span>
@@ -32,6 +45,11 @@
 
 <script setup>
 const { order } = defineProps(["order"]);
+
+const adminUserStore = useAdminUserStore();
+await adminUserStore.getAdminUser(order.user_id);
+
+console.log("order-user", adminUserStore.adminUser.result);
 </script>
 
 <style lang="scss" scoped>
@@ -71,6 +89,16 @@ const { order } = defineProps(["order"]);
   &__address {
     line-height: 26px;
     letter-spacing: 1px;
+  }
+
+  &__link {
+    color: var(--white-primary);
+    text-decoration: underline;
+    transition: 0.2s ease;
+
+    &:hover {
+      color: var(--orange-primary);
+    }
   }
 }
 </style>

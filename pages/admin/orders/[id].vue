@@ -5,6 +5,8 @@
       :order="adminOrderStore.adminOrder[0]"
     />
     <OrderManager v-if="adminOrderStore.adminOrder" />
+
+    <!-- <UserOrdersAdmin v-if="adminUserStore.adminUser" place="admin" /> -->
   </div>
 </template>
 
@@ -15,7 +17,9 @@ definePageMeta({
 });
 const route = useRoute();
 const adminOrderStore = useAdminOrderStore();
+// const adminUserStore = useAdminUserStore();
 await adminOrderStore.getAdminOrder(route.params.id);
+// await adminUserStore.getAdminUser(order.user_id);
 </script>
 
 <style lang="scss" scoped>

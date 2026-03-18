@@ -24,7 +24,10 @@ export default defineEventHandler(async (event) => {
     await db.select().from(users).where(eq(users.id, body.id))
   )[0];
 
-  return transformUser(result);
+  // console.log(result);
+  if (result) return transformUser(result);
+
+  if (!result) return { result: null };
 
   // return result;
 });
