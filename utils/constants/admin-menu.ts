@@ -32,8 +32,8 @@ export const adminMenu = [
   },
   {
     id: 7,
-    title: "Инфо",
-    path: "/admin/info",
+    title: "Настройки",
+    path: "/admin/settings",
     status: false,
   },
   {

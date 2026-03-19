@@ -26,8 +26,8 @@
                             ? "Клиенты"
                             : route.path === `/admin/users/${route.params.id}`
                               ? "Детали клиента"
-                              : route.path === "/admin/info"
-                                ? "Информация"
+                              : route.path === "/admin/settings"
+                                ? "Настройки"
                                 : ""
   }}</span>
 </template>

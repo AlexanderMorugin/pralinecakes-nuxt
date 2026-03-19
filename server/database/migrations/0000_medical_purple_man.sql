@@ -125,6 +125,15 @@ CREATE TABLE "pastry" (
 	"updated_at" timestamp DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
+CREATE TABLE "settings" (
+	"settings_id" serial PRIMARY KEY NOT NULL,
+	"min_order_sum" integer DEFAULT 5000,
+	"delivery_sum" integer DEFAULT 3000,
+	"samovyvoz_bonus" integer DEFAULT 20,
+	"created_at" timestamp DEFAULT now() NOT NULL,
+	"updated_at" timestamp DEFAULT now() NOT NULL
+);
+--> statement-breakpoint
 CREATE TABLE "users" (
 	"user_id" text,
 	"user_name" text,

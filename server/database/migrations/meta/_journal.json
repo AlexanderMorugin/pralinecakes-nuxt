@@ -5,22 +5,50 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1773671156362,
-      "tag": "0000_plain_doctor_spectrum",
+      "when": 1773929342867,
+      "tag": "0000_medical_purple_man",
       "breakpoints": true
     },
     {
       "idx": 1,
       "version": "7",
-      "when": 1773916422945,
-      "tag": "0001_flawless_hemingway",
+      "when": 1773929908714,
+      "tag": "0001_clumsy_thunderbolt",
       "breakpoints": true
     },
     {
       "idx": 2,
       "version": "7",
-      "when": 1773916638135,
-      "tag": "0002_zippy_gorgon",
+      "when": 1773929969435,
+      "tag": "0002_square_marvel_apes",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1773930919275,
+      "tag": "0003_whole_nekra",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1773930967065,
+      "tag": "0004_cool_chronomancer",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1773931593078,
+      "tag": "0005_living_hellfire_club",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1773936443991,
+      "tag": "0006_robust_viper",
       "breakpoints": true
     }
   ]

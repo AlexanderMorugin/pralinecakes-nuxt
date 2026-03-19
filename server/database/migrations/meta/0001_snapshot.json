@@ -1,6 +1,6 @@
 {
-  "id": "b05f0604-2ee4-421a-896f-629b75f91fab",
-  "prevId": "f4c98d4d-de47-4d4d-8c5b-0bc3ef19ce75",
+  "id": "02514755-7730-4b18-9e00-196f193d2082",
+  "prevId": "a6998069-19ea-404a-b15e-b20e7ebaeb30",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -326,25 +326,6 @@
           "primaryKey": false,
           "notNull": true,
           "default": "now()"
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.info": {
-      "name": "info",
-      "schema": "",
-      "columns": {
-        "min_order_sum": {
-          "name": "min_order_sum",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
         }
       },
       "indexes": {},
@@ -752,6 +733,60 @@
           "primaryKey": false,
           "notNull": true,
           "default": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.settings": {
+      "name": "settings",
+      "schema": "",
+      "columns": {
+        "settings_id": {
+          "name": "settings_id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "min_order_sum": {
+          "name": "min_order_sum",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 5000
+        },
+        "delivery_sum": {
+          "name": "delivery_sum",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 3000
+        },
+        "samovyvoz_bonus": {
+          "name": "samovyvoz_bonus",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 20
         },
         "created_at": {
           "name": "created_at",

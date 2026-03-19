@@ -1,6 +1,6 @@
 {
-  "id": "a6998069-19ea-404a-b15e-b20e7ebaeb30",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "62a3aa3a-5c06-4c5c-b425-d5331d84b1f2",
+  "prevId": "46c6da24-9295-405f-8f2b-d3bde3df7202",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -733,60 +733,6 @@
           "primaryKey": false,
           "notNull": true,
           "default": true
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamp",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "timestamp",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.settings": {
-      "name": "settings",
-      "schema": "",
-      "columns": {
-        "settings_id": {
-          "name": "settings_id",
-          "type": "serial",
-          "primaryKey": true,
-          "notNull": true
-        },
-        "min_order_sum": {
-          "name": "min_order_sum",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false,
-          "default": 5000
-        },
-        "delivery_sum": {
-          "name": "delivery_sum",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false,
-          "default": 3000
-        },
-        "samovyvoz_bonus": {
-          "name": "samovyvoz_bonus",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false,
-          "default": 20
         },
         "created_at": {
           "name": "created_at",

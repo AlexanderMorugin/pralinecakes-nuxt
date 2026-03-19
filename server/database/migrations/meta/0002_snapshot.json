@@ -1,6 +1,6 @@
 {
-  "id": "565a4c25-e6a9-47bf-83cb-76f9db7b0a42",
-  "prevId": "b05f0604-2ee4-421a-896f-629b75f91fab",
+  "id": "46c6da24-9295-405f-8f2b-d3bde3df7202",
+  "prevId": "02514755-7730-4b18-9e00-196f193d2082",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -326,37 +326,6 @@
           "primaryKey": false,
           "notNull": true,
           "default": "now()"
-        }
-      },
-      "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
-      "policies": {},
-      "checkConstraints": {},
-      "isRLSEnabled": false
-    },
-    "public.info": {
-      "name": "info",
-      "schema": "",
-      "columns": {
-        "min_order_sum": {
-          "name": "min_order_sum",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "delivery_sum": {
-          "name": "delivery_sum",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "samovyvoz_bonus": {
-          "name": "samovyvoz_bonus",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false
         }
       },
       "indexes": {},
@@ -764,6 +733,60 @@
           "primaryKey": false,
           "notNull": true,
           "default": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.settings": {
+      "name": "settings",
+      "schema": "",
+      "columns": {
+        "settings_id": {
+          "name": "settings_id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "min_order_sum": {
+          "name": "min_order_sum",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 5000
+        },
+        "delivery_sum": {
+          "name": "delivery_sum",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 3000
+        },
+        "samovyvoz_bonus": {
+          "name": "samovyvoz_bonus",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "default": 20
         },
         "created_at": {
           "name": "created_at",

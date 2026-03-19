@@ -1,6 +1,6 @@
 {
-  "id": "a6998069-19ea-404a-b15e-b20e7ebaeb30",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "0608fc35-6351-411e-9fcb-e0ace48e15a8",
+  "prevId": "62a3aa3a-5c06-4c5c-b425-d5331d84b1f2",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -766,41 +766,6 @@
           "type": "serial",
           "primaryKey": true,
           "notNull": true
-        },
-        "min_order_sum": {
-          "name": "min_order_sum",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false,
-          "default": 5000
-        },
-        "delivery_sum": {
-          "name": "delivery_sum",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false,
-          "default": 3000
-        },
-        "samovyvoz_bonus": {
-          "name": "samovyvoz_bonus",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": false,
-          "default": 20
-        },
-        "created_at": {
-          "name": "created_at",
-          "type": "timestamp",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
-        },
-        "updated_at": {
-          "name": "updated_at",
-          "type": "timestamp",
-          "primaryKey": false,
-          "notNull": true,
-          "default": "now()"
         }
       },
       "indexes": {},

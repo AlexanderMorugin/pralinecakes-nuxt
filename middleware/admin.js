@@ -120,7 +120,7 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     if (
       result.data.value.user &&
       result.data.value.user.user_role === "client" &&
-      to.path === "/admin/info"
+      to.path === "/admin/settings"
     ) {
       return navigateTo("/");
     }

@@ -13,7 +13,11 @@
       title="Отзывы"
     />
     <ButtonLinkAdminForMain type="users" path="/admin/users" title="Клиенты" />
-    <ButtonLinkAdminForMain type="info" path="/admin/info" title="Инфо" />
+    <ButtonLinkAdminForMain
+      type="info"
+      path="/admin/settings"
+      title="Настройки"
+    />
   </div>
 </template>
 

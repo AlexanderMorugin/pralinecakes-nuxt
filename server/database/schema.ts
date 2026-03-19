@@ -177,8 +177,13 @@ export const users = pgTable("users", {
   updatedAt: timestamp("updated_at", { mode: "string" }).notNull().defaultNow(),
 });
 
-export const info = pgTable("info", {
+export const settings = pgTable("settings", {
+  id: integer("id"),
+
   min_order_sum: integer("min_order_sum"),
   delivery_sum: integer("delivery_sum"),
   samovyvoz_bonus: integer("samovyvoz_bonus"),
+
+  //   createdAt: timestamp("created_at", { mode: "string" }).notNull().defaultNow(),
+  //   updatedAt: timestamp("updated_at", { mode: "string" }).notNull().defaultNow(),
 });
