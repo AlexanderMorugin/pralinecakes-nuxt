@@ -1,5 +1,20 @@
 <template>
-  <div>PAGE CONTENT</div>
+  <div class="admin-product-add page-padding-x">
+    <ButtonLinkAdminForMain type="orders" path="/admin/orders" title="Заказы" />
+    <ButtonLinkAdminForMain type="cakes" path="/admin/cakes" title="Торты" />
+    <ButtonLinkAdminForMain
+      type="pastry"
+      path="/admin/pastry"
+      title="Пирожные"
+    />
+    <ButtonLinkAdminForMain
+      type="comments"
+      path="/admin/comments"
+      title="Отзывы"
+    />
+    <ButtonLinkAdminForMain type="users" path="/admin/users" title="Клиенты" />
+    <ButtonLinkAdminForMain type="info" path="/admin/info" title="Инфо" />
+  </div>
 </template>
 
 <script setup>
@@ -7,10 +22,16 @@ definePageMeta({
   middleware: ["admin"],
   layout: "admin",
 });
-
-// const cakesStore = useCakesStore();
-// await cakesStore.loadAdminCakes();
-
-// const commentsStore = useCommentsStore();
-// await commentsStore.loadComments();
 </script>
+
+<style lang="scss" scoped>
+.admin-product-add {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media (max-width: 767px) {
+    gap: 10px;
+  }
+}
+</style>

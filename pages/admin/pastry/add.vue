@@ -11,3 +11,11 @@ definePageMeta({
   layout: "admin",
 });
 </script>
+
+<style lang="scss" scoped>
+.admin-product-add {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+</style>
