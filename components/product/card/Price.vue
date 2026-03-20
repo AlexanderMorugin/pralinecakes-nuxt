@@ -23,10 +23,12 @@
         currencyFormater(
           product.discount
             ? (product.price - (product.price * product.discount) / 100) *
-                USER_BONUS
-            : // (clientSettingStore.clientSettings[0].cart_product_bonus / 100)
-              product.price * USER_BONUS,
-          // (clientSettingStore.clientSettings[0].cart_product_bonus / 100),
+                (clientSettingStore.clientSettings[0].cart_product_bonus / 100)
+            : // USER_BONUS
+              // (clientSettingStore.clientSettings[0].cart_product_bonus / 100)
+              product.price *
+                // USER_BONUS,
+                (clientSettingStore.clientSettings[0].cart_product_bonus / 100),
         )
       }}
       на ваш бонусный счет
@@ -35,10 +37,10 @@
 </template>
 
 <script setup>
-import { USER_BONUS } from "~/utils/constants/info";
+// import { USER_BONUS } from "~/utils/constants/info";
 const { product } = defineProps(["product"]);
 
-// const clientSettingStore = useClientSettingStore();
+const clientSettingStore = useClientSettingStore();
 // await clientSettingStore.loadClientSettings();
 </script>
 

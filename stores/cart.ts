@@ -3,8 +3,8 @@ import type { IProduct } from "~/types/product";
 import {
   DELIVERY_SUM,
   MIN_ORDER_SUM,
-  SAMOVYVOZ_BONUS,
-  USER_BONUS,
+  // SAMOVYVOZ_BONUS,
+  // USER_BONUS,
   PAY_USER_BONUS_ABLE,
 } from "~/utils/constants/info";
 
@@ -41,7 +41,7 @@ export const useCartStore = defineStore("cartStore", () => {
   const isUserBonusForPay = ref<boolean>(false);
 
   const userStore = useUserStore();
-  // const clientSettingStore = useClientSettingStore();
+  const clientSettingStore = useClientSettingStore();
 
   const setCart = (cartData: any) => {
     if (cartData) {
@@ -127,6 +127,10 @@ export const useCartStore = defineStore("cartStore", () => {
   const userBonusForPay = computed(() => {
     let payBonus = null;
 
+    // if (!isUserBonusForPay.value) {
+    //   payBonus = 0;
+    // }
+
     if (userStore.user && totalCartSum.value) {
       payBonus = Math.round(
         (totalCartSum.value as number) * PAY_USER_BONUS_ABLE,
@@ -191,8 +195,9 @@ export const useCartStore = defineStore("cartStore", () => {
 
     if (totalCartSum.value) {
       data = Math.round(
-        (totalCartSum.value as number) * USER_BONUS,
-        // (clientSettingStore.clientSettings[0].cart_product_bonus / 100),
+        (totalCartSum.value as number) *
+          // USER_BONUS,
+          (clientSettingStore.clientSettings[0].cart_product_bonus / 100),
       );
 
       return data;
@@ -204,7 +209,10 @@ export const useCartStore = defineStore("cartStore", () => {
 
     if (totalCartSum.value) {
       data = Math.round(
-        ((totalCartSum.value as number) * SAMOVYVOZ_BONUS) / 100,
+        // ((totalCartSum.value as number) * SAMOVYVOZ_BONUS) / 100,
+        ((totalCartSum.value as number) *
+          clientSettingStore.clientSettings[0].samovyvoz_bonus) /
+          100,
       );
 
       return data;
@@ -216,6 +224,7 @@ export const useCartStore = defineStore("cartStore", () => {
     deliveryCost.value = DELIVERY_SUM;
     samovyvozBonus.value = 0;
     deliveryType.value = "Доставка";
+    isUserBonusForPay.value = false;
     localStorage.setItem("cart", JSON.stringify(cart.value));
   };
 

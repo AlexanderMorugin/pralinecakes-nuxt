@@ -48,7 +48,7 @@ const { order, adminUser, place } = defineProps([
   "place",
 ]);
 
-console.log(adminUser);
+// console.log(adminUser);
 </script>
 
 <style lang="scss" scoped>

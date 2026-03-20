@@ -53,7 +53,9 @@
       </div>
     </div>
     <div class="orderSum__bonus">
-      + {{ SAMOVYVOZ_BONUS }}% дополнительная скидка
+      <!-- + {{ SAMOVYVOZ_BONUS }}% дополнительная скидка -->
+      + {{ clientSettingStore.clientSettings[0].samovyvoz_bonus }}%
+      дополнительная скидка
     </div>
 
     <div class="orderSum__block orderSum__total text-total-price">
@@ -71,13 +73,14 @@
 import {
   MIN_ORDER_SUM,
   DELIVERY_SUM,
-  SAMOVYVOZ_BONUS,
+  // SAMOVYVOZ_BONUS,
 } from "~/utils/constants/info";
 
 const selectDelivery = ref(DELIVERY_SUM);
 
 const cartStore = useCartStore();
 const userStore = useUserStore();
+const clientSettingStore = useClientSettingStore();
 </script>
 
 <style lang="scss" scoped>

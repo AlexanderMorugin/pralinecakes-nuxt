@@ -12,10 +12,10 @@
   </div>
 </template>
 
-<!-- <script setup>
+<script setup>
 const clientSettingStore = useClientSettingStore();
 await clientSettingStore.loadClientSettings();
-</script> -->
+</script>
 
 <style lang="scss" scoped>
 .mainLayout {

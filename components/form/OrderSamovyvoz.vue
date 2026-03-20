@@ -57,6 +57,8 @@ const cartStore = useCartStore();
 const orderStore = useOrderStore();
 const userStore = useUserStore();
 
+console.log("FORM SAMOVYVOZ", cartStore.userBonusForPay);
+
 const isLoading = ref(false);
 const nameField = ref(null);
 const phoneField = ref(null);
@@ -104,7 +106,9 @@ const submitOrder = async () => {
       user_name: nameField.value.trim(),
       user_phone: phoneField.value.trim(),
       user_comment: commentField.value?.trim(),
-      user_spend_bonus: cartStore.userBonusForPay,
+      user_spend_bonus: cartStore.isUserBonusForPay
+        ? cartStore.userBonusForPay
+        : 0,
     };
 
     const result = await orderStore.createOrder(formData);

@@ -39,7 +39,7 @@
         :isFormEdit="isFormEdit"
       />
       <FormInputAdmin
-        label="Бонус за самовывоз (%)"
+        label="Скидка за самовывоз (%)"
         type="number"
         name="samovyvozBonusField"
         placeholder="Только процент"

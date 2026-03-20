@@ -31,7 +31,9 @@
       ]"
       @click="useBonusForPay"
     >
-      {{ cartStore.isUserBonusForPay ? "отменить списание" : "списать бонусы" }}
+      {{
+        cartStore.isUserBonusForPay ? "отменить списание" : "списать бонусы?"
+      }}
     </button>
   </div>
 </template>
@@ -42,6 +44,8 @@ import { PAY_USER_BONUS } from "~/utils/constants/info";
 const userStore = useUserStore();
 const cartStore = useCartStore();
 // await cartStore.setUserBonusForPay();
+
+// console.log(cartStore.userBonusForPay);
 
 const useBonusForPay = () => {
   cartStore.useUserBonusForPay();

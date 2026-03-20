@@ -227,7 +227,9 @@ const submitOrder = async () => {
       user_flat: flatField.value?.trim(),
       user_floor: floorField.value?.trim(),
       user_comment: commentField.value?.trim(),
-      user_spend_bonus: cartStore.userBonusForPay,
+      user_spend_bonus: cartStore.isUserBonusForPay
+        ? cartStore.userBonusForPay
+        : 0,
     };
 
     const result = await orderStore.createOrder(formData);
