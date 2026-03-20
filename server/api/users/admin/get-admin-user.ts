@@ -27,7 +27,8 @@ export default defineEventHandler(async (event) => {
   // console.log(result);
   if (result) return transformUser(result);
 
-  if (!result) return { result: null };
+  if (!result) return null;
+  // if (!result) return transformUser(null);
 
   // return result;
 });

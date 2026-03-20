@@ -41,6 +41,8 @@ export const useAdminUserStore = defineStore("adminUserStore", () => {
   };
 
   const getAdminUser = async (clientUserId: number) => {
+    // console.log(clientUserId);
+
     if (userStore.user && userStore.user.user_role !== "client") {
       try {
         const result = await useFetch("/api/users/admin/get-admin-user", {

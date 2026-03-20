@@ -41,6 +41,7 @@ export const useCartStore = defineStore("cartStore", () => {
   const isUserBonusForPay = ref<boolean>(false);
 
   const userStore = useUserStore();
+  // const clientSettingStore = useClientSettingStore();
 
   const setCart = (cartData: any) => {
     if (cartData) {
@@ -100,22 +101,6 @@ export const useCartStore = defineStore("cartStore", () => {
   const useUserBonusForPay = () => {
     isUserBonusForPay.value = !isUserBonusForPay.value;
   };
-
-  // const totalCartSum = computed(() => {
-  //   let data = null;
-
-  //   if (cart.value.length) {
-  //     data = cart.value.map((item) =>
-  //       item.discount
-  //         ? item.discount_price * item.count
-  //         : item.price * item.count,
-  //     );
-
-  //     return data.reduce((a, b) => a + b);
-  //   }
-
-  //   return data;
-  // });
 
   const totalCartSum = computed(() => {
     let data = null;
@@ -205,7 +190,10 @@ export const useCartStore = defineStore("cartStore", () => {
     let data = null;
 
     if (totalCartSum.value) {
-      data = Math.round((totalCartSum.value as number) * USER_BONUS);
+      data = Math.round(
+        (totalCartSum.value as number) * USER_BONUS,
+        // (clientSettingStore.clientSettings[0].cart_product_bonus / 100),
+      );
 
       return data;
     }

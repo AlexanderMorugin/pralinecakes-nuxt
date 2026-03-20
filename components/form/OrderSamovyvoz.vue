@@ -57,8 +57,6 @@ const cartStore = useCartStore();
 const orderStore = useOrderStore();
 const userStore = useUserStore();
 
-console.log(cartStore.userBonusForPay);
-
 const isLoading = ref(false);
 const nameField = ref(null);
 const phoneField = ref(null);
@@ -108,8 +106,6 @@ const submitOrder = async () => {
       user_comment: commentField.value?.trim(),
       user_spend_bonus: cartStore.userBonusForPay,
     };
-
-    // console.log(formData);
 
     const result = await orderStore.createOrder(formData);
 

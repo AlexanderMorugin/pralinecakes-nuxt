@@ -4,16 +4,14 @@
       <span class="orderUser__key">Заказчик:</span>
       <span class="orderUser__accent">{{ order.user_name }}</span>
 
-      <span class="orderUser__key">Пользователь:</span>
+      <span v-if="place === 'admin'" class="orderUser__key">Пользователь:</span>
       <NuxtLink
-        v-if="adminUserStore.adminUser.result !== null"
+        v-if="adminUser && place === 'admin'"
         :to="`/admin/users/${order.user_id}`"
         class="orderUser__link"
         >зарегистрирован</NuxtLink
       >
-      <span
-        v-if="adminUserStore.adminUser.result === null"
-        class="orderUser__key"
+      <span v-if="!adminUser && place === 'admin'" class="orderUser__key"
         >Без регистрации</span
       >
     </div>
@@ -44,12 +42,13 @@
 </template>
 
 <script setup>
-const { order } = defineProps(["order"]);
+const { order, adminUser, place } = defineProps([
+  "order",
+  "adminUser",
+  "place",
+]);
 
-const adminUserStore = useAdminUserStore();
-await adminUserStore.getAdminUser(order.user_id);
-
-console.log("order-user", adminUserStore.adminUser.result);
+console.log(adminUser);
 </script>
 
 <style lang="scss" scoped>

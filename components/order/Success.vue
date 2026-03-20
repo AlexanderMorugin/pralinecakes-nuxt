@@ -21,8 +21,6 @@
 <script setup>
 const orderStore = useOrderStore();
 
-// console.log(orderStore.order[0]);
-
 const closeOrderSuccess = () => {
   orderStore.cleanOrder();
   return navigateTo("/");

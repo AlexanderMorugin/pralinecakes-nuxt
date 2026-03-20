@@ -24,6 +24,7 @@ export default defineEventHandler(async (event) => {
     min_order_sum: body.min_order_sum,
     delivery_sum: body.delivery_sum,
     samovyvoz_bonus: body.samovyvoz_bonus,
+    cart_product_bonus: body.cart_product_bonus,
   };
 
   const result = await db.insert(settings).values({ ...newSettings });

@@ -33,6 +33,9 @@ await clientCakeStore.loadClientCakes();
 const clientCommentStore = useClientCommentStore();
 await clientCommentStore.loadClientComments();
 
+// const clientSettingStore = useClientSettingStore();
+// await clientSettingStore.loadClientSettings();
+
 useHead({
   link: [{ rel: "canonical", href: `${SITE}${route.path}` }],
 });

@@ -24,7 +24,9 @@
           product.discount
             ? (product.price - (product.price * product.discount) / 100) *
                 USER_BONUS
-            : product.price * USER_BONUS,
+            : // (clientSettingStore.clientSettings[0].cart_product_bonus / 100)
+              product.price * USER_BONUS,
+          // (clientSettingStore.clientSettings[0].cart_product_bonus / 100),
         )
       }}
       на ваш бонусный счет
@@ -35,6 +37,9 @@
 <script setup>
 import { USER_BONUS } from "~/utils/constants/info";
 const { product } = defineProps(["product"]);
+
+// const clientSettingStore = useClientSettingStore();
+// await clientSettingStore.loadClientSettings();
 </script>
 
 <style lang="scss" scoped>

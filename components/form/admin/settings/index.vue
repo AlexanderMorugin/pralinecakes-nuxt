@@ -1,6 +1,6 @@
 <template>
   <form
-    @submit.prevent="updateSettings"
+    @submit.prevent="updateAdminSettings"
     class="admin-form-flex"
     :class="isFormOpen ? 'admin-form-flex_open' : ''"
   >
@@ -46,6 +46,14 @@
         v-model:value="samovyvozBonusField"
         :isFormEdit="isFormEdit"
       />
+      <FormInputAdmin
+        label="Бонус за товары в корзине (%)"
+        type="number"
+        name="cartProductsBonusField"
+        placeholder="Только процент"
+        v-model:value="cartProductsBonusField"
+        :isFormEdit="isFormEdit"
+      />
     </div>
 
     <FormSubmitAdmin
@@ -59,61 +67,45 @@
 
 <script setup>
 const toast = useToast();
-const settingStore = useSettingStore();
-await settingStore.loadSettings();
-
-console.log(settingStore.settings.length ? settingStore.settings : "null");
+const adminSettingStore = useAdminSettingStore();
 
 const isFormOpen = ref(true);
 const isFormEdit = ref(false);
 const isLoading = ref(false);
 const minOrderSumField = ref(
-  settingStore.settings.length ? settingStore.settings[0].min_order_sum : null,
+  adminSettingStore.adminSettings.length
+    ? adminSettingStore.adminSettings[0].min_order_sum
+    : null,
 );
 const minDeliverySumField = ref(
-  settingStore.settings.length ? settingStore.settings[0].delivery_sum : null,
+  adminSettingStore.adminSettings.length
+    ? adminSettingStore.adminSettings[0].delivery_sum
+    : null,
 );
 const samovyvozBonusField = ref(
-  settingStore.settings.length
-    ? settingStore.settings[0].samovyvoz_bonus
+  adminSettingStore.adminSettings.length
+    ? adminSettingStore.adminSettings[0].samovyvoz_bonus
     : null,
 );
 
-const updateSettings = async () => {
+const cartProductsBonusField = ref(
+  adminSettingStore.adminSettings.length
+    ? adminSettingStore.adminSettings[0].cart_product_bonus
+    : null,
+);
+
+const updateAdminSettings = async () => {
   try {
     isLoading.value = true;
 
     const formData = {
-      // id: 1,
       min_order_sum: minOrderSumField.value,
       delivery_sum: minDeliverySumField.value,
       samovyvoz_bonus: samovyvozBonusField.value,
+      cart_product_bonus: cartProductsBonusField.value,
     };
 
-    // if (!settingStore.settings.length) {
-    //   const result = await settingStore.createAdminSettings(formData);
-
-    //   if (result.status.value === "error") {
-    //     toast.error({
-    //       title: "Ошибка!",
-    //       message: "Настройки сделать не удалось.",
-    //     });
-    //   }
-
-    //   if (result.status.value === "success") {
-    //     toast.success({
-    //       title: "Успешно!",
-    //       message: "Настройки сделаны.",
-    //     });
-
-    //     isFormEdit.value = false;
-    //   }
-    // } else {
-
-    // для первого создания сеттингов
-    // const result = await settingStore.createAdminSettings(formData);
-
-    const result = await settingStore.updateAdminSettings(formData);
+    const result = await adminSettingStore.updateAdminSettings(formData);
 
     if (result.status.value === "error") {
       toast.error({
@@ -130,7 +122,6 @@ const updateSettings = async () => {
 
       isFormEdit.value = false;
     }
-    // }
   } catch (error) {
     console.log(error);
   } finally {

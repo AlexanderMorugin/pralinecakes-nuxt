@@ -1,0 +1,1 @@
+ALTER TABLE "settings" RENAME COLUMN "user_bonus" TO "user_bonus_for_cart_products";

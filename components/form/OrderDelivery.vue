@@ -204,8 +204,6 @@ const isFromEmpty = computed(
 const isValid = computed(() => v$.value.$errors);
 
 const submitOrder = async () => {
-  // let today = new Date();
-
   try {
     isLoading.value = true;
 

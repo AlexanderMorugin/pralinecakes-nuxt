@@ -43,7 +43,11 @@
         }}
       </span>
     </div>
-    <OrderUser :order="order" />
+    <OrderUser
+      :order="order"
+      :adminUser="adminUserStore.adminUser"
+      place="admin"
+    />
     <div class="line-solid" />
     <OrderList :orderList="order.cart_list" />
     <div class="line-solid" />
@@ -53,6 +57,12 @@
 
 <script setup>
 const { order } = defineProps(["order"]);
+
+const adminUserStore = useAdminUserStore();
+await adminUserStore.getAdminUser(order.user_id);
+
+// console.log("order.user_id", order.user_id);
+// console.log("order-user", adminUserStore.adminUser);
 </script>
 
 <style lang="scss" scoped>

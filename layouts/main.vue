@@ -12,6 +12,11 @@
   </div>
 </template>
 
+<!-- <script setup>
+const clientSettingStore = useClientSettingStore();
+await clientSettingStore.loadClientSettings();
+</script> -->
+
 <style lang="scss" scoped>
 .mainLayout {
   position: relative;
