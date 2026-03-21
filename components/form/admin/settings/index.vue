@@ -31,11 +31,11 @@
         :isFormEdit="isFormEdit"
       />
       <FormInputAdmin
-        label="Мин сумма доставки (₽)"
+        label="Стоимость доставки (₽)"
         type="number"
-        name="minDeliverySumField"
+        name="deliveryCostField"
         placeholder="Только цифры"
-        v-model:value="minDeliverySumField"
+        v-model:value="deliveryCostField"
         :isFormEdit="isFormEdit"
       />
       <FormInputAdmin
@@ -77,7 +77,7 @@ const minOrderSumField = ref(
     ? adminSettingStore.adminSettings[0].min_order_sum
     : null,
 );
-const minDeliverySumField = ref(
+const deliveryCostField = ref(
   adminSettingStore.adminSettings.length
     ? adminSettingStore.adminSettings[0].delivery_sum
     : null,
@@ -100,7 +100,7 @@ const updateAdminSettings = async () => {
 
     const formData = {
       min_order_sum: minOrderSumField.value,
-      delivery_sum: minDeliverySumField.value,
+      delivery_sum: deliveryCostField.value,
       samovyvoz_bonus: samovyvozBonusField.value,
       cart_product_bonus: cartProductsBonusField.value,
     };

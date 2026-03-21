@@ -57,7 +57,7 @@ const cartStore = useCartStore();
 const orderStore = useOrderStore();
 const userStore = useUserStore();
 
-console.log("FORM SAMOVYVOZ", cartStore.userBonusForPay);
+// console.log("FORM SAMOVYVOZ", cartStore.userBonusForPay);
 
 const isLoading = ref(false);
 const nameField = ref(null);

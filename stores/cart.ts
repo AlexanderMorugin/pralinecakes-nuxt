@@ -1,8 +1,8 @@
 import { defineStore } from "pinia";
 import type { IProduct } from "~/types/product";
 import {
-  DELIVERY_SUM,
-  MIN_ORDER_SUM,
+  // DELIVERY_SUM,
+  // MIN_ORDER_SUM,
   // SAMOVYVOZ_BONUS,
   // USER_BONUS,
   PAY_USER_BONUS_ABLE,
@@ -35,13 +35,23 @@ export const cartProduct = (product: ICart) => {
 
 export const useCartStore = defineStore("cartStore", () => {
   const cart = ref<ICart[]>([]);
-  const deliveryCost = ref<number>(DELIVERY_SUM);
+  // const deliveryCost = ref<number>(DELIVERY_SUM);
   const samovyvozBonus = ref<number>(0);
   const deliveryType = ref<string>("Доставка");
   const isUserBonusForPay = ref<boolean>(false);
 
   const userStore = useUserStore();
   const clientSettingStore = useClientSettingStore();
+  // clientSettingStore.loadClientSettings();
+
+  // console.log(clientSettingStore.clientSettings[0].min_order_sum);
+
+  // const deliveryCost = ref(
+  //   clientSettingStore.clientSettings[0].delivery_sum | 0,
+  // );
+  const deliveryCost = ref<number>(0);
+
+  // console.log(clientSettingStore.clientSettings[0].delivery_sum);
 
   const setCart = (cartData: any) => {
     if (cartData) {
@@ -146,15 +156,23 @@ export const useCartStore = defineStore("cartStore", () => {
   });
 
   const deliverySum = computed(() => {
-    let data = 0;
+    // let data = 0;
+    let data = clientSettingStore.clientSettings[0].delivery_sum;
+
+    // console.log(data);
 
     if (totalCartSum.value) {
       data =
-        (totalCartSum.value as number) >= MIN_ORDER_SUM
+        // (totalCartSum.value as number) >= MIN_ORDER_SUM
+        totalCartSum.value >= clientSettingStore.clientSettings[0].min_order_sum
           ? 0
-          : (totalCartSum.value as number) <= MIN_ORDER_SUM
-            ? deliveryCost.value
-            : deliveryCost.value;
+          : // : (totalCartSum.value as number) <= MIN_ORDER_SUM
+            totalCartSum.value <=
+              clientSettingStore.clientSettings[0].min_order_sum
+            ? // ? deliveryCost.value
+              // : deliveryCost.value;
+              clientSettingStore.clientSettings[0].delivery_sum
+            : clientSettingStore.clientSettings[0].delivery_sum;
 
       return data;
     }
@@ -176,10 +194,12 @@ export const useCartStore = defineStore("cartStore", () => {
   });
 
   const setDeliveryCost = (data: number) => {
-    deliveryCost.value = data;
+    // console.log(data);
+    // deliveryCost.value = data;
 
     if (data === 1) {
-      deliveryCost.value = DELIVERY_SUM;
+      // deliveryCost.value = DELIVERY_SUM;
+      deliveryCost.value = clientSettingStore.clientSettings[0].delivery_sum;
       samovyvozBonus.value = 0;
       deliveryType.value = "Доставка";
     }
@@ -221,7 +241,8 @@ export const useCartStore = defineStore("cartStore", () => {
 
   const cleanCart = () => {
     cart.value = [];
-    deliveryCost.value = DELIVERY_SUM;
+    // deliveryCost.value = DELIVERY_SUM;
+    deliveryCost.value = clientSettingStore.clientSettings[0].delivery_sum;
     samovyvozBonus.value = 0;
     deliveryType.value = "Доставка";
     isUserBonusForPay.value = false;

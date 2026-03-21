@@ -1,5 +1,8 @@
 <template>
   <div class="orderSum">
+    <OrderBonus v-if="userStore.user && userStore.user.user_bonus" />
+    <OrderBonusNoAuthUser v-if="!userStore.user" :bonus="cartStore.cartBonus" />
+
     <div class="orderSum__block text-price">
       <span>Сумма</span>
       <div class="line-dashed" />
@@ -32,7 +35,10 @@
         </div>
         <div class="orderSum__comment">
           Бесплатная доставка от
-          {{ currencyFormater(MIN_ORDER_SUM) }}
+          <!-- {{ currencyFormater(MIN_ORDER_SUM) }} -->
+          {{
+            currencyFormater(clientSettingStore.clientSettings[0].min_order_sum)
+          }}
         </div>
 
         <div class="orderSum__block orderSum__block_second text-price">
@@ -54,8 +60,8 @@
     </div>
     <div class="orderSum__bonus">
       <!-- + {{ SAMOVYVOZ_BONUS }}% дополнительная скидка -->
-      + {{ clientSettingStore.clientSettings[0].samovyvoz_bonus }}%
-      дополнительная скидка
+      {{ clientSettingStore.clientSettings[0].samovyvoz_bonus }}% скидка за
+      самовывоз
     </div>
 
     <div class="orderSum__block orderSum__total text-total-price">
@@ -63,24 +69,26 @@
       <div class="line-dashed" />
       <span>{{ currencyFormater(cartStore.totalOrderSum) }}</span>
     </div>
-
-    <OrderBonus v-if="userStore.user && userStore.user.user_bonus" />
-    <OrderBonusNoAuthUser v-if="!userStore.user" :bonus="cartStore.cartBonus" />
   </div>
 </template>
 
 <script setup>
-import {
-  MIN_ORDER_SUM,
-  DELIVERY_SUM,
-  // SAMOVYVOZ_BONUS,
-} from "~/utils/constants/info";
-
-const selectDelivery = ref(DELIVERY_SUM);
+// import {
+//   // MIN_ORDER_SUM,
+//   // DELIVERY_SUM,
+//   // SAMOVYVOZ_BONUS,
+// } from "~/utils/constants/info";
 
 const cartStore = useCartStore();
 const userStore = useUserStore();
 const clientSettingStore = useClientSettingStore();
+
+const selectDelivery = ref(clientSettingStore.clientSettings[0].delivery_sum);
+
+// const chooseDelivery = () {
+//   const choiceNumber = 1,
+
+// }
 </script>
 
 <style lang="scss" scoped>
@@ -88,7 +96,7 @@ const clientSettingStore = useClientSettingStore();
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-top: 20px;
+  // padding-top: 20px;
   // padding-bottom: 20px;
 
   &__block {

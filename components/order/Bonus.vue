@@ -63,7 +63,7 @@ const useBonusForPay = () => {
   // font-family: "Montserrat-Regular", sans-serif;
   line-height: 22px;
   padding: 10px;
-  margin-top: 20px;
+  margin-bottom: 20px;
 
   &_active {
     background: transparent;
