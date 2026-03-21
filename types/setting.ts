@@ -5,4 +5,5 @@ export interface ISetting {
   delivery_sum?: number;
   samovyvoz_bonus?: number;
   cart_product_bonus?: number;
+  pay_user_bonus?: number;
 }

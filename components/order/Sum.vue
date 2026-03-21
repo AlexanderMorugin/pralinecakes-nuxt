@@ -1,6 +1,9 @@
 <template>
   <div class="orderSum">
-    <OrderBonus v-if="userStore.user && userStore.user.user_bonus" />
+    <OrderBonus
+      v-if="userStore.user && userStore.user.user_bonus"
+      :payUserBonus="clientSettingStore.clientSettings[0].pay_user_bonus"
+    />
     <OrderBonusNoAuthUser v-if="!userStore.user" :bonus="cartStore.cartBonus" />
 
     <div class="orderSum__block text-price">
@@ -31,7 +34,7 @@
             <label for="Курьер">Курьер</label>
           </div>
           <div class="line-dashed" />
-          <span>{{ currencyFormater(cartStore.deliverySum) }}</span>
+          <span>+{{ currencyFormater(cartStore.deliverySum) }}</span>
         </div>
         <div class="orderSum__comment">
           Бесплатная доставка от

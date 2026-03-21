@@ -46,6 +46,7 @@ export const useAdminSettingStore = defineStore("adminSettingStore", () => {
   //           delivery_sum: formData.delivery_sum,
   //           samovyvoz_bonus: formData.samovyvoz_bonus,
   // cart_product_bonus: formData.cart_product_bonus,
+  // pay_user_bonus: formData.pay_user_bonus,
   //         },
   //       });
 
@@ -82,6 +83,7 @@ export const useAdminSettingStore = defineStore("adminSettingStore", () => {
               delivery_sum: formData.delivery_sum,
               samovyvoz_bonus: formData.samovyvoz_bonus,
               cart_product_bonus: formData.cart_product_bonus,
+              pay_user_bonus: formData.pay_user_bonus,
             },
           },
         );

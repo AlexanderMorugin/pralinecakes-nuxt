@@ -54,6 +54,14 @@
         v-model:value="cartProductsBonusField"
         :isFormEdit="isFormEdit"
       />
+      <FormInputAdmin
+        label="Бонус пользователя доступный к списанию (%)"
+        type="number"
+        name="payUserBonus"
+        placeholder="Только процент"
+        v-model:value="payUserBonus"
+        :isFormEdit="isFormEdit"
+      />
     </div>
 
     <FormSubmitAdmin
@@ -94,6 +102,12 @@ const cartProductsBonusField = ref(
     : null,
 );
 
+const payUserBonus = ref(
+  adminSettingStore.adminSettings.length
+    ? adminSettingStore.adminSettings[0].pay_user_bonus
+    : null,
+);
+
 const updateAdminSettings = async () => {
   try {
     isLoading.value = true;
@@ -103,6 +117,7 @@ const updateAdminSettings = async () => {
       delivery_sum: deliveryCostField.value,
       samovyvoz_bonus: samovyvozBonusField.value,
       cart_product_bonus: cartProductsBonusField.value,
+      pay_user_bonus: payUserBonus.value,
     };
 
     const result = await adminSettingStore.updateAdminSettings(formData);

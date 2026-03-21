@@ -184,4 +184,5 @@ export const settings = pgTable("settings", {
   delivery_sum: integer("delivery_sum"),
   samovyvoz_bonus: integer("samovyvoz_bonus"),
   cart_product_bonus: integer("cart_product_bonus"),
+  pay_user_bonus: integer("pay_user_bonus"),
 });

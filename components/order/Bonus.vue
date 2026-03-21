@@ -9,7 +9,7 @@
       на вашем бонусном счету.
     </div>
     <span v-if="!cartStore.isUserBonusForPay"
-      >Бонусами можно оплатить не более {{ PAY_USER_BONUS }}% заказа.</span
+      >Бонусами можно оплатить не более {{ payUserBonus }}% заказа.</span
     >
 
     <div>
@@ -39,7 +39,9 @@
 </template>
 
 <script setup>
-import { PAY_USER_BONUS } from "~/utils/constants/info";
+// import { PAY_USER_BONUS } from "~/utils/constants/info";
+
+const { payUserBonus } = defineProps(["payUserBonus"]);
 
 const userStore = useUserStore();
 const cartStore = useCartStore();

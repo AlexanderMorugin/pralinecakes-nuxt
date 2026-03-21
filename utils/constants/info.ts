@@ -15,5 +15,5 @@ export const PHONE_SECOND_LINK = `tel:+74957295051`;
 // export const DELIVERY_SUM = 800;
 // export const USER_BONUS = 0.1; // 10%
 // export const SAMOVYVOZ_BONUS = 20; // 20%
-export const PAY_USER_BONUS = 30; // 30%
-export const PAY_USER_BONUS_ABLE = 0.3; // 30%
+// export const PAY_USER_BONUS = 30; // 30%
+// export const PAY_USER_BONUS_ABLE = 0.3; // 30%

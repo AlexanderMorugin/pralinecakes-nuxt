@@ -1,12 +1,12 @@
 import { defineStore } from "pinia";
 import type { IProduct } from "~/types/product";
-import {
-  // DELIVERY_SUM,
-  // MIN_ORDER_SUM,
-  // SAMOVYVOZ_BONUS,
-  // USER_BONUS,
-  PAY_USER_BONUS_ABLE,
-} from "~/utils/constants/info";
+// import {
+//   // DELIVERY_SUM,
+//   // MIN_ORDER_SUM,
+//   // SAMOVYVOZ_BONUS,
+//   // USER_BONUS,
+//   PAY_USER_BONUS_ABLE,
+// } from "~/utils/constants/info";
 
 export interface ICart extends IProduct {
   price: number;
@@ -143,7 +143,8 @@ export const useCartStore = defineStore("cartStore", () => {
 
     if (userStore.user && totalCartSum.value) {
       payBonus = Math.round(
-        (totalCartSum.value as number) * PAY_USER_BONUS_ABLE,
+        (totalCartSum.value as number) *
+          (clientSettingStore.clientSettings[0].pay_user_bonus / 100),
       );
 
       payBonus =

@@ -30,6 +30,7 @@ export default defineEventHandler(async (event) => {
       delivery_sum: body.delivery_sum,
       samovyvoz_bonus: body.samovyvoz_bonus,
       cart_product_bonus: body.cart_product_bonus,
+      pay_user_bonus: body.pay_user_bonus,
     })
     .where(eq(settings.id, 1));
 
