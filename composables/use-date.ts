@@ -24,5 +24,7 @@ export function useDate() {
 
   let number = `${today.getDate()}${today.getMonth() + 1}${today.getMinutes()}${today.getSeconds()}`;
 
-  return { date, number };
+  let fullYear = today.getFullYear();
+
+  return { date, number, fullYear };
 }

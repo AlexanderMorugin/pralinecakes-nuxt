@@ -3,7 +3,7 @@
     <ButtonChat :link="MAX_LINK" name="max" />
     <ButtonChat :link="`mailto:${EMAIL}`" name="email" />
     <!-- <ButtonChat name="whatsapp" /> -->
-    <ButtonChat :link="TELEGRAM_LINK" name="telegram" />
+    <!-- <ButtonChat :link="TELEGRAM_LINK" name="telegram" /> -->
   </ModalElement>
 </template>
 
