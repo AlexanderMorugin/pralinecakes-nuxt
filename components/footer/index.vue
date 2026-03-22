@@ -18,7 +18,15 @@
     <div class="footer__bottom">
       <span class="footer__bottomCompany">ООО «Пралинэ» {{ fullYear }}</span>
       <div class="footer__bottomLinks">
-        Политика конфиденциальности. Политика Cookies. Данные о продавце.
+        <NuxtLink to="/doc/requisites" class="footer__bottomLink"
+          >Данные о продавце</NuxtLink
+        >
+        <NuxtLink to="/doc/privacy" class="footer__bottomLink"
+          >Политика конфиденциальности</NuxtLink
+        >
+        <NuxtLink to="/doc" class="footer__bottomLink"
+          >Другие документы</NuxtLink
+        >
       </div>
     </div>
   </footer>
@@ -92,8 +100,20 @@ const { fullYear } = useDate();
   }
 
   &__bottomLinks {
-    text-align: right;
-    line-height: 24px;
+    display: flex;
+    gap: 10px;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+    }
+  }
+
+  &__bottomLink {
+    width: fit-content;
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--white-primary);
+    border-bottom: 1px dashed var(--mask-white-primary);
   }
 }
 </style>

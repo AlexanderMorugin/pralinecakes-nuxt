@@ -34,6 +34,7 @@ const { title } = defineProps(["title"]);
     color: var(--white-primary);
     letter-spacing: 6px;
     text-align: center;
+    word-break: break-all;
     animation: fall-down 1s ease-in-out;
     opacity: 0.7;
 

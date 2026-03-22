@@ -51,7 +51,7 @@ const { place } = defineProps(["place"]);
     }
 
     &_footer {
-      font-size: 40px;
+      font-size: 32px;
       opacity: 1;
     }
   }
@@ -69,8 +69,8 @@ const { place } = defineProps(["place"]);
     }
 
     &_footer {
-      top: -14px;
-      right: -34px;
+      top: -12px;
+      right: -26px;
     }
   }
 
@@ -84,7 +84,7 @@ const { place } = defineProps(["place"]);
     }
 
     &_footer {
-      font-size: 32px;
+      font-size: 26px;
     }
   }
 
